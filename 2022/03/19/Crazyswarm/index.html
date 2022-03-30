@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/1.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="THZuLzNL6NQV18uJBXSfGSVdmYlJ8EtZjwkZt4WZ1uo">
+  <meta name="msvalidate.01" content="6332DC2A8BBC7A802DB3169A31547EA7">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-center-circle.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"copy2000.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="《Crazyswarm：大型纳米四轴飞行器群》论文总结 论文名称：Crazyswarm: A Large Nano-Quadcopter Swarm  image-20220319171842418">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Crazyswarm：大型纳米四轴飞行器群">
+<meta property="og:url" content="https://copy2000.github.io/2022/03/19/Crazyswarm/index.html">
+<meta property="og:site_name" content="Copy2000">
+<meta property="og:description" content="《Crazyswarm：大型纳米四轴飞行器群》论文总结 论文名称：Crazyswarm: A Large Nano-Quadcopter Swarm  image-20220319171842418">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/Crazyswarm/image-20220319171842418.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/Crazyswarm/image-20220320145344320.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/Crazyswarm/image-20220320151631835.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/Crazyswarm/image-20220320192830419.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/Crazyswarm/image-20220320193729705.png">
+<meta property="article:published_time" content="2022-03-19T07:01:48.000Z">
+<meta property="article:modified_time" content="2022-03-22T15:26:49.423Z">
+<meta property="article:author" content="zhaochao">
+<meta property="article:tag" content="ROS">
+<meta property="article:tag" content="集群控制">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://copy2000.github.io/2022/03/19/Crazyswarm/image-20220319171842418.png">
+
+
+<link rel="canonical" href="https://copy2000.github.io/2022/03/19/Crazyswarm/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://copy2000.github.io/2022/03/19/Crazyswarm/","path":"2022/03/19/Crazyswarm/","title":"Crazyswarm：大型纳米四轴飞行器群"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Crazyswarm：大型纳米四轴飞行器群 | Copy2000</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Copy2000</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#crazyswarm%E5%A4%A7%E5%9E%8B%E7%BA%B3%E7%B1%B3%E5%9B%9B%E8%BD%B4%E9%A3%9E%E8%A1%8C%E5%99%A8%E7%BE%A4%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">《Crazyswarm：大型纳米四轴飞行器群》论文总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#related-work"><span class="nav-number">1.3.</span> <span class="nav-text">Related Work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E7%BB%BC%E8%BF%B0"><span class="nav-number">1.4.</span> <span class="nav-text">结构综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#object-tracking"><span class="nav-number">1.5.</span> <span class="nav-text">Object Tracking</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#initialization"><span class="nav-number">1.5.1.</span> <span class="nav-text">Initialization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#frame-to-frame-tracking"><span class="nav-number">1.5.2.</span> <span class="nav-text">Frame-to-frame Tracking</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E4%BC%B0%E8%AE%A1"><span class="nav-number">1.6.</span> <span class="nav-text">状态估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#planning"><span class="nav-number">1.7.</span> <span class="nav-text">Planning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#piecewise-polynomials"><span class="nav-number">1.7.1.</span> <span class="nav-text">Piecewise Polynomials</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#online-single-piece-polynomials"><span class="nav-number">1.7.2.</span> <span class="nav-text">Online Single-Piece Polynomials</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ellipses"><span class="nav-number">1.7.3.</span> <span class="nav-text">Ellipses</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interactive-avoid-obstacle-mode"><span class="nav-number">1.7.4.</span> <span class="nav-text">Interactive Avoid-Obstacle Mode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E4%BF%A1"><span class="nav-number">1.8.</span> <span class="nav-text">通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#control"><span class="nav-number">1.9.</span> <span class="nav-text">Control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">1.10.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%B6%E8%BF%9F"><span class="nav-number">1.10.1.</span> <span class="nav-text">延迟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9F%E8%B8%AA%E6%80%A7%E8%83%BD"><span class="nav-number">1.10.2.</span> <span class="nav-text">跟踪性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE%E6%9B%B4%E6%96%B0%E7%8E%87%E5%AF%B9%E6%82%AC%E5%81%9C%E7%A8%B3%E5%AE%9A%E6%80%A7%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">1.10.3.</span> <span class="nav-text">位置更新率对悬停稳定性的影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8F%E5%90%8C%E7%BC%96%E9%98%9F%E9%A3%9E%E8%A1%8C"><span class="nav-number">1.10.4.</span> <span class="nav-text">协同编队飞行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92"><span class="nav-number">1.10.5.</span> <span class="nav-text">无人机交互</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.11.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhaochao"
+      src="/images/1.png">
+  <p class="site-author-name" itemprop="name">zhaochao</p>
+  <div class="site-description" itemprop="description">竹杖芒鞋轻胜马</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NvcHkyMDAw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;copy2000"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjEyOTg0NzQ1OTBAcXEuY29t" title="E-Mail → mailto:1298474590@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://copy2000.github.io/2022/03/19/Crazyswarm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.png">
+      <meta itemprop="name" content="zhaochao">
+      <meta itemprop="description" content="竹杖芒鞋轻胜马">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Copy2000">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Crazyswarm：大型纳米四轴飞行器群
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-19 15:01:48" itemprop="dateCreated datePublished" datetime="2022-03-19T15:01:48+08:00">2022-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-22 23:26:49" itemprop="dateModified" datetime="2022-03-22T23:26:49+08:00">2022-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="crazyswarm大型纳米四轴飞行器群论文总结">《Crazyswarm：大型纳米四轴飞行器群》论文总结</h1>
+<p>论文名称：Crazyswarm: A Large Nano-Quadcopter Swarm</p>
+<figure>
+<img src="/2022/03/19/Crazyswarm/image-20220319171842418.png" alt="image-20220319171842418"><figcaption aria-hidden="true">image-20220319171842418</figcaption>
+</figure>
+<span id="more"></span>
+<h2 id="摘要">摘要</h2>
+<p>为大量在室内密集编队飞行的微型四轴飞行器定义了一个系统架构。</p>
+<ul>
+<li><p>对于状态估计（state estimation），我们开发了一种方法来可靠地跟踪具有相同运动捕捉标记排列的许多小刚体（无人机）。</p></li>
+<li><p>我们的通信基础设施使用压缩的单向数据流，每个无线电支持大量无人机。</p></li>
+<li><p>我们通过执行大部分机载计算（computation onboard），包括传感器融合、控制和一些轨迹规划，实现了具有精确跟踪（&lt; 2 cm 平均位置误差）的可靠飞行。</p></li>
+<li><p>我们提供了各种示例，并根据经验确定了多达 49 辆车的群的延迟和跟踪性能。</p></li>
+</ul>
+<h2 id="介绍">介绍</h2>
+<p><strong>提出问题</strong>：大多数研究型四轴飞行器都足够大，可以携带相机和智能手机级计算机，但它们也很昂贵，并且需要很大的空间才能安全运行。</p>
+<p><strong>提出系统结构</strong>：使用<strong>动作捕捉系统</strong>（motion-capture system）进行<strong>定位</strong>（localization）并通过<strong>三个共享无线电进行通信</strong>（communicaiton over three shared radios）。</p>
+<h2 id="related-work">Related Work</h2>
+<ol type="1">
+<li>Kushleyev在实验中控制20个微四旋翼机，这篇文章和他不同的地方在于:①本文章的系统结构是为了<em>减小通信带宽和为了更好的扩展到更多数量的四轴飞行器而设计的</em>；②证明了<em>集群的相互影响</em>（interactivity）。</li>
+<li>the Flying Machine Arena at ETH Zurich 做了单机和多机的实验，和本篇文章不同的地方在于①位置控制器在机外（offboard）运行，使系统对丢包的鲁棒性降低。②额外的计算能力用于延迟补偿算法 以提高高速飞行的准确性。</li>
+</ol>
+<h2 id="结构综述">结构综述</h2>
+<p>三种方法结构比较：</p>
+<ul>
+<li>动作捕捉系统会产生单点故障（a single point of failure），但是由于高性能（位置误差能够小于1mm），最终还是选择了动作捕捉系统。</li>
+<li>使用超带宽的无线电三角测量的去中心化定位系统（decentralized localization system），会有10cm的偏差，所以放弃。</li>
+<li>基于视觉的方法需要无人机携带相机和计算机，这对于大型纳米四轴飞行器群来说是一场灾难。</li>
+</ul>
+<h2 id="object-tracking">Object Tracking</h2>
+<p>像Vicon Tracker这样的标准的刚体捕捉软件需要为每一个跟踪目标安排一个标记，但是Crazyflie太小，无法放下一个标记，而且多数量的无人机会造成模糊，因此，仅仅从动作捕捉系统中获取原始点云数据（ raw point clouds），实施基于<em>ICP（Interactive Closest Point迭代最近点算法）</em>算法的目标跟踪。</p>
+<h3 id="initialization">Initialization</h3>
+<p>使用<strong>一个包含固定初始点定位的配置文件</strong>， 但是不可能在每次飞行前将每个无人机放置在其精确配置的位置。 为了允许小的偏差，<strong>我们执行关于初始位置布局相关半径内的最近邻搜索（nearest-neighbor）</strong>，在估计偏航角的时候使用ICP算法。 我们只接受最好的猜测：一致误差非常小，小于1mm均方欧式距离。</p>
+<h3 id="frame-to-frame-tracking">Frame-to-frame Tracking</h3>
+<p>前提：</p>
+<ul>
+<li>飞行期间没有长时间的遮挡。</li>
+<li>限制ICP的迭代次数（5次）以在支持的硬件设备上运行。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">st=&gt;start: Frame-to-frame Tracking</span><br><span class="line">op1=&gt;operation: 从动作捕捉系统获得原始点云数据</span><br><span class="line">op2=&gt;operation: 对于每个对象，我们使用 ICP 将对应于对象最后已知姿势的标记位置与整个场景点云进行配准</span><br><span class="line">op3=&gt;operation: 动作捕捉系统有时会产生带有缺失的点云从而避免跟踪误差</span><br><span class="line">op4=&gt;operation: 从ICP计算线速度和角速度，将异常值剔除并与onboard状态结合</span><br><span class="line"></span><br><span class="line">e=&gt;end: end</span><br><span class="line"></span><br><span class="line">st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="状态估计">状态估计</h2>
+<p>为了减少通信带宽要求并保持对临时通信丢失的鲁棒性， 我们在扩展卡尔曼滤波器 (Extended Kalman Filter) 中融合板载的运动捕捉和 IMU 测量 。</p>
+<p>系统的输入是加速计和陀螺仪a<sub>m</sub>和w<sub>m</sub>，所以有了动力方程，<img src="/2022/03/19/Crazyswarm/image-20220320145344320.png" alt="image-20220320145344320"></p>
+<p>IMU测量驱动动态积分，滤波器估计此积分的误差和协方差。 当用四个数字表示一个3自由度单位四元数时，这种方法避免了有问题的额外维度。 虽然 [14]、[15] 估计了 EKF 中的加速度计和陀螺仪偏差。</p>
+<h2 id="planning">Planning</h2>
+<p>选择了一组oboard轨迹规划方法，这些方法需要在基站 PC 和车辆之间进行少量信息交换。 与在 PC 上评估轨迹并以高速率传输姿态和推力控制的架构相比，将一些规划工作转移到onboard以<strong>减少所需的无线电带宽</strong>。</p>
+<p><span class="math display">\[y=(p,\psi)\]</span>其中<span class="math inline">\(\psi\)</span>是世界坐标系下的偏航角（yaw）。</p>
+<p>这意味着在状态空间中执行轨迹所需的控制是 y 及其有限数量的时间导数的函数。 我们利用这一事实并使用至少四次可微的函数来规划 y 中的轨迹。</p>
+<h3 id="piecewise-polynomials">Piecewise Polynomials</h3>
+<p>框架支持从基站上传或内置到固件映像中的分段多项式。</p>
+<h3 id="online-single-piece-polynomials">Online Single-Piece Polynomials</h3>
+<p>对于路程较短的轨迹而言，单个多项式已经足够了。我们为垂直起飞、着陆和悬停点之间的线性移动等任务实现了一个在线单段多项式规划器（online single-piece polynomial planner）。</p>
+<h3 id="ellipses">Ellipses</h3>
+<p>这个主要是为了证明online single-piece polynomial planner能够实现一段光滑稳定的轨迹规划。</p>
+<h3 id="interactive-avoid-obstacle-mode">Interactive Avoid-Obstacle Mode</h3>
+<p>交互避障模式是对于已知位置的单个移动障碍物，例如人类，我们使用专门的避障模式。计划者是完全分布式的，只需要知道无人机的位置 p，其分配的起始位置 p<sub>home</sub>， 和障碍物的位置 p<sub>obst</sub>，通过计算可以得到避障距离，那么新的目标位置就可以被计算出来，而且作为一种从原始位置的加权位移。相关的公式如下图。<img src="/2022/03/19/Crazyswarm/image-20220320151631835.png" alt="image-20220320151631835">这样就可以<strong>计算出边际速度和加速度来得到光滑的轨迹</strong>。</p>
+<h2 id="通信">通信</h2>
+<p>我们使用两种不同的通信方式：请求响应（request-response）和广播（broadcasting）。</p>
+<ul>
+<li>请求-响应主要用于配置仍在地面上的Crazyflie。这包括上传轨迹、更改控制器增益等飞行参数以及将每个 Crazyflie 分组。</li>
+<li>在飞行过程中使用广播最小化位置反馈的延迟，并实现起飞、着陆、开始轨迹等的同步行为。通过组 ID 号，可以将广播命令限制为群的子集 。</li>
+</ul>
+<p>由于通信没有使用标准传输层（transport layer），因此，我们需要把处理零星的丢包作为我们协议的一部分。为了实现低延迟，我们的目标不是保证数据包传输，而是高概率的可靠通信（probability of reliable communication）。</p>
+<p>在定义的协议，所有命令都是幂等的（idempotent），所以它们可以是多次收到，没有任何副作用。 这允许我们重复request-response命令，直到确认接收（acknowledged）或发生超时。</p>
+<p>Swarm-coordination命令，例如起飞，不等待确认（acknowledged），而是重复多次，以提高所有 Crazyflies 收到命令的概率。</p>
+<p>根据经验，<strong>对于重复的命令，数据包丢失的可能性取决于命令重复的速率</strong>。而本文做的实验结果表明，对于Swarm-coordination命令，每 3 ms 重复 5 次消息会到达所有 Crazyflies，这足以稳定控制。</p>
+<p>对于 49个无人机 ，使用三个无线电（radios），保证每一个无人机能够接收到一个无线电。通过无线电传输关于位置 p、四元数q等信息。</p>
+<h2 id="control">Control</h2>
+<p>PID控制，输入当前的状态和目标位置、目标速度、目标加速度、目标偏航角、目标角速度，通过偏航角和位置误差来进行反馈，详细的过程参考论文。</p>
+<h2 id="实验">实验</h2>
+<h3 id="延迟">延迟</h3>
+<p>物理运动和相应位置反馈消息到达固件之间的总时间延迟显着影响整个系统性能，而且由于计算和通信开销，延迟随着群体规模的增加而增加。</p>
+<p>通过两种方式估计延迟：</p>
+<ul>
+<li>首先，使用 Vicon DataStream SDK 来查询运动捕捉系统延迟的估计值，并使用代码来估计软件组件的运行时间。</li>
+<li>其次，我们通过指引Crazyflie 的偏航突然变化来验证物理设置中的这些数字。 即时onboard IMU 响应与外部位置测量的相应变化之间的延迟捕获整个系统延迟， 我们通过 JTAG 调试适配器实时读取上面的系统延迟。</li>
+</ul>
+<p>实验数据表明，49个无人机方阵会达到26ms的延迟。</p>
+<h3 id="跟踪性能">跟踪性能</h3>
+<p>通过整合飞行的整体欧几里得位置误差来估计跟踪性能，不包括起飞和着陆。 每个 Crazyflie 的飞行路径是重复 3 次的 8 字形，平均速度为 0.76 m/s，最大速度为 1.5 m/s。 对于小型四轴飞行器，该轨迹速度适中，最大滚动角为 20 度。 我们尝试不同的方群大小，从 1 到 7×7，以 0.5 m 间距的网格布局，以相同的高度飞行。 这种紧密的结构会导致额外的空气动力干扰，从而影响控制器的性能。<img src="/2022/03/19/Crazyswarm/image-20220320192830419.png" alt="image-20220320192830419"></p>
+<p>结果如图，方阵越大，误差也就随之增加。但是每个crazyflie的误差也低于 2 cm。</p>
+<h3 id="位置更新率对悬停稳定性的影响">位置更新率对悬停稳定性的影响</h3>
+<p>通过将更新率从最大 100 Hz 降低到 2 Hz 并测量悬停状态下的平均欧几里得位置误差来量化位置更新率对稳定性的影响。 100 Hz 和 10 Hz 之间的范围几乎没有变化。 在 2 Hz 时，系统仍然稳定，但显示出明显的振荡。 这证明了我们的系统在操作过程中对通信丢失的鲁棒性。</p>
+<figure>
+<img src="/2022/03/19/Crazyswarm/image-20220320193729705.png" alt="image-20220320193729705"><figcaption aria-hidden="true">image-20220320193729705</figcaption>
+</figure>
+<h3 id="协同编队飞行">协同编队飞行</h3>
+<p>使用了 49 只 Crazyflies 组成的一个旋转金字塔，如<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1lelRheWI3Nng5VQ==">实验视频<i class="fa fa-external-link-alt"></i></span> 所示。Crazyflies 最初放置在 7×7 网格中，间距为 0.5 m。 起飞在四个不同的层中完成，用户使用操纵杆或键盘触发下一个动作。 该脚本最初根据其层为每个 Crazyflie 分配一个组号，然后上传其椭圆的参数以供稍后执行。 由于分组，可以通过广播消息同时实现一整层的起飞。 在所有 Crazyflies 都在空中后，在线规划器规划一条轨迹，以顺利进入椭圆。 用户可以决定何时结束旋转，这会导致机上的另一个重新计划达到初始起飞位置上方的悬停状态。 最后，使用相同的组完成着陆，最大限度地减少着陆期间的空气动力干扰。</p>
+<h3 id="无人机交互">无人机交互</h3>
+<p>操作员手持（或佩戴）带有动作捕捉标记的物体。 我们跟踪该物体的位置，并通过无线电将其位置与所有四轴飞行器的位置一起广播。 使用<em>Interactive Avoid-Obstacle Mode</em>中描述的onboard规划器，每个 Crazyflie 计算其所需位置，从而避免与障碍物或其他四轴飞行器发生碰撞。</p>
+<h2 id="总结">总结</h2>
+<ul>
+<li><p>描述了一种用于对迄今为止最大的室内四轴飞行器群进行稳健、同步、动态控制的系统架构。</p></li>
+<li><p>充分利用了车辆的车载计算能力，能够对不可靠的通信具有鲁棒性。</p></li>
+<li><p>并提供一组需要很少无线电带宽的丰富轨迹规划方法。</p></li>
+<li><p>实验显示了相对于群体大小的延迟和跟踪性能的良好可扩展性。 对于一组 49 辆车，只需要 3 个无线电，获得了低 30 毫秒的延迟，允许使用机载状态估计进行适度激进的飞行机动，平均跟踪误差低于 2 厘米。</p></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ROS/" rel="tag"># ROS</a>
+              <a href="/tags/%E9%9B%86%E7%BE%A4%E6%8E%A7%E5%88%B6/" rel="tag"># 集群控制</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/15/tianbot/" rel="prev" title="ROS学习：tianbot控制">
+                  <i class="fa fa-chevron-left"></i> ROS学习：tianbot控制
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/19/uav-learning/" rel="next" title="无人机学习：基于香港科技大学课件学习无人机">
+                  无人机学习：基于香港科技大学课件学习无人机 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaochao</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">27k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">24 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.8/dist/mermaid.min.js","integrity":"sha256-QmSAc2kIaUjleIJ46X7qPW2zrpCbXlMz3YIGgWpQ1Jo="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"copy2000","repo":"commentsOFblog","client_id":"4cd03f17029679eb004b","client_secret":"7f7f860e3a95b014ab7942ab4255525500d4edcb","admin_user":"copy2000","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"6a6f2b5256570dcdc9cc110c320e8edb"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

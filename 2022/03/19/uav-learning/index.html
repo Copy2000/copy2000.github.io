@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/1.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="THZuLzNL6NQV18uJBXSfGSVdmYlJ8EtZjwkZt4WZ1uo">
+  <meta name="msvalidate.01" content="6332DC2A8BBC7A802DB3169A31547EA7">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-center-circle.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"copy2000.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="UAV Learning 本篇只是一个目录性质的东西，相关东西自己去看课件  无人机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无人机学习：基于香港科技大学课件学习无人机">
+<meta property="og:url" content="https://copy2000.github.io/2022/03/19/uav-learning/index.html">
+<meta property="og:site_name" content="Copy2000">
+<meta property="og:description" content="UAV Learning 本篇只是一个目录性质的东西，相关东西自己去看课件  无人机">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/u=1620021440,3565980159&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG.jpeg">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220323144051461.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220323144304484.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220323144444287.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220323145546665.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220323145012987.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220323145039479.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220323155847233.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220323162554971.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220323162802516.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220323162943627.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327111127832.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327111142080.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327111155381.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327111209720.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327111218007.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327111244447.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327192302119.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327192504059.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327192537568.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327192738388.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327193103099.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327193400537.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327193553122.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327193650235.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220327193837086.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220330124201573.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220330205219290.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220330205245623.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/19/uav-learning/image-20220330205735520.png">
+<meta property="article:published_time" content="2022-03-19T15:04:24.000Z">
+<meta property="article:modified_time" content="2022-03-30T14:43:38.005Z">
+<meta property="article:author" content="zhaochao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://copy2000.github.io/2022/03/19/uav-learning/u=1620021440,3565980159&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG.jpeg">
+
+
+<link rel="canonical" href="https://copy2000.github.io/2022/03/19/uav-learning/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://copy2000.github.io/2022/03/19/uav-learning/","path":"2022/03/19/uav-learning/","title":"无人机学习：基于香港科技大学课件学习无人机"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>无人机学习：基于香港科技大学课件学习无人机 | Copy2000</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Copy2000</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#uav-learning"><span class="nav-number">1.</span> <span class="nav-text">UAV Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rotation-representation"><span class="nav-number">1.1.</span> <span class="nav-text">Rotation Representation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#project1"><span class="nav-number">1.2.</span> <span class="nav-text">Project1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#phase-1-control-simulation"><span class="nav-number">1.2.1.</span> <span class="nav-text">Phase 1 : Control Simulation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#phase-2-trajectory-simulation"><span class="nav-number">1.2.2.</span> <span class="nav-text">Phase 2 : Trajectory Simulation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#phase-3-path-finding-simulation"><span class="nav-number">1.2.3.</span> <span class="nav-text">Phase 3 : Path Finding Simulation</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhaochao"
+      src="/images/1.png">
+  <p class="site-author-name" itemprop="name">zhaochao</p>
+  <div class="site-description" itemprop="description">竹杖芒鞋轻胜马</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NvcHkyMDAw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;copy2000"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjEyOTg0NzQ1OTBAcXEuY29t" title="E-Mail → mailto:1298474590@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://copy2000.github.io/2022/03/19/uav-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.png">
+      <meta itemprop="name" content="zhaochao">
+      <meta itemprop="description" content="竹杖芒鞋轻胜马">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Copy2000">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          无人机学习：基于香港科技大学课件学习无人机
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-19 23:04:24" itemprop="dateCreated datePublished" datetime="2022-03-19T23:04:24+08:00">2022-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-30 22:43:38" itemprop="dateModified" datetime="2022-03-30T22:43:38+08:00">2022-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ROS%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">ROS学习</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="uav-learning">UAV Learning</h1>
+<p>本篇只是一个目录性质的东西，相关东西自己去看课件</p>
+<figure>
+<img src="/2022/03/19/uav-learning/u=1620021440,3565980159&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG.jpeg" alt="无人机"><figcaption aria-hidden="true">无人机</figcaption>
+</figure>
+<span id="more"></span>
+<h2 id="rotation-representation">Rotation Representation</h2>
+<ul>
+<li>rotation matrices</li>
+<li>Euler angles：任何旋转都可以被描述为三个绕着xyz轴线性旋转</li>
+<li>Exponential coordinates</li>
+<li>Quaternions</li>
+</ul>
+<p>由于课件上的东西实在是不好整理，于是只挑了些重要的和相关的project记录。<span class="exturl" data-url="aHR0cHM6Ly9nYW93ZW5saWFuZy5naXRodWIuaW8vSEtVU1QtRUxFQzU2NjAtSW50cm9kdWN0aW9uLXRvLUFlcmlhbC1Sb2JvdHMvcHJvamVjdC9wcm9qZWN0Lmh0bWw=">ELEC5660 (gaowenliang.github.io)<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="project1">Project1</h2>
+<h3 id="phase-1-control-simulation">Phase 1 : Control Simulation</h3>
+<p>question：In this project, you are provided with a quadrotor simulator written in Matlab. The simulator implements dynamics model of quadrotor and relies on the numerical solver ode45. You will need to implement controller.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhb3dlbmxpYW5nL0VMRUM1NjYwX3Byb2oxcGhhc2Ux">code and data<i class="fa fa-external-link-alt"></i></span></p>
+<ul>
+<li>下面是直接运行code（未添加控制）的相关结果：</li>
+</ul>
+<p>​ <img src="/2022/03/19/uav-learning/image-20220323144051461.png" alt="未改变参数的circle"></p>
+<p>​ <img src="/2022/03/19/uav-learning/image-20220323144304484.png" alt="未改变参数的diamond"></p>
+<p>​ <img src="/2022/03/19/uav-learning/image-20220323144444287.png" alt="未改变参数的hover"></p>
+<p>​ 可以看到的是未添加控制情况下，红线和蓝线偏离较大，不能保持跟踪。</p>
+<ul>
+<li><p>运用的知识：</p>
+<figure>
+<img src="/2022/03/19/uav-learning/image-20220323145546665.png" alt="3D Quadrotor"><figcaption aria-hidden="true">3D Quadrotor</figcaption>
+</figure>
+<figure>
+<img src="/2022/03/19/uav-learning/image-20220323145012987.png" alt="3D Quadrotor"><figcaption aria-hidden="true">3D Quadrotor</figcaption>
+</figure>
+<figure>
+<img src="/2022/03/19/uav-learning/image-20220323145039479.png" alt="3D PID"><figcaption aria-hidden="true">3D PID</figcaption>
+</figure></li>
+<li><p>control.m</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[F, M]</span> = <span class="title">controller</span><span class="params">(t, s, s_des)</span></span></span><br><span class="line"><span class="comment">%% s_des = zeros(13,1);</span></span><br><span class="line"><span class="comment">% [1:6]: x, y, z, dx, dy, dz</span></span><br><span class="line"><span class="comment">% [7:10]: quaternion, qw,qx,qy,qz</span></span><br><span class="line"><span class="comment">% [11:13]: oemga: wx, wy, wz</span></span><br><span class="line"><span class="comment">%% definition of parameters</span></span><br><span class="line"><span class="comment">% model parameters</span></span><br><span class="line"><span class="keyword">global</span> params</span><br><span class="line">m = params.mass;</span><br><span class="line">g = params.grav;</span><br><span class="line">I = params.I;</span><br><span class="line"></span><br><span class="line"><span class="comment">%PID parameters</span></span><br><span class="line">Kp_position = [<span class="number">4</span> <span class="number">4</span> <span class="number">5</span>];</span><br><span class="line">Kd_position = [<span class="number">2.5</span> <span class="number">2.5</span> <span class="number">5</span>];</span><br><span class="line">Kp_rpy = [<span class="number">100</span> <span class="number">100</span> <span class="number">75</span>];</span><br><span class="line">Kd_rpy = [<span class="number">15</span> <span class="number">15</span> <span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">%% position control</span></span><br><span class="line">Rotation = quaternion_to_R(s(<span class="number">7</span>:<span class="number">10</span>));<span class="comment">%function is in utils</span></span><br><span class="line">Rotation_desired = quaternion_to_R(s_des(<span class="number">7</span>:<span class="number">10</span>));</span><br><span class="line">[phi,theta,<span class="built_in">psi</span>] = RotToRPY_ZXY(Rotation);</span><br><span class="line">[phi_des,theta_des,psi_des] = RotToRPY_ZXY(Rotation_desired);</span><br><span class="line"></span><br><span class="line"><span class="comment">%% newton equation</span></span><br><span class="line"><span class="comment">% linearization : u1,0 = mg,therefore ddz_des = 0</span></span><br><span class="line">ddp_des = [g*(theta_des * <span class="built_in">cos</span>(psi_des)+phi_des*<span class="built_in">sin</span>(psi_des)),g*(theta_des * <span class="built_in">sin</span>(psi_des)-phi_des*<span class="built_in">cos</span>(psi_des)),<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">w_des = s_des(<span class="number">11</span>:<span class="number">13</span>);</span><br><span class="line">w = s(<span class="number">11</span>:<span class="number">13</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%% PID control</span></span><br><span class="line">ddp_1c = ddp_des(<span class="number">1</span>) + Kd_position(<span class="number">1</span>)*(s_des(<span class="number">4</span>)-s(<span class="number">4</span>)) + Kp_position(<span class="number">1</span>)*(s_des(<span class="number">1</span>)-s(<span class="number">1</span>));</span><br><span class="line">ddp_2c = ddp_des(<span class="number">2</span>) + Kd_position(<span class="number">2</span>)*(s_des(<span class="number">5</span>)-s(<span class="number">5</span>)) + Kp_position(<span class="number">2</span>)*(s_des(<span class="number">2</span>)-s(<span class="number">2</span>));</span><br><span class="line">ddp_3c = ddp_des(<span class="number">3</span>) + Kd_position(<span class="number">3</span>)*(s_des(<span class="number">6</span>)-s(<span class="number">6</span>)) + Kp_position(<span class="number">3</span>)*(s_des(<span class="number">3</span>)-s(<span class="number">3</span>));</span><br><span class="line"></span><br><span class="line">F = m*(g+ddp_3c);</span><br><span class="line">phi_c = <span class="number">1</span>/g*(ddp_1c*<span class="built_in">sin</span>(<span class="built_in">psi</span>) - ddp_2c*<span class="built_in">cos</span>(<span class="built_in">psi</span>));</span><br><span class="line">theta_c = <span class="number">1</span>/g*(ddp_1c*<span class="built_in">cos</span>(<span class="built_in">psi</span>) + ddp_2c*<span class="built_in">sin</span>(<span class="built_in">psi</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">%% Attitude control</span></span><br><span class="line"><span class="comment">% judge the angle of yaw</span></span><br><span class="line">psi_dif = psi_des-<span class="built_in">psi</span>;</span><br><span class="line"><span class="keyword">if</span> psi_dif &gt;= <span class="built_in">pi</span></span><br><span class="line">    psi_dif=psi_dif<span class="number">-2</span>*<span class="built_in">pi</span>;</span><br><span class="line"><span class="keyword">elseif</span> psi_dif &lt;= -<span class="built_in">pi</span></span><br><span class="line">    psi_dif=psi_dif+<span class="number">2</span>*<span class="built_in">pi</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">dd_rpy_c = [Kp_rpy(<span class="number">1</span>)*(phi_c-phi)+Kd_rpy(<span class="number">1</span>)*(<span class="number">0</span>-w(<span class="number">1</span>));</span><br><span class="line">                 Kp_rpy(<span class="number">2</span>)*(theta_c-theta)+Kd_rpy(<span class="number">2</span>)*(<span class="number">0</span>-w(<span class="number">2</span>));</span><br><span class="line">                 Kp_rpy(<span class="number">3</span>)*(psi_dif)+Kd_rpy(<span class="number">3</span>)*(<span class="number">0</span>-w(<span class="number">3</span>))]; <span class="comment">%notsure abt derivative</span></span><br><span class="line">M = I*dd_rpy_c + <span class="built_in">cross</span>(w, I*w);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></li>
+<li><p>使用Ziegler-Nichols方法调参（我不认为这是一个聪明的做法）<img src="/2022/03/19/uav-learning/image-20220323155847233.png" alt="oscillate"><img src="/2022/03/19/uav-learning/image-20220323162554971.png" alt="circle_trajectory"><img src="/2022/03/19/uav-learning/image-20220323162802516.png" alt="diamond_trajectory"><img src="/2022/03/19/uav-learning/image-20220323162943627.png" alt="hover_trajectory"></p></li>
+</ul>
+<h3 id="phase-2-trajectory-simulation">Phase 2 : Trajectory Simulation</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhb3dlbmxpYW5nL0VMRUM1NjYwX3Byb2oxcGhhc2Uy">问题和code and data<i class="fa fa-external-link-alt"></i></span></p>
+<ul>
+<li><p>运用的知识</p>
+<p><img src="/2022/03/19/uav-learning/image-20220327111127832.png" alt="image-20220327111127832"><img src="/2022/03/19/uav-learning/image-20220327111142080.png" alt="image-20220327111142080"><img src="/2022/03/19/uav-learning/image-20220327111155381.png" alt="Minimum Snap"><img src="/2022/03/19/uav-learning/image-20220327111209720.png" alt="cost function"><img src="/2022/03/19/uav-learning/image-20220327111218007.png" alt="image-20220327111218007"><img src="/2022/03/19/uav-learning/image-20220327111244447.png" alt="image-20220327111244447"></p>
+<p>这个ppt 上面讲的就比较抽象，我的建议是<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMXlUNHkxVDdFYj9wPTEw">机器人路径规划、轨迹优化系列课程_哔哩哔哩_bilibili<i class="fa fa-external-link-alt"></i></span>，讲的比较具体形象。<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E1OTc5Njc0MjAvYXJ0aWNsZS9kZXRhaWxzLzc2MDk5NDkx">博客<i class="fa fa-external-link-alt"></i></span></p></li>
+</ul>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">path1 = [0.0 0.0 1.0 ; ...</span><br><span class="line">         1.0 1.0 1.0 ; ...</span><br><span class="line">         -1.0 2.0 1.0 ; ...</span><br><span class="line">         1.0 3.0 1.0 ; ...</span><br><span class="line">         -1.0 4.0 1.0 ; ...</span><br><span class="line">         1.0 5.0 1.0 ; ...</span><br><span class="line">         -1.0 6.0 1.0 ; ...</span><br><span class="line">         1.0 7.0 1.0 ; ...</span><br><span class="line">         -1.0 8.0 1.0 ; ...</span><br><span class="line">         1.0 9.0 1.0 ; ...</span><br><span class="line">         0.0 10.0 1.0 ; ];</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/2022/03/19/uav-learning/image-20220327192302119.png" alt="path"><figcaption aria-hidden="true">path</figcaption>
+</figure>
+<ul>
+<li>代码部分function s_des = trajectory_generator(t, path, h)</li>
+</ul>
+<blockquote>
+<p>1 定义变量</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%persistent变量与全局变量有相似之处，它们都创建永久的存储空间，不同在于persistent只对定义它的函数可见。这样可以防止persistent变量被其它函数或在命令行中被改变。</span></span><br><span class="line"><span class="keyword">persistent</span> ts;</span><br><span class="line"><span class="keyword">persistent</span> ts_delta;</span><br><span class="line"><span class="keyword">persistent</span> P;</span><br><span class="line"><span class="keyword">persistent</span> xyz;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>2 每一段轨迹的时间分配,总共分配25秒完成轨迹运行，path_seg_length就是两个waypoints之间的欧式距离，cumsum_path是累加路径，cumsum_path(end)就是一共需要走的路程，ts_delta就是两个waypoints的时间间隔。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">total_time = <span class="number">25.0</span>;</span><br><span class="line">path_seg_length = <span class="built_in">sqrt</span>(sum((path(<span class="number">2</span>:<span class="keyword">end</span>, :) - path(<span class="number">1</span>:<span class="keyword">end</span><span class="number">-1</span>,:)).^<span class="number">2</span>,<span class="number">2</span>));  <span class="comment">%每一段的长度</span></span><br><span class="line">cumsum_path = cumsum(path_seg_length);</span><br><span class="line">ts_proportion = cumsum_path/cumsum_path(<span class="keyword">end</span>);</span><br><span class="line">ts = [<span class="number">0</span>; ts_proportion]&#x27;;</span><br><span class="line">ts = ts*total_time;</span><br><span class="line">ts_delta = ts(<span class="number">2</span>:<span class="keyword">end</span>) - ts(<span class="number">1</span>:<span class="keyword">end</span><span class="number">-1</span>); <span class="comment">% interval----&gt;T</span></span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/2022/03/19/uav-learning/image-20220327192504059.png" alt="path-seg-length"><figcaption aria-hidden="true">path-seg-length</figcaption>
+</figure>
+<figure>
+<img src="/2022/03/19/uav-learning/image-20220327192537568.png" alt="△t"><figcaption aria-hidden="true">△t</figcaption>
+</figure>
+<hr>
+<p>3 m就是轨迹段数，如果有11个waypoints，那么就有10段，这里使用的是Minimum Snap Trajectory Generation，所以N=7，但是有8个自由度（多项式的阶数为7，但是会有8个系数），所以Q_dia就是8*m的方阵。至于Q_dia matrix 的计算，参照上面fig[cost function]。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% cost function </span></span><br><span class="line">m = <span class="built_in">length</span>(path)<span class="number">-1</span>; <span class="comment">%# segments </span></span><br><span class="line"><span class="comment">%为什么是8*m，是因为minimum snap为7阶，但是有8个自由度，所以一共有8*m，可以发现Q是一个对称矩阵</span></span><br><span class="line">Q_dia = <span class="built_in">zeros</span>(<span class="number">8</span>*m, <span class="number">8</span>*m); <span class="comment">%block diagonal matrix</span></span><br><span class="line"><span class="keyword">for</span> k=<span class="number">1</span>:m</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">4</span>:<span class="number">8</span></span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">4</span>:<span class="number">8</span></span><br><span class="line">            Q_dia((k<span class="number">-1</span>)*<span class="number">8</span>+<span class="built_in">i</span>,(k<span class="number">-1</span>)*<span class="number">8</span>+<span class="built_in">j</span>)=<span class="built_in">i</span>*(<span class="built_in">i</span><span class="number">-1</span>)*(<span class="built_in">i</span><span class="number">-2</span>)*(<span class="built_in">i</span><span class="number">-3</span>)*<span class="built_in">j</span>*(<span class="built_in">j</span><span class="number">-1</span>)*(<span class="built_in">j</span><span class="number">-2</span>)*(<span class="built_in">j</span><span class="number">-3</span>)/(<span class="built_in">j</span>+<span class="built_in">i</span><span class="number">-7</span>)*(ts_delta(k)^(<span class="built_in">i</span>+<span class="built_in">j</span><span class="number">-7</span>));</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2022/03/19/uav-learning/image-20220327192738388.png" alt="Q">每一组的后4*4改变，而且是一个对称矩阵</p>
+<hr>
+<p>4 约束<span class="math inline">\(A_j p_j = d_j\)</span>，dim指的是A的维度</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% derivative constraint</span></span><br><span class="line"><span class="comment">% 为什么是4*（m-1）？4分别是pos vel acc jerk ，m-1是除了第一个点和最后一个点，中间有m-1个点</span></span><br><span class="line"><span class="comment">% 2*m是每一段t=0和t=T的时候的连续型约束</span></span><br><span class="line">dim = <span class="number">2</span>*m+<span class="number">4</span>*(m<span class="number">-1</span>)+ <span class="number">3</span>*<span class="number">2</span>; <span class="comment">%continutity[4]+starting[3]+ending[3]</span></span><br><span class="line">P = <span class="built_in">zeros</span>(<span class="number">8</span>*m,<span class="number">3</span>); <span class="comment">%p_j_i = 8mx3 [p00, p01...;p10...]</span></span><br><span class="line">A = <span class="built_in">zeros</span>(dim,<span class="number">8</span>*m); <span class="comment">%dimx8m</span></span><br><span class="line">d= <span class="built_in">zeros</span>(dim,<span class="number">3</span>);</span><br><span class="line">d(<span class="number">1</span>:<span class="number">2</span>*m,:) =  <span class="built_in">reshape</span>([path(<span class="number">1</span>:<span class="keyword">end</span><span class="number">-1</span>, :) path(<span class="number">2</span>:<span class="keyword">end</span>, :)]&#x27;,<span class="number">3</span>, [])&#x27;;</span><br><span class="line"> <span class="comment">%dimx3</span></span><br><span class="line"> <span class="comment">%每一段的开始和结束都需要在位置上</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:m <span class="comment">%position</span></span><br><span class="line">    A(<span class="number">2</span>*<span class="built_in">j</span><span class="number">-1</span>:<span class="number">2</span>*<span class="built_in">j</span>,<span class="number">8</span>*<span class="built_in">j</span><span class="number">-7</span>:<span class="number">8</span>*<span class="built_in">j</span>) = [ <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>;...</span><br><span class="line">        <span class="number">1</span>, ts_delta(<span class="built_in">j</span>), ts_delta(<span class="built_in">j</span>)^<span class="number">2</span>, ts_delta(<span class="built_in">j</span>)^<span class="number">3</span>, ...</span><br><span class="line">        ts_delta(<span class="built_in">j</span>)^<span class="number">4</span>, ts_delta(<span class="built_in">j</span>)^<span class="number">5</span>, ts_delta(<span class="built_in">j</span>)^<span class="number">6</span>, ts_delta(<span class="built_in">j</span>)^<span class="number">7</span>];</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>5 连续型约束</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% continutity pos,vel,acce,jerk</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:(m<span class="number">-1</span>)</span><br><span class="line">    A((<span class="number">2</span>*m+<span class="number">4</span>*<span class="built_in">j</span><span class="number">-3</span>):(<span class="number">2</span>*m+<span class="number">4</span>*<span class="built_in">j</span>),(<span class="number">8</span>*<span class="built_in">j</span><span class="number">-7</span>):(<span class="number">8</span>*<span class="built_in">j</span>+<span class="number">8</span>))=[<span class="number">1</span>, ts_delta(<span class="built_in">j</span>), ts_delta(<span class="built_in">j</span>)^<span class="number">2</span>, ts_delta(<span class="built_in">j</span>)^<span class="number">3</span>, ...</span><br><span class="line">        ts_delta(<span class="built_in">j</span>)^<span class="number">4</span>, ts_delta(<span class="built_in">j</span>)^<span class="number">5</span>, ts_delta(<span class="built_in">j</span>)^<span class="number">6</span>, ts_delta(<span class="built_in">j</span>)^<span class="number">7</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;...<span class="comment">%pos</span></span><br><span class="line">        <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>*ts_delta(<span class="built_in">j</span>), <span class="number">3</span>*ts_delta(<span class="built_in">j</span>)^<span class="number">2</span>, <span class="number">4</span>*ts_delta(<span class="built_in">j</span>)^<span class="number">3</span>, <span class="number">5</span>*ts_delta(<span class="built_in">j</span>)^<span class="number">4</span>, ...</span><br><span class="line">        <span class="number">6</span>*ts_delta(<span class="built_in">j</span>)^<span class="number">5</span>, <span class="number">7</span>*ts_delta(<span class="built_in">j</span>)^<span class="number">6</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;...<span class="comment">%vel</span></span><br><span class="line">        <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">6</span>*ts_delta(<span class="built_in">j</span>), <span class="number">12</span>*ts_delta(<span class="built_in">j</span>)^<span class="number">2</span>, <span class="number">20</span>*ts_delta(<span class="built_in">j</span>)^<span class="number">3</span>, ...</span><br><span class="line">        <span class="number">30</span>*ts_delta(<span class="built_in">j</span>)^<span class="number">4</span>, <span class="number">42</span>*ts_delta(<span class="built_in">j</span>)^<span class="number">5</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;...<span class="comment">%acc</span></span><br><span class="line">         <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">24</span>*ts_delta(<span class="built_in">j</span>), <span class="number">60</span>*ts_delta(<span class="built_in">j</span>)^<span class="number">2</span>, ...</span><br><span class="line">        <span class="number">120</span>*ts_delta(<span class="built_in">j</span>)^<span class="number">3</span>, <span class="number">210</span>*ts_delta(<span class="built_in">j</span>)^<span class="number">4</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-6</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>];<span class="comment">%jerk</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>6</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% starting point vel,acc, jerk </span></span><br><span class="line">A(<span class="number">6</span>*m<span class="number">-3</span>:<span class="number">6</span>*m<span class="number">-1</span>, <span class="number">1</span>:<span class="number">8</span>)=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;...</span><br><span class="line">                     <span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;...</span><br><span class="line">                     <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>];</span><br><span class="line">A(<span class="number">6</span>*m:<span class="number">6</span>*m+<span class="number">2</span>,<span class="number">8</span>*m<span class="number">-7</span>:<span class="number">8</span>*m) = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>*ts_delta(m), <span class="number">3</span>*ts_delta(m)^<span class="number">2</span>, <span class="number">4</span>*ts_delta(m)^<span class="number">3</span>, <span class="number">5</span>*ts_delta(m)^<span class="number">4</span>, ...</span><br><span class="line">                      <span class="number">6</span>*ts_delta(m)^<span class="number">5</span>, <span class="number">7</span>*ts_delta(m)^<span class="number">6</span>; ...</span><br><span class="line">                      <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">6</span>*ts_delta(m), <span class="number">12</span>*ts_delta(m)^<span class="number">2</span>, <span class="number">20</span>*ts_delta(m)^<span class="number">3</span>, ...</span><br><span class="line">                      <span class="number">30</span>*ts_delta(m)^<span class="number">4</span>, <span class="number">42</span>*ts_delta(m)^<span class="number">5</span>; ...</span><br><span class="line">                      <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">24</span>*ts_delta(m), <span class="number">60</span>*ts_delta(m)^<span class="number">2</span>, ...</span><br><span class="line">                      <span class="number">120</span>*ts_delta(m)^<span class="number">3</span>, <span class="number">210</span>*ts_delta(m)^<span class="number">4</span>];</span><br></pre></td></tr></table></figure>
+<p>7 QP求解</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% QP</span></span><br><span class="line">f=<span class="built_in">zeros</span>(<span class="number">8</span>*m,<span class="number">1</span>);</span><br><span class="line">P(:,<span class="number">1</span>) = quadprog(Q_dia,f,[],[],A,d(:,<span class="number">1</span>));</span><br><span class="line">P(:,<span class="number">2</span>) = quadprog(Q_dia,f,[],[],A,d(:,<span class="number">2</span>));</span><br><span class="line">P(:,<span class="number">3</span>) = quadprog(Q_dia,f,[],[],A,d(:,<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<ul>
+<li><p><strong>结果展示</strong></p>
+<p>path1</p>
+<figure>
+<img src="/2022/03/19/uav-learning/image-20220327193103099.png" alt="path1"><figcaption aria-hidden="true">path1</figcaption>
+</figure></li>
+</ul>
+<hr>
+<p>​ path2</p>
+<p><img src="/2022/03/19/uav-learning/image-20220327193400537.png" alt="path2"><img src="/2022/03/19/uav-learning/image-20220327193553122.png" alt="path2-simulation"></p>
+<hr>
+<p>来一颗小心心！o(´^｀)o<img src="/2022/03/19/uav-learning/image-20220327193650235.png" alt="path3"></p>
+<figure>
+<img src="/2022/03/19/uav-learning/image-20220327193837086.png" alt="heart-simulation"><figcaption aria-hidden="true">heart-simulation</figcaption>
+</figure>
+<h3 id="phase-3-path-finding-simulation">Phase 3 : Path Finding Simulation</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhb3dlbmxpYW5nL0VMRUM1NjYwX3Byb2oxcGhhc2Uz">代码和问题<i class="fa fa-external-link-alt"></i></span></p>
+<ul>
+<li>A*算法</li>
+</ul>
+<figure>
+<img src="/2022/03/19/uav-learning/image-20220330124201573.png" alt="A*"><figcaption aria-hidden="true">A*</figcaption>
+</figure>
+<ul>
+<li>关于搜索路径，我写了一篇<a href="https://copy2000.github.io/Dcos/搜索路径.pdf">总结</a>.</li>
+</ul>
+<p>代码思路，其实比较简单，就是g(n)+h(n)，h（n）就是使用MAP中的每一个节点到goal 的距离，至于g（n）是accumulated cost，只与之前的有关。</p>
+<ul>
+<li><p>代码path_from_Astar.m</p>
+<p>初始化MAP</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Optimal_path</span> = <span class="title">path_from_A_star</span><span class="params">(map)</span></span></span><br><span class="line">    Optimal_path = [];</span><br><span class="line">    size_map = <span class="built_in">size</span>(map,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    MAX_X=<span class="number">10</span>;</span><br><span class="line">    MAX_Y=<span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">%Define the 2D grid map array.</span></span><br><span class="line">    <span class="comment">%Obstacle=-1, Target = 0, Start=1</span></span><br><span class="line">    MAP=<span class="number">2</span>*(<span class="built_in">ones</span>(MAX_X,MAX_Y));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">%Initialize MAP with location of the target</span></span><br><span class="line">    xval=<span class="built_in">floor</span>(map(size_map, <span class="number">1</span>));</span><br><span class="line">    yval=<span class="built_in">floor</span>(map(size_map, <span class="number">2</span>));</span><br><span class="line">    xTarget=xval;</span><br><span class="line">    yTarget=yval;</span><br><span class="line">    MAP(xval,yval)=<span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">%Initialize MAP with location of the obstacle</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">2</span>: size_map<span class="number">-1</span></span><br><span class="line">        xval=<span class="built_in">floor</span>(map(<span class="built_in">i</span>, <span class="number">1</span>));</span><br><span class="line">        yval=<span class="built_in">floor</span>(map(<span class="built_in">i</span>, <span class="number">2</span>));</span><br><span class="line">        MAP(xval,yval)=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">end</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment">%Initialize MAP with location of the start point</span></span><br><span class="line">    xval=<span class="built_in">floor</span>(map(<span class="number">1</span>, <span class="number">1</span>));</span><br><span class="line">    yval=<span class="built_in">floor</span>(map(<span class="number">1</span>, <span class="number">2</span>));</span><br><span class="line">    xStart=xval;</span><br><span class="line">    yStart=yval;</span><br><span class="line">    MAP(xval,yval)=<span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<p>start your code here，首先定义一个函数，用于计算欧氏距离。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">% dim=1是对列求和，dim=2是对行求和</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">cost</span> = <span class="title">dist</span><span class="params">(start_pos, goal_pos,dim)</span></span></span><br><span class="line">          cost = <span class="built_in">sqrt</span>(sum((double(start_pos) - double(goal_pos)).^<span class="number">2</span>,dim));</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">```matlab</span><br><span class="line"><span class="comment">%% g(n)和h(n)的初始化</span></span><br><span class="line">G_score = <span class="built_in">inf</span>(<span class="built_in">size</span>(MAP));</span><br><span class="line">G_score(xStart, yStart)=<span class="number">0</span>;</span><br><span class="line">herustic=<span class="built_in">zeros</span>(<span class="built_in">size</span>(MAP));</span><br><span class="line"><span class="comment">%关于ind2sub函数http://blog.sina.com.cn/s/blog_7054a1960102vyby.html</span></span><br><span class="line"><span class="comment">%[row,col]就是（1,1）（2,1）（3,1）。。。（1,2）（2,2）.。。</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>启发式的路径规划，最重要的是目标导向型，所以herustic（n）就是一个和MAP维度一样的矩阵，只是每个节点存储的是该节点到goal 的距离，这样每一次迭代只需要计算g（n）+h（n）的最小值就可以知道下一步在哪了。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% h(n)定义</span></span><br><span class="line">[row,col]=<span class="built_in">ind2sub</span>(<span class="built_in">size</span>(G_score), <span class="number">1</span>:<span class="built_in">numel</span>(G_score));</span><br><span class="line">matrix_ = [row;col];</span><br><span class="line">dist_temp=dist(matrix_,[xTarget;yTarget],<span class="number">1</span>);</span><br><span class="line">herustic(<span class="number">1</span>:<span class="keyword">end</span>)=dist_temp(<span class="number">1</span>:<span class="keyword">end</span>);</span><br><span class="line"><span class="comment">% unvisited=1, visted=inf</span></span><br></pre></td></tr></table></figure>
+<p>两个标记矩阵，unvisited（10*10），backtrack（10*10*2），其中backtrack是存储的是回溯路径，如下图中的backtrack矩阵，第一个var(:,:,1)存储的是回溯的行row，另外一个是column，这样只需要一步一步的回溯，可以得到optimal path。<img src="/2022/03/19/uav-learning/image-20220330205219290.png" alt="backtrack"></p>
+<figure>
+<img src="/2022/03/19/uav-learning/image-20220330205245623.png" alt="optimal_path"><figcaption aria-hidden="true">optimal_path</figcaption>
+</figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 未访问节点矩阵初始化</span></span><br><span class="line">    <span class="comment">% 如果未访问unvisited矩阵中的值为1，访问过就是inf</span></span><br><span class="line">    unvisited = <span class="built_in">ones</span>(<span class="built_in">size</span>(MAP));</span><br><span class="line">    backtrack = <span class="built_in">zeros</span>(<span class="built_in">size</span>(MAP,<span class="number">1</span>),<span class="built_in">size</span>(MAP,<span class="number">2</span>),<span class="number">2</span>);</span><br><span class="line">    <span class="comment">% row_delta和col_delta是可以走的八个方向东、西、南、北、东北。。。</span></span><br><span class="line">    row_delta=[<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>];</span><br><span class="line">    col_delta=[<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+<p>下面将展示本次代码的核心部分，如何寻找最优路径：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(~all(unvisited==<span class="built_in">inf</span>))</span><br><span class="line">        <span class="comment">% take lowest g(n) [masked]</span></span><br><span class="line">       [min_val,idx]=<span class="built_in">min</span>(unvisited(:).*(G_score(:)+herustic(:)));</span><br><span class="line">       [row,col]=<span class="built_in">ind2sub</span>(<span class="built_in">size</span>(G_score),idx);</span><br><span class="line">       <span class="comment">% remove and mark as visited</span></span><br><span class="line">       unvisited(row,col)=<span class="built_in">inf</span>;</span><br><span class="line">       <span class="comment">% reach goal</span></span><br><span class="line">       <span class="keyword">if</span> row==xTarget &amp;&amp; col==yTarget</span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(row_delta)</span><br><span class="line">           temp_ind=[row+row_delta(<span class="built_in">i</span>),col+col_delta(<span class="built_in">i</span>)];</span><br><span class="line">           <span class="comment">%no obstacle, unvisted, within the index bound</span></span><br><span class="line">           <span class="keyword">if</span> all(temp_ind&gt;<span class="number">0</span>) &amp;&amp; temp_ind(<span class="number">1</span>) &lt;= MAX_X &amp;&amp; temp_ind(<span class="number">2</span>) &lt;=MAX_Y...</span><br><span class="line">               &amp;&amp; MAP(temp_ind(<span class="number">1</span>),temp_ind(<span class="number">2</span>))~=<span class="number">-1</span>  &amp;&amp; unvisited(temp_ind(<span class="number">1</span>),temp_ind(<span class="number">2</span>))==<span class="number">1</span></span><br><span class="line"></span><br><span class="line">                temp = G_score(row,col)+dist([row,col],temp_ind,<span class="number">2</span>);</span><br><span class="line">                <span class="keyword">if</span> temp &lt; G_score(temp_ind(<span class="number">1</span>),temp_ind(<span class="number">2</span>))</span><br><span class="line">                    G_score(temp_ind(<span class="number">1</span>),temp_ind(<span class="number">2</span>))=temp;</span><br><span class="line">                    backtrack(temp_ind(<span class="number">1</span>),temp_ind(<span class="number">2</span>),:)=[row,col];</span><br><span class="line">                <span class="keyword">end</span></span><br><span class="line">           <span class="keyword">end</span> </span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="comment">% no path found</span></span><br><span class="line">    <span class="keyword">if</span> G_score(xTarget,yTarget)==<span class="built_in">inf</span></span><br><span class="line">        Optimal_path=[];</span><br><span class="line">        <span class="built_in">disp</span>(<span class="string">&quot;No path found&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        ptr_ind = <span class="built_in">reshape</span>(backtrack(xTarget,yTarget,:),[<span class="number">1</span>,<span class="number">2</span>]);</span><br><span class="line">        Optimal_path=[xTarget,yTarget,map(<span class="number">1</span>,<span class="number">3</span>)];</span><br><span class="line">        <span class="keyword">while</span> (ptr_ind(<span class="number">1</span>)~=xStart || ptr_ind(<span class="number">2</span>)~=yStart)</span><br><span class="line">            Optimal_path=[[ptr_ind,map(<span class="number">1</span>,<span class="number">3</span>)];Optimal_path];</span><br><span class="line">            ptr_ind = <span class="built_in">reshape</span>(backtrack(ptr_ind(<span class="number">1</span>),ptr_ind(<span class="number">2</span>),:),[<span class="number">1</span>,<span class="number">2</span>]);</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        Optimal_path=[[xStart,yStart,map(<span class="number">1</span>,<span class="number">3</span>)];Optimal_path];</span><br><span class="line">        <span class="built_in">disp</span>(Optimal_path)</span><br><span class="line">        Optimal_path= Optimal_path-[<span class="number">0.5</span> <span class="number">0.5</span> <span class="number">0</span>];</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>结果展示</p>
+<figure>
+<img src="/2022/03/19/uav-learning/image-20220330205735520.png" alt="map1"><figcaption aria-hidden="true">map1</figcaption>
+</figure>
+<video src="https://copy2000.github.io/vedio/map1.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+<p>your browser does not support the video tag</p>
+</video>
+<hr>
+<video src="https://copy2000.github.io/vedio/map2.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+<p>your browser does not support the video tag</p>
+</video></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/19/Crazyswarm/" rel="prev" title="Crazyswarm：大型纳米四轴飞行器群">
+                  <i class="fa fa-chevron-left"></i> Crazyswarm：大型纳米四轴飞行器群
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/22/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/" rel="next" title="写在前面">
+                  写在前面 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaochao</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">27k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">24 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.8/dist/mermaid.min.js","integrity":"sha256-QmSAc2kIaUjleIJ46X7qPW2zrpCbXlMz3YIGgWpQ1Jo="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"copy2000","repo":"commentsOFblog","client_id":"4cd03f17029679eb004b","client_secret":"7f7f860e3a95b014ab7942ab4255525500d4edcb","admin_user":"copy2000","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"632263707e601ece8d5e075b49c7da81"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

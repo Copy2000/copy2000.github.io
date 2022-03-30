@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/1.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="THZuLzNL6NQV18uJBXSfGSVdmYlJ8EtZjwkZt4WZ1uo">
+  <meta name="msvalidate.01" content="6332DC2A8BBC7A802DB3169A31547EA7">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-center-circle.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"copy2000.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="第一次看错代码库，下载了crazyflie的其他repository，做了一点轨迹的仿真，代码在Copy2000&#x2F;swarmCrazy (github.com)，结果：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Crazyflie Swarm代码解读">
+<meta property="og:url" content="https://copy2000.github.io/2022/03/22/codecrazyswarm/index.html">
+<meta property="og:site_name" content="Copy2000">
+<meta property="og:description" content="第一次看错代码库，下载了crazyflie的其他repository，做了一点轨迹的仿真，代码在Copy2000&#x2F;swarmCrazy (github.com)，结果：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/22/codecrazyswarm/sin_dot.gif">
+<meta property="og:image" content="https://copy2000.github.io/2022/03/22/codecrazyswarm/crazyflie.png">
+<meta property="article:published_time" content="2022-03-22T15:27:10.000Z">
+<meta property="article:modified_time" content="2022-03-25T08:15:56.410Z">
+<meta property="article:author" content="zhaochao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://copy2000.github.io/2022/03/22/codecrazyswarm/sin_dot.gif">
+
+
+<link rel="canonical" href="https://copy2000.github.io/2022/03/22/codecrazyswarm/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://copy2000.github.io/2022/03/22/codecrazyswarm/","path":"2022/03/22/codecrazyswarm/","title":"Crazyflie Swarm代码解读"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Crazyflie Swarm代码解读 | Copy2000</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Copy2000</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86%E8%A7%A3%E8%AF%BB"><span class="nav-number">1.</span> <span class="nav-text">代码部分解读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E6%A1%86%E6%9E%B6"><span class="nav-number">1.1.</span> <span class="nav-text">整体框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84service"><span class="nav-number">1.2.</span> <span class="nav-text">使用的service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E7%9A%84%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86"><span class="nav-number">1.3.</span> <span class="nav-text">具体的代码部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#crazyflie"><span class="nav-number">1.3.1.</span> <span class="nav-text">crazyflie</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#trajectory-planner"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">trajectory planner</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#agent.py"><span class="nav-number">1.3.1.1.1.</span> <span class="nav-text">agent.py</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#trajectory_planner_ros.py"><span class="nav-number">1.3.1.1.2.</span> <span class="nav-text">trajectory_planner_ros.py</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#trajectory_solver.py"><span class="nav-number">1.3.1.1.3.</span> <span class="nav-text">trajectory_solver.py</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#formation_manager"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">formation_manager</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#general_formation.py"><span class="nav-number">1.3.1.2.1.</span> <span class="nav-text">general_formation.py</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#formation_manager_ros.py"><span class="nav-number">1.3.1.2.2.</span> <span class="nav-text">formation_manager_ros.py</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhaochao"
+      src="/images/1.png">
+  <p class="site-author-name" itemprop="name">zhaochao</p>
+  <div class="site-description" itemprop="description">竹杖芒鞋轻胜马</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NvcHkyMDAw" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;copy2000"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjEyOTg0NzQ1OTBAcXEuY29t" title="E-Mail → mailto:1298474590@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://copy2000.github.io/2022/03/22/codecrazyswarm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.png">
+      <meta itemprop="name" content="zhaochao">
+      <meta itemprop="description" content="竹杖芒鞋轻胜马">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Copy2000">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Crazyflie Swarm代码解读
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-22 23:27:10" itemprop="dateCreated datePublished" datetime="2022-03-22T23:27:10+08:00">2022-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-25 16:15:56" itemprop="dateModified" datetime="2022-03-25T16:15:56+08:00">2022-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>第一次看错代码库，下载了crazyflie的其他repository，做了一点轨迹的仿真，代码在<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvcHkyMDAwL3N3YXJtQ3Jhenk=">Copy2000/swarmCrazy (github.com)<i class="fa fa-external-link-alt"></i></span>，结果：<img src="/2022/03/22/codecrazyswarm/sin_dot.gif" alt="sin_dot"></p>
+<span id="more"></span>
+<h1 id="代码部分解读">代码部分解读</h1>
+<p>写在前面：</p>
+<p><strong>NOTE：</strong></p>
+<ul>
+<li><p>agent不是无人机，只是一个队形中的一个位置；</p></li>
+<li><p>CF是crazyflie。</p></li>
+<li><p><em>FormationManager</em>: 为了在队形之间转换的类</p></li>
+<li><p><em>FormationClass</em>: 计算每个agent在队形中的位置的类</p></li>
+</ul>
+<p><strong>形成一个队形的流程：</strong></p>
+<ol type="1">
+<li>call service <em>set_formation</em>, agent的新位置将使用所需的 <em>FormationClass</em> 子类计算。</li>
+<li>根据每个 crazyflie 的位置，<em>FormationManager</em> 会将每个 CF 链接到一个代理。 一旦 CF 链接到agent，该 CF 将跟随该agent在编队中的位置。</li>
+</ol>
+<h2 id="整体框架">整体框架</h2>
+<figure>
+<img src="/2022/03/22/codecrazyswarm/crazyflie.png" alt="crazyflie"><figcaption aria-hidden="true">crazyflie</figcaption>
+</figure>
+<p>由于使用的是xmind制作的导图，导出的pdf在<a href="https://copy2000.github.io/Docs/crazyflie.pdf">crazyflie.pdf (copy2000.github.io)</a></p>
+<h2 id="使用的service">使用的service</h2>
+<table>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 25%">
+<col style="width: 37%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Topic</th>
+<th style="text-align: center;">Msg type</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">/cfx/pose</td>
+<td style="text-align: center;">(geometry_msgs/PoseStamped)</td>
+<td style="text-align: center;">Pose of a CF</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">/cfx/state</td>
+<td style="text-align: center;">(std_msgs/String)</td>
+<td style="text-align: center;">State of a CF</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"><strong>/cfx/goal</strong></td>
+<td style="text-align: center;">crazyflflie_driver/Position</td>
+<td style="text-align: center;">Target position of CF</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">/cfx/cmd_position</td>
+<td style="text-align: center;">(crazyflflie_drive/Position)</td>
+<td style="text-align: center;">Position command</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">/cfx/cmd_hovering</td>
+<td style="text-align: center;">(crazyflflie_driver/Hover)</td>
+<td style="text-align: center;">Hovering command</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">/cfx/cmd_vel</td>
+<td style="text-align: center;">(geometry_msgs/Twist)</td>
+<td style="text-align: center;">Velocity of CF</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">/cfx/cmd_stop</td>
+<td style="text-align: center;">(std_msgs/Empty)</td>
+<td style="text-align: center;">Stop CF</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">/cfx/trajectory_goal</td>
+<td style="text-align: center;">(crazyflflie_driver/Position)</td>
+<td style="text-align: center;">Trajectory goal of a CF</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">/cfx/formation_goal</td>
+<td style="text-align: center;">(crazyflflie_driver/Position)</td>
+<td style="text-align: center;">Formation goal of a CF</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">/formation_goal</td>
+<td style="text-align: center;">(crazyflflie_drive/Position)</td>
+<td style="text-align: center;">Goal of formation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">/formation_pose</td>
+<td style="text-align: center;">(geometry_msgs/Pose)</td>
+<td style="text-align: center;">Position of formation</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">/formation_goal_vel</td>
+<td style="text-align: center;">(geometry_msgs/Twist)</td>
+<td style="text-align: center;">Formation goal velocity</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">/joy_swarm_vel</td>
+<td style="text-align: center;">(geometry_msgs/Twist)</td>
+<td style="text-align: center;">Joystick swarm command</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>图中service中</p>
+<ul>
+<li>针对单个<strong>Crazyflflie</strong>的操作（1-7）
+<ul>
+<li>1,2,3都是current value</li>
+</ul></li>
+<li>针对Swarm的操作（8-13）
+<ul>
+<li><strong>/cfx/trajectory_goal</strong>是Position of the CF on the trajectory, at each time step。</li>
+<li><strong>/cfx/formation_goal</strong>是Goal of a single CF in the formation。</li>
+<li><strong>/formation_goal_vel</strong>是Formation center goal variation。</li>
+</ul></li>
+</ul>
+</blockquote>
+<h2 id="具体的代码部分">具体的代码部分</h2>
+<h3 id="crazyflie">crazyflie</h3>
+<h4 id="trajectory-planner">trajectory planner</h4>
+<h5 id="agent.py">agent.py</h5>
+<ul>
+<li><p>Agent Class:agent类代表的是一个agent</p>
+<ul>
+<li><p><strong>init</strong>:初始化agent的起始位置，目标位置，agent之间的最小位置，碰撞半径，目标地点阈值，目标速度阈值，缩放矩阵。</p></li>
+<li><p>set_starting_position</p></li>
+<li><p>set_goal</p></li>
+<li><p>set_all_traj:设置轨迹</p></li>
+<li><p>add_state:就是把每一次步进产生的状态加入到之前到状态</p></li>
+<li><p>initialize_position</p></li>
+<li><p>check_goal:确定是否答案目标地方，改变标志at_goal</p></li>
+<li><p>check_collisions:确保当前预测到轨迹是否会发生碰撞。</p>
+<ul>
+<li>首先判断与其他agent到距离，如果距离小于最小位置Rmin就断定会发生碰撞；如果碰撞就找到附近的agents，返回step of collision and close agents and their distance</li>
+</ul></li>
+<li><p>interpolate_traj:使用贝塞尔曲线插值agent的轨迹</p></li>
+</ul></li>
+</ul>
+<h5 id="trajectory_planner_ros.py">trajectory_planner_ros.py</h5>
+<ul>
+<li><p>TrajectoryPlanner Class：规划所有无人机的轨迹</p>
+<ul>
+<li><p><strong>init</strong>:初始化所有无人机的信息</p></li>
+<li><p>set_positions:通过service：SetPositions设置开始位置和目标位置</p></li>
+<li><p>plan_trajectories:为每一个agent开始轨迹规划</p>
+<ul>
+<li>使用了TrajectorySolver类的update agent info函数</li>
+</ul></li>
+<li><p>start_publisher_srv:publish CF轨迹</p></li>
+<li><p>publish_trajectories:publish所有计算过的轨迹</p></li>
+<li><p>run_planner:根据bool状态执行正确的方法</p></li>
+</ul></li>
+</ul>
+<h5 id="trajectory_solver.py">trajectory_solver.py</h5>
+<ul>
+<li><p>TrajectorySolver Class:用于查找多个代理之间的碰撞较少的轨迹</p>
+<ul>
+<li><p><strong>init</strong>:输入一个agent列表，计算列表中agent的轨迹</p></li>
+<li><p>set_obstacles:添加障碍物的位置</p></li>
+<li><p>initialize_agents:为所有的agents初始化位置和开始的轨迹</p></li>
+<li><p>_build_prediction_matrices:构造用于预测轨迹的矩阵</p></li>
+<li><p>_build_objective_fct_matrices:构造用于目标函数的矩阵</p>
+<ul>
+<li>误差惩罚</li>
+<li>控制惩罚</li>
+<li>输入变化惩罚</li>
+</ul></li>
+<li><p>__build_constraint_matrices:构造用于约束项的矩阵</p></li>
+<li><p>update_agents_info:更新agent信息，用于agent初始位置或者目标位置改变的时候</p></li>
+<li><p>solve_trajectories:用于为每一个agent计算没有障碍物的轨迹</p></li>
+<li><p>_solve_agent:基于加速度输入计算新的agent轨迹</p></li>
+<li><p>_solve_accel:优化horizon上面的加速度输入</p></li>
+<li><p>_solve_optimization:通过拉格朗日乘子法（qp）找到加速度输入；如果在约束中没有解，会降低松弛约束。</p></li>
+<li><p>_build_optimization_matrices:通过碰撞状态构建优化矩阵</p></li>
+<li><p>_solve_accel_no_coll:在未检测到碰撞的时候计算加速度。</p></li>
+<li><p>_solve_accel_coll:在检测到碰撞的时候计算加速度</p></li>
+<li><p>_predict_trajectory:基于位置和加速度预测每一个agent的轨迹</p></li>
+<li><p>_check_goal:确定agents是否在目标位置</p></li>
+<li><p>_compute_agents_dist:计算每个agent在新位置上的距离</p></li>
+<li><p>_interpolate_agents_traj:使用贝塞尔曲线插值轨迹</p></li>
+<li><p>print_final_positions:打印全部agents最终位置</p></li>
+<li><p>plot_trajectories:画出所有的轨迹</p></li>
+</ul></li>
+</ul>
+<h4 id="formation_manager">formation_manager</h4>
+<h5 id="general_formation.py">general_formation.py</h5>
+<ul>
+<li><p>FormationClass:</p>
+<ul>
+<li>--init__:初始化</li>
+<li>get_agents_goals:得到每个agent在队形中的目标位置</li>
+<li>set_scale:设置队形的大小（scale of formation）</li>
+<li>update_agents_positions:计算每个agent的目标位置并且更新对应的CF的目标位置</li>
+<li>find_extra_agents:找到额外的agents，比如10个agents组成一个3*3的方阵就会有一个额外的agent</li>
+<li>set_n_agents:确保CF的数量能够支持队形</li>
+<li>compute_min_scale:pass</li>
+<li>compute_formation_positions:pass</li>
+<li>update_formation_scale:pass</li>
+<li>compute_info_from_center:计算离队形中心的距离和角度，队形中心被定义为【0，0，0】</li>
+<li>calculate_rot:对四元数应用旋转，得到四元数并更新msg</li>
+<li>yaw_from_quat:得到偏航角</li>
+<li>quat_from_yaw</li>
+</ul></li>
+</ul>
+<h5 id="formation_manager_ros.py">formation_manager_ros.py</h5>
+<ul>
+<li><p>FormationManager:把每个agent和CF联系到一起；有绝对控制模式和相对方向控制，都是速度控制</p>
+<ul>
+<li><p><strong>init</strong>:初始化</p></li>
+<li><p>_formation_goal_vel_handler:是一个service的中断函数基于速度改变改变队形goal，并且让每个CF都达到位置</p></li>
+<li><p>_set_formation:是一个service的中断函数，设置队形</p></li>
+<li><p>_toggle_ctrl_mode:是一个service的中断函数，切换控制模式</p>
+<ul>
+<li><p>Absolute mode：controls in world reference</p></li>
+<li><p>Relative mode：contols depending of swarm orientation</p>
+<ul>
+<li>x轴就是前进，y轴左转，z轴向上飞行</li>
+</ul></li>
+</ul></li>
+<li><p>_formation_inc_scale:是一个service的中断函数，增加队形的规模</p></li>
+<li><p>_formation_dec_scale:和上面相反</p></li>
+<li><p>_return_formation_list:一个service的中断函数，得到可能的队形</p></li>
+<li><p>_init_formation:初始化队形的goal和cf的位置</p></li>
+<li><p>link_swarm_and_formation:把每个agent在队形中的位置和集群中cf的位置联系起来，并且初始化队形的目标。</p></li>
+<li><p>_check_goal_height:确保队形的goal在队形的最低高度之上</p></li>
+<li><p>_create_goal_matrix:创建一个所有goal推叠起来的的矩阵</p></li>
+<li><p>_create_initial_pos_matrix:创建初始化位置矩阵，列是cf的初始化位置，行是每个目标</p></li>
+<li><p>_compute_distances:计算从每个goal到CF到距离</p></li>
+<li><p>_find_association：在连接cf和形成agent代理时最小化总行驶距离。</p></li>
+<li><p>_update_associations:更新CF之间的联系和额外的agent列表</p></li>
+<li><p>_publish_formation_pose</p></li>
+<li><p>_publish_formation_goal</p></li>
+<li><p>_run_formation</p></li>
+</ul></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/22/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/" rel="prev" title="写在前面">
+                  <i class="fa fa-chevron-left"></i> 写在前面
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/23/learnnumpy/" rel="next" title="learnnumpy">
+                  learnnumpy <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhaochao</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">27k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">24 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.8/dist/mermaid.min.js","integrity":"sha256-QmSAc2kIaUjleIJ46X7qPW2zrpCbXlMz3YIGgWpQ1Jo="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"copy2000","repo":"commentsOFblog","client_id":"4cd03f17029679eb004b","client_secret":"7f7f860e3a95b014ab7942ab4255525500d4edcb","admin_user":"copy2000","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"545cad288e27fd72cf8369a500890291"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
