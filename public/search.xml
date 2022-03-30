@@ -53,6 +53,16 @@
     <url>/2022/03/30/python%E5%B0%8F%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="python小工具">python小工具</h1>
 <h2 id="视频转gif">视频转GIF</h2>
+<p>dependence packages:</p>
+<ul>
+<li>requests</li>
+<li>imageio-ffmpeg</li>
+<li>moviepy</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> imageio</span><br><span class="line"><span class="keyword">import</span> moviepy.editor <span class="keyword">as</span> mpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 视频文件的本地路径</span></span><br><span class="line">content = mpy.VideoFileClip(<span class="string">&quot;C:\\Users\\A\\Videos\\map1.mp4&quot;</span>)</span><br><span class="line"><span class="comment"># 剪辑0分0秒到0分3秒的片段。resize为修改清晰度</span></span><br><span class="line"><span class="comment">#c1 = content.subclip((0, 0), (0, 3)).resize((1280, 780))</span></span><br><span class="line">c1 = content.subclip((<span class="number">0</span>, <span class="number">4</span>), (<span class="number">0</span>,<span class="number">40</span>)).resize(<span class="number">0.5</span>)</span><br><span class="line"><span class="comment"># 将片段保存为gif图到python的默认路径</span></span><br><span class="line">c1.write_gif(<span class="string">&quot;map1.gif&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/2022/03/30/python%E5%B0%8F%E5%B7%A5%E5%85%B7/map1.gif" alt="map1"><figcaption aria-hidden="true">map1</figcaption>
+</figure>
 ]]></content>
       <categories>
         <category>Python学习</category>
@@ -770,6 +780,7 @@ your browser does not support the video tag
 <figure>
 <img src="/2022/03/19/uav-learning/image-20220330205735520.png" alt="map1"><figcaption aria-hidden="true">map1</figcaption>
 </figure>
+<p><strong>不是bgm，是听的歌录进去了！！！</strong></p>
 <video src="https://copy2000.github.io/vedio/map1.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
 <p>your browser does not support the video tag</p>
 </video>
