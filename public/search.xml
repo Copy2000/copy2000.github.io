@@ -49,6 +49,40 @@
       </categories>
   </entry>
   <entry>
+    <title>dmpc</title>
+    <url>/2022/04/01/dmpc/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="dmpc">DMPC</h1>
+<p>论文：《Trajectory Generation for Multiagent Point-To-Point</p>
+<p>Transitions via Distributed Model Predictive Control》</p>
+<h2 id="摘要">摘要</h2>
+<ul>
+<li>介绍了 一种基于分布式模型预测控制（DMPC）的多智能体offline轨迹生成算法。</li>
+<li>通过预测未来状态并与附近的agents共享此消息，agent 能够在朝着目标前进的同时检测并进行避障。</li>
+<li>提出的算法以分布式（distributed）方式实现，与基于顺序凸规划（sequential convex programming）SCP的优化方法相比<em>计算时间减少了85%</em>，同时<em>对最优性的影响最小</em>。</li>
+</ul>
+<h2 id="介绍">介绍</h2>
+<ul>
+<li>Multiagent point-to-point transition：多智能体点对点的转换有两个变量
+<ul>
+<li><strong>the labelled agent problem：每一个agent都有一个固定的不能与另外一个agent交换的固定的最终位置。</strong>（本文着重讨论的）</li>
+<li>the unlabelled agent problem：算法可以自由的将goals分配给agents，以减轻转换问题的复杂度。</li>
+</ul></li>
+<li>the labelled agent problem的解决方法：
+<ol type="1">
+<li>将他看做一个优化问题，比如混合整数线性规划MILP（Mixed Integer Linear Programming），使用二进制变量（0和1）构建碰撞约束。有一个致命的缺点就是计算复杂度太大，导致不适用于多agents。</li>
+<li>顺序凸规划SCP比MILP的<strong>计算时间少</strong>，而且SCP是用于<strong>计算四旋翼集群的最佳能量轨迹</strong>；但是缺点也很明显，就是算法不能随着agent的数量增加而扩展，但是好像最近提出了一种decoupled版本的SCP，但是随着agent的增加，成功率也下降了。</li>
+<li>分布式优化方法与集中式方法相比减少了计算时间。ORCA利用速度障碍（velocity obstacles）来雀儿包完整性agent和非完整性agent的无碰撞轨迹。<strong>因为他假设在一段时间内具有恒定的速度，所以该方法比较保守（conservative）</strong>。</li>
+</ol></li>
+</ul>
+]]></content>
+      <categories>
+        <category>论文</category>
+      </categories>
+      <tags>
+        <tag>集群控制</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python小工具</title>
     <url>/2022/03/30/python%E5%B0%8F%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="python小工具">python小工具</h1>
@@ -63,6 +97,8 @@
 <figure>
 <img src="/2022/03/30/python%E5%B0%8F%E5%B7%A5%E5%85%B7/map1.gif" alt="map1"><figcaption aria-hidden="true">map1</figcaption>
 </figure>
+<h2 id="ppt-to-pdf">PPT to PDF</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#1.把该脚本放在需要修改的pdf目录中</span></span><br><span class="line"><span class="comment">#2.如果无法修改：请修改dirname</span></span><br><span class="line"><span class="comment">#3.请先安装packagewin32com 和 os   python -m pip install pypiwin32</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">1. 如何设置编辑器字体的大小?</span></span><br><span class="line"><span class="string">File(文件)-&gt; Settings(设置) -&gt; Editor(编辑器) -&gt; Font(字体), 修改字体的大小</span></span><br><span class="line"><span class="string">2. 注释: 代码的解释说明</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1). 导入需要的模块(打开应用程序的模块)</span></span><br><span class="line"><span class="keyword">import</span> win32com.client</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ppt2pdf</span>(<span class="params">filename, output_filename</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    PPT文件导出为pdf格式</span></span><br><span class="line"><span class="string">    :param filename: PPT文件的名称</span></span><br><span class="line"><span class="string">    :param output_filename: 导出的pdf文件的名称</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 2). 打开PPT程序</span></span><br><span class="line">    ppt_app = win32com.client.Dispatch(<span class="string">&#x27;PowerPoint.Application&#x27;</span>)</span><br><span class="line">    <span class="comment"># ppt_app.Visible = True  # 程序操作应用程序的过程是否可视化</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3). 通过PPT的应用程序打开指定的PPT文件</span></span><br><span class="line">    <span class="comment"># filename = &quot;C:/Users/Administrator/Desktop/PPT办公自动化/ppt/PPT素材1.pptx&quot;</span></span><br><span class="line">    <span class="comment"># output_filename = &quot;C:/Users/Administrator/Desktop/PPT办公自动化/ppt/PPT素材1.pdf&quot;</span></span><br><span class="line">    ppt = ppt_app.Presentations.Open(filename)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4). 打开的PPT另存为pdf文件。17数字是ppt转图片，32数字是ppt转pdf。</span></span><br><span class="line">    ppt.SaveAs(output_filename, <span class="number">32</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;导出成pdf格式成功!!!&quot;</span>)</span><br><span class="line">    <span class="comment"># 退出PPT程序</span></span><br><span class="line">    ppt_app.Quit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 要处理的目录名称</span></span><br><span class="line">dirname = os.path.dirname(os.path.realpath(__file__))</span><br><span class="line"><span class="comment"># 列出指定目录的内容</span></span><br><span class="line">filenames = os.listdir(dirname)</span><br><span class="line"><span class="comment"># for循环依次访问指定目录的所有文件名</span></span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">    <span class="comment"># 判断文件的类型，对所有的ppt文件进行处理(ppt文件以ppt或者pptx结尾的)</span></span><br><span class="line">    <span class="keyword">if</span> filename.endswith(<span class="string">&#x27;ppt&#x27;</span>) <span class="keyword">or</span> filename.endswith(<span class="string">&#x27;pptx&#x27;</span>):</span><br><span class="line">        <span class="comment"># print(filename)           # PPT素材1.pptx -&gt; PPT素材1.pdf</span></span><br><span class="line">        <span class="comment"># 将filename以.进行分割，返回2个信息，文件的名称和文件的后缀名</span></span><br><span class="line">        base, ext = filename.split(<span class="string">&#x27;.&#x27;</span>)  <span class="comment"># base=PPT素材1 ext=pdf</span></span><br><span class="line">        new_name = base + <span class="string">&#x27;.pdf&#x27;</span>         <span class="comment"># PPT素材1.pdf</span></span><br><span class="line">        <span class="comment"># ppt文件的完整位置: C:/Users/Administrator/Desktop/PPT办公自动化/ppt/PPT素材1.pptx</span></span><br><span class="line">        filename = dirname + <span class="string">&#x27;/&#x27;</span> + filename</span><br><span class="line">        <span class="comment"># pdf文件的完整位置: C:/Users/Administrator/Desktop/PPT办公自动化/ppt/PPT素材1.pdf</span></span><br><span class="line">        output_filename = dirname + <span class="string">&#x27;/&#x27;</span> + new_name</span><br><span class="line">        <span class="comment"># 将ppt转成pdf文件</span></span><br><span class="line">        ppt2pdf(filename, output_filename)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Python学习</category>

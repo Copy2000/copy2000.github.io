@@ -22,29 +22,28 @@
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"copy2000.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="写在前面     2022&#x2F;3&#x2F;22    这是在我的好兄弟兼大学同学罗鸣鸣同学的激励和监督下完成的blog雏形，他说码农也应该是一个有着完美追求的码农，代码和思路一定要漂亮，于是在西安疫情和初春闲暇之日完成blog制作。">
+<meta name="description" content="DMPC 论文：《Trajectory Generation for Multiagent Point-To-Point Transitions via Distributed Model Predictive Control》 摘要  介绍了 一种基于分布式模型预测控制（DMPC）的多智能体offline轨迹生成算法。 通过预测未来状态并与附近的agents共享此消息，agent 能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写在前面">
-<meta property="og:url" content="https://copy2000.github.io/2022/03/22/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/index.html">
+<meta property="og:title" content="dmpc">
+<meta property="og:url" content="https://copy2000.github.io/2022/04/01/dmpc/index.html">
 <meta property="og:site_name" content="Copy2000">
-<meta property="og:description" content="写在前面     2022&#x2F;3&#x2F;22    这是在我的好兄弟兼大学同学罗鸣鸣同学的激励和监督下完成的blog雏形，他说码农也应该是一个有着完美追求的码农，代码和思路一定要漂亮，于是在西安疫情和初春闲暇之日完成blog制作。">
+<meta property="og:description" content="DMPC 论文：《Trajectory Generation for Multiagent Point-To-Point Transitions via Distributed Model Predictive Control》 摘要  介绍了 一种基于分布式模型预测控制（DMPC）的多智能体offline轨迹生成算法。 通过预测未来状态并与附近的agents共享此消息，agent 能">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://copy2000.github.io/2022/03/22/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/image-20220326213553634.png">
-<meta property="article:published_time" content="2022-03-22T09:13:33.000Z">
-<meta property="article:modified_time" content="2022-03-30T12:40:06.092Z">
+<meta property="article:published_time" content="2022-04-01T15:10:13.000Z">
+<meta property="article:modified_time" content="2022-04-01T15:56:11.010Z">
 <meta property="article:author" content="zhaochao">
+<meta property="article:tag" content="集群控制">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://copy2000.github.io/2022/03/22/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/image-20220326213553634.png">
 
 
-<link rel="canonical" href="https://copy2000.github.io/2022/03/22/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/">
+<link rel="canonical" href="https://copy2000.github.io/2022/04/01/dmpc/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://copy2000.github.io/2022/03/22/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/","path":"2022/03/22/写在前面/","title":"写在前面"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://copy2000.github.io/2022/04/01/dmpc/","path":"2022/04/01/dmpc/","title":"dmpc"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>写在前面 | Copy2000</title>
+<title>dmpc | Copy2000</title>
   
 
 
@@ -136,7 +135,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -149,6 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dmpc"><span class="nav-number">1.</span> <span class="nav-text">DMPC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.2.</span> <span class="nav-text">介绍</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -221,7 +221,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://copy2000.github.io/2022/03/22/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/">
+    <link itemprop="mainEntityOfPage" href="https://copy2000.github.io/2022/04/01/dmpc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/1.png">
@@ -234,7 +234,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          写在前面
+          dmpc
         </h1>
 
         <div class="post-meta-container">
@@ -244,15 +244,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-03-22 17:13:33" itemprop="dateCreated datePublished" datetime="2022-03-22T17:13:33+08:00">2022-03-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-03-30 20:40:06" itemprop="dateModified" datetime="2022-03-30T20:40:06+08:00">2022-03-30</time>
+      <time title="创建时间：2022-04-01 23:10:13 / 修改时间：23:56:11" itemprop="dateCreated datePublished" datetime="2022-04-01T23:10:13+08:00">2022-04-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -260,7 +254,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%96%87%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">文学</span></a>
+          <a href="/categories/%E8%AE%BA%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">论文</span></a>
         </span>
     </span>
 
@@ -278,7 +272,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>729</span>
+      <span>860</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -296,46 +290,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <center>
-<p style="font-size:50px">
-写在前面
-</p>
-</center>
-<blockquote>
-<blockquote>
-<p>2022/3/22</p>
-</blockquote>
-</blockquote>
-<p style="font-size:25px">
-这是在我的好兄弟兼大学同学罗鸣鸣同学的激励和监督下完成的blog雏形，他说码农也应该是一个有着完美追求的码农，代码和思路一定要漂亮，于是在西安疫情和初春闲暇之日完成blog制作。
-</p>
-<span id="more"></span>
-<p style="font-size:25px">
-博客大多记录着一些论文笔记和课外小实验过程，同时我也想在这上面分享一些我对外界的思考，但是仅仅是不成熟的观点。如果有人说，你看看你写的博客怎么全是链接，或者是别人的论文有没有自己的东西，我只能很愧疚的说，从安装hexo到在写这篇文章之前，少有我自己的东西。但是这并不妨碍我继续完善自己，充实自己。如果有一天屏幕前的你想要抄我的blog，我只能说我也是抄别人的，毕竟程序员和其他职业不一样的，而且还是一个初出茅庐的小子。更何况我一向自诩为一个文学少年，文学分类中的blog差不多是我最最最真实和原创的部分，我们文人就不一样的，那不是抄。
-</p>
-<p style="font-size:25px">
-最后希望这个blog能够激励自己坚持写博客，博客是个好东西，和照片一样，能够记录生活中美的部分，但是又有超越的部分，文字部分的魅力是无穷的，他代表着一个人所思所想所感，比图片来的更加亲切和热烈。况且我已经不再熟悉如何规划自己的朋友圈，总得在无人问津、曲折反转之后有着一缕自己的回忆。在面对生活的美好的时候不能总是选择放弃表达，此博客告诉自己，不必克制遣词，每一篇论文、每一次实验、每一本书在这里依旧能够有着深刻而又浪漫的回忆。
-</p>
-<blockquote>
-<blockquote>
-<p>2022/3/24</p>
-</blockquote>
-</blockquote>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=173395&amp;auto=1&amp;height=66">
-</iframe>
-<p>写代码一定要优雅，这样写出来的shit才比别人的香！！！</p>
-<blockquote>
-<blockquote>
-<p>2022/3/25</p>
-</blockquote>
-</blockquote>
-<p>又下了一晚上的象棋，克制克制，不可以轻易暴露老子棋圣的身份，吃我分的人我一定会吃回来的。<img src="/2022/03/22/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/image-20220326213553634.png" alt="39%"></p>
-<blockquote>
-<blockquote>
-<p>2022/3/30</p>
-</blockquote>
-</blockquote>
-<p>看了一遍火影忍者的剪辑，2个小时，还是很感动，每一个角色都有血有肉，每一个故事都能勾起我的回忆。</p>
+        <h1 id="dmpc">DMPC</h1>
+<p>论文：《Trajectory Generation for Multiagent Point-To-Point</p>
+<p>Transitions via Distributed Model Predictive Control》</p>
+<h2 id="摘要">摘要</h2>
+<ul>
+<li>介绍了 一种基于分布式模型预测控制（DMPC）的多智能体offline轨迹生成算法。</li>
+<li>通过预测未来状态并与附近的agents共享此消息，agent 能够在朝着目标前进的同时检测并进行避障。</li>
+<li>提出的算法以分布式（distributed）方式实现，与基于顺序凸规划（sequential convex programming）SCP的优化方法相比<em>计算时间减少了85%</em>，同时<em>对最优性的影响最小</em>。</li>
+</ul>
+<h2 id="介绍">介绍</h2>
+<ul>
+<li>Multiagent point-to-point transition：多智能体点对点的转换有两个变量
+<ul>
+<li><strong>the labelled agent problem：每一个agent都有一个固定的不能与另外一个agent交换的固定的最终位置。</strong>（本文着重讨论的）</li>
+<li>the unlabelled agent problem：算法可以自由的将goals分配给agents，以减轻转换问题的复杂度。</li>
+</ul></li>
+<li>the labelled agent problem的解决方法：
+<ol type="1">
+<li>将他看做一个优化问题，比如混合整数线性规划MILP（Mixed Integer Linear Programming），使用二进制变量（0和1）构建碰撞约束。有一个致命的缺点就是计算复杂度太大，导致不适用于多agents。</li>
+<li>顺序凸规划SCP比MILP的<strong>计算时间少</strong>，而且SCP是用于<strong>计算四旋翼集群的最佳能量轨迹</strong>；但是缺点也很明显，就是算法不能随着agent的数量增加而扩展，但是好像最近提出了一种decoupled版本的SCP，但是随着agent的增加，成功率也下降了。</li>
+<li>分布式优化方法与集中式方法相比减少了计算时间。ORCA利用速度障碍（velocity obstacles）来雀儿包完整性agent和非完整性agent的无碰撞轨迹。<strong>因为他假设在一段时间内具有恒定的速度，所以该方法比较保守（conservative）</strong>。</li>
+</ol></li>
+</ul>
 
     </div>
 
@@ -344,19 +321,19 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9B%86%E7%BE%A4%E6%8E%A7%E5%88%B6/" rel="tag"># 集群控制</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/03/19/uav-learning/" rel="prev" title="无人机学习：基于香港科技大学课件学习无人机">
-                  <i class="fa fa-chevron-left"></i> 无人机学习：基于香港科技大学课件学习无人机
+                <a href="/2022/03/30/python%E5%B0%8F%E5%B7%A5%E5%85%B7/" rel="prev" title="python小工具">
+                  <i class="fa fa-chevron-left"></i> python小工具
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/03/22/codecrazyswarm/" rel="next" title="Crazyflie Swarm代码解读">
-                  Crazyflie Swarm代码解读 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -473,7 +450,7 @@ darkmode.showWidget();
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"copy2000","repo":"commentsOFblog","client_id":"4cd03f17029679eb004b","client_secret":"7f7f860e3a95b014ab7942ab4255525500d4edcb","admin_user":"copy2000","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"ae21238e3aefa9aec54bd0cb97833bb4"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"copy2000","repo":"commentsOFblog","client_id":"4cd03f17029679eb004b","client_secret":"7f7f860e3a95b014ab7942ab4255525500d4edcb","admin_user":"copy2000","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"f270f5784f4e193fb2dc82703f6a6307"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
