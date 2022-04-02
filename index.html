@@ -353,9 +353,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-04-01 23:10:13 / 修改时间：23:56:11" itemprop="dateCreated datePublished" datetime="2022-04-01T23:10:13+08:00">2022-04-01</time>
+      <time title="创建时间：2022-04-01 23:10:13" itemprop="dateCreated datePublished" datetime="2022-04-01T23:10:13+08:00">2022-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-02 23:59:51" itemprop="dateModified" datetime="2022-04-02T23:59:51+08:00">2022-04-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -374,14 +380,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>860</span>
+      <span>2.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -395,27 +401,17 @@
           <h1 id="dmpc">DMPC</h1>
 <p>论文：《Trajectory Generation for Multiagent Point-To-Point</p>
 <p>Transitions via Distributed Model Predictive Control》</p>
-<h2 id="摘要">摘要</h2>
-<ul>
-<li>介绍了 一种基于分布式模型预测控制（DMPC）的多智能体offline轨迹生成算法。</li>
-<li>通过预测未来状态并与附近的agents共享此消息，agent 能够在朝着目标前进的同时检测并进行避障。</li>
-<li>提出的算法以分布式（distributed）方式实现，与基于顺序凸规划（sequential convex programming）SCP的优化方法相比<em>计算时间减少了85%</em>，同时<em>对最优性的影响最小</em>。</li>
-</ul>
-<h2 id="介绍">介绍</h2>
-<ul>
-<li>Multiagent point-to-point transition：多智能体点对点的转换有两个变量
-<ul>
-<li><strong>the labelled agent problem：每一个agent都有一个固定的不能与另外一个agent交换的固定的最终位置。</strong>（本文着重讨论的）</li>
-<li>the unlabelled agent problem：算法可以自由的将goals分配给agents，以减轻转换问题的复杂度。</li>
-</ul></li>
-<li>the labelled agent problem的解决方法：
-<ol type="1">
-<li>将他看做一个优化问题，比如混合整数线性规划MILP（Mixed Integer Linear Programming），使用二进制变量（0和1）构建碰撞约束。有一个致命的缺点就是计算复杂度太大，导致不适用于多agents。</li>
-<li>顺序凸规划SCP比MILP的<strong>计算时间少</strong>，而且SCP是用于<strong>计算四旋翼集群的最佳能量轨迹</strong>；但是缺点也很明显，就是算法不能随着agent的数量增加而扩展，但是好像最近提出了一种decoupled版本的SCP，但是随着agent的增加，成功率也下降了。</li>
-<li>分布式优化方法与集中式方法相比减少了计算时间。ORCA利用速度障碍（velocity obstacles）来雀儿包完整性agent和非完整性agent的无碰撞轨迹。<strong>因为他假设在一段时间内具有恒定的速度，所以该方法比较保守（conservative）</strong>。</li>
-</ol></li>
-</ul>
-
+<figure>
+<img src="/2022/04/01/dmpc/image-20220402230235448.png" alt="DMPC"><figcaption aria-hidden="true">DMPC</figcaption>
+</figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/01/dmpc/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -464,9 +460,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-03-30 23:18:12 / 修改时间：23:53:08" itemprop="dateCreated datePublished" datetime="2022-03-30T23:18:12+08:00">2022-03-30</time>
+      <time title="创建时间：2022-03-30 23:18:12" itemprop="dateCreated datePublished" datetime="2022-03-30T23:18:12+08:00">2022-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-02 23:04:00" itemprop="dateModified" datetime="2022-04-02T23:04:00+08:00">2022-04-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -504,20 +506,14 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="python小工具">python小工具</h1>
-<h2 id="视频转gif">视频转GIF</h2>
-<p>dependence packages:</p>
-<ul>
-<li>requests</li>
-<li>imageio-ffmpeg</li>
-<li>moviepy</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> imageio</span><br><span class="line"><span class="keyword">import</span> moviepy.editor <span class="keyword">as</span> mpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 视频文件的本地路径</span></span><br><span class="line">content = mpy.VideoFileClip(<span class="string">&quot;C:\\Users\\A\\Videos\\map1.mp4&quot;</span>)</span><br><span class="line"><span class="comment"># 剪辑0分0秒到0分3秒的片段。resize为修改清晰度</span></span><br><span class="line"><span class="comment">#c1 = content.subclip((0, 0), (0, 3)).resize((1280, 780))</span></span><br><span class="line">c1 = content.subclip((<span class="number">0</span>, <span class="number">4</span>), (<span class="number">0</span>,<span class="number">40</span>)).resize(<span class="number">0.5</span>)</span><br><span class="line"><span class="comment"># 将片段保存为gif图到python的默认路径</span></span><br><span class="line">c1.write_gif(<span class="string">&quot;map1.gif&quot;</span>)</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="/2022/03/30/python%E5%B0%8F%E5%B7%A5%E5%85%B7/map1.gif" alt="map1"><figcaption aria-hidden="true">map1</figcaption>
-</figure>
-<h2 id="ppt-to-pdf">PPT to PDF</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.把该脚本放在需要修改的pdf目录中</span></span><br><span class="line"><span class="comment">#2.如果无法修改：请修改dirname</span></span><br><span class="line"><span class="comment">#3.请先安装packagewin32com 和 os   python -m pip install pypiwin32</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">1. 如何设置编辑器字体的大小?</span></span><br><span class="line"><span class="string">File(文件)-&gt; Settings(设置) -&gt; Editor(编辑器) -&gt; Font(字体), 修改字体的大小</span></span><br><span class="line"><span class="string">2. 注释: 代码的解释说明</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1). 导入需要的模块(打开应用程序的模块)</span></span><br><span class="line"><span class="keyword">import</span> win32com.client</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ppt2pdf</span>(<span class="params">filename, output_filename</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    PPT文件导出为pdf格式</span></span><br><span class="line"><span class="string">    :param filename: PPT文件的名称</span></span><br><span class="line"><span class="string">    :param output_filename: 导出的pdf文件的名称</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 2). 打开PPT程序</span></span><br><span class="line">    ppt_app = win32com.client.Dispatch(<span class="string">&#x27;PowerPoint.Application&#x27;</span>)</span><br><span class="line">    <span class="comment"># ppt_app.Visible = True  # 程序操作应用程序的过程是否可视化</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3). 通过PPT的应用程序打开指定的PPT文件</span></span><br><span class="line">    <span class="comment"># filename = &quot;C:/Users/Administrator/Desktop/PPT办公自动化/ppt/PPT素材1.pptx&quot;</span></span><br><span class="line">    <span class="comment"># output_filename = &quot;C:/Users/Administrator/Desktop/PPT办公自动化/ppt/PPT素材1.pdf&quot;</span></span><br><span class="line">    ppt = ppt_app.Presentations.Open(filename)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4). 打开的PPT另存为pdf文件。17数字是ppt转图片，32数字是ppt转pdf。</span></span><br><span class="line">    ppt.SaveAs(output_filename, <span class="number">32</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;导出成pdf格式成功!!!&quot;</span>)</span><br><span class="line">    <span class="comment"># 退出PPT程序</span></span><br><span class="line">    ppt_app.Quit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 要处理的目录名称</span></span><br><span class="line">dirname = os.path.dirname(os.path.realpath(__file__))</span><br><span class="line"><span class="comment"># 列出指定目录的内容</span></span><br><span class="line">filenames = os.listdir(dirname)</span><br><span class="line"><span class="comment"># for循环依次访问指定目录的所有文件名</span></span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">    <span class="comment"># 判断文件的类型，对所有的ppt文件进行处理(ppt文件以ppt或者pptx结尾的)</span></span><br><span class="line">    <span class="keyword">if</span> filename.endswith(<span class="string">&#x27;ppt&#x27;</span>) <span class="keyword">or</span> filename.endswith(<span class="string">&#x27;pptx&#x27;</span>):</span><br><span class="line">        <span class="comment"># print(filename)           # PPT素材1.pptx -&gt; PPT素材1.pdf</span></span><br><span class="line">        <span class="comment"># 将filename以.进行分割，返回2个信息，文件的名称和文件的后缀名</span></span><br><span class="line">        base, ext = filename.split(<span class="string">&#x27;.&#x27;</span>)  <span class="comment"># base=PPT素材1 ext=pdf</span></span><br><span class="line">        new_name = base + <span class="string">&#x27;.pdf&#x27;</span>         <span class="comment"># PPT素材1.pdf</span></span><br><span class="line">        <span class="comment"># ppt文件的完整位置: C:/Users/Administrator/Desktop/PPT办公自动化/ppt/PPT素材1.pptx</span></span><br><span class="line">        filename = dirname + <span class="string">&#x27;/&#x27;</span> + filename</span><br><span class="line">        <span class="comment"># pdf文件的完整位置: C:/Users/Administrator/Desktop/PPT办公自动化/ppt/PPT素材1.pdf</span></span><br><span class="line">        output_filename = dirname + <span class="string">&#x27;/&#x27;</span> + new_name</span><br><span class="line">        <span class="comment"># 将ppt转成pdf文件</span></span><br><span class="line">        ppt2pdf(filename, output_filename)</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/30/python%E5%B0%8F%E5%B7%A5%E5%85%B7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1288,13 +1284,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">28k</span>
+    <span title="站点总字数">29k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">25 分钟</span>
+    <span title="站点阅读时长">27 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

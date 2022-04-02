@@ -54,6 +54,10 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="dmpc">DMPC</h1>
 <p>论文：《Trajectory Generation for Multiagent Point-To-Point</p>
 <p>Transitions via Distributed Model Predictive Control》</p>
+<figure>
+<img src="/2022/04/01/dmpc/image-20220402230235448.png" alt="DMPC"><figcaption aria-hidden="true">DMPC</figcaption>
+</figure>
+<span id="more"></span>
 <h2 id="摘要">摘要</h2>
 <ul>
 <li>介绍了 一种基于分布式模型预测控制（DMPC）的多智能体offline轨迹生成算法。</li>
@@ -72,8 +76,68 @@
 <li>将他看做一个优化问题，比如混合整数线性规划MILP（Mixed Integer Linear Programming），使用二进制变量（0和1）构建碰撞约束。有一个致命的缺点就是计算复杂度太大，导致不适用于多agents。</li>
 <li>顺序凸规划SCP比MILP的<strong>计算时间少</strong>，而且SCP是用于<strong>计算四旋翼集群的最佳能量轨迹</strong>；但是缺点也很明显，就是算法不能随着agent的数量增加而扩展，但是好像最近提出了一种decoupled版本的SCP，但是随着agent的增加，成功率也下降了。</li>
 <li>分布式优化方法与集中式方法相比减少了计算时间。ORCA利用速度障碍（velocity obstacles）来雀儿包完整性agent和非完整性agent的无碰撞轨迹。<strong>因为他假设在一段时间内具有恒定的速度，所以该方法比较保守（conservative）</strong>。</li>
+<li>关于本文介绍的DMPC。</li>
 </ol></li>
 </ul>
+<h2 id="问题陈述">问题陈述</h2>
+<h3 id="the-agents">the agents</h3>
+<p><span class="math display">\[p_i[k+1]=p_i[k]+hv_i[k]+\frac{h^2}{2}a_i[k]\]</span></p>
+<p><span class="math display">\[v_i[k+1]=v_i[k]+ha_i[k]\]</span></p>
+<p>第i个agent在k时刻的position、velocity、acceleration。其中<span class="math inline">\(a_i[k]\)</span>是输入，h是离散化步骤h（discretization step h）。</p>
+<h3 id="constraints">Constraints</h3>
+<p>首先约束<span id="anchor">驱动约束：</span></p>
+<ul>
+<li>加速度有一个最大和最小的约束</li>
+<li>因为是在室内（indoor）进行试验，位置会有一个范围约束</li>
+</ul>
+<h3 id="collision-avoidance">Collision Avoidance</h3>
+<p>agent i和agent j之间的碰撞约束为：</p>
+<p><span class="math display">\[\Vert\Theta^{-1}(p_i[k]-p_j[k]) \Vert_n \geq r_{min}\]</span></p>
+<p>n一般取2，r<sub>min</sub>就是agent之间的最小距离，<span class="math inline">\(\Theta\)</span>是缩放矩阵（scaling matrix），定义为<span class="math inline">\(\Theta=diag(a,b,c)\)</span>，a=b=1，c&gt;1，这样的话就会要求竖直轴（z轴）方向上的最小距离为r<sub>z,min</sub>=cr<sub>min</sub>。</p>
+<h2 id="dmpc-1">DMPC</h2>
+<p>在问题陈述部分提出的问题，可以看做一个优化问题，在每个时间步进解决一个问题，该问题基于描述agent动力学模型在给定的预测范围内找到<strong>最佳输入序列</strong>。<strong>该序列的第一个输入应用于真实系统并且测量结果状态（resulting state），这是下一个优化问题的起点（starting point）</strong>。但是这篇文章在输入之后不测量agents的状态，因为还没有布置实际的agent，而是<strong>将输入直接应用于模型用来计算生成下一步的轨迹</strong>。重复上一步直到生成全部的轨迹。</p>
+<blockquote>
+<p style="color:red;">
+所以我们以分布式方式应用，就是让每个agent执行上述的迭代的优化问题去生成轨迹，并且和临近的agent分享信息。
+</p>
+</blockquote>
+<h3 id="synchronous-algorithm">Synchronous Algorithm</h3>
+<p>计算新的输入序列步骤：</p>
+<ul>
+<li><p style="color:red;">
+使用在k<sub>i</sub>-1步计算的临近的agent的最新预测状态检查未来是否会发生碰撞。
+</p></li>
+<li><p style="color:red;">
+构建包括状态（state）、动力（actuation）以及碰撞（collision）在内的约束优化问题。
+</p></li>
+<li><p style="color:red;">
+在获得下一个最优序列之后，将序列的第一个元素应用于模型，agent向前移动一步。
+</p></li>
+</ul>
+<h3 id="the-agent-prediction-model">The Agent Prediction Model</h3>
+<p>数学公式太难打了，大致的思想就是自己定义了一个算数运算符<span class="math inline">\([k\vert k_t]\)</span>，然后代到上面（1）（2）式子中去，<img src="/2022/04/01/dmpc/image-20220402233010792.png" alt="formula"></p>
+<p>后面的东西就看不懂了。</p>
+<h3 id="objective-function">Objective Function</h3>
+<p>目标函数主要有三个组成部分：</p>
+<ul>
+<li><p>轨迹误差（trajectory error）</p>
+<p>这一部分主要是驱使agent到达goal，定义误差和为<span class="math display">\[e_i=\sum^K_{k=K-j}\Vert p_i[k\vert k_t]-p_{d,i}\Vert_2\]</span></p>
+<p>其中j为最后的time step，<span class="math inline">\(p_{d,i}\)</span>是desired final position。</p>
+<p style="color:red;">
+</p><p>j越大，会导致agent的行为比较激进，agent会更快的朝着目标移动，但是也可能会导致目标位置超调（overshoot）</p>
+<p></p>
+<p>我在这里盲猜一手激进的j选取会导致collision constraint很难满足。</p></li>
+<li><p>控制作用（control effort）</p></li>
+<li><p>输入变化（input variation）</p>
+<p>用于最小化加速度的变化，从而生成平滑的输入轨迹<img src="/2022/04/01/dmpc/image-20220402234853411.png" alt="formula another"></p>
+<p>其中u是输入，只能写到这了，后面是能力有限。</p></li>
+<li><p>物理限制（Physical Limits）</p>
+<p>就是前面<a href="#anchor">驱动约束：</a>提到的constraint</p></li>
+<li><p>凸优化问题，无碰撞（Convex Optimization Problem）</p>
+<p>把上面所有目标函数和约束结合起来可以看成一个3K决策变量和12K个不等式约束的二次规划问题。<img src="/2022/04/01/dmpc/image-20220402235846299.png" alt="凸优化问题"></p></li>
+</ul>
+<hr>
+<h2 id="on-demand-collision-avoidance-with-soft-constraints">On-demand Collision Avoidance with Soft Constraints</h2>
 ]]></content>
       <categories>
         <category>论文</category>
@@ -86,6 +150,7 @@
     <title>python小工具</title>
     <url>/2022/03/30/python%E5%B0%8F%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="python小工具">python小工具</h1>
+<span id="more"></span>
 <h2 id="视频转gif">视频转GIF</h2>
 <p>dependence packages:</p>
 <ul>
@@ -1646,6 +1711,10 @@ your browser does not support the video tag
 <h2 id="git-文件过大">git 文件过大</h2>
 <p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p5NDQwNDU4L2FydGljbGUvZGV0YWlscy8xMTQzMzY3MTI=">(70条消息) 清理git commit中的大文件_蒟蒻颖的博客-CSDN博客<i class="fa fa-external-link-alt"></i></span></p>
 <p>直接删除.deloygit</p>
+<h2 id="站内链接">站内链接</h2>
+<figure>
+<img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220402235536964.png" alt="image-20220402235536964"><figcaption aria-hidden="true">image-20220402235536964</figcaption>
+</figure>
 ]]></content>
       <categories>
         <category>安装</category>
