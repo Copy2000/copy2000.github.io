@@ -80,8 +80,19 @@
 <ul>
 <li>VScode安装JAVA扩展
 <ul>
-<li>Extension Pack for JAVA</li>
-<li>JAVA Development Kit</li>
+<li><p>Extension Pack for JAVA(好像是6合1)</p></li>
+<li><p>JAVA Development Kit</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cub3JhY2xlLmNvbS9qYXZhL3RlY2hub2xvZ2llcy9qYXZhc2UtZG93bmxvYWRzLmh0bWw=">下载java<i class="fa fa-external-link-alt"></i></span></li>
+<li>把下载的java添加到系统变量（2处）<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409003946283.png" alt="image-20220409003946283"><img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409004015114.png" alt="image-20220409004015114"><img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409004036112.png" alt="image-20220409004036112"></li>
+</ul></li>
+<li><p>cmd 运行<code>java -version</code></p></li>
+<li><p>vscode 在工作区设置setting.json<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409004207504.png" alt="image-20220409004207504"></p></li>
+<li><p>检验</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">hello</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409004329142.png" alt="image-20220409004329142"><figcaption aria-hidden="true">image-20220409004329142</figcaption>
+</figure></li>
 </ul></li>
 </ul>
 ]]></content>
