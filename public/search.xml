@@ -55,6 +55,45 @@
       </categories>
   </entry>
   <entry>
+    <title>JAVA使用JNA</title>
+    <url>/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="使用jna调用cc动态链接库dll">使用JNA调用C/C++动态链接库dll</h1>
+<p>参考视频:<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMTZ0NDExQTdpdC8=">Java使用JNA调用C/C++动态链接库dll_哔哩哔哩_bilibili<i class="fa fa-external-link-alt"></i></span></p>
+<p>GITHUB repository:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2phdmEtbmF0aXZlLWFjY2Vzcy9qbmE=">java-native-access/jna: Java Native Access (github.com)<i class="fa fa-external-link-alt"></i></span></p>
+<span id="more"></span>
+<h2 id="准备">准备</h2>
+<ul>
+<li>下载JNA和JNA Platform。</li>
+</ul>
+<figure>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407232739677.png" alt="image-20220407232739677"><figcaption aria-hidden="true">image-20220407232739677</figcaption>
+</figure>
+<figure>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407232838933.png" alt="image-20220407232838933"><figcaption aria-hidden="true">image-20220407232838933</figcaption>
+</figure>
+<ul>
+<li>下载Code，可以使用SSH，更加快，但是我使用了VPN了，所以直接下载压缩包。</li>
+</ul>
+<figure>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407233022480.png" alt="image-20220407233022480"><figcaption aria-hidden="true">image-20220407233022480</figcaption>
+</figure>
+<ul>
+<li>VScode安装JAVA扩展
+<ul>
+<li>Extension Pack for JAVA</li>
+<li>JAVA Development Kit</li>
+</ul></li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>dmpc</title>
     <url>/2022/04/01/dmpc/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="dmpc">DMPC</h1>
@@ -1793,6 +1832,14 @@ your browser does not support the video tag
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ros::<span class="built_in">init</span>(argc,argv,<span class="string">&quot;init&quot;</span>);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    ros::Publisher Pub = nh.advertise&lt;geometry_msgs::Twist&gt;(<span class="string">&quot;/hector1/cmd_vel&quot;</span>,<span class="number">10</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 初始化geometry_msgs::Twist类型的消息    </span></span><br><span class="line">    geometry_msgs::Twist vel_msg;</span><br><span class="line">    vel_msg.linear.x=<span class="number">0.2</span>;</span><br><span class="line">    vel_msg.angular.z=<span class="number">0.2</span>;</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 设置循环的频率</span></span><br><span class="line">    <span class="function">ros::Rate <span class="title">loop_rate</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(ros::ok)</span><br><span class="line">    &#123;</span><br><span class="line">        ros::<span class="built_in">spinonce</span>();</span><br><span class="line">        Pub.<span class="built_in">publish</span>(Twist);</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">ROS_INFO</span>(<span class="string">&quot;Publsh velocity command[%0.2f m/s, %0.2f rad/s]&quot;</span>, </span><br><span class="line">				vel_msg.linear.x, vel_msg.angular.z);</span><br><span class="line">        </span><br><span class="line">        loop_rate.<span class="built_in">sleep</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>linear.x指向机器人前方，linear.y指向左方，linear.z垂直向上满足右手系，平面移动机器人常常linear.y和linear.z均为0；</p>
 <p>angular.z代表平面机器人的角速度，因为此时z轴为旋转轴</p>
+<h2 id="sensor_msgs">sensor_msgs</h2>
+<figure>
+<img src="/2022/01/19/ROS%E4%B8%AD%E7%9A%84message%E4%BD%BF%E7%94%A8/image-20220405153718538.png" alt="sensor_msgs"><figcaption aria-hidden="true">sensor_msgs</figcaption>
+</figure>
+<ul>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI5NDYyODQ5L2FydGljbGUvZGV0YWlscy84ODc5NTI1MA==">(71条消息) ROS下sensor_msgs::ImagePtr到sensor_msgs::Image之间的转换_Tom Hardy的博客-CSDN博客<i class="fa fa-external-link-alt"></i></span>:ROS下面好像没办法直接定义sensor_msgs/ImagePtr,而是sensor_msgs/Image。然而在从Mat格式转到ROS下的图像格式时，一般都是ImagePtr，这样在发布信息的时候就需要一次转换啦，其实也很简单！</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">sensor_msgs::ImagePtr msg= cv_bridge::<span class="built_in">CvImage</span>(std_msgs::<span class="built_in">Header</span>(), <span class="string">&quot;bgr8&quot;</span>, src).<span class="built_in">toImageMsg</span>();</span><br><span class="line">detect_msg.image_raw=*msg;</span><br><span class="line">这里自定义的detect_msg.image_raw就是sensor_msgs/Image格式。</span><br></pre></td></tr></table></figure></li>
+</ul>
 ]]></content>
       <categories>
         <category>ROS学习</category>

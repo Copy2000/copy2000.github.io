@@ -22,25 +22,32 @@
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"copy2000.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="竹杖芒鞋轻胜马">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Copy2000">
-<meta property="og:url" content="https://copy2000.github.io/tags/RVO2/index.html">
+<meta name="description" content="使用JNA调用C&#x2F;C++动态链接库dll 参考视频:Java使用JNA调用C&#x2F;C++动态链接库dll_哔哩哔哩_bilibili GITHUB repository:java-native-access&#x2F;jna: Java Native Access (github.com)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA使用JNA">
+<meta property="og:url" content="https://copy2000.github.io/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/index.html">
 <meta property="og:site_name" content="Copy2000">
-<meta property="og:description" content="竹杖芒鞋轻胜马">
+<meta property="og:description" content="使用JNA调用C&#x2F;C++动态链接库dll 参考视频:Java使用JNA调用C&#x2F;C++动态链接库dll_哔哩哔哩_bilibili GITHUB repository:java-native-access&#x2F;jna: Java Native Access (github.com)">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://copy2000.github.io/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407232739677.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407232838933.png">
+<meta property="og:image" content="https://copy2000.github.io/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407233022480.png">
+<meta property="article:published_time" content="2022-04-07T15:19:20.000Z">
+<meta property="article:modified_time" content="2022-04-07T15:37:43.731Z">
 <meta property="article:author" content="zhaochao">
+<meta property="article:tag" content="JAVA">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://copy2000.github.io/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407232739677.png">
 
 
-<link rel="canonical" href="https://copy2000.github.io/tags/RVO2/">
+<link rel="canonical" href="https://copy2000.github.io/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/RVO2/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://copy2000.github.io/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/","path":"2022/04/07/JAVA使用JNA/","title":"JAVA使用JNA"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: RVO2 | Copy2000</title>
+<title>JAVA使用JNA | Copy2000</title>
   
 
 
@@ -132,7 +139,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -145,6 +152,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8jna%E8%B0%83%E7%94%A8cc%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93dll"><span class="nav-number">1.</span> <span class="nav-text">使用JNA调用C&#x2F;C++动态链接库dll</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">1.1.</span> <span class="nav-text">准备</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -206,51 +214,150 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">RVO2
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://copy2000.github.io/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.png">
+      <meta itemprop="name" content="zhaochao">
+      <meta itemprop="description" content="竹杖芒鞋轻胜马">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Copy2000">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JAVA使用JNA
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+
+      <time title="创建时间：2022-04-07 23:19:20 / 修改时间：23:37:43" itemprop="dateCreated datePublished" datetime="2022-04-07T23:19:20+08:00">2022-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>312</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="使用jna调用cc动态链接库dll">使用JNA调用C/C++动态链接库dll</h1>
+<p>参考视频:<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMTZ0NDExQTdpdC8=">Java使用JNA调用C/C++动态链接库dll_哔哩哔哩_bilibili<i class="fa fa-external-link-alt"></i></span></p>
+<p>GITHUB repository:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2phdmEtbmF0aXZlLWFjY2Vzcy9qbmE=">java-native-access/jna: Java Native Access (github.com)<i class="fa fa-external-link-alt"></i></span></p>
+<span id="more"></span>
+<h2 id="准备">准备</h2>
+<ul>
+<li>下载JNA和JNA Platform。</li>
+</ul>
+<figure>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407232739677.png" alt="image-20220407232739677"><figcaption aria-hidden="true">image-20220407232739677</figcaption>
+</figure>
+<figure>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407232838933.png" alt="image-20220407232838933"><figcaption aria-hidden="true">image-20220407232838933</figcaption>
+</figure>
+<ul>
+<li>下载Code，可以使用SSH，更加快，但是我使用了VPN了，所以直接下载压缩包。</li>
+</ul>
+<figure>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407233022480.png" alt="image-20220407233022480"><figcaption aria-hidden="true">image-20220407233022480</figcaption>
+</figure>
+<ul>
+<li>VScode安装JAVA扩展
+<ul>
+<li>Extension Pack for JAVA</li>
+<li>JAVA Development Kit</li>
+</ul></li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-14T18:48:59+08:00"
-              content="2022-01-14">
-          01-14
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/14/%E9%85%8D%E7%BD%AE%E9%81%BF%E9%9A%9C%E7%8E%AF%E5%A2%83/" itemprop="url">
-            <span itemprop="name">配置linux避障环境</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JAVA/" rel="tag"># JAVA</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/01/dmpc/" rel="prev" title="dmpc">
+                  <i class="fa fa-chevron-left"></i> dmpc
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
 
+
+
+
+
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -355,7 +462,7 @@ darkmode.showWidget();
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"copy2000","repo":"commentsOFblog","client_id":"4cd03f17029679eb004b","client_secret":"7f7f860e3a95b014ab7942ab4255525500d4edcb","admin_user":"copy2000","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"bff71fa585bf42bda73cf72fd7213cab"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"copy2000","repo":"commentsOFblog","client_id":"4cd03f17029679eb004b","client_secret":"7f7f860e3a95b014ab7942ab4255525500d4edcb","admin_user":"copy2000","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"b4cca1134e88a79465933eb0a5dc99d2"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
