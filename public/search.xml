@@ -68,6 +68,74 @@
       </categories>
   </entry>
   <entry>
+    <title>JNA的使用</title>
+    <url>/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="jna的使用">JNA的使用</h1>
+<span id="more"></span>
+<h2 id="mcvs导入库">MCVS导入库</h2>
+<figure>
+<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412223616766.png" alt="image-20220412223616766"><figcaption aria-hidden="true">image-20220412223616766</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>folder</th>
+<th>application</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>eigen-3.4.0</td>
+<td>导入c++矩阵</td>
+</tr>
+<tr class="even">
+<td>qpOASES</td>
+<td>导入qp包</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>使用软件：
+<ul>
+<li>Visual Studio 2022</li>
+<li>IntelliJ IDEA Community Edition 2021.3.3</li>
+</ul></li>
+</ul>
+<h3 id="导入qpoases">导入qpOASES</h3>
+<ul>
+<li>将下载好的qpOASES文件夹通过visual studio打开。<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/屏幕截图(30).png" alt="屏幕截图(C:/Users/A/Desktop/JNA的使用/屏幕截图(30).png)"></li>
+<li>点击生成---全部生成<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/屏幕截图(31).png" alt="屏幕截图(C:/Users/A/Desktop/JNA的使用/屏幕截图(31).png)"></li>
+<li>在qpOASES文件夹下面的out/build/X64-debug/libs下面生成了.lib文件<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412224401224.png" alt="image-20220412224401224"></li>
+<li>新建一个项目用于测试，把qpOASES中的include和刚刚生成的libs文件夹放到新生成的项目中<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412224630628.png" alt="image-20220412224630628"></li>
+<li>在项目的属性中添加相关的include和lib<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412224709797.png" alt="image-20220412224709797"><img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412224737726.png" alt="image-20220412224737726"><img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412224824053.png" alt="image-20220412224824053"></li>
+<li>运行example中的例子<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412224912177.png" alt="image-20220412224912177"></li>
+</ul>
+<h3 id="导入eigen">导入eigen</h3>
+<figure>
+<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412225057571.png" alt="image-20220412225057571"><figcaption aria-hidden="true">image-20220412225057571</figcaption>
+</figure>
+<hr>
+<h2 id="jna类的使用">JNA类的使用</h2>
+<ul>
+<li><p>visual studio部分：</p>
+<ul>
+<li>类定义和dll导出<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220415142446647.png" alt="image-20220415142446647"><img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220415142533800.png" alt="image-20220415142533800"><img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220415142542420.png" alt="image-20220415142542420"></li>
+</ul></li>
+<li><p>idea部分</p>
+<ul>
+<li>interface<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220415142627343.png" alt="image-20220415142627343"></li>
+<li>main<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220415142655636.png" alt="image-20220415142655636"></li>
+</ul></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JAVA使用JNA</title>
     <url>/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="使用jna调用cc动态链接库dll">使用JNA调用C/C++动态链接库dll</h1>
@@ -165,6 +233,50 @@
       </categories>
       <tags>
         <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ROS中的OpenCV</title>
+    <url>/2022/04/05/ROS%E4%B8%AD%E7%9A%84OpenCV/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="ros中的opencv">ROS中的OpenCV</h1>
+<figure>
+<img src="/2022/04/05/ROS%E4%B8%AD%E7%9A%84OpenCV/u=1900498818,1764414352&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=PNG.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<span id="more"></span>
+<h2 id="cv_bridge">cv_bridge</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JpZ2RvZ18xMDI3L2FydGljbGUvZGV0YWlscy83OTA5MDU3MQ==">参考文章<i class="fa fa-external-link-alt"></i></span></p>
+<p>在OpenCV中，图像是以Mat矩阵的形式存储的，这与ROS定义的图像消息的格式有一定的区别，所以我们需要利用cv_bridge将这两种不相同的格式联系起来，如下图所示。</p>
+<figure>
+<img src="/2022/04/05/ROS%E4%B8%AD%E7%9A%84OpenCV/Center.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>当cv_bridge将ROS的图像消息转换为OpenCV图像格式时都是通过CvImage类实现的。一般来说，cv_bridge提供了两种方式转换为CvImage类，分别为复制（copy）和共享（share）。</p>
+<figure>
+<img src="/2022/04/05/ROS%E4%B8%AD%E7%9A%84OpenCV/image-20220405155033543.png" alt="image-20220405155033543"><figcaption aria-hidden="true">image-20220405155033543</figcaption>
+</figure>
+<p>parameter input:</p>
+<ol type="1">
+<li>图像消息的指针sensor_msgs::ImageConstPtr</li>
+<li>选的编码参数std::string</li>
+</ol>
+<ul>
+<li><p>方式的区别：</p>
+<ul>
+<li><p>toCvCopy函数会从ROS消息中拷贝一个图像数据，不管如何修改CvImage类的内容都不会影响源数据，使用例子如下。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cv::Mat img;</span><br><span class="line">cv_bridge::CvImagePtr cv_ptr; </span><br><span class="line">cv_ptr = cv_bridge::<span class="built_in">toCvCopy</span>(msg, <span class="string">&quot;mono8&quot;</span>);</span><br><span class="line">cv_ptr-&gt;image.<span class="built_in">copyTo</span>(img);</span><br></pre></td></tr></table></figure></li>
+<li><p>oCvShare函数则是在源和编码都匹配的情况下将返回的OpenCV指针指向ROS的消息，即共享指针地址。它的特点是只要你还保持着返回的CvImage类的副本，那么ROS的消息类型就不会被释放。当编码参数不匹配时，它还能够另外开辟一个新的缓存区并执行编码参数转换工作。</p></li>
+<li><p>toCvShare函数对于有一个指向另一个相同类型消息的指针时会很方便（比如双目图像）。如果没有给定编码类型时，toCvShare会使目标图像编码将会与消息编码相同。toCvShare函数的使用例子如下。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cv::Mat img;</span><br><span class="line">cv_bridge::CvImageConstPtr cv_ptr;</span><br><span class="line">cv_ptr=cv_bridge::<span class="built_in">toCvShare</span>(msg, <span class="string">&quot;mono8&quot;</span>);</span><br><span class="line">img = cv_ptr-&gt;image;</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+</ul>
+<p>常用的编码方式<img src="/2022/04/05/ROS%E4%B8%AD%E7%9A%84OpenCV/image-20220405155416510.png" alt="image-20220405155416510"></p>
+]]></content>
+      <categories>
+        <category>ROS学习</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+        <tag>Linux</tag>
+        <tag>OpenCV</tag>
       </tags>
   </entry>
   <entry>
