@@ -62,15 +62,87 @@
 </blockquote>
 </blockquote>
 <p>放假真爽！！！</p>
+<blockquote>
+<blockquote>
+<p>2022/4/18</p>
+</blockquote>
+</blockquote>
+<p>最近感觉自己水水的，要加油了！！</p>
 ]]></content>
       <categories>
         <category>文学</category>
       </categories>
   </entry>
   <entry>
+    <title>计划</title>
+    <url>/2022/04/18/%E8%AE%A1%E5%88%92/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在彭尧尧的提醒下，决定要好好给自己每一周制定一个计划。</p>
+<span id="more"></span>
+<h1 id="plan">plan</h1>
+<h2 id="section">2022</h2>
+<h3 id="section-1">4.18-4.24</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled checked>
+移动机器人学习（4.28考试）</li>
+<li><input type="checkbox" disabled checked>
+卡尔曼滤波学习</li>
+<li><input type="checkbox" disabled checked>
+电子线路设计实验一报告（4.23ddl）</li>
+</ul>
+<h3 id="section-2">4.25-5.01</h3>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled>
+移动机器人学习（4.28考试）</p></li>
+<li><p><input type="checkbox" disabled>
+社会工业学第二次汇报</p></li>
+<li><p><input type="checkbox" disabled>
+电子线路设计第二次实验</p></li>
+<li><p><input type="checkbox" disabled>
+现代检测技术实验报告</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ROS踩坑合集</title>
+    <url>/2022/04/15/ROS%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="ros踩坑合集">ROS踩坑合集</h1>
+<figure>
+<img src="/2022/04/15/ROS%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/thid=OHR.DartmoorMist_ROW8858923982_1920x1080.jpg&amp;rf=LaDigue_1920x1080.jpg" alt="img"><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<span id="more"></span>
+<h2 id="gazebo">gazebo</h2>
+<p>gazebo无法启动，一直卡在preparing the world多半是因为在.gazebo/models下面的文件不全，所以导致gazebo联网下载模型，这个时候</p>
+<ul>
+<li>断开网络验证是否是上述问题。</li>
+</ul>
+<p>如若不是，本文无法解答，如果可以进入gazebo，但是光溜溜的啥都没有，说明你的问题即将解答，下面二选一，殊道同归。</p>
+<ul>
+<li>去github搜索gazebo models</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29zcmYvZ2F6ZWJvX21vZGVscw==">osrf/gazebo_models: Gazebo database of SDF models. This is a predecessor to https://app.ignitionrobotics.org/ (github.com)<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<p>下载文件，放到.gazebo/models中可以解决。</p>
+<hr>
+<p><img src="/2022/04/15/ROS%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/image-20220415233303537.png" alt="image-20220415233303537">如果出现这个，使用<code>killall gzserver</code>，之后再次roslaunch。</p>
+<hr>
+]]></content>
+      <categories>
+        <category>ROS学习</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JNA的使用</title>
     <url>/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="jna的使用">JNA的使用</h1>
+<p>repository：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvcHkyMDAwL0pOQV91c2U=">Copy2000/JNA_use: 使用JNA调用c++的类和函数 (github.com)<i class="fa fa-external-link-alt"></i></span></p>
 <span id="more"></span>
 <h2 id="mcvs导入库">MCVS导入库</h2>
 <figure>
@@ -139,8 +211,16 @@
     <title>JAVA使用JNA</title>
     <url>/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="使用jna调用cc动态链接库dll">使用JNA调用C/C++动态链接库dll</h1>
-<p>参考视频:<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMTZ0NDExQTdpdC8=">Java使用JNA调用C/C++动态链接库dll_哔哩哔哩_bilibili<i class="fa fa-external-link-alt"></i></span></p>
-<p>GITHUB repository:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2phdmEtbmF0aXZlLWFjY2Vzcy9qbmE=">java-native-access/jna: Java Native Access (github.com)<i class="fa fa-external-link-alt"></i></span></p>
+<p>参考视频:</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMTZ0NDExQTdpdC8=">Java使用JNA调用C/C++动态链接库dll_哔哩哔哩_bilibili<i class="fa fa-external-link-alt"></i></span>（不是特别对）</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMXhVNHkxRjdFcD9zcG1faWRfZnJvbT0zMzMuMTAwNy50b3BfcmlnaHRfYmFyX3dpbmRvd19kZWZhdWx0X2NvbGxlY3Rpb24uY29udGVudC5jbGljaw==">【C++】JAVA使用JNA调用C++动态库DLL_哔哩哔哩_bilibili<i class="fa fa-external-link-alt"></i></span>（推荐）</li>
+</ul>
+<p>GITHUB repository:</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2phdmEtbmF0aXZlLWFjY2Vzcy9qbmE=">java-native-access/jna: Java Native Access (github.com)<i class="fa fa-external-link-alt"></i></span></li>
+<li>repository：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvcHkyMDAwL0pOQV91c2U=">Copy2000/JNA_use: 使用JNA调用c++的类和函数 (github.com)<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
 <span id="more"></span>
 <h2 id="准备">准备</h2>
 <ul>
@@ -1239,7 +1319,9 @@ your browser does not support the video tag
     <title>ROS学习：tianbot控制</title>
     <url>/2022/03/15/tianbot/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="ros学习tianbot控制">ROS学习：tianbot控制</h1>
-<p>相关重要的packages在tianbot的github上可以找到<span id="more"></span></p>
+<p>相关重要的packages在tianbot的github上可以找到</p>
+<p>虚拟机上的gazebo无法打开直接断开网络可以打开。</p>
+<span id="more"></span>
 <figure>
 <img src="/2022/03/15/tianbot/image-20220315230424709.png" alt="相关重要的packages"><figcaption aria-hidden="true">相关重要的packages</figcaption>
 </figure>
