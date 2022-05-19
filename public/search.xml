@@ -74,39 +74,18 @@
       </categories>
   </entry>
   <entry>
-    <title>计划</title>
-    <url>/2022/04/18/%E8%AE%A1%E5%88%92/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在彭尧尧的提醒下，决定要好好给自己每一周制定一个计划。</p>
+    <title>断舍离</title>
+    <url>/2022/05/01/%E6%96%AD%E8%88%8D%E7%A6%BB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="断舍离">断舍离</h1>
 <span id="more"></span>
-<h1 id="plan">plan</h1>
-<h2 id="section">2022</h2>
-<h3 id="section-1">4.18-4.24</h3>
-<ul class="task-list">
-<li><input type="checkbox" disabled checked>
-移动机器人学习（4.28考试）</li>
-<li><input type="checkbox" disabled checked>
-卡尔曼滤波学习</li>
-<li><input type="checkbox" disabled checked>
-电子线路设计实验一报告（4.23ddl）</li>
-</ul>
-<h3 id="section-2">4.25-5.01</h3>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled>
-移动机器人学习（4.28考试）</p></li>
-<li><p><input type="checkbox" disabled>
-社会工业学第二次汇报</p></li>
-<li><p><input type="checkbox" disabled>
-电子线路设计第二次实验</p></li>
-<li><p><input type="checkbox" disabled>
-现代检测技术实验报告</p></li>
-</ul>
+<p>2022年5月1号的00:00，我写下了这句话，在这里我卸载了电脑中的csgo等其他游戏，我要断舍离，并不是我意志力不坚定，而是告诉自己，我就是需要卸载才能不玩游戏dog。</p>
+<p>今天看到一篇文章，讲的是人为什么 焦虑，不过是选择的时候犹犹豫豫，事后稀里糊涂的一通乱想。我在想考研这个事，如果我选择本校，是不是就可以平稳上岸了呢，答案90%应该是，但是人生都是一种选择，没有对于错，我想用更多的风险来获得丰厚的回报，我应该是一个极致的赌徒，我告诉自己，人这一生无他，就是赌。</p>
+<p>生命的多姿多彩，就是未知，未知的事，未知的人，未知的下一步，我们准确确定下一步在哪，但是我们知道，走的每一步都思索、反思，跟马尔科夫定位一样，总会有一个最大似然概率，总能确定我大概在哪。</p>
+<p>所以，现在我想对自己提出一个问题，230天，我可以吗？我在这里回答自己，设定的初值是可以 ，300天后在这里看。</p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>文学</category>
       </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
   </entry>
   <entry>
     <title>ROS踩坑合集</title>
