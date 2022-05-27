@@ -36,7 +36,7 @@
 <p>2022/3/25</p>
 </blockquote>
 </blockquote>
-<p>又下了一晚上的象棋，克制克制，不可以轻易暴露老子棋圣的身份，吃我分的人我一定会吃回来的。<img src="/2022/03/22/xie-zai-qian-mian/image-20220326213553634.png" alt="39%"></p>
+<p>又下了一晚上的象棋，克制克制，不可以轻易暴露老子棋圣的身份，吃我分的人我一定会吃回来的。<img src="/2022/03/22/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/image-20220326213553634.png" alt="39%"></p>
 <blockquote>
 <blockquote>
 <p>2022/3/30</p>
@@ -92,7 +92,7 @@
     <url>/2022/04/15/ros-cai-keng-he-ji/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="ros踩坑合集">ROS踩坑合集</h1>
 <figure>
-<img src="/2022/04/15/ros-cai-keng-he-ji/thid=OHR.DartmoorMist_ROW8858923982_1920x1080.jpg&amp;rf=LaDigue_1920x1080.jpg" alt="img"><figcaption aria-hidden="true">img</figcaption>
+<img src="/2022/04/15/ROS%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/thid=OHR.DartmoorMist_ROW8858923982_1920x1080.jpg&amp;rf=LaDigue_1920x1080.jpg" alt="img"><figcaption aria-hidden="true">img</figcaption>
 </figure>
 <span id="more"></span>
 <h2 id="gazebo">gazebo</h2>
@@ -107,7 +107,7 @@
 </ul>
 <p>下载文件，放到.gazebo/models中可以解决。</p>
 <hr>
-<p><img src="/2022/04/15/ros-cai-keng-he-ji/image-20220415233303537.png" alt="image-20220415233303537">如果出现这个，使用<code>killall gzserver</code>，之后再次roslaunch。</p>
+<p><img src="/2022/04/15/ROS%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/image-20220415233303537.png" alt="image-20220415233303537">如果出现这个，使用<code>killall gzserver</code>，之后再次roslaunch。</p>
 <hr>
 ]]></content>
       <categories>
@@ -125,7 +125,7 @@
 <span id="more"></span>
 <h2 id="mcvs导入库">MCVS导入库</h2>
 <figure>
-<img src="/2022/04/13/jna-de-shi-yong/image-20220412223616766.png" alt="image-20220412223616766"><figcaption aria-hidden="true">image-20220412223616766</figcaption>
+<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412223616766.png" alt="image-20220412223616766"><figcaption aria-hidden="true">image-20220412223616766</figcaption>
 </figure>
 <table>
 <thead>
@@ -154,28 +154,28 @@
 </ul>
 <h3 id="导入qpoases">导入qpOASES</h3>
 <ul>
-<li>将下载好的qpOASES文件夹通过visual studio打开。<img src="/2022/04/13/jna-de-shi-yong/屏幕截图(30).png" alt="屏幕截图(C:/Users/A/Desktop/JNA的使用/屏幕截图(30).png)"></li>
-<li>点击生成---全部生成<img src="/2022/04/13/jna-de-shi-yong/屏幕截图(31).png" alt="屏幕截图(C:/Users/A/Desktop/JNA的使用/屏幕截图(31).png)"></li>
-<li>在qpOASES文件夹下面的out/build/X64-debug/libs下面生成了.lib文件<img src="/2022/04/13/jna-de-shi-yong/image-20220412224401224.png" alt="image-20220412224401224"></li>
-<li>新建一个项目用于测试，把qpOASES中的include和刚刚生成的libs文件夹放到新生成的项目中<img src="/2022/04/13/jna-de-shi-yong/image-20220412224630628.png" alt="image-20220412224630628"></li>
-<li>在项目的属性中添加相关的include和lib<img src="/2022/04/13/jna-de-shi-yong/image-20220412224709797.png" alt="image-20220412224709797"><img src="/2022/04/13/jna-de-shi-yong/image-20220412224737726.png" alt="image-20220412224737726"><img src="/2022/04/13/jna-de-shi-yong/image-20220412224824053.png" alt="image-20220412224824053"></li>
-<li>运行example中的例子<img src="/2022/04/13/jna-de-shi-yong/image-20220412224912177.png" alt="image-20220412224912177"></li>
+<li>将下载好的qpOASES文件夹通过visual studio打开。<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/屏幕截图(30).png" alt="屏幕截图(C:/Users/A/Desktop/JNA的使用/屏幕截图(30).png)"></li>
+<li>点击生成---全部生成<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/屏幕截图(31).png" alt="屏幕截图(C:/Users/A/Desktop/JNA的使用/屏幕截图(31).png)"></li>
+<li>在qpOASES文件夹下面的out/build/X64-debug/libs下面生成了.lib文件<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412224401224.png" alt="image-20220412224401224"></li>
+<li>新建一个项目用于测试，把qpOASES中的include和刚刚生成的libs文件夹放到新生成的项目中<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412224630628.png" alt="image-20220412224630628"></li>
+<li>在项目的属性中添加相关的include和lib<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412224709797.png" alt="image-20220412224709797"><img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412224737726.png" alt="image-20220412224737726"><img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412224824053.png" alt="image-20220412224824053"></li>
+<li>运行example中的例子<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412224912177.png" alt="image-20220412224912177"></li>
 </ul>
 <h3 id="导入eigen">导入eigen</h3>
 <figure>
-<img src="/2022/04/13/jna-de-shi-yong/image-20220412225057571.png" alt="image-20220412225057571"><figcaption aria-hidden="true">image-20220412225057571</figcaption>
+<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220412225057571.png" alt="image-20220412225057571"><figcaption aria-hidden="true">image-20220412225057571</figcaption>
 </figure>
 <hr>
 <h2 id="jna类的使用">JNA类的使用</h2>
 <ul>
 <li><p>visual studio部分：</p>
 <ul>
-<li>类定义和dll导出<img src="/2022/04/13/jna-de-shi-yong/image-20220415142446647.png" alt="image-20220415142446647"><img src="/2022/04/13/jna-de-shi-yong/image-20220415142533800.png" alt="image-20220415142533800"><img src="/2022/04/13/jna-de-shi-yong/image-20220415142542420.png" alt="image-20220415142542420"></li>
+<li>类定义和dll导出<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220415142446647.png" alt="image-20220415142446647"><img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220415142533800.png" alt="image-20220415142533800"><img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220415142542420.png" alt="image-20220415142542420"></li>
 </ul></li>
 <li><p>idea部分</p>
 <ul>
-<li>interface<img src="/2022/04/13/jna-de-shi-yong/image-20220415142627343.png" alt="image-20220415142627343"></li>
-<li>main<img src="/2022/04/13/jna-de-shi-yong/image-20220415142655636.png" alt="image-20220415142655636"></li>
+<li>interface<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220415142627343.png" alt="image-20220415142627343"></li>
+<li>main<img src="/2022/04/13/JNA%E7%9A%84%E4%BD%BF%E7%94%A8/image-20220415142655636.png" alt="image-20220415142655636"></li>
 </ul></li>
 </ul>
 ]]></content>
@@ -206,16 +206,16 @@
 <li>下载JNA和JNA Platform。</li>
 </ul>
 <figure>
-<img src="/2022/04/07/java-shi-yong-jna/image-20220407232739677.png" alt="image-20220407232739677"><figcaption aria-hidden="true">image-20220407232739677</figcaption>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407232739677.png" alt="image-20220407232739677"><figcaption aria-hidden="true">image-20220407232739677</figcaption>
 </figure>
 <figure>
-<img src="/2022/04/07/java-shi-yong-jna/image-20220407232838933.png" alt="image-20220407232838933"><figcaption aria-hidden="true">image-20220407232838933</figcaption>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407232838933.png" alt="image-20220407232838933"><figcaption aria-hidden="true">image-20220407232838933</figcaption>
 </figure>
 <ul>
 <li>下载Code，可以使用SSH，更加快，但是我使用了VPN了，所以直接下载压缩包。</li>
 </ul>
 <figure>
-<img src="/2022/04/07/java-shi-yong-jna/image-20220407233022480.png" alt="image-20220407233022480"><figcaption aria-hidden="true">image-20220407233022480</figcaption>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220407233022480.png" alt="image-20220407233022480"><figcaption aria-hidden="true">image-20220407233022480</figcaption>
 </figure>
 <ul>
 <li><p>VScode安装JAVA扩展</p>
@@ -224,14 +224,14 @@
 <li><p>JAVA Development Kit</p>
 <ul>
 <li><a href="https://www.oracle.com/java/technologies/javase-downloads.html">下载java</a></li>
-<li>把下载的java添加到系统变量（2处）<img src="/2022/04/07/java-shi-yong-jna/image-20220409003946283.png" alt="image-20220409003946283"><img src="/2022/04/07/java-shi-yong-jna/image-20220409004015114.png" alt="image-20220409004015114"><img src="/2022/04/07/java-shi-yong-jna/image-20220409004036112.png" alt="image-20220409004036112"></li>
+<li>把下载的java添加到系统变量（2处）<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409003946283.png" alt="image-20220409003946283"><img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409004015114.png" alt="image-20220409004015114"><img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409004036112.png" alt="image-20220409004036112"></li>
 </ul></li>
 <li><p>cmd 运行<code>java -version</code></p></li>
-<li><p>vscode 在工作区设置setting.json<img src="/2022/04/07/java-shi-yong-jna/image-20220409004207504.png" alt="image-20220409004207504"></p></li>
+<li><p>vscode 在工作区设置setting.json<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409004207504.png" alt="image-20220409004207504"></p></li>
 <li><p>检验</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="/2022/04/07/java-shi-yong-jna/image-20220409004329142.png" alt="image-20220409004329142"><figcaption aria-hidden="true">image-20220409004329142</figcaption>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409004329142.png" alt="image-20220409004329142"><figcaption aria-hidden="true">image-20220409004329142</figcaption>
 </figure></li>
 </ul></li>
 <li><p>上面介绍了用vscode安装java插件，接下来介绍eclipse，嘻嘻，专业的东西用专业的IDE。vscode，太难了。</p>
@@ -242,49 +242,49 @@
 </ul>
 <hr>
 <h2 id="jna的应用">JNA的应用</h2>
-<p>在Windows中的Preferences中选择Build Path下的User Library<img src="/2022/04/07/java-shi-yong-jna/image-20220409154252057.png" alt="image-20220409154252057"></p>
-<p>添加之前在github下载的三个文件。<img src="/2022/04/07/java-shi-yong-jna/image-20220409154331254.png" alt="image-20220409154331254"></p>
-<p>之后在文件夹<img src="/2022/04/07/java-shi-yong-jna/image-20220409154433644.png" alt="image-20220409154433644">，右键点击Build Path下面的Add Library选中我们添加的JNA。</p>
+<p>在Windows中的Preferences中选择Build Path下的User Library<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409154252057.png" alt="image-20220409154252057"></p>
+<p>添加之前在github下载的三个文件。<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409154331254.png" alt="image-20220409154331254"></p>
+<p>之后在文件夹<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409154433644.png" alt="image-20220409154433644">，右键点击Build Path下面的Add Library选中我们添加的JNA。</p>
 <hr>
-<p>按住ctrl+click你想看到的函数源码，之后点击attach...的button，添加之前在github下载的zip文件，就可以看到源码了。<img src="/2022/04/07/java-shi-yong-jna/image-20220409154852563.png" alt="image-20220409154852563"></p>
+<p>按住ctrl+click你想看到的函数源码，之后点击attach...的button，添加之前在github下载的zip文件，就可以看到源码了。<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409154852563.png" alt="image-20220409154852563"></p>
 <figure>
-<img src="/2022/04/07/java-shi-yong-jna/image-20220409155025815.png" alt="image-20220409155025815"><figcaption aria-hidden="true">image-20220409155025815</figcaption>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409155025815.png" alt="image-20220409155025815"><figcaption aria-hidden="true">image-20220409155025815</figcaption>
 </figure>
 <hr>
-<p>在vs studio中创建dll<img src="/2022/04/07/java-shi-yong-jna/image-20220409155357236.png" alt="image-20220409155357236"></p>
-<p>主要使用的是testDLL.h和testDLL.cpp文件，相关的API和example在文件中已经给出。<img src="/2022/04/07/java-shi-yong-jna/image-20220409155555133.png" alt="image-20220409155555133"></p>
-<p>在testDLL.cpp中写源文件，在testDLL.h定义<img src="/2022/04/07/java-shi-yong-jna/image-20220409160649433.png" alt="image-20220409160649433"></p>
+<p>在vs studio中创建dll<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409155357236.png" alt="image-20220409155357236"></p>
+<p>主要使用的是testDLL.h和testDLL.cpp文件，相关的API和example在文件中已经给出。<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409155555133.png" alt="image-20220409155555133"></p>
+<p>在testDLL.cpp中写源文件，在testDLL.h定义<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409160649433.png" alt="image-20220409160649433"></p>
 <figure>
-<img src="/2022/04/07/java-shi-yong-jna/image-20220409160702579.png" alt="image-20220409160702579"><figcaption aria-hidden="true">image-20220409160702579</figcaption>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409160702579.png" alt="image-20220409160702579"><figcaption aria-hidden="true">image-20220409160702579</figcaption>
 </figure>
 <p>extern “C”是为了避免重载。</p>
 <p>生成解决方案：</p>
 <figure>
-<img src="/2022/04/07/java-shi-yong-jna/image-20220409160738670.png" alt="image-20220409160738670"><figcaption aria-hidden="true">image-20220409160738670</figcaption>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409160738670.png" alt="image-20220409160738670"><figcaption aria-hidden="true">image-20220409160738670</figcaption>
 </figure>
-<p>在DeBug文件下面找到testDLL.dll<img src="/2022/04/07/java-shi-yong-jna/image-20220409160934107.png" alt="image-20220409160934107"></p>
+<p>在DeBug文件下面找到testDLL.dll<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409160934107.png" alt="image-20220409160934107"></p>
 <hr>
-<p>把dll文件放到<img src="/2022/04/07/java-shi-yong-jna/image-20220409161300374.png" alt="image-20220409161300374"></p>
+<p>把dll文件放到<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409161300374.png" alt="image-20220409161300374"></p>
 <hr>
 <p>新建接口interface；</p>
 <p>实例化interface：<code>Mydll mydll = (Mydll)Native.load("testDLL",Mydll.class);</code></p>
 <p>其中“testDLL”是testDLL.dll</p>
 <figure>
-<img src="/2022/04/07/java-shi-yong-jna/image-20220409164128527.png" alt="image-20220409164128527"><figcaption aria-hidden="true">image-20220409164128527</figcaption>
+<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409164128527.png" alt="image-20220409164128527"><figcaption aria-hidden="true">image-20220409164128527</figcaption>
 </figure>
 <hr>
-<p>jna数据类型对应。<a href="https://blog.csdn.net/hayaqi0504/article/details/83782105">JNA数据类型的对应以及使用_江南老画船的博客</a><img src="/2022/04/07/java-shi-yong-jna/image-20220409164322035.png" alt="image-20220409164322035"></p>
+<p>jna数据类型对应。<a href="https://blog.csdn.net/hayaqi0504/article/details/83782105">JNA数据类型的对应以及使用_江南老画船的博客</a><img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220409164322035.png" alt="image-20220409164322035"></p>
 <h2 id="真正的应用">真正的应用</h2>
 <p>好了好了，不隐藏了，上面都是老子踩的坑，接下来才是正题。</p>
 <p>资料<a href="https://www.bilibili.com/video/BV1xU4y1F7Ep/?spm_id_from=333.788.recommend_more_video.-1">【C++】JAVA使用JNA调用C++动态库DLL_哔哩哔哩_bilibili</a></p>
 <hr>
 <ul>
 <li><p>下载IntelliJ IDEA</p></li>
-<li><p>把debug改成release<img src="/2022/04/07/java-shi-yong-jna/image-20220410001545149.png" alt="image-20220410001545149"></p></li>
-<li><p>如果想要输出中文，要使用u8<img src="/2022/04/07/java-shi-yong-jna/image-20220410001739776.png" alt="image-20220410001739776"></p></li>
-<li><p>添加jna的库<img src="/2022/04/07/java-shi-yong-jna/image-20220410001816284.png" alt="image-20220410001816284"></p></li>
-<li><p>添加interface并且实例化<img src="/2022/04/07/java-shi-yong-jna/image-20220410001856274.png" alt="image-20220410001856274"></p></li>
-<li><p>调用<img src="/2022/04/07/java-shi-yong-jna/image-20220410001930152.png" alt="image-20220410001930152"></p></li>
+<li><p>把debug改成release<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220410001545149.png" alt="image-20220410001545149"></p></li>
+<li><p>如果想要输出中文，要使用u8<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220410001739776.png" alt="image-20220410001739776"></p></li>
+<li><p>添加jna的库<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220410001816284.png" alt="image-20220410001816284"></p></li>
+<li><p>添加interface并且实例化<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220410001856274.png" alt="image-20220410001856274"></p></li>
+<li><p>调用<img src="/2022/04/07/JAVA%E4%BD%BF%E7%94%A8JNA/image-20220410001930152.png" alt="image-20220410001930152"></p></li>
 </ul>
 ]]></content>
       <categories>
@@ -299,18 +299,18 @@
     <url>/2022/04/05/ros-zhong-de-opencv/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="ros中的opencv">ROS中的OpenCV</h1>
 <figure>
-<img src="/2022/04/05/ros-zhong-de-opencv/u=1900498818,1764414352&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=PNG.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
+<img src="/2022/04/05/ROS%E4%B8%AD%E7%9A%84OpenCV/u=1900498818,1764414352&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=PNG.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
 </figure>
 <span id="more"></span>
 <h2 id="cv_bridge">cv_bridge</h2>
 <p><a href="https://blog.csdn.net/bigdog_1027/article/details/79090571">参考文章</a></p>
 <p>在OpenCV中，图像是以Mat矩阵的形式存储的，这与ROS定义的图像消息的格式有一定的区别，所以我们需要利用cv_bridge将这两种不相同的格式联系起来，如下图所示。</p>
 <figure>
-<img src="/2022/04/05/ros-zhong-de-opencv/Center.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
+<img src="/2022/04/05/ROS%E4%B8%AD%E7%9A%84OpenCV/Center.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
 </figure>
 <p>当cv_bridge将ROS的图像消息转换为OpenCV图像格式时都是通过CvImage类实现的。一般来说，cv_bridge提供了两种方式转换为CvImage类，分别为复制（copy）和共享（share）。</p>
 <figure>
-<img src="/2022/04/05/ros-zhong-de-opencv/image-20220405155033543.png" alt="image-20220405155033543"><figcaption aria-hidden="true">image-20220405155033543</figcaption>
+<img src="/2022/04/05/ROS%E4%B8%AD%E7%9A%84OpenCV/image-20220405155033543.png" alt="image-20220405155033543"><figcaption aria-hidden="true">image-20220405155033543</figcaption>
 </figure>
 <p>parameter input:</p>
 <ol type="1">
@@ -327,7 +327,7 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cv::Mat img;</span><br><span class="line">cv_bridge::CvImageConstPtr cv_ptr;</span><br><span class="line">cv_ptr=cv_bridge::<span class="built_in">toCvShare</span>(msg, <span class="string">&quot;mono8&quot;</span>);</span><br><span class="line">img = cv_ptr-&gt;image;</span><br></pre></td></tr></table></figure></li>
 </ul></li>
 </ul>
-<p>常用的编码方式<img src="/2022/04/05/ros-zhong-de-opencv/image-20220405155416510.png" alt="image-20220405155416510"></p>
+<p>常用的编码方式<img src="/2022/04/05/ROS%E4%B8%AD%E7%9A%84OpenCV/image-20220405155416510.png" alt="image-20220405155416510"></p>
 ]]></content>
       <categories>
         <category>ROS学习</category>
@@ -450,7 +450,7 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> imageio</span><br><span class="line"><span class="keyword">import</span> moviepy.editor <span class="keyword">as</span> mpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 视频文件的本地路径</span></span><br><span class="line">content = mpy.VideoFileClip(<span class="string">&quot;C:\\Users\\A\\Videos\\map1.mp4&quot;</span>)</span><br><span class="line"><span class="comment"># 剪辑0分0秒到0分3秒的片段。resize为修改清晰度</span></span><br><span class="line"><span class="comment">#c1 = content.subclip((0, 0), (0, 3)).resize((1280, 780))</span></span><br><span class="line">c1 = content.subclip((<span class="number">0</span>, <span class="number">4</span>), (<span class="number">0</span>,<span class="number">40</span>)).resize(<span class="number">0.5</span>)</span><br><span class="line"><span class="comment"># 将片段保存为gif图到python的默认路径</span></span><br><span class="line">c1.write_gif(<span class="string">&quot;map1.gif&quot;</span>)</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="/2022/03/30/python-xiao-gong-ju/map1.gif" alt="map1"><figcaption aria-hidden="true">map1</figcaption>
+<img src="/2022/03/30/python%E5%B0%8F%E5%B7%A5%E5%85%B7/map1.gif" alt="map1"><figcaption aria-hidden="true">map1</figcaption>
 </figure>
 <h2 id="ppt-to-pdf">PPT to PDF</h2>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#1.把该脚本放在需要修改的pdf目录中</span></span><br><span class="line"><span class="comment">#2.如果无法修改：请修改dirname</span></span><br><span class="line"><span class="comment">#3.请先安装packagewin32com 和 os   python -m pip install pypiwin32</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">1. 如何设置编辑器字体的大小?</span></span><br><span class="line"><span class="string">File(文件)-&gt; Settings(设置) -&gt; Editor(编辑器) -&gt; Font(字体), 修改字体的大小</span></span><br><span class="line"><span class="string">2. 注释: 代码的解释说明</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1). 导入需要的模块(打开应用程序的模块)</span></span><br><span class="line"><span class="keyword">import</span> win32com.client</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ppt2pdf</span>(<span class="params">filename, output_filename</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    PPT文件导出为pdf格式</span></span><br><span class="line"><span class="string">    :param filename: PPT文件的名称</span></span><br><span class="line"><span class="string">    :param output_filename: 导出的pdf文件的名称</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 2). 打开PPT程序</span></span><br><span class="line">    ppt_app = win32com.client.Dispatch(<span class="string">&#x27;PowerPoint.Application&#x27;</span>)</span><br><span class="line">    <span class="comment"># ppt_app.Visible = True  # 程序操作应用程序的过程是否可视化</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3). 通过PPT的应用程序打开指定的PPT文件</span></span><br><span class="line">    <span class="comment"># filename = &quot;C:/Users/Administrator/Desktop/PPT办公自动化/ppt/PPT素材1.pptx&quot;</span></span><br><span class="line">    <span class="comment"># output_filename = &quot;C:/Users/Administrator/Desktop/PPT办公自动化/ppt/PPT素材1.pdf&quot;</span></span><br><span class="line">    ppt = ppt_app.Presentations.Open(filename)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4). 打开的PPT另存为pdf文件。17数字是ppt转图片，32数字是ppt转pdf。</span></span><br><span class="line">    ppt.SaveAs(output_filename, <span class="number">32</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;导出成pdf格式成功!!!&quot;</span>)</span><br><span class="line">    <span class="comment"># 退出PPT程序</span></span><br><span class="line">    ppt_app.Quit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 要处理的目录名称</span></span><br><span class="line">dirname = os.path.dirname(os.path.realpath(__file__))</span><br><span class="line"><span class="comment"># 列出指定目录的内容</span></span><br><span class="line">filenames = os.listdir(dirname)</span><br><span class="line"><span class="comment"># for循环依次访问指定目录的所有文件名</span></span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">    <span class="comment"># 判断文件的类型，对所有的ppt文件进行处理(ppt文件以ppt或者pptx结尾的)</span></span><br><span class="line">    <span class="keyword">if</span> filename.endswith(<span class="string">&#x27;ppt&#x27;</span>) <span class="keyword">or</span> filename.endswith(<span class="string">&#x27;pptx&#x27;</span>):</span><br><span class="line">        <span class="comment"># print(filename)           # PPT素材1.pptx -&gt; PPT素材1.pdf</span></span><br><span class="line">        <span class="comment"># 将filename以.进行分割，返回2个信息，文件的名称和文件的后缀名</span></span><br><span class="line">        base, ext = filename.split(<span class="string">&#x27;.&#x27;</span>)  <span class="comment"># base=PPT素材1 ext=pdf</span></span><br><span class="line">        new_name = base + <span class="string">&#x27;.pdf&#x27;</span>         <span class="comment"># PPT素材1.pdf</span></span><br><span class="line">        <span class="comment"># ppt文件的完整位置: C:/Users/Administrator/Desktop/PPT办公自动化/ppt/PPT素材1.pptx</span></span><br><span class="line">        filename = dirname + <span class="string">&#x27;/&#x27;</span> + filename</span><br><span class="line">        <span class="comment"># pdf文件的完整位置: C:/Users/Administrator/Desktop/PPT办公自动化/ppt/PPT素材1.pdf</span></span><br><span class="line">        output_filename = dirname + <span class="string">&#x27;/&#x27;</span> + new_name</span><br><span class="line">        <span class="comment"># 将ppt转成pdf文件</span></span><br><span class="line">        ppt2pdf(filename, output_filename)</span><br></pre></td></tr></table></figure>
@@ -468,17 +468,17 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><center>
 为学校数字信号处理实验总结和归纳；
 </center>
-<p><img src="/2022/03/25/yu-yin-shi-bie/OIP-C.qTq2jfShxrP6Z7XWhDbuMQHaCmw=338&amp;h=123&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.38&amp;pid=1.7" alt="语音识别"><span id="more"></span></p>
+<p><img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/OIP-C.qTq2jfShxrP6Z7XWhDbuMQHaCmw=338&amp;h=123&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.38&amp;pid=1.7" alt="语音识别"><span id="more"></span></p>
 <h1 id="语音识别">语音识别</h1>
 <p>题目及相关要求在<a href="https://copy2000.github.io/Docs/数字信号处理实验.pdf">here</a>.</p>
 <h2 id="数据预处理">数据预处理</h2>
 <p>大致步骤：</p>
 <ul>
-<li><p>获取原始音频<img src="/2022/03/25/yu-yin-shi-bie/image-20220325163503472.png" alt="原始语音信号"></p></li>
-<li><p>检测<img src="/2022/03/25/yu-yin-shi-bie/image-20220325163511071.png" alt="过零率检测"></p></li>
-<li><p>分帧<img src="/2022/03/25/yu-yin-shi-bie/image-20220325163412540.png" alt="分帧"></p></li>
-<li><p>加窗<img src="/2022/03/25/yu-yin-shi-bie/image-20220325163420911.png" alt="加窗"></p></li>
-<li><p>特征提取<img src="/2022/03/25/yu-yin-shi-bie/image-20220325163430670.png" alt="预处理后得到的语音信号的特征值"></p></li>
+<li><p>获取原始音频<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325163503472.png" alt="原始语音信号"></p></li>
+<li><p>检测<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325163511071.png" alt="过零率检测"></p></li>
+<li><p>分帧<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325163412540.png" alt="分帧"></p></li>
+<li><p>加窗<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325163420911.png" alt="加窗"></p></li>
+<li><p>特征提取<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325163430670.png" alt="预处理后得到的语音信号的特征值"></p></li>
 </ul>
 <h3 id="端点检测">端点检测</h3>
 <table>
@@ -519,10 +519,10 @@
 <p>我们的端点检测初始特征阙值如右表所示，通过这样的指标，我们检测出来的音频信息可以过滤掉大部分的噪音。</p>
 <p>部分数字与名字信号的双端检测结果如下所示：</p>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325163910791.png" alt="数字"><figcaption aria-hidden="true">数字</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325163910791.png" alt="数字"><figcaption aria-hidden="true">数字</figcaption>
 </figure>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325163921075.png" alt="名字"><figcaption aria-hidden="true">名字</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325163921075.png" alt="名字"><figcaption aria-hidden="true">名字</figcaption>
 </figure>
 <h3 id="分帧">分帧</h3>
 <p>由于语音信号具有短时的平稳时不变的特性，因此对其在时域上进行短时间的分帧进行分析。</p>
@@ -530,27 +530,27 @@
 <h3 id="加窗">加窗</h3>
 <p>通过不同的窗处理滞后得到的图形有区别，其中矩形窗的变化比较剧烈，汉宁窗、海明窗的变换较为平稳。</p>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325164243148.png" alt="加窗过程"><figcaption aria-hidden="true">加窗过程</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325164243148.png" alt="加窗过程"><figcaption aria-hidden="true">加窗过程</figcaption>
 </figure>
 <ul>
-<li>矩形窗处理后的时域信号<img src="/2022/03/25/yu-yin-shi-bie/image-20220325164302330.png" alt="矩形窗处理后的时域信号"></li>
-<li>汉明窗处理后的时域信号<img src="/2022/03/25/yu-yin-shi-bie/image-20220325164318155.png" alt="汉明窗处理后的时域信号"></li>
-<li>海宁窗处理后的时域信号<img src="/2022/03/25/yu-yin-shi-bie/image-20220325164322255.png" alt="海宁窗处理后的时域信号"></li>
+<li>矩形窗处理后的时域信号<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325164302330.png" alt="矩形窗处理后的时域信号"></li>
+<li>汉明窗处理后的时域信号<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325164318155.png" alt="汉明窗处理后的时域信号"></li>
+<li>海宁窗处理后的时域信号<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325164322255.png" alt="海宁窗处理后的时域信号"></li>
 </ul>
 <h2 id="时域语音识别">时域语音识别</h2>
 <h3 id="提取语音特征">提取语音特征</h3>
 <p>将处理之后的数据进行归一化处理，并计算出每一帧的特征值，以帧数作为特征向量的维数，得到用于分类的特征向量。特征向量是由过零率、能量和幅值组成的。</p>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325164453479.png" alt="预处理后的语音"><figcaption aria-hidden="true">预处理后的语音</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325164453479.png" alt="预处理后的语音"><figcaption aria-hidden="true">预处理后的语音</figcaption>
 </figure>
 <h3 id="使用的分类器">使用的分类器</h3>
 <ul>
-<li><p>如果一个样本在特征空间中的K个最邻近的样本中的大多数属于某一个类别，则该样本也属于这个类别，并具有这个类别样本的特性。<img src="/2022/03/25/yu-yin-shi-bie/image-20220325164601602.png" alt="KNN"></p></li>
-<li><p>基本模型是定义在特征空间上的间隔最大的线性分类器，利用超平面，对数据集进行最大间隔划分，得到该超平面的表达式。<img src="/2022/03/25/yu-yin-shi-bie/image-20220325164622509.png" alt="SVM"></p></li>
-<li><p>在已知各种情况发生概率的基础上，通过构成决策树来求取净现值的期望值大于等于0的概率，评价项目风险，判断其可行性的决策分析方法。<img src="/2022/03/25/yu-yin-shi-bie/image-20220325164643582.png" alt="决策树"></p></li>
+<li><p>如果一个样本在特征空间中的K个最邻近的样本中的大多数属于某一个类别，则该样本也属于这个类别，并具有这个类别样本的特性。<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325164601602.png" alt="KNN"></p></li>
+<li><p>基本模型是定义在特征空间上的间隔最大的线性分类器，利用超平面，对数据集进行最大间隔划分，得到该超平面的表达式。<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325164622509.png" alt="SVM"></p></li>
+<li><p>在已知各种情况发生概率的基础上，通过构成决策树来求取净现值的期望值大于等于0的概率，评价项目风险，判断其可行性的决策分析方法。<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325164643582.png" alt="决策树"></p></li>
 <li><p>集成学习Based on KNN</p>
 <ul>
-<li><p>集成学习算法是通过构建并结合多个分类器来完成学习任务，通常拥有较高的准确率，其不足之处是模型比较复杂。<img src="/2022/03/25/yu-yin-shi-bie/image-20220325164810321.png" alt="Performance"></p></li>
+<li><p>集成学习算法是通过构建并结合多个分类器来完成学习任务，通常拥有较高的准确率，其不足之处是模型比较复杂。<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325164810321.png" alt="Performance"></p></li>
 <li><p>实现过程</p>
 <ul>
 <li><p>随机对原始数据的特征值进行随机采样。</p></li>
@@ -558,14 +558,14 @@
 <li><p>将所有结果进行投票处理。</p></li>
 </ul>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325164732159.png" alt="集成学习流程"><figcaption aria-hidden="true">集成学习流程</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325164732159.png" alt="集成学习流程"><figcaption aria-hidden="true">集成学习流程</figcaption>
 </figure></li>
 </ul></li>
 </ul>
 <h3 id="时域语音分析">时域语音分析</h3>
 <p>下面分别是KNN、SVM、决策树、集成学习KNN分类器得到的判别矩阵和AUC曲线。</p>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325164952994.png" alt="时域语音分析"><figcaption aria-hidden="true">时域语音分析</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325164952994.png" alt="时域语音分析"><figcaption aria-hidden="true">时域语音分析</figcaption>
 </figure>
 <p>结果如下表：</p>
 <table>
@@ -615,7 +615,7 @@
 </tbody>
 </table>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325165237118.png" alt="分类结果"><figcaption aria-hidden="true">分类结果</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325165237118.png" alt="分类结果"><figcaption aria-hidden="true">分类结果</figcaption>
 </figure>
 <h4 id="不同加窗方式的效果比较">不同加窗方式的效果比较</h4>
 <table>
@@ -676,7 +676,7 @@ F-score表现：矩形窗=汉明窗&gt;海宁窗
 <li><p>进行DTW算法搜索。</p></li>
 <li><p>将得到的结果进行总结归纳。</p>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325165857908.png" alt="实验流程"><figcaption aria-hidden="true">实验流程</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325165857908.png" alt="实验流程"><figcaption aria-hidden="true">实验流程</figcaption>
 </figure></li>
 </ul>
 <hr>
@@ -685,33 +685,33 @@ F-score表现：矩形窗=汉明窗&gt;海宁窗
 <li><p>分帧</p></li>
 <li><p>FFT:对每一帧语音进行256点快速傅里叶变换。</p></li>
 <li><p>三角带通滤波器</p></li>
-<li><p>离散余弦转换:离散余弦转换(DCT)系数是用来将能量集中在前面几项中，达到在减少判别参数提高运算速度的同时又不失其准确性的目的。<img src="/2022/03/25/yu-yin-shi-bie/image-20220325170120765.png" alt="DCT"></p></li>
-<li><p>差量倒谱参数:一阶差分MFCC参数，体现相邻两帧之间的联系，所以我们合并mfcc参数和一阶差分mfcc参数形成MFCC参数，并且去除首尾两帧，以增加MFCC参数的准确性，增强实验的预测能力。<img src="/2022/03/25/yu-yin-shi-bie/image-20220325170202049.png" alt="mfcc"><img src="/2022/03/25/yu-yin-shi-bie/image-20220325170219917.png" alt="一阶差分mfcc"></p></li>
+<li><p>离散余弦转换:离散余弦转换(DCT)系数是用来将能量集中在前面几项中，达到在减少判别参数提高运算速度的同时又不失其准确性的目的。<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325170120765.png" alt="DCT"></p></li>
+<li><p>差量倒谱参数:一阶差分MFCC参数，体现相邻两帧之间的联系，所以我们合并mfcc参数和一阶差分mfcc参数形成MFCC参数，并且去除首尾两帧，以增加MFCC参数的准确性，增强实验的预测能力。<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325170202049.png" alt="mfcc"><img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325170219917.png" alt="一阶差分mfcc"></p></li>
 <li><p>DTW</p></li>
 </ul>
 <hr>
 <h3 id="时域语音分析-1">时域语音分析</h3>
 <p>我们使用交叉验证的方法，训练集与测试集的比例为9:1，在进行1000次的重复试验后，得到的数字识别与名字识别在不同的窗函数下得到的准确率如下。其中x轴为测试次数，y轴为准确率。</p>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325170356093.png" alt="rectangle_name_accuracy"><figcaption aria-hidden="true">rectangle_name_accuracy</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325170356093.png" alt="rectangle_name_accuracy"><figcaption aria-hidden="true">rectangle_name_accuracy</figcaption>
 </figure>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325170402947.png" alt="hanning_ name_accuracy"><figcaption aria-hidden="true">hanning_ name_accuracy</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325170402947.png" alt="hanning_ name_accuracy"><figcaption aria-hidden="true">hanning_ name_accuracy</figcaption>
 </figure>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325170408065.png" alt="hamming_name_accuracy"><figcaption aria-hidden="true">hamming_name_accuracy</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325170408065.png" alt="hamming_name_accuracy"><figcaption aria-hidden="true">hamming_name_accuracy</figcaption>
 </figure>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325170412586.png" alt="rectangle_num_accuracy"><figcaption aria-hidden="true">rectangle_num_accuracy</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325170412586.png" alt="rectangle_num_accuracy"><figcaption aria-hidden="true">rectangle_num_accuracy</figcaption>
 </figure>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325170416241.png" alt="hanning_num_accuracy"><figcaption aria-hidden="true">hanning_num_accuracy</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325170416241.png" alt="hanning_num_accuracy"><figcaption aria-hidden="true">hanning_num_accuracy</figcaption>
 </figure>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325170420192.png" alt="hamming_num_accuracy"><figcaption aria-hidden="true">hamming_num_accuracy</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325170420192.png" alt="hamming_num_accuracy"><figcaption aria-hidden="true">hamming_num_accuracy</figcaption>
 </figure>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325170605238.png" alt="performance"><figcaption aria-hidden="true">performance</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325170605238.png" alt="performance"><figcaption aria-hidden="true">performance</figcaption>
 </figure>
 <p><strong>由上表各矩形窗的准确率所示，在矩形窗下数字识别整体准确率最低，而在汉明窗和海宁窗下的数字识别准确率相差不大。但是名字准确率在三个窗下的准确率波动不大。</strong></p>
 <hr>
@@ -719,9 +719,9 @@ F-score表现：矩形窗=汉明窗&gt;海宁窗
 <video src="https://copy2000.github.io/vedio/%E6%9C%AA%E8%B0%83%E5%8F%82%E8%AF%86%E5%88%AB.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
 your browser does not support the video tag
 </video>
-<p>我们可以发现在名字识别的时候端点检测只能检测到名字中的第一个字，这个是因为端点检测的参数没有进行调整。<img src="/2022/03/25/yu-yin-shi-bie/image-20220325171830306.png" alt="问题"></p>
+<p>我们可以发现在名字识别的时候端点检测只能检测到名字中的第一个字，这个是因为端点检测的参数没有进行调整。<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325171830306.png" alt="问题"></p>
 <hr>
-<p>进行二次调参后：<img src="/2022/03/25/yu-yin-shi-bie/image-20220325171924202.png" alt="端点检测参数"></p>
+<p>进行二次调参后：<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325171924202.png" alt="端点检测参数"></p>
 <video src="https://copy2000.github.io/vedio/%E8%B0%83%E5%8F%82%E8%AF%86%E5%88%AB.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
 your browser does not support the video tag
 </video>
@@ -732,20 +732,20 @@ your browser does not support the video tag
 <p>实验流程如下：</p>
 <p>首先通过分帧，加窗等方法，对语音信号预处理，得到有效语音信号后，提取语音信号MFCC特征，并将其作为GMM模型的输入，对GMM模型进行训练，最后通过测试集对GMM模型进行测试。</p>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325172038542.png" alt="通过双门限法获取有效语音信号"><figcaption aria-hidden="true">通过双门限法获取有效语音信号</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325172038542.png" alt="通过双门限法获取有效语音信号"><figcaption aria-hidden="true">通过双门限法获取有效语音信号</figcaption>
 </figure>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325172053131.png" alt="通过melcepst函数获取MFCC特征"><figcaption aria-hidden="true">通过melcepst函数获取MFCC特征</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325172053131.png" alt="通过melcepst函数获取MFCC特征"><figcaption aria-hidden="true">通过melcepst函数获取MFCC特征</figcaption>
 </figure>
 <p>将提取到的语音MFCC特征，通过fitgmdist函数进行GMM模型训练，得到每个人的语音特征</p>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325172101672.png" alt="GMM模型训练"><figcaption aria-hidden="true">GMM模型训练</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325172101672.png" alt="GMM模型训练"><figcaption aria-hidden="true">GMM模型训练</figcaption>
 </figure>
 <h3 id="说话人识别结果">说话人识别结果</h3>
 <p>我们将每个同学念名字的语音信号和每个同学念数字的语音信号分别放入GMM模型和SVM分别进行训练和测试，对比两种模型优劣。</p>
 <p>记放入训练的数字语音为I1，放入训练的名字语音为I2，用于测试的数字语音为O1，用于测试的名字语音为O2，我们分别用I1，I2作为训练集进行训练，并对每种情况下分别用O1和O2测试准确率。结果如图，可以看出当说话人语音为名字时，识别效果较好，为数字时较差。此外GMM模型效果优于SVM，SVM训练集准确率为1，而测试集准确率较低，模型泛化能力差，GMM泛化能力更好。</p>
 <figure>
-<img src="/2022/03/25/yu-yin-shi-bie/image-20220325172146530.png" alt="performance"><figcaption aria-hidden="true">performance</figcaption>
+<img src="/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/image-20220325172146530.png" alt="performance"><figcaption aria-hidden="true">performance</figcaption>
 </figure>
 <h2 id="写在后面">写在后面</h2>
 <p>对应的代码在<a href="https://github.com/Copy2000/DSP_experiment">Copy2000/DSP_experiment: 学校实验 (github.com)</a>，写的很乱，就这样，然后视频由于是放在github的服务器，可能会很慢。</p>
@@ -1174,7 +1174,7 @@ your browser does not support the video tag
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="crazyswarm大型纳米四轴飞行器群论文总结">《Crazyswarm：大型纳米四轴飞行器群》论文总结</h1>
 <p>论文名称：Crazyswarm: A Large Nano-Quadcopter Swarm</p>
 <figure>
-<img src="/2022/03/19/crazyswarm/image-20220319171842418.png" alt="image-20220319171842418"><figcaption aria-hidden="true">image-20220319171842418</figcaption>
+<img src="/2022/03/19/Crazyswarm/image-20220319171842418.png" alt="image-20220319171842418"><figcaption aria-hidden="true">image-20220319171842418</figcaption>
 </figure>
 <span id="more"></span>
 <h2 id="摘要">摘要</h2>
@@ -1213,7 +1213,7 @@ your browser does not support the video tag
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">st=&gt;start: Frame-to-frame Tracking</span><br><span class="line">op1=&gt;operation: 从动作捕捉系统获得原始点云数据</span><br><span class="line">op2=&gt;operation: 对于每个对象，我们使用 ICP 将对应于对象最后已知姿势的标记位置与整个场景点云进行配准</span><br><span class="line">op3=&gt;operation: 动作捕捉系统有时会产生带有缺失的点云从而避免跟踪误差</span><br><span class="line">op4=&gt;operation: 从ICP计算线速度和角速度，将异常值剔除并与onboard状态结合</span><br><span class="line"></span><br><span class="line">e=&gt;end: end</span><br><span class="line"></span><br><span class="line">st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="状态估计">状态估计</h2>
 <p>为了减少通信带宽要求并保持对临时通信丢失的鲁棒性， 我们在扩展卡尔曼滤波器 (Extended Kalman Filter) 中融合板载的运动捕捉和 IMU 测量 。</p>
-<p>系统的输入是加速计和陀螺仪a<sub>m</sub>和w<sub>m</sub>，所以有了动力方程，<img src="/2022/03/19/crazyswarm/image-20220320145344320.png" alt="image-20220320145344320"></p>
+<p>系统的输入是加速计和陀螺仪a<sub>m</sub>和w<sub>m</sub>，所以有了动力方程，<img src="/2022/03/19/Crazyswarm/image-20220320145344320.png" alt="image-20220320145344320"></p>
 <p>IMU测量驱动动态积分，滤波器估计此积分的误差和协方差。 当用四个数字表示一个3自由度单位四元数时，这种方法避免了有问题的额外维度。 虽然 [14]、[15] 估计了 EKF 中的加速度计和陀螺仪偏差。</p>
 <h2 id="planning">Planning</h2>
 <p>选择了一组oboard轨迹规划方法，这些方法需要在基站 PC 和车辆之间进行少量信息交换。 与在 PC 上评估轨迹并以高速率传输姿态和推力控制的架构相比，将一些规划工作转移到onboard以<strong>减少所需的无线电带宽</strong>。</p>
@@ -1226,7 +1226,7 @@ your browser does not support the video tag
 <h3 id="ellipses">Ellipses</h3>
 <p>这个主要是为了证明online single-piece polynomial planner能够实现一段光滑稳定的轨迹规划。</p>
 <h3 id="interactive-avoid-obstacle-mode">Interactive Avoid-Obstacle Mode</h3>
-<p>交互避障模式是对于已知位置的单个移动障碍物，例如人类，我们使用专门的避障模式。计划者是完全分布式的，只需要知道无人机的位置 p，其分配的起始位置 p<sub>home</sub>， 和障碍物的位置 p<sub>obst</sub>，通过计算可以得到避障距离，那么新的目标位置就可以被计算出来，而且作为一种从原始位置的加权位移。相关的公式如下图。<img src="/2022/03/19/crazyswarm/image-20220320151631835.png" alt="image-20220320151631835">这样就可以<strong>计算出边际速度和加速度来得到光滑的轨迹</strong>。</p>
+<p>交互避障模式是对于已知位置的单个移动障碍物，例如人类，我们使用专门的避障模式。计划者是完全分布式的，只需要知道无人机的位置 p，其分配的起始位置 p<sub>home</sub>， 和障碍物的位置 p<sub>obst</sub>，通过计算可以得到避障距离，那么新的目标位置就可以被计算出来，而且作为一种从原始位置的加权位移。相关的公式如下图。<img src="/2022/03/19/Crazyswarm/image-20220320151631835.png" alt="image-20220320151631835">这样就可以<strong>计算出边际速度和加速度来得到光滑的轨迹</strong>。</p>
 <h2 id="通信">通信</h2>
 <p>我们使用两种不同的通信方式：请求响应（request-response）和广播（broadcasting）。</p>
 <ul>
@@ -1250,12 +1250,12 @@ your browser does not support the video tag
 </ul>
 <p>实验数据表明，49个无人机方阵会达到26ms的延迟。</p>
 <h3 id="跟踪性能">跟踪性能</h3>
-<p>通过整合飞行的整体欧几里得位置误差来估计跟踪性能，不包括起飞和着陆。 每个 Crazyflie 的飞行路径是重复 3 次的 8 字形，平均速度为 0.76 m/s，最大速度为 1.5 m/s。 对于小型四轴飞行器，该轨迹速度适中，最大滚动角为 20 度。 我们尝试不同的方群大小，从 1 到 7×7，以 0.5 m 间距的网格布局，以相同的高度飞行。 这种紧密的结构会导致额外的空气动力干扰，从而影响控制器的性能。<img src="/2022/03/19/crazyswarm/image-20220320192830419.png" alt="image-20220320192830419"></p>
+<p>通过整合飞行的整体欧几里得位置误差来估计跟踪性能，不包括起飞和着陆。 每个 Crazyflie 的飞行路径是重复 3 次的 8 字形，平均速度为 0.76 m/s，最大速度为 1.5 m/s。 对于小型四轴飞行器，该轨迹速度适中，最大滚动角为 20 度。 我们尝试不同的方群大小，从 1 到 7×7，以 0.5 m 间距的网格布局，以相同的高度飞行。 这种紧密的结构会导致额外的空气动力干扰，从而影响控制器的性能。<img src="/2022/03/19/Crazyswarm/image-20220320192830419.png" alt="image-20220320192830419"></p>
 <p>结果如图，方阵越大，误差也就随之增加。但是每个crazyflie的误差也低于 2 cm。</p>
 <h3 id="位置更新率对悬停稳定性的影响">位置更新率对悬停稳定性的影响</h3>
 <p>通过将更新率从最大 100 Hz 降低到 2 Hz 并测量悬停状态下的平均欧几里得位置误差来量化位置更新率对稳定性的影响。 100 Hz 和 10 Hz 之间的范围几乎没有变化。 在 2 Hz 时，系统仍然稳定，但显示出明显的振荡。 这证明了我们的系统在操作过程中对通信丢失的鲁棒性。</p>
 <figure>
-<img src="/2022/03/19/crazyswarm/image-20220320193729705.png" alt="image-20220320193729705"><figcaption aria-hidden="true">image-20220320193729705</figcaption>
+<img src="/2022/03/19/Crazyswarm/image-20220320193729705.png" alt="image-20220320193729705"><figcaption aria-hidden="true">image-20220320193729705</figcaption>
 </figure>
 <h3 id="协同编队飞行">协同编队飞行</h3>
 <p>使用了 49 只 Crazyflies 组成的一个旋转金字塔，如<a href="https://www.youtube.com/watch?v=ezTayb76x9U">实验视频</a> 所示。Crazyflies 最初放置在 7×7 网格中，间距为 0.5 m。 起飞在四个不同的层中完成，用户使用操纵杆或键盘触发下一个动作。 该脚本最初根据其层为每个 Crazyflie 分配一个组号，然后上传其椭圆的参数以供稍后执行。 由于分组，可以通过广播消息同时实现一整层的起飞。 在所有 Crazyflies 都在空中后，在线规划器规划一条轨迹，以顺利进入椭圆。 用户可以决定何时结束旋转，这会导致机上的另一个重新计划达到初始起飞位置上方的悬停状态。 最后，使用相同的组完成着陆，最大限度地减少着陆期间的空气动力干扰。</p>
@@ -1525,13 +1525,13 @@ your browser does not support the video tag
 </figure>
 <span id="more"></span>
 <h2 id="搜狗输入法">搜狗输入法</h2>
-<p><img src="/2022/03/12/linux/image-20220312224616409.png" alt="image-20220312224616409">搜狗拼音输入，需要<code>sudo apt-get remove fcitx-ui-qimpanel</code></p>
+<p><img src="/2022/03/12/Linux/image-20220312224616409.png" alt="image-20220312224616409">搜狗拼音输入，需要<code>sudo apt-get remove fcitx-ui-qimpanel</code></p>
 <h2 id="ros安装">ROS安装</h2>
-<p><img src="/2022/03/12/linux/image-20220312232049246.png" alt="image-20220312232049246">下载ROS，使用<code>wget http://fishros.com/install -O fishros &amp;&amp; sudo bash fishros</code>进行一键安装。</p>
+<p><img src="/2022/03/12/Linux/image-20220312232049246.png" alt="image-20220312232049246">下载ROS，使用<code>wget http://fishros.com/install -O fishros &amp;&amp; sudo bash fishros</code>进行一键安装。</p>
 <h2 id="roboware安装">ROboware安装</h2>
-<p><img src="/2022/03/12/linux/image-20220312233415810.png" alt="image-20220312233415810"><a href="https://zhuanlan.zhihu.com/p/163844770">安装RoboWare Studio</a>以及<a href="https://zhuanlan.zhihu.com/p/151031343">使用方法</a></p>
+<p><img src="/2022/03/12/Linux/image-20220312233415810.png" alt="image-20220312233415810"><a href="https://zhuanlan.zhihu.com/p/163844770">安装RoboWare Studio</a>以及<a href="https://zhuanlan.zhihu.com/p/151031343">使用方法</a></p>
 <figure>
-<img src="/2022/03/12/linux/image-20220312233839930.png" alt="image-20220312233839930"><figcaption aria-hidden="true">image-20220312233839930</figcaption>
+<img src="/2022/03/12/Linux/image-20220312233839930.png" alt="image-20220312233839930"><figcaption aria-hidden="true">image-20220312233839930</figcaption>
 </figure>
 <h2 id="git配置">git配置</h2>
 <ul>
@@ -1540,16 +1540,16 @@ your browser does not support the video tag
 <li><code>ssh-keygen -t rsa -C "邮箱"</code></li>
 </ul>
 <h2 id="在虚拟机中无法使用gazebo的解决方法">在虚拟机中无法使用gazebo的解决方法</h2>
-<h2 id="image-20220315225936574"><img src="/2022/03/12/linux/image-20220315225936574.png" alt="image-20220315225936574"></h2>
+<h2 id="image-20220315225936574"><img src="/2022/03/12/Linux/image-20220315225936574.png" alt="image-20220315225936574"></h2>
 <h2 id="git添加公钥报错sign_and_send_pubkey">git添加公钥报错：sign_and_send_pubkey</h2>
 <figure>
-<img src="/2022/03/12/linux/image-20220318110104114.png" alt="image-20220318110104114"><figcaption aria-hidden="true">image-20220318110104114</figcaption>
+<img src="/2022/03/12/Linux/image-20220318110104114.png" alt="image-20220318110104114"><figcaption aria-hidden="true">image-20220318110104114</figcaption>
 </figure>
 <h2 id="eigen是否安装">Eigen是否安装</h2>
-<p><img src="/2022/03/12/linux/image-20220405145913181.png" alt="image-20220405145913181">查看这个文件夹是否存在。</p>
+<p><img src="/2022/03/12/Linux/image-20220405145913181.png" alt="image-20220405145913181">查看这个文件夹是否存在。</p>
 <h2 id="opencv安装">OPENCV安装</h2>
 <ul>
-<li><code>pkg-config --modversion opencv</code>查看时候安装opencv。<img src="/2022/03/12/linux/image-20220405150006721.png" alt="image-20220405150006721"></li>
+<li><code>pkg-config --modversion opencv</code>查看时候安装opencv。<img src="/2022/03/12/Linux/image-20220405150006721.png" alt="image-20220405150006721"></li>
 <li>如果没有安装，那么<a href="https://blog.csdn.net/lumingha/article/details/88819631">(71条消息) ubuntu16.04安装Opencv3.4.0_DEPTH2CS的博客-CSDN博客_ubuntu16 安装opencv</a></li>
 </ul>
 ]]></content>
@@ -1692,7 +1692,7 @@ your browser does not support the video tag
     <title>ROS学习：EGO-Planner</title>
     <url>/2022/03/08/ego-planner/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="浙江大学fast-的ego-planner">浙江大学FAST 的EGO-Planner</h1>
-<p><img src="/2022/03/08/ego-planner/images.jpeg" alt="EGO-Planner: An ESDF-free Gradient-based Local Planner for Quadrotors |  Papers With Code" style="zoom:150%;"><span id="more"></span></p>
+<p><img src="/2022/03/08/EGO-Planner/images.jpeg" alt="EGO-Planner: An ESDF-free Gradient-based Local Planner for Quadrotors |  Papers With Code" style="zoom:150%;"><span id="more"></span></p>
 <h2 id="摘要">摘要</h2>
 <blockquote>
 <p>基于梯度规划广泛使用于local planning，其中欧几里德符号距离场（ESDF）欧几里德符号距离场<a href="https://blog.csdn.net/Travis_X/article/details/115506278">（ESDF）</a>对梯度幅度和方向有着非常重要的作用。其中ESDF是<strong>可以很方便地对障碍物进行距离和梯度信息的查询，对空中机器人的在线运动规划具有重要意义。如何快速地生成ESDF地图是进行实时运动规划的重点</strong>。</p>
@@ -1731,7 +1731,7 @@ your browser does not support the video tag
 <hr>
 <p>三种算法</p>
 <figure>
-<img src="/2022/03/08/ego-planner/image-20220313223549277.png" alt="image-20220313223549277"><figcaption aria-hidden="true">image-20220313223549277</figcaption>
+<img src="/2022/03/08/EGO-Planner/image-20220313223549277.png" alt="image-20220313223549277"><figcaption aria-hidden="true">image-20220313223549277</figcaption>
 </figure>
 <ul>
 <li><p>Barzilai-Borwein（BB）。</p></li>
@@ -1744,7 +1744,7 @@ your browser does not support the video tag
 <hr>
 <h3 id="轨迹生成算法比较">轨迹生成算法比较</h3>
 <figure>
-<img src="/2022/03/08/ego-planner/image-20220313223716472.png" alt="image-20220313223716472"><figcaption aria-hidden="true">image-20220313223716472</figcaption>
+<img src="/2022/03/08/EGO-Planner/image-20220313223716472.png" alt="image-20220313223716472"><figcaption aria-hidden="true">image-20220313223716472</figcaption>
 </figure>
 <ul>
 <li><p>EGO算法成功率高，但是能量消耗大，因为它会产生更多的控制点，导致对无人机的控制变多，但是在计算时间上有着卓越的表现。</p></li>
@@ -1753,7 +1753,7 @@ your browser does not support the video tag
 </ul>
 <h3 id="multiple-planners-comparison">Multiple Planners Comparison</h3>
 <figure>
-<img src="/2022/03/08/ego-planner/image-20220313223756373.png" alt="image-20220313223756373"><figcaption aria-hidden="true">image-20220313223756373</figcaption>
+<img src="/2022/03/08/EGO-Planner/image-20220313223756373.png" alt="image-20220313223756373"><figcaption aria-hidden="true">image-20220313223756373</figcaption>
 </figure>
 <ul>
 <li><p>EWOK</p></li>
@@ -1927,10 +1927,10 @@ your browser does not support the video tag
 <p>写在前面</p>
 </blockquote>
 <figure>
-<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322170540331.png" alt="hexo版本"><figcaption aria-hidden="true">hexo版本</figcaption>
+<img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220322170540331.png" alt="hexo版本"><figcaption aria-hidden="true">hexo版本</figcaption>
 </figure>
 <figure>
-<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322170602418.png" alt="next版本"><figcaption aria-hidden="true">next版本</figcaption>
+<img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220322170602418.png" alt="next版本"><figcaption aria-hidden="true">next版本</figcaption>
 </figure>
 <span id="more"></span>
 <h2 id="图片插入">图片插入</h2>
@@ -1940,7 +1940,7 @@ your browser does not support the video tag
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/filename\image.png&quot;</span> <span class="attr">width</span>=<span class="string">50%</span> <span class="attr">height</span>=<span class="string">10%</span>  <span class="attr">align</span>=<span class="string">center</span> <span class="attr">title</span>=<span class="string">&quot;title&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/hexo的使用方法\image-20220227222111299.png" width="50%" height="10%" align="center" title="图片"></p>
 <ul>
-<li><img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220321222111325.png" alt="image-20220321222111325" style="zoom:150%;"></li>
+<li><img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220321222111325.png" alt="image-20220321222111325" style="zoom:150%;"></li>
 </ul>
 <h2 id="添加背景图片">添加背景图片</h2>
 <p><a href="https://blog.csdn.net/weixin_46106283/article/details/109880961">next主题添加背景</a></p>
@@ -1962,8 +1962,8 @@ your browser does not support the video tag
 <h2 id="接入谷歌搜索">接入谷歌搜索</h2>
 <ol type="1">
 <li><p>点击<a href="https://search.google.com/search-console/welcome">欢迎使用 Google Search Console</a></p></li>
-<li><p>将自己的域名输入第二个<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322110615456.png" alt="第二步"></p></li>
-<li><p>进行html文件验证，把文件放在public文件夹下面，由于不知道是哪个public，所以我在两个public文件夹下面都放了html文件（如果知道了请联系我！！）<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322111033805.png" alt="放置html文件"><img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322111059286.png" alt="image-20220322111059286"></p></li>
+<li><p>将自己的域名输入第二个<img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220322110615456.png" alt="第二步"></p></li>
+<li><p>进行html文件验证，把文件放在public文件夹下面，由于不知道是哪个public，所以我在两个public文件夹下面都放了html文件（如果知道了请联系我！！）<img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220322111033805.png" alt="放置html文件"><img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220322111059286.png" alt="image-20220322111059286"></p></li>
 <li><p>输入</p>
 <blockquote>
 <p>hexo g</p>
@@ -1971,36 +1971,36 @@ your browser does not support the video tag
 </blockquote>
 <p>可能需要等待几秒。前往【资源页面】<a href="https://search.google.com/search-console/sitemaps?resource_id=https%3A%2F%2Fcopy2000.github.io%2F">站点地图 (google.com)</a></p>
 <figure>
-<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322111003344.png" alt="成功"><figcaption aria-hidden="true">成功</figcaption>
+<img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220322111003344.png" alt="成功"><figcaption aria-hidden="true">成功</figcaption>
 </figure></li>
 <li><figure>
-<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322111715870.png" alt="image-20220322111715870"><figcaption aria-hidden="true">image-20220322111715870</figcaption>
+<img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220322111715870.png" alt="image-20220322111715870"><figcaption aria-hidden="true">image-20220322111715870</figcaption>
 </figure>
 <figure>
-<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322142945043.png" alt="image-20220322142945043"><figcaption aria-hidden="true">image-20220322142945043</figcaption>
+<img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220322142945043.png" alt="image-20220322142945043"><figcaption aria-hidden="true">image-20220322142945043</figcaption>
 </figure></li>
 </ol>
 <h2 id="添加评论">添加评论</h2>
 <figure>
-<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/u=1571079431,2439839356&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG.jpeg" alt="很蓝的啦"><figcaption aria-hidden="true">很蓝的啦</figcaption>
+<img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/u=1571079431,2439839356&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG.jpeg" alt="很蓝的啦"><figcaption aria-hidden="true">很蓝的啦</figcaption>
 </figure>
 <center>
 <p style="color:red;">
 很难的啦
 </p>
 </center>
-<p>使用畅言就是无脑操作，但是居然有广告内嵌，<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322155150499.png" alt="广告内嵌"></p>
+<p>使用畅言就是无脑操作，但是居然有广告内嵌，<img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220322155150499.png" alt="广告内嵌"></p>
 <p>所以我建议不要使用，强烈建议。毕竟是无产阶级，无产阶级有无产阶级的方法 。</p>
 <p>无产阶级的做法是使用gitalk，相关资料网上一搜一大把，适合我的版本是<a href="https://www.jianshu.com/p/02fc71f3633f">Hexo 集成 Gitalk 评论系统 - 简书 (jianshu.com)</a>。</p>
 <h2 id="文字编辑">文字编辑</h2>
-<p>markdown的文字略显枯燥，所以一般使用html格式写网页会美观很多，下面是常用的使用方法。<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322172525946.png" alt="style"></p>
+<p>markdown的文字略显枯燥，所以一般使用html格式写网页会美观很多，下面是常用的使用方法。<img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220322172525946.png" alt="style"></p>
 <p>改变大小使用<code>&lt;p style="font-size:20px"&gt;STYLE&lt;/p&gt;</code></p>
 <h2 id="git-文件过大">git 文件过大</h2>
 <p><a href="https://blog.csdn.net/zy440458/article/details/114336712">(70条消息) 清理git commit中的大文件_蒟蒻颖的博客-CSDN博客</a></p>
 <p>直接删除.deloygit</p>
 <h2 id="站内链接">站内链接</h2>
 <figure>
-<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220402235536964.png" alt="image-20220402235536964"><figcaption aria-hidden="true">image-20220402235536964</figcaption>
+<img src="/2022/02/27/hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/image-20220402235536964.png" alt="image-20220402235536964"><figcaption aria-hidden="true">image-20220402235536964</figcaption>
 </figure>
 ]]></content>
       <categories>
@@ -2064,7 +2064,7 @@ your browser does not support the video tag
 <p>angular.z代表平面机器人的角速度，因为此时z轴为旋转轴</p>
 <h2 id="sensor_msgs">sensor_msgs</h2>
 <figure>
-<img src="/2022/01/19/ros-zhong-de-message-shi-yong/image-20220405153718538.png" alt="sensor_msgs"><figcaption aria-hidden="true">sensor_msgs</figcaption>
+<img src="/2022/01/19/ROS%E4%B8%AD%E7%9A%84message%E4%BD%BF%E7%94%A8/image-20220405153718538.png" alt="sensor_msgs"><figcaption aria-hidden="true">sensor_msgs</figcaption>
 </figure>
 <ul>
 <li><p><a href="https://blog.csdn.net/qq_29462849/article/details/88795250">(71条消息) ROS下sensor_msgs::ImagePtr到sensor_msgs::Image之间的转换_Tom Hardy的博客-CSDN博客</a>:ROS下面好像没办法直接定义sensor_msgs/ImagePtr,而是sensor_msgs/Image。然而在从Mat格式转到ROS下的图像格式时，一般都是ImagePtr，这样在发布信息的时候就需要一次转换啦，其实也很简单！</p>
@@ -2187,7 +2187,7 @@ your browser does not support the video tag
     <title>ROS学习：Avoidance算法解读</title>
     <url>/2022/01/13/avoidance/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="rvo2-library-reciprocal-collision-avoidance-for-real-time-multi-agent-simulation">RVO2 Library: Reciprocal Collision Avoidance for Real-Time Multi-Agent Simulation</h1>
-<p><img src="/2022/01/13/avoidance/images.png" alt="Velocity Obstacle Approaches for Multi-Agent Collision Avoidance"><span id="more"></span></p>
+<p><img src="/2022/01/13/Avoidance/images.png" alt="Velocity Obstacle Approaches for Multi-Agent Collision Avoidance"><span id="more"></span></p>
 <h2 id="一些要点">一些要点</h2>
 <ul>
 <li>二维环境<img src="/images/多级协同避障\image-20220113101748431.png" width="80%" height="80%" align="center" title="图片1"></li>

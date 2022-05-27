@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Copy2000</title>
   
-  
+  <subtitle>远离颓废低级恶趣味，向光明向认真向本分</subtitle>
   <link href="https://copy2000.github.io/atom.xml" rel="self"/>
   
   <link href="https://copy2000.github.io/"/>
@@ -43,7 +43,7 @@
     
     <summary type="html">&lt;h1 id=&quot;ros踩坑合集&quot;&gt;ROS踩坑合集&lt;/h1&gt;
 &lt;figure&gt;
-&lt;img src=&quot;/2022/04/15/ros-cai-keng-he-ji/thid=OHR.DartmoorMist_ROW8858923982_1920x1080.jpg&amp;amp;rf=LaDigue_1920x1080.jpg&quot; alt=&quot;img&quot;&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;img&lt;/figcaption&gt;
+&lt;img src=&quot;/2022/04/15/ROS%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/thid=OHR.DartmoorMist_ROW8858923982_1920x1080.jpg&amp;amp;rf=LaDigue_1920x1080.jpg&quot; alt=&quot;img&quot;&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;img&lt;/figcaption&gt;
 &lt;/figure&gt;</summary>
     
     
@@ -114,7 +114,7 @@
     
     <summary type="html">&lt;h1 id=&quot;ros中的opencv&quot;&gt;ROS中的OpenCV&lt;/h1&gt;
 &lt;figure&gt;
-&lt;img src=&quot;/2022/04/05/ros-zhong-de-opencv/u=1900498818,1764414352&amp;amp;fm=253&amp;amp;fmt=auto&amp;amp;app=120&amp;amp;f=PNG.png&quot; alt=&quot;img&quot;&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;img&lt;/figcaption&gt;
+&lt;img src=&quot;/2022/04/05/ROS%E4%B8%AD%E7%9A%84OpenCV/u=1900498818,1764414352&amp;amp;fm=253&amp;amp;fmt=auto&amp;amp;app=120&amp;amp;f=PNG.png&quot; alt=&quot;img&quot;&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;img&lt;/figcaption&gt;
 &lt;/figure&gt;</summary>
     
     
@@ -184,7 +184,7 @@
     <summary type="html">&lt;center&gt;
 为学校数字信号处理实验总结和归纳；
 &lt;/center&gt;
-&lt;p&gt;&lt;img src=&quot;/2022/03/25/yu-yin-shi-bie/OIP-C.qTq2jfShxrP6Z7XWhDbuMQHaCmw=338&amp;amp;h=123&amp;amp;c=7&amp;amp;r=0&amp;amp;o=5&amp;amp;dpr=1.38&amp;amp;pid=1.7&quot; alt=&quot;语音识别&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2022/03/25/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/OIP-C.qTq2jfShxrP6Z7XWhDbuMQHaCmw=338&amp;amp;h=123&amp;amp;c=7&amp;amp;r=0&amp;amp;o=5&amp;amp;dpr=1.38&amp;amp;pid=1.7&quot; alt=&quot;语音识别&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -273,7 +273,7 @@
     <summary type="html">&lt;h1 id=&quot;crazyswarm大型纳米四轴飞行器群论文总结&quot;&gt;《Crazyswarm：大型纳米四轴飞行器群》论文总结&lt;/h1&gt;
 &lt;p&gt;论文名称：Crazyswarm: A Large Nano-Quadcopter Swarm&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src=&quot;/2022/03/19/crazyswarm/image-20220319171842418.png&quot; alt=&quot;image-20220319171842418&quot;&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;image-20220319171842418&lt;/figcaption&gt;
+&lt;img src=&quot;/2022/03/19/Crazyswarm/image-20220319171842418.png&quot; alt=&quot;image-20220319171842418&quot;&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;image-20220319171842418&lt;/figcaption&gt;
 &lt;/figure&gt;</summary>
     
     
@@ -315,7 +315,7 @@
     <link href="https://copy2000.github.io/2022/03/14/tf/"/>
     <id>https://copy2000.github.io/2022/03/14/tf/</id>
     <published>2022-03-14T02:03:47.000Z</published>
-    <updated>2022-03-22T04:24:44.217Z</updated>
+    <updated>2022-05-27T09:46:30.606Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;ros学习坐标变换&quot;&gt;ROS学习：坐标变换&lt;/h1&gt;</summary>

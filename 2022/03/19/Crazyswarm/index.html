@@ -167,75 +167,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -429,7 +366,7 @@
                 <h1 id="crazyswarm大型纳米四轴飞行器群论文总结">《Crazyswarm：大型纳米四轴飞行器群》论文总结</h1>
 <p>论文名称：Crazyswarm: A Large Nano-Quadcopter Swarm</p>
 <figure>
-<img src="/2022/03/19/crazyswarm/image-20220319171842418.png" alt="image-20220319171842418"><figcaption aria-hidden="true">image-20220319171842418</figcaption>
+<img src="/2022/03/19/Crazyswarm/image-20220319171842418.png" alt="image-20220319171842418"><figcaption aria-hidden="true">image-20220319171842418</figcaption>
 </figure>
 <span id="more"></span>
 <h2 id="摘要">摘要</h2>
@@ -468,7 +405,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">st=&gt;start: Frame-to-frame Tracking</span><br><span class="line">op1=&gt;operation: 从动作捕捉系统获得原始点云数据</span><br><span class="line">op2=&gt;operation: 对于每个对象，我们使用 ICP 将对应于对象最后已知姿势的标记位置与整个场景点云进行配准</span><br><span class="line">op3=&gt;operation: 动作捕捉系统有时会产生带有缺失的点云从而避免跟踪误差</span><br><span class="line">op4=&gt;operation: 从ICP计算线速度和角速度，将异常值剔除并与onboard状态结合</span><br><span class="line"></span><br><span class="line">e=&gt;end: end</span><br><span class="line"></span><br><span class="line">st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="状态估计">状态估计</h2>
 <p>为了减少通信带宽要求并保持对临时通信丢失的鲁棒性， 我们在扩展卡尔曼滤波器 (Extended Kalman Filter) 中融合板载的运动捕捉和 IMU 测量 。</p>
-<p>系统的输入是加速计和陀螺仪a<sub>m</sub>和w<sub>m</sub>，所以有了动力方程，<img src="/2022/03/19/crazyswarm/image-20220320145344320.png" alt="image-20220320145344320"></p>
+<p>系统的输入是加速计和陀螺仪a<sub>m</sub>和w<sub>m</sub>，所以有了动力方程，<img src="/2022/03/19/Crazyswarm/image-20220320145344320.png" alt="image-20220320145344320"></p>
 <p>IMU测量驱动动态积分，滤波器估计此积分的误差和协方差。 当用四个数字表示一个3自由度单位四元数时，这种方法避免了有问题的额外维度。 虽然 [14]、[15] 估计了 EKF 中的加速度计和陀螺仪偏差。</p>
 <h2 id="planning">Planning</h2>
 <p>选择了一组oboard轨迹规划方法，这些方法需要在基站 PC 和车辆之间进行少量信息交换。 与在 PC 上评估轨迹并以高速率传输姿态和推力控制的架构相比，将一些规划工作转移到onboard以<strong>减少所需的无线电带宽</strong>。</p>
@@ -481,7 +418,7 @@
 <h3 id="ellipses">Ellipses</h3>
 <p>这个主要是为了证明online single-piece polynomial planner能够实现一段光滑稳定的轨迹规划。</p>
 <h3 id="interactive-avoid-obstacle-mode">Interactive Avoid-Obstacle Mode</h3>
-<p>交互避障模式是对于已知位置的单个移动障碍物，例如人类，我们使用专门的避障模式。计划者是完全分布式的，只需要知道无人机的位置 p，其分配的起始位置 p<sub>home</sub>， 和障碍物的位置 p<sub>obst</sub>，通过计算可以得到避障距离，那么新的目标位置就可以被计算出来，而且作为一种从原始位置的加权位移。相关的公式如下图。<img src="/2022/03/19/crazyswarm/image-20220320151631835.png" alt="image-20220320151631835">这样就可以<strong>计算出边际速度和加速度来得到光滑的轨迹</strong>。</p>
+<p>交互避障模式是对于已知位置的单个移动障碍物，例如人类，我们使用专门的避障模式。计划者是完全分布式的，只需要知道无人机的位置 p，其分配的起始位置 p<sub>home</sub>， 和障碍物的位置 p<sub>obst</sub>，通过计算可以得到避障距离，那么新的目标位置就可以被计算出来，而且作为一种从原始位置的加权位移。相关的公式如下图。<img src="/2022/03/19/Crazyswarm/image-20220320151631835.png" alt="image-20220320151631835">这样就可以<strong>计算出边际速度和加速度来得到光滑的轨迹</strong>。</p>
 <h2 id="通信">通信</h2>
 <p>我们使用两种不同的通信方式：请求响应（request-response）和广播（broadcasting）。</p>
 <ul>
@@ -505,12 +442,12 @@
 </ul>
 <p>实验数据表明，49个无人机方阵会达到26ms的延迟。</p>
 <h3 id="跟踪性能">跟踪性能</h3>
-<p>通过整合飞行的整体欧几里得位置误差来估计跟踪性能，不包括起飞和着陆。 每个 Crazyflie 的飞行路径是重复 3 次的 8 字形，平均速度为 0.76 m/s，最大速度为 1.5 m/s。 对于小型四轴飞行器，该轨迹速度适中，最大滚动角为 20 度。 我们尝试不同的方群大小，从 1 到 7×7，以 0.5 m 间距的网格布局，以相同的高度飞行。 这种紧密的结构会导致额外的空气动力干扰，从而影响控制器的性能。<img src="/2022/03/19/crazyswarm/image-20220320192830419.png" alt="image-20220320192830419"></p>
+<p>通过整合飞行的整体欧几里得位置误差来估计跟踪性能，不包括起飞和着陆。 每个 Crazyflie 的飞行路径是重复 3 次的 8 字形，平均速度为 0.76 m/s，最大速度为 1.5 m/s。 对于小型四轴飞行器，该轨迹速度适中，最大滚动角为 20 度。 我们尝试不同的方群大小，从 1 到 7×7，以 0.5 m 间距的网格布局，以相同的高度飞行。 这种紧密的结构会导致额外的空气动力干扰，从而影响控制器的性能。<img src="/2022/03/19/Crazyswarm/image-20220320192830419.png" alt="image-20220320192830419"></p>
 <p>结果如图，方阵越大，误差也就随之增加。但是每个crazyflie的误差也低于 2 cm。</p>
 <h3 id="位置更新率对悬停稳定性的影响">位置更新率对悬停稳定性的影响</h3>
 <p>通过将更新率从最大 100 Hz 降低到 2 Hz 并测量悬停状态下的平均欧几里得位置误差来量化位置更新率对稳定性的影响。 100 Hz 和 10 Hz 之间的范围几乎没有变化。 在 2 Hz 时，系统仍然稳定，但显示出明显的振荡。 这证明了我们的系统在操作过程中对通信丢失的鲁棒性。</p>
 <figure>
-<img src="/2022/03/19/crazyswarm/image-20220320193729705.png" alt="image-20220320193729705"><figcaption aria-hidden="true">image-20220320193729705</figcaption>
+<img src="/2022/03/19/Crazyswarm/image-20220320193729705.png" alt="image-20220320193729705"><figcaption aria-hidden="true">image-20220320193729705</figcaption>
 </figure>
 <h3 id="协同编队飞行">协同编队飞行</h3>
 <p>使用了 49 只 Crazyflies 组成的一个旋转金字塔，如<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ezTayb76x9U">实验视频</a> 所示。Crazyflies 最初放置在 7×7 网格中，间距为 0.5 m。 起飞在四个不同的层中完成，用户使用操纵杆或键盘触发下一个动作。 该脚本最初根据其层为每个 Crazyflie 分配一个组号，然后上传其椭圆的参数以供稍后执行。 由于分组，可以通过广播消息同时实现一整层的起飞。 在所有 Crazyflies 都在空中后，在线规划器规划一条轨迹，以顺利进入椭圆。 用户可以决定何时结束旋转，这会导致机上的另一个重新计划达到初始起飞位置上方的悬停状态。 最后，使用相同的组完成着陆，最大限度地减少着陆期间的空气动力干扰。</p>
