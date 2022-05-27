@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://copy2000.github.io/2022/05/27/hexo-de-metery-zhu-ti-pei-zhi/</loc>
+    
+    <lastmod>2022-05-27T12:25:17.255Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://copy2000.github.io/404/index.html</loc>
+    
+    <lastmod>2022-05-27T12:14:34.549Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://copy2000.github.io/2022/03/01/mpc/</loc>
     
     <lastmod>2022-05-27T09:47:14.821Z</lastmod>
@@ -16,30 +30,23 @@
   </url>
   
   <url>
-    <loc>https://copy2000.github.io/categories/index.html</loc>
+    <loc>https://copy2000.github.io/tags/index.html</loc>
     
-    <lastmod>2022-05-27T09:19:49.649Z</lastmod>
+    <lastmod>2022-05-27T09:22:13.337Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://copy2000.github.io/contact/index.html</loc>
     
-    <lastmod>2022-05-27T07:50:51.219Z</lastmod>
+    <lastmod>2022-05-27T09:21:21.060Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://copy2000.github.io/404/index.html</loc>
+    <loc>https://copy2000.github.io/categories/index.html</loc>
     
-    <lastmod>2022-05-27T07:26:22.196Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://copy2000.github.io/tags/index.html</loc>
-    
-    <lastmod>2022-05-27T07:21:29.247Z</lastmod>
+    <lastmod>2022-05-27T09:19:49.649Z</lastmod>
     
   </url>
   
