@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Copy2000&#39;s Blog</title>
   
-  <subtitle>远离颓废低级恶趣味， 向光明向认真向本分</subtitle>
+  <subtitle>远离颓废低级恶趣味           向光明向认真向本分</subtitle>
   <link href="https://copy2000.github.io/atom.xml" rel="self"/>
   
   <link href="https://copy2000.github.io/"/>
-  <updated>2022-05-27T12:25:17.255Z</updated>
+  <updated>2022-05-27T14:57:04.944Z</updated>
   <id>https://copy2000.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://copy2000.github.io/2022/05/27/hexo-de-metery-zhu-ti-pei-zhi/"/>
     <id>https://copy2000.github.io/2022/05/27/hexo-de-metery-zhu-ti-pei-zhi/</id>
     <published>2022-05-27T11:35:16.000Z</published>
-    <updated>2022-05-27T12:25:17.255Z</updated>
+    <updated>2022-05-27T14:57:04.944Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;hexo的metery主题配置&quot;&gt;hexo的metery主题配置&lt;/h1&gt;</summary>
