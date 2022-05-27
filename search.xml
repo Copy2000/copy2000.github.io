@@ -2101,6 +2101,34 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e
       </tags>
   </entry>
   <entry>
+    <title>c++学习：leetcode</title>
+    <url>/2022/03/12/c-learning/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><center>
+<p style="color:red;">
+坚持坚持再坚持
+</p>
+</center>
+<h1 id="c学习leetcode">c++学习：leetcode</h1>
+<p><img src="/2022/03/12/c-learning/u=4153899005,2407693289&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPG.jpeg" alt="img"><span id="more"></span></p>
+<ul>
+<li><p>arraylist</p>
+<blockquote>
+<p>1、什么是ArrayList ArrayList就是传说中的动态数组，用MSDN中的说法，就是Array的复杂版本，它提供了如下一些好处： 动态的增加和减少元素 实现了ICollection和IList接口 灵活的设置数组的大小</p>
+</blockquote>
+<blockquote>
+<p>2、如何使用ArrayList 最简单的例子： ArrayList List = new ArrayList(); for( int i=0;i&lt;10;i++ ) //给数组增加10个Int元素 List.Add(i); //..程序做一些处理 List.RemoveAt(5);//将第6个元素移除 for( int i=0;i&lt;3;i++ ) //再增加3个元素 List.Add(i+20); Int32[] values = (Int32[])List.ToArray(typeof(Int32));//返回ArrayList包含的数组</p>
+</blockquote>
+<p>这是一个简单的例子，虽然没有包含ArrayList所有的方法，但是可以反映出ArrayList最常用的用法</p>
+<blockquote>
+<p>3、ArrayList重要的方法和属性 1）构造器 ArrayList提供了三个构造器： public ArrayList(); 默认的构造器，将会以默认（16）的大小来初始化内部的数组 public ArrayList(ICollection); 用一个ICollection对象来构造，并将该集合的元素添加到ArrayList public ArrayList(int); 用指定的大小来初始化内部的数组</p>
+</blockquote></li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++学习</category>
+      </categories>
+  </entry>
+  <entry>
     <title>毛泽东选集摘录</title>
     <url>/2022/03/12/maozedongxuanji/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="毛泽东选集摘录">毛泽东选集摘录</h1>
