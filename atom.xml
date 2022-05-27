@@ -40,14 +40,14 @@
     <link href="https://copy2000.github.io/2022/05/01/duan-she-chi/"/>
     <id>https://copy2000.github.io/2022/05/01/duan-she-chi/</id>
     <published>2022-04-30T16:00:21.000Z</published>
-    <updated>2022-05-19T15:32:02.796Z</updated>
+    <updated>2022-05-27T14:39:01.233Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;断舍离&quot;&gt;断舍离&lt;/h1&gt;</summary>
     
     
     
-    <category term="文学" scheme="https://copy2000.github.io/categories/%E6%96%87%E5%AD%A6/"/>
+    <category term="碎碎念" scheme="https://copy2000.github.io/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
     
     
   </entry>
@@ -197,7 +197,7 @@
     <link href="https://copy2000.github.io/2022/03/25/yu-yin-shi-bie/"/>
     <id>https://copy2000.github.io/2022/03/25/yu-yin-shi-bie/</id>
     <published>2022-03-25T08:12:57.000Z</published>
-    <updated>2022-05-27T13:33:40.445Z</updated>
+    <updated>2022-05-27T14:38:43.295Z</updated>
     
     
     <summary type="html">&lt;center&gt;
@@ -236,7 +236,7 @@
     <link href="https://copy2000.github.io/2022/03/22/xie-zai-qian-mian/"/>
     <id>https://copy2000.github.io/2022/03/22/xie-zai-qian-mian/</id>
     <published>2022-03-22T09:13:33.000Z</published>
-    <updated>2022-04-18T15:36:32.687Z</updated>
+    <updated>2022-05-27T14:39:15.228Z</updated>
     
     
     <summary type="html">&lt;center&gt;
@@ -255,7 +255,7 @@
     
     
     
-    <category term="文学" scheme="https://copy2000.github.io/categories/%E6%96%87%E5%AD%A6/"/>
+    <category term="碎碎念" scheme="https://copy2000.github.io/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
     
     
   </entry>
@@ -265,7 +265,7 @@
     <link href="https://copy2000.github.io/2022/03/19/uav-learning/"/>
     <id>https://copy2000.github.io/2022/03/19/uav-learning/</id>
     <published>2022-03-19T15:04:24.000Z</published>
-    <updated>2022-03-30T15:47:00.321Z</updated>
+    <updated>2022-05-27T14:42:39.929Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;uav-learning&quot;&gt;UAV Learning&lt;/h1&gt;
@@ -418,29 +418,6 @@
   </entry>
   
   <entry>
-    <title>c++学习：leetcode</title>
-    <link href="https://copy2000.github.io/2022/03/12/c-learning/"/>
-    <id>https://copy2000.github.io/2022/03/12/c-learning/</id>
-    <published>2022-03-11T16:27:00.000Z</published>
-    <updated>2022-03-23T08:56:03.224Z</updated>
-    
-    
-    <summary type="html">&lt;center&gt;
-&lt;p style=&quot;color:red;&quot;&gt;
-坚持坚持再坚持
-&lt;/p&gt;
-&lt;/center&gt;
-&lt;h1 id=&quot;c学习leetcode&quot;&gt;c++学习：leetcode&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&quot;/2022/03/12/c-learning/u=4153899005,2407693289&amp;amp;fm=253&amp;amp;fmt=auto&amp;amp;app=138&amp;amp;f=JPG.jpeg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="C++学习" scheme="https://copy2000.github.io/categories/C-%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>毛泽东选集摘录</title>
     <link href="https://copy2000.github.io/2022/03/12/maozedongxuanji/"/>
     <id>https://copy2000.github.io/2022/03/12/maozedongxuanji/</id>
@@ -454,6 +431,25 @@
     
     
     <category term="文学" scheme="https://copy2000.github.io/categories/%E6%96%87%E5%AD%A6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>001:USB损坏修复</title>
+    <link href="https://copy2000.github.io/2022/03/11/repaired/"/>
+    <id>https://copy2000.github.io/2022/03/11/repaired/</id>
+    <published>2022-03-11T15:29:23.000Z</published>
+    <updated>2022-05-27T14:28:40.986Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;usb损坏修复&quot;&gt;USB损坏修复&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;问题描述：如图出现问题&lt;img src=&quot;/2022/03/11/repaired/image-20220311233044406.png&quot; alt=&quot;image-20220311233044406&quot;&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="电脑问题" scheme="https://copy2000.github.io/categories/%E7%94%B5%E8%84%91%E9%97%AE%E9%A2%98/"/>
     
     
   </entry>

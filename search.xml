@@ -70,7 +70,7 @@
 <p>最近感觉自己水水的，要加油了！！</p>
 ]]></content>
       <categories>
-        <category>文学</category>
+        <category>碎碎念</category>
       </categories>
   </entry>
   <entry>
@@ -217,7 +217,7 @@
 <p>所以，现在我想对自己提出一个问题，230天，我可以吗？我在这里回答自己，设定的初值是可以 ，300天后在这里看。</p>
 ]]></content>
       <categories>
-        <category>文学</category>
+        <category>碎碎念</category>
       </categories>
   </entry>
   <entry>
@@ -923,13 +923,13 @@ F-score表现：矩形窗=汉明窗&gt;海宁窗
 <p><strong>由上表各矩形窗的准确率所示，在矩形窗下数字识别整体准确率最低，而在汉明窗和海宁窗下的数字识别准确率相差不大。但是名字准确率在三个窗下的准确率波动不大。</strong></p>
 <hr>
 <p>相关视频：</p>
-<video src="https://copy2000.github.io/vedio/%E6%9C%AA%E8%B0%83%E5%8F%82%E8%AF%86%E5%88%AB.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+<video src="https://copy2000.github.io/medias/vedio/%E6%9C%AA%E8%B0%83%E5%8F%82%E8%AF%86%E5%88%AB.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
 your browser does not support the video tag
 </video>
 <p>我们可以发现在名字识别的时候端点检测只能检测到名字中的第一个字，这个是因为端点检测的参数没有进行调整。<img src="/2022/03/25/yu-yin-shi-bie/image-20220325171830306.png" alt="问题"></p>
 <hr>
 <p>进行二次调参后：<img src="/2022/03/25/yu-yin-shi-bie/image-20220325171924202.png" alt="端点检测参数"></p>
-<video src="https://copy2000.github.io/vedio/%E8%B0%83%E5%8F%82%E8%AF%86%E5%88%AB.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+<video src="https://copy2000.github.io/medias/vedio/%E8%B0%83%E5%8F%82%E8%AF%86%E5%88%AB.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
 your browser does not support the video tag
 </video>
 <h2 id="基于gmm模型的声纹识别">基于GMM模型的声纹识别</h2>
@@ -958,8 +958,8 @@ your browser does not support the video tag
 <p>对应的代码在<a href="https://github.com/Copy2000/DSP_experiment">Copy2000/DSP_experiment: 学校实验 (github.com)</a>，写的很乱，就这样，然后视频由于是放在github的服务器，可能会很慢。</p>
 <p>还有两篇小论文：</p>
 <ul>
-<li><a href="https://copy2000.github.io/Docs/基于频域分析的语音识别.pdf">基于频域分析的语音识别.pdf (copy2000.github.io)</a></li>
-<li><a href="https://copy2000.github.io/Docs/基于时域分析的语音识别.pdf">基于时域分析的语音识别.pdf (copy2000.github.io)</a></li>
+<li><a href="https://copy2000.github.io/medias/Docs/基于频域分析的语音识别.pdf">基于频域分析的语音识别.pdf (copy2000.github.io)</a></li>
+<li><a href="https://copy2000.github.io/medias/Docs/基于频域分析的语音识别.pdf">基于时域分析的语音识别.pdf (copy2000.github.io)</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -1569,11 +1569,11 @@ your browser does not support the video tag
 <img src="/2022/03/19/uav-learning/image-20220330205735520.png" alt="map1"><figcaption aria-hidden="true">map1</figcaption>
 </figure>
 <p><strong>不是bgm，是听的歌录进去了！！！</strong></p>
-<video src="https://copy2000.github.io/vedio/map1.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+<video src="https://copy2000.github.io/medias/vedio/map1.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
 <p>your browser does not support the video tag</p>
 </video>
 <hr>
-<video src="https://copy2000.github.io/vedio/map2.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
+<video src="https://copy2000.github.io/medias/vedio/map2.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
 <p>your browser does not support the video tag</p>
 </video></li>
 </ul>
@@ -2076,34 +2076,6 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e
       </tags>
   </entry>
   <entry>
-    <title>c++学习：leetcode</title>
-    <url>/2022/03/12/c-learning/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><center>
-<p style="color:red;">
-坚持坚持再坚持
-</p>
-</center>
-<h1 id="c学习leetcode">c++学习：leetcode</h1>
-<p><img src="/2022/03/12/c-learning/u=4153899005,2407693289&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPG.jpeg" alt="img"><span id="more"></span></p>
-<ul>
-<li><p>arraylist</p>
-<blockquote>
-<p>1、什么是ArrayList ArrayList就是传说中的动态数组，用MSDN中的说法，就是Array的复杂版本，它提供了如下一些好处： 动态的增加和减少元素 实现了ICollection和IList接口 灵活的设置数组的大小</p>
-</blockquote>
-<blockquote>
-<p>2、如何使用ArrayList 最简单的例子： ArrayList List = new ArrayList(); for( int i=0;i&lt;10;i++ ) //给数组增加10个Int元素 List.Add(i); //..程序做一些处理 List.RemoveAt(5);//将第6个元素移除 for( int i=0;i&lt;3;i++ ) //再增加3个元素 List.Add(i+20); Int32[] values = (Int32[])List.ToArray(typeof(Int32));//返回ArrayList包含的数组</p>
-</blockquote>
-<p>这是一个简单的例子，虽然没有包含ArrayList所有的方法，但是可以反映出ArrayList最常用的用法</p>
-<blockquote>
-<p>3、ArrayList重要的方法和属性 1）构造器 ArrayList提供了三个构造器： public ArrayList(); 默认的构造器，将会以默认（16）的大小来初始化内部的数组 public ArrayList(ICollection); 用一个ICollection对象来构造，并将该集合的元素添加到ArrayList public ArrayList(int); 用指定的大小来初始化内部的数组</p>
-</blockquote></li>
-</ul>
-]]></content>
-      <categories>
-        <category>C++学习</category>
-      </categories>
-  </entry>
-  <entry>
     <title>毛泽东选集摘录</title>
     <url>/2022/03/12/maozedongxuanji/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="毛泽东选集摘录">毛泽东选集摘录</h1>
@@ -2124,7 +2096,7 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e
       </categories>
   </entry>
   <entry>
-    <title>USB损坏修复</title>
+    <title>001:USB损坏修复</title>
     <url>/2022/03/11/repaired/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="usb损坏修复">USB损坏修复</h1>
 <ul>
@@ -2141,7 +2113,7 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e
 </blockquote>
 ]]></content>
       <categories>
-        <category>安装</category>
+        <category>电脑问题</category>
       </categories>
   </entry>
   <entry>
@@ -2482,14 +2454,14 @@ $ npm install hexo-symbols-count-time --save</code></pre>
       </categories>
   </entry>
   <entry>
-    <title>ROS学习：RVO2python模拟</title>
+    <title>003：ROS学习之RVO2python模拟</title>
     <url>/2022/02/27/ros-xue-xi-rvo2python-mo-ni/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="/images/ROS学习：RVO2python模拟/sin_dot.gif">上面动图为8无人机避障</p>
 <span id="more"></span>
 <p><img src="/images/ROS学习：RVO2python模拟/sin_dot2.gif">上面动图为调参之后8无人机避障 <a href="https://github.com/Copy2000/RVO2_ROS">相关代码</a></p>
 ]]></content>
       <categories>
-        <category>实验</category>
+        <category>避障算法</category>
       </categories>
       <tags>
         <tag>ROS</tag>
@@ -2635,7 +2607,7 @@ float64 z</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>配置linux避障环境</title>
+    <title>配置linuxORCA避障环境</title>
     <url>/2022/01/14/pei-zhi-bi-zhang-huan-jing/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文按照https://github.com/ethz-asl/rotors_simulator一步一步搭建并且踩坑记录。</p>
 <span id="more"></span>
@@ -2732,7 +2704,7 @@ float64 z</code></pre>
 <p>多机 ：firefly_swam_hovering_example.launch，其中需要看waypoint_publisher_file.cpp，其中提到args[x,y,z,yaw,wait_time],按照的是launch文件中的顺序</p>
 ]]></content>
       <categories>
-        <category>安装</category>
+        <category>避障算法</category>
       </categories>
       <tags>
         <tag>ROS</tag>
@@ -2746,7 +2718,7 @@ float64 z</code></pre>
 <p><img src="/2022/01/13/avoidance/images.png" alt="Velocity Obstacle Approaches for Multi-Agent Collision Avoidance"><span id="more"></span></p>
 <h2 id="一些要点">一些要点</h2>
 <ul>
-<li>二维环境<img src="/images/多级协同避障\image-20220113101748431.png" width="80%" height="80%" align="center" title="图片1"></li>
+<li>二维环境</li>
 <li><a href="https://gamma.cs.unc.edu/ORCA/">optimal reciprocal collision avoidance（ORCA）</a>公式
 <ul>
 <li>多个独立的移动机器人或代理需要在没有代理之间通信的情况下在公共工作空间中移动时避免相互碰撞。</li>
@@ -2755,7 +2727,7 @@ float64 z</code></pre>
 </ul></li>
 <li>这个算法可以避免agents出现震荡行为。</li>
 <li>user指定了静止的障碍物和agents初速度。</li>
-<li>如果使用<a href="%5BHome%20-%20OpenMP%5D(https://www.openmp.org/)">OPENMP</a>可以利用多个处理器并行模拟。<img src="/images/多级协同避障\image-20220113104235298.png" width="80%" height="80%" align="center"></li>
+<li>如果使用<a href="%5BHome%20-%20OpenMP%5D(https://www.openmp.org/)">OPENMP</a>可以利用多个处理器并行模拟。</li>
 </ul>
 <h1 id="论文解读"><a href="%5BC:/Users/Jur%20van%20den%20Berg/Documents/ORCA/author.dvi%20(unc.edu)%5D(https://gamma.cs.unc.edu/ORCA/publications/ORCA.pdf)">论文解读</a></h1>
 <p><a href="%5B(59条消息)%20导航动态避让算法RVO的优化ORCA(Optimal%20Reciprocal%20Collision%20Avoidance)_u012740992的专栏-CSDN博客_rvo算法%5D(https://blog.csdn.net/u012740992/article/details/89397714)">参考网址</a></p>
