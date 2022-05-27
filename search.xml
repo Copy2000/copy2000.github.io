@@ -74,6 +74,154 @@
       </categories>
   </entry>
   <entry>
+    <title>基于遗传算法的超参数优化</title>
+    <url>/2022/05/28/ji-yu-yi-chuan-suan-fa-de-chao-can-shu-you-hua/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><span id="more"></span>
+<h1 id="wine数据集分类结果">wine数据集分类结果</h1>
+<h2 id="grid-search">Grid Search</h2>
+<blockquote>
+<p>best parameters: {'algorithm': 'SAMME', 'learning_rate': 0.3593813663804626, 'n_estimators': 60} best score: 0.9720634920634922 Time Elapse: 113.00295925140381</p>
+</blockquote>
+<h2 id="grid-search-based-ga">Grid Search Based GA</h2>
+<blockquote>
+<p>Best individual is: {'n_estimators': 100, 'learning_rate': 0.3593813663804626, 'algorithm': 'SAMME'} with fitness: 0.9719101123595506 Time Elapsed = 46.56487488746643</p>
+</blockquote>
+<h2 id="ga">GA</h2>
+<h3 id="结果">结果：</h3>
+<ol type="1">
+<li><blockquote>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>POPULATION_SIZE <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>P_CROSSOVER <span class="op">=</span> <span class="fl">0.9</span>  <span class="co"># probability for crossover</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>P_MUTATION <span class="op">=</span> <span class="fl">0.5</span>   <span class="co"># probability for mutating an individual</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>MAX_GENERATIONS <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>HALL_OF_FAME_SIZE <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>CROWDING_FACTOR <span class="op">=</span> <span class="fl">20.0</span>  <span class="co"># crowding factor for crossover and mutation</span></span></code></pre></div>
+</blockquote>
+<blockquote>
+<p>Best solution is: params = (67, 0.34684801135281196, 'SAMME') Accuracy = 0.97206</p>
+<figure>
+<img src="/2022/05/28/ji-yu-yi-chuan-suan-fa-de-chao-can-shu-you-hua/image-20220524104037648-16536690910371.png" alt="image-20220524104037648"><figcaption aria-hidden="true">image-20220524104037648</figcaption>
+</figure>
+</blockquote></li>
+<li><blockquote>
+<p>POPULATION_SIZE = 10 P_CROSSOVER = 0.9 # probability for crossover P_MUTATION = 0.5 # probability for mutating an individual MAX_GENERATIONS = 10 HALL_OF_FAME_SIZE = 5 CROWDING_FACTOR = 20.0 # crowding factor for crossover and mutation</p>
+</blockquote>
+<blockquote>
+<p>Best solution is: params = (67, 0.34684801135281196, 'SAMME') Accuracy = 0.97206</p>
+<figure>
+<img src="/2022/05/28/ji-yu-yi-chuan-suan-fa-de-chao-can-shu-you-hua/image-20220524104239562-16536690910372.png" alt="image-20220524104239562"><figcaption aria-hidden="true">image-20220524104239562</figcaption>
+</figure>
+</blockquote></li>
+</ol>
+<h2 id="pso">PSO</h2>
+<h3 id="算法大致步骤">算法大致步骤：</h3>
+<ul>
+<li>初始化</li>
+<li>更新</li>
+</ul>
+<p>可参考的blog：<a href="https://blog.csdn.net/qq_41687938/article/details/122641718">(87条消息) 智能优化算法——粒子群算法原理与仿真程序_子木呀的博客-CSDN博客_粒子群优化算法原理</a></p>
+<h3 id="代码实现设置的条件">代码实现设置的条件：</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>MAX_Generation <span class="op">=</span> <span class="dv">10</span>     <span class="co">#迭代次数</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Population <span class="op">=</span> <span class="dv">10</span>         <span class="co">#种群数量</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dimension <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>v_low <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>v_high <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>pso <span class="op">=</span> PSO(dimension, MAX_Generation, Population,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>              BOUNDS_LOW, BOUNDS_HIGH, v_low, v_high) <span class="co">#实现的class</span></span></code></pre></div>
+<h3 id="更新步骤的核心代码">更新步骤的核心代码:</h3>
+<p>网上搜一下，其中w自身权重系数（记不清了），c1是个体学习系数，c2是群落学习系数</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>c1 <span class="op">=</span> <span class="fl">2.0</span>  <span class="co"># 学习因子</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>c2 <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> <span class="fl">0.8</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 更新速度(核心公式)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="va">self</span>.v[i] <span class="op">=</span> w <span class="op">*</span> <span class="va">self</span>.v[i] <span class="op">+</span> c1 <span class="op">*</span> random.uniform(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">*</span> (</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.p_best[i] <span class="op">-</span> <span class="va">self</span>.x[i]) <span class="op">+</span> c2 <span class="op">*</span> random.uniform(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">*</span> (<span class="va">self</span>.g_best <span class="op">-</span> <span class="va">self</span>.x[i])</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 速度限制</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.dimension):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">self</span>.v[i][j] <span class="op">&lt;</span> <span class="va">self</span>.v_low:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.v[i][j] <span class="op">=</span> <span class="va">self</span>.v_low</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">self</span>.v[i][j] <span class="op">&gt;</span> <span class="va">self</span>.v_high:</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.v[i][j] <span class="op">=</span> <span class="va">self</span>.v_high</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 更新位置</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="va">self</span>.x[i] <span class="op">=</span> <span class="va">self</span>.x[i] <span class="op">+</span> <span class="va">self</span>.v[i]</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 位置限制</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.dimension):</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">self</span>.x[i][j] <span class="op">&lt;</span> <span class="va">self</span>.bound[<span class="dv">0</span>][j]:</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x[i][j] <span class="op">=</span> <span class="va">self</span>.bound[<span class="dv">0</span>][j]</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">self</span>.x[i][j] <span class="op">&gt;</span> <span class="va">self</span>.bound[<span class="dv">1</span>][j]:</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x[i][j] <span class="op">=</span> <span class="va">self</span>.bound[<span class="dv">1</span>][j]</span></code></pre></div>
+<p>大致的意思就是通过公式更新速度和位置，同时对更新后的速度与位置进行修正，因为更新的位置一定是在一定的范围之内的。</p>
+<h3 id="结果-1">结果：</h3>
+<ol type="1">
+<li><blockquote>
+<p>MAX_Generation = 10 #迭代次数 Population = 10 #种群数量</p>
+<p>v_low = -1</p>
+<p>v_high = 1</p>
+<p>c1 = 2.0 # 学习因子 c2 = 2.0 w = 0.8</p>
+<hr>
+</blockquote>
+<blockquote>
+<p>n_estimators'=97.59544738, 'learning_rate'=0.93788895, 'algorithm'=SAMME 0.9830158730158731 当前的最佳适应度：0.9830158730158731 time cost: 175.3606903553009</p>
+<figure>
+<img src="/2022/05/28/ji-yu-yi-chuan-suan-fa-de-chao-can-shu-you-hua/image-20220523224042529-16536690910373.png" alt="image-20220523224042529"><figcaption aria-hidden="true">image-20220523224042529</figcaption>
+</figure>
+</blockquote></li>
+<li><blockquote>
+<p class="heading" id="改变迭代次数和种群大小">改变迭代次数和种群大小</p>
+<p>MAX_Generation = 50 #迭代次数 Population = 20 #种群数量</p>
+<p>v_low = -1</p>
+<p>v_high = 1</p>
+<p>c1 = 2.0 # 学习因子 c2 = 2.0 w = 0.8</p>
+</blockquote>
+<blockquote>
+<p>当前最佳位置：[22.63664273 0.7580015 0.39425009] 0.9831746031746033 当前的最佳适应度：0.9831746031746033 time cost: 1097.9579124450684 s</p>
+<figure>
+<img src="/2022/05/28/ji-yu-yi-chuan-suan-fa-de-chao-can-shu-you-hua/image-20220523235957152-16536690910384.png" alt="image-20220523235957152"><figcaption aria-hidden="true">image-20220523235957152</figcaption>
+</figure>
+</blockquote></li>
+<li><blockquote>
+<p class="heading" id="改变速度大小">改变速度大小</p>
+<p>MAX_Generation = 50 #迭代次数 Population = 20 #种群数量</p>
+<p>v_low = -0.5</p>
+<p>v_high = 0.5</p>
+<p>c1 = 2.0 # 学习因子 c2 = 2.0 w = 0.8</p>
+</blockquote>
+<blockquote>
+<p>当前最佳位置：[7.49302006e+01 6.20588351e-01 2.87210702e-02] 0.9831746031746033 当前的最佳适应度：0.9831746031746033 time cost: 1510.600219488144 s<img src="/2022/05/28/ji-yu-yi-chuan-suan-fa-de-chao-can-shu-you-hua/image-20220524090749388-16536690910385.png" alt="image-20220524090749388"></p>
+</blockquote></li>
+<li><blockquote>
+<p class="heading" id="改变速度范围">改变速度范围</p>
+<p>MAX_Generation = 50 #迭代次数 Population = 20 #种群数量</p>
+<p>v_low = [-10, -0.1, -0.5]</p>
+<p>v_high = [10, 0.1, 0.5]</p>
+<p>c1 = 2.0 # 学习因子 c2 = 2.0 w = 0.8</p>
+</blockquote>
+<blockquote>
+<p>当前最佳位置：[17.96950042 0.88984003 0. ] 0.9885714285714287 当前的最佳适应度：0.9885714285714287 time cost: 1343.2985899448395 s</p>
+<figure>
+<img src="/2022/05/28/ji-yu-yi-chuan-suan-fa-de-chao-can-shu-you-hua/image-20220524093834412-16536690910386.png" alt="image-20220524093834412"><figcaption aria-hidden="true">image-20220524093834412</figcaption>
+</figure>
+</blockquote></li>
+<li><blockquote>
+<p>改变初始化</p>
+</blockquote>
+<blockquote>
+<p>当前最佳位置：[58.67594087 0.40936569 0. ] 0.9776190476190475 当前的最佳适应度：0.9776190476190475 time cost: 2636.623948097229 s</p>
+<figure>
+<img src="/2022/05/28/ji-yu-yi-chuan-suan-fa-de-chao-can-shu-you-hua/image-20220524110732371-16536690910387.png" alt="image-20220524110732371"><figcaption aria-hidden="true">image-20220524110732371</figcaption>
+</figure>
+</blockquote></li>
+</ol>
+]]></content>
+      <categories>
+        <category>超参数优化</category>
+      </categories>
+      <tags>
+        <tag>遗传算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo的metery主题配置</title>
     <url>/2022/05/27/hexo-de-metery-zhu-ti-pei-zhi/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="hexo的metery主题配置">hexo的metery主题配置</h1>
