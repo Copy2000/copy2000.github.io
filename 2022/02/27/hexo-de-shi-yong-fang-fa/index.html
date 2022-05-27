@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于, Copy2000">
+    <meta name="keywords" content="hexo的使用方法, Copy2000">
     <meta name="description" content="竹杖芒鞋轻胜马">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于 | Copy2000</title>
+    <title>hexo的使用方法 | Copy2000</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -250,7 +250,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">about</h1>
+                    <h1 class="description center-align post-title">hexo的使用方法</h1>
                 </div>
             </div>
         </div>
@@ -371,6 +371,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AE%89%E8%A3%85/" class="post-category">
+                                安装
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -378,7 +387,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-27
+                    2022-02-27
                 </div>
                 
 
@@ -387,14 +396,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    761
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -409,7 +418,86 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p><strong>基本的hexo使用语句就不展示了</strong></p>
+<blockquote>
+<p>写在前面</p>
+</blockquote>
+<figure>
+<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322170540331.png" alt="hexo版本"><figcaption aria-hidden="true">hexo版本</figcaption>
+</figure>
+<figure>
+<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322170602418.png" alt="next版本"><figcaption aria-hidden="true">next版本</figcaption>
+</figure>
+<span id="more"></span>
+<h2 id="图片插入">图片插入</h2>
+<ul>
+<li>没有办法，只能</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/filename\image.png&quot;</span> <span class="attr">width</span>=<span class="string">50%</span> <span class="attr">height</span>=<span class="string">10%</span>  <span class="attr">align</span>=<span class="string">center</span> <span class="attr">title</span>=<span class="string">&quot;title&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/hexo的使用方法\image-20220227222111299.png" width="50%" height="10%" align="center" title="图片"></p>
+<ul>
+<li><img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220321222111325.png" alt="image-20220321222111325" style="zoom:150%;"></li>
+</ul>
+<h2 id="添加背景图片">添加背景图片</h2>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46106283/article/details/109880961">next主题添加背景</a></p>
+<p>这个透明：<a target="_blank" rel="noopener" href="http://nicethemes.cn/news/txtlist_i50768v.html">next主题美化——背景图片、页面透明化、阴影、圆角、动画 (nicethemes.cn)</a></p>
+<h2 id="添加dark-mode">添加dark mode</h2>
+<p><a target="_blank" rel="noopener" href="https://www.techgrow.cn/posts/abf4aee1.html#Next-8-x-自动添加可切换的暗黑模式">Hexo Next 8.x 主题添加可切换的暗黑模式 | Clay 的技术博客 (techgrow.cn)</a></p>
+<h2 id="首页显示头像">首页显示头像</h2>
+<p>更改 Next 主题的配置文件 <code>themes/next/_config.yml</code>，设置以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">avatar:</span><br><span class="line">  url: /images/avatar.png      # 头像图片</span><br><span class="line">  rounded: true                # 头像显示在圆里</span><br><span class="line">  rotated: true                # 鼠标焦点落在头像时，是否转动头像</span><br></pre></td></tr></table></figure>
+<h2 id="字数与阅读时长统计插件">字数与阅读时长统计插件</h2>
+<p>Next 主题默认支持使用 <a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-symbols-count-time">hexo-symbols-count-time</a> 插件来统计文章字数和阅读时长，前提是需要手动安装对应的插件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 进入博客的根目录</span><br><span class="line">$ cd $&#123;blog-root&#125;/</span><br><span class="line"></span><br><span class="line"># 安装依赖</span><br><span class="line">$ npm install eslint --save</span><br><span class="line"></span><br><span class="line"># 安装插件</span><br><span class="line">$ npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
+<p>在博客的根目录里，找到 <code>_config.yml</code> 文件，然后添加如下的配置项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  time: true                   # 文章阅读时长</span><br><span class="line">  symbols: true                # 文章字数统计</span><br><span class="line">  total_time: true             # 站点总阅读时长</span><br><span class="line">  total_symbols: true          # 站点总字数统计</span><br><span class="line">  exclude_codeblock: true      # 排除代码字数统计</span><br></pre></td></tr></table></figure>
+<p>更改 Next 主题的配置文件 <code>themes/next/_config.yml</code>，设置以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: false         # 是否另起一行显示（即不和发表时间等同一行显示）</span><br><span class="line">  item_text_post: true          # 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span><br><span class="line">  item_text_total: false        # 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span><br></pre></td></tr></table></figure>
+<h2 id="字体">字体</h2>
+<p><a target="_blank" rel="noopener" href="https://sxxkearth.github.io/2019/01/09/Next字体修改/#修改主题字体">Next修改字体 | 嗜血星空earth (sxxkearth.github.io)</a></p>
+<h2 id="接入谷歌搜索">接入谷歌搜索</h2>
+<ol type="1">
+<li><p>点击<a target="_blank" rel="noopener" href="https://search.google.com/search-console/welcome">欢迎使用 Google Search Console</a></p></li>
+<li><p>将自己的域名输入第二个<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322110615456.png" alt="第二步"></p></li>
+<li><p>进行html文件验证，把文件放在public文件夹下面，由于不知道是哪个public，所以我在两个public文件夹下面都放了html文件（如果知道了请联系我！！）<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322111033805.png" alt="放置html文件"><img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322111059286.png" alt="image-20220322111059286"></p></li>
+<li><p>输入</p>
+<blockquote>
+<p>hexo g</p>
+<p>hexo d</p>
+</blockquote>
+<p>可能需要等待几秒。前往【资源页面】<a target="_blank" rel="noopener" href="https://search.google.com/search-console/sitemaps?resource_id=https%3A%2F%2Fcopy2000.github.io%2F">站点地图 (google.com)</a></p>
+<figure>
+<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322111003344.png" alt="成功"><figcaption aria-hidden="true">成功</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322111715870.png" alt="image-20220322111715870"><figcaption aria-hidden="true">image-20220322111715870</figcaption>
+</figure>
+<figure>
+<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322142945043.png" alt="image-20220322142945043"><figcaption aria-hidden="true">image-20220322142945043</figcaption>
+</figure></li>
+</ol>
+<h2 id="添加评论">添加评论</h2>
+<figure>
+<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/u=1571079431,2439839356&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG.jpeg" alt="很蓝的啦"><figcaption aria-hidden="true">很蓝的啦</figcaption>
+</figure>
+<center>
+<p style="color:red;">
+很难的啦
+</p>
+</center>
+<p>使用畅言就是无脑操作，但是居然有广告内嵌，<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322155150499.png" alt="广告内嵌"></p>
+<p>所以我建议不要使用，强烈建议。毕竟是无产阶级，无产阶级有无产阶级的方法 。</p>
+<p>无产阶级的做法是使用gitalk，相关资料网上一搜一大把，适合我的版本是<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/02fc71f3633f">Hexo 集成 Gitalk 评论系统 - 简书 (jianshu.com)</a>。</p>
+<h2 id="文字编辑">文字编辑</h2>
+<p>markdown的文字略显枯燥，所以一般使用html格式写网页会美观很多，下面是常用的使用方法。<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220322172525946.png" alt="style"></p>
+<p>改变大小使用<code>&lt;p style="font-size:20px"&gt;STYLE&lt;/p&gt;</code></p>
+<h2 id="git-文件过大">git 文件过大</h2>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zy440458/article/details/114336712">(70条消息) 清理git commit中的大文件_蒟蒻颖的博客-CSDN博客</a></p>
+<p>直接删除.deloygit</p>
+<h2 id="站内链接">站内链接</h2>
+<figure>
+<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220402235536964.png" alt="image-20220402235536964"><figcaption aria-hidden="true">image-20220402235536964</figcaption>
+</figure>
 
                 
             </div>
@@ -436,7 +524,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://copy2000.github.io/about/index.html">https://copy2000.github.io/about/index.html</a>
+                    <a href="https://copy2000.github.io/2022/02/27/hexo-de-shi-yong-fang-fa/">https://copy2000.github.io/2022/02/27/hexo-de-shi-yong-fang-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -515,39 +603,50 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2022/03/01/mpc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="ROS学习:mpc">
                         
-                        <span class="card-title">about</span>
+                        <span class="card-title">ROS学习:mpc</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            mpc论文归纳
+《Linear vs Nonlinear MPC for Trajectory Tracking Applied to Rptary Wing Micro Aerial Vehicles》
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-01
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zhaochao
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BA%E6%96%87/" class="post-category">
+                                    论文
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9B%86%E7%BE%A4%E6%8E%A7%E5%88%B6/">
+                        <span class="chip bg-color">集群控制</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -555,37 +654,52 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2022/02/27/ros-xue-xi-rvo2python-mo-ni/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="ROS学习：RVO2python模拟">
                         
-                        <span class="card-title">about</span>
+                        <span class="card-title">ROS学习：RVO2python模拟</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            上面动图为8无人机避障
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-27
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zhaochao
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AE%9E%E9%AA%8C/" class="post-category">
+                                    实验
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ROS/">
+                        <span class="chip bg-color">ROS</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%81%BF%E9%9A%9C/">
+                        <span class="chip bg-color">避障</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

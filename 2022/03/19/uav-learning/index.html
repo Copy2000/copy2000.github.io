@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Copy2000" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 
 
@@ -91,17 +92,6 @@
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -172,17 +162,6 @@
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -415,7 +394,17 @@
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.3k
+                </div>
+                
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
                 
 
                 
@@ -442,11 +431,11 @@
 <li>Exponential coordinates</li>
 <li>Quaternions</li>
 </ul>
-<p>由于课件上的东西实在是不好整理，于是只挑了些重要的和相关的project记录。<span class="exturl" data-url="aHR0cHM6Ly9nYW93ZW5saWFuZy5naXRodWIuaW8vSEtVU1QtRUxFQzU2NjAtSW50cm9kdWN0aW9uLXRvLUFlcmlhbC1Sb2JvdHMvcHJvamVjdC9wcm9qZWN0Lmh0bWw=">ELEC5660 (gaowenliang.github.io)<i class="fa fa-external-link-alt"></i></span></p>
+<p>由于课件上的东西实在是不好整理，于是只挑了些重要的和相关的project记录。<a target="_blank" rel="noopener" href="https://gaowenliang.github.io/HKUST-ELEC5660-Introduction-to-Aerial-Robots/project/project.html">ELEC5660 (gaowenliang.github.io)</a></p>
 <h2 id="project1">Project1</h2>
 <h3 id="phase-1-control-simulation">Phase 1 : Control Simulation</h3>
 <p>question：In this project, you are provided with a quadrotor simulator written in Matlab. The simulator implements dynamics model of quadrotor and relies on the numerical solver ode45. You will need to implement controller.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhb3dlbmxpYW5nL0VMRUM1NjYwX3Byb2oxcGhhc2Ux">code and data<i class="fa fa-external-link-alt"></i></span></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gaowenliang/ELEC5660_proj1phase1">code and data</a></p>
 <ul>
 <li>下面是直接运行code（未添加控制）的相关结果：</li>
 </ul>
@@ -470,11 +459,11 @@
 <li><p>使用Ziegler-Nichols方法调参（我不认为这是一个聪明的做法）<img src="/2022/03/19/uav-learning/image-20220323155847233.png" alt="oscillate"><img src="/2022/03/19/uav-learning/image-20220323162554971.png" alt="circle_trajectory"><img src="/2022/03/19/uav-learning/image-20220323162802516.png" alt="diamond_trajectory"><img src="/2022/03/19/uav-learning/image-20220323162943627.png" alt="hover_trajectory"></p></li>
 </ul>
 <h3 id="phase-2-trajectory-simulation">Phase 2 : Trajectory Simulation</h3>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhb3dlbmxpYW5nL0VMRUM1NjYwX3Byb2oxcGhhc2Uy">问题和code and data<i class="fa fa-external-link-alt"></i></span></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gaowenliang/ELEC5660_proj1phase2">问题和code and data</a></p>
 <ul>
 <li><p>运用的知识</p>
 <p><img src="/2022/03/19/uav-learning/image-20220327111127832.png" alt="image-20220327111127832"><img src="/2022/03/19/uav-learning/image-20220327111142080.png" alt="image-20220327111142080"><img src="/2022/03/19/uav-learning/image-20220327111155381.png" alt="Minimum Snap"><img src="/2022/03/19/uav-learning/image-20220327111209720.png" alt="cost function"><img src="/2022/03/19/uav-learning/image-20220327111218007.png" alt="image-20220327111218007"><img src="/2022/03/19/uav-learning/image-20220327111244447.png" alt="image-20220327111244447"></p>
-<p>这个ppt 上面讲的就比较抽象，我的建议是<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMXlUNHkxVDdFYj9wPTEw">机器人路径规划、轨迹优化系列课程_哔哩哔哩_bilibili<i class="fa fa-external-link-alt"></i></span>，讲的比较具体形象。<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E1OTc5Njc0MjAvYXJ0aWNsZS9kZXRhaWxzLzc2MDk5NDkx">博客<i class="fa fa-external-link-alt"></i></span></p></li>
+<p>这个ppt 上面讲的就比较抽象，我的建议是<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yT4y1T7Eb?p=10">机器人路径规划、轨迹优化系列课程_哔哩哔哩_bilibili</a>，讲的比较具体形象。<a target="_blank" rel="noopener" href="https://blog.csdn.net/q597967420/article/details/76099491">博客</a></p></li>
 </ul>
 <hr>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">path1 = [0.0 0.0 1.0 ; ...</span><br><span class="line">         1.0 1.0 1.0 ; ...</span><br><span class="line">         -1.0 2.0 1.0 ; ...</span><br><span class="line">         1.0 3.0 1.0 ; ...</span><br><span class="line">         -1.0 4.0 1.0 ; ...</span><br><span class="line">         1.0 5.0 1.0 ; ...</span><br><span class="line">         -1.0 6.0 1.0 ; ...</span><br><span class="line">         1.0 7.0 1.0 ; ...</span><br><span class="line">         -1.0 8.0 1.0 ; ...</span><br><span class="line">         1.0 9.0 1.0 ; ...</span><br><span class="line">         0.0 10.0 1.0 ; ];</span><br></pre></td></tr></table></figure>
@@ -527,7 +516,7 @@
 <img src="/2022/03/19/uav-learning/image-20220327193837086.png" alt="heart-simulation"><figcaption aria-hidden="true">heart-simulation</figcaption>
 </figure>
 <h3 id="phase-3-path-finding-simulation">Phase 3 : Path Finding Simulation</h3>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dhb3dlbmxpYW5nL0VMRUM1NjYwX3Byb2oxcGhhc2Uz">代码和问题<i class="fa fa-external-link-alt"></i></span></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gaowenliang/ELEC5660_proj1phase3">代码和问题</a></p>
 <ul>
 <li>A*算法</li>
 </ul>
@@ -677,7 +666,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/03/22/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/">
+                <a href="/2022/03/22/xie-zai-qian-mian/">
                     <div class="card-image">
                         
                         
@@ -729,7 +718,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/19/Crazyswarm/">
+                <a href="/2022/03/19/crazyswarm/">
                     <div class="card-image">
                         
                         
@@ -981,9 +970,9 @@ image-20220319171842418
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="503838841"
+                   id="518895995"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme='#42b983'
                    loop='all'
                    order='random'

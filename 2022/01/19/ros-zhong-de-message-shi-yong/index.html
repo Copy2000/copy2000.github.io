@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于, Copy2000">
+    <meta name="keywords" content="ROS学习:ROS中的message使用方法, Copy2000">
     <meta name="description" content="竹杖芒鞋轻胜马">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于 | Copy2000</title>
+    <title>ROS学习:ROS中的message使用方法 | Copy2000</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">about</h1>
+                    <h1 class="description center-align post-title">ROS学习:ROS中的message使用方法</h1>
                 </div>
             </div>
         </div>
@@ -364,12 +364,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ROS/">
+                                <span class="chip bg-color">ROS</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/ROS%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                ROS学习
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -378,7 +391,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-27
+                    2022-01-19
                 </div>
                 
 
@@ -387,14 +400,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    634
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -409,7 +422,51 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="ros学习ros中的message使用方法">ROS学习:ROS中的message使用方法</h1>
+<p><a href="%5BCopy2000/ROS_msg%20(github.com)%5D(https://github.com/Copy2000/ROS_msg)">代码</a>csdn上面的文章或多或少有一点毛病，不是catkin_package有问题就是CMakeLists配置出现问题。这里我们给出csdn上<a href="%5BROS教程3%20ROS自定义msg类型及使用%20-%20MKT-porter%20-%20博客园%20(cnblogs.com)%5D(https://www.cnblogs.com/gooutlook/p/7401590.html)">最多人看的一篇</a>.</p>
+<p>我看过之后真正说明白的只有<a href="%5B机器人操作系统ROS:从入门到放弃(一)%20发布接收消息%20-%20简书%20(jianshu.com)%5D(https://www.jianshu.com/p/06e0e40cf6da)">here</a>.</p>
+<span id="more"></span>
+<hr>
+<p>创建的方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~/catkin_ws/src</span><br><span class="line">catkin_create_pkg &#123;package&#125; std_msgs rospy roscpp</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
+<p>实现：</p>
+<ul>
+<li>publisher:</li>
+</ul>
+<p><img src="/images/ROS中的message使用\publisher.png" width="50%" height="10%" align="center" title="publisher"></p>
+<ul>
+<li>subscriber:</li>
+</ul>
+<p><img src="/images/ROS中的message使用\subscriber.png" width="50%" height="10%" align="center" title="subscriber"></p>
+<h1 id="geometry_msgs">geometry_msgs</h1>
+<h2 id="geometry_msgsposestamped"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/api/geometry_msgs/html/msg/PoseStamped.html">geometry_msgs::PoseStamped</a></h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Raw Message Definition:</span><br><span class="line"># A Pose with reference coordinate frame and timestamp</span><br><span class="line">Header header</span><br><span class="line">Pose pose </span><br><span class="line"></span><br><span class="line">Compact Message Definition:</span><br><span class="line">std_msgs/Header header</span><br><span class="line">geometry_msgs/Pose pose</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="std_msgsheader-message"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/api/std_msgs/html/index-msg.html">std_msgs</a>/Header Message</h3>
+<p>引用：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_18676517/article/details/109270525">here</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># Standard metadata for higher-level stamped data types.</span><br><span class="line"># This is generally used to communicate timestamped data </span><br><span class="line"># in a particular coordinate frame.</span><br><span class="line"># </span><br><span class="line"># sequence ID: consecutively increasing ID </span><br><span class="line"></span><br><span class="line">uint32 seq</span><br><span class="line"></span><br><span class="line">#Two-integer timestamp that is expressed as:</span><br><span class="line"># * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called &#x27;secs&#x27;)</span><br><span class="line"># * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called &#x27;nsecs&#x27;)</span><br><span class="line"># time-handling sugar is provided by the client library</span><br><span class="line"></span><br><span class="line">time stamp</span><br><span class="line"></span><br><span class="line">#Frame this data is associated with</span><br><span class="line"></span><br><span class="line">string frame_id</span><br></pre></td></tr></table></figure>
+<h3 id="geometry_msgspose-message"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/api/geometry_msgs/html/index-msg.html">geometry_msgs</a>/Pose Message</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Raw Message Definition</span><br><span class="line"># A representation of pose in free space, composed of position and orientation. </span><br><span class="line">Point position</span><br><span class="line">Quaternion orientation</span><br><span class="line"></span><br><span class="line">Compact Message Definition</span><br><span class="line">geometry_msgs/Point position</span><br><span class="line">geometry_msgs/Quaternion orientation</span><br></pre></td></tr></table></figure>
+<h4 id="geometry_msgspoint-message"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/api/geometry_msgs/html/index-msg.html">geometry_msgs</a>/Point Message</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># This contains the position of a point in free space</span><br><span class="line">float64 x</span><br><span class="line">float64 y</span><br><span class="line">float64 z</span><br></pre></td></tr></table></figure>
+<h4 id="geometry_msgsquaternion-message"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/api/geometry_msgs/html/index-msg.html">geometry_msgs</a>/Quaternion Message</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># This represents an orientation in free space in quaternion form.</span><br><span class="line"></span><br><span class="line">float64 x</span><br><span class="line">float64 y</span><br><span class="line">float64 z</span><br><span class="line">float64 w</span><br></pre></td></tr></table></figure>
+<h2 id="geometry_msgstwist-message"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/melodic/api/geometry_msgs/html/index-msg.html">geometry_msgs</a>/Twist Message</h2>
+<p>cite:<a target="_blank" rel="noopener" href="https://blog.csdn.net/ktigerhero3/article/details/80740920">here</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># This expresses velocity in free space broken into its linear and angular parts.</span><br><span class="line">Vector3 linear</span><br><span class="line">Vector3 angular </span><br></pre></td></tr></table></figure>
+<h3 id="geometry_msgsvector3-message"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/melodic/api/geometry_msgs/html/index-msg.html">geometry_msgs</a>/Vector3 Message</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># This represents a vector in free space. </span><br><span class="line"># It is only meant to represent a direction. Therefore, it does not</span><br><span class="line"># make sense to apply a translation to it (e.g., when applying a </span><br><span class="line"># generic rigid transformation to a Vector3, tf2 will only apply the</span><br><span class="line"># rotation). If you want your data to be translatable too, use the</span><br><span class="line"># geometry_msgs/Point message instead.</span><br><span class="line"></span><br><span class="line">float64 x</span><br><span class="line">float64 y</span><br><span class="line">float64 z</span><br></pre></td></tr></table></figure>
+<p>使用方法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ros::<span class="built_in">init</span>(argc,argv,<span class="string">&quot;init&quot;</span>);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    ros::Publisher Pub = nh.<span class="built_in">advertise</span>&lt;geometry_msgs::Twist&gt;(<span class="string">&quot;/hector1/cmd_vel&quot;</span>,<span class="number">10</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 初始化geometry_msgs::Twist类型的消息    </span></span><br><span class="line">    geometry_msgs::Twist vel_msg;</span><br><span class="line">    vel_msg.linear.x=<span class="number">0.2</span>;</span><br><span class="line">    vel_msg.angular.z=<span class="number">0.2</span>;</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 设置循环的频率</span></span><br><span class="line">    <span class="function">ros::Rate <span class="title">loop_rate</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(ros::ok)</span><br><span class="line">    &#123;</span><br><span class="line">        ros::<span class="built_in">spinonce</span>();</span><br><span class="line">        Pub.<span class="built_in">publish</span>(Twist);</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">ROS_INFO</span>(<span class="string">&quot;Publsh velocity command[%0.2f m/s, %0.2f rad/s]&quot;</span>, </span><br><span class="line">				vel_msg.linear.x, vel_msg.angular.z);</span><br><span class="line">        </span><br><span class="line">        loop_rate.<span class="built_in">sleep</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>linear.x指向机器人前方，linear.y指向左方，linear.z垂直向上满足右手系，平面移动机器人常常linear.y和linear.z均为0；</p>
+<p>angular.z代表平面机器人的角速度，因为此时z轴为旋转轴</p>
+<h2 id="sensor_msgs">sensor_msgs</h2>
+<figure>
+<img src="/2022/01/19/ros-zhong-de-message-shi-yong/image-20220405153718538.png" alt="sensor_msgs"><figcaption aria-hidden="true">sensor_msgs</figcaption>
+</figure>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29462849/article/details/88795250">(71条消息) ROS下sensor_msgs::ImagePtr到sensor_msgs::Image之间的转换_Tom Hardy的博客-CSDN博客</a>:ROS下面好像没办法直接定义sensor_msgs/ImagePtr,而是sensor_msgs/Image。然而在从Mat格式转到ROS下的图像格式时，一般都是ImagePtr，这样在发布信息的时候就需要一次转换啦，其实也很简单！</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sensor_msgs::ImagePtr msg= cv_bridge::<span class="built_in">CvImage</span>(std_msgs::<span class="built_in">Header</span>(), <span class="string">&quot;bgr8&quot;</span>, src).<span class="built_in">toImageMsg</span>();</span><br><span class="line">detect_msg.image_raw=*msg;</span><br><span class="line">这里自定义的detect_msg.image_raw就是sensor_msgs/Image格式。</span><br></pre></td></tr></table></figure></li>
+</ul>
 
                 
             </div>
@@ -436,7 +493,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://copy2000.github.io/about/index.html">https://copy2000.github.io/about/index.html</a>
+                    <a href="https://copy2000.github.io/2022/01/19/ros-zhong-de-message-shi-yong/">https://copy2000.github.io/2022/01/19/ros-zhong-de-message-shi-yong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -473,7 +530,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/ROS/">
+                                    <span class="chip bg-color">ROS</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -515,39 +576,53 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2022/02/27/ros-xue-xi-rvo2python-mo-ni/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="ROS学习：RVO2python模拟">
                         
-                        <span class="card-title">about</span>
+                        <span class="card-title">ROS学习：RVO2python模拟</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            上面动图为8无人机避障
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-27
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zhaochao
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AE%9E%E9%AA%8C/" class="post-category">
+                                    实验
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ROS/">
+                        <span class="chip bg-color">ROS</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%81%BF%E9%9A%9C/">
+                        <span class="chip bg-color">避障</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -555,37 +630,52 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2022/01/14/pei-zhi-bi-zhang-huan-jing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="配置linux避障环境">
                         
-                        <span class="card-title">about</span>
+                        <span class="card-title">配置linux避障环境</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            本文按照https://github.com/ethz-asl/rotors_simulator一步一步搭建并且踩坑记录。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-14
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zhaochao
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AE%89%E8%A3%85/" class="post-category">
+                                    安装
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ROS/">
+                        <span class="chip bg-color">ROS</span>
+                    </a>
+                    
+                    <a href="/tags/RVO2/">
+                        <span class="chip bg-color">RVO2</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

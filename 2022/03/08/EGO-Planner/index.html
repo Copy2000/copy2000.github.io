@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Copy2000" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 
 
@@ -91,17 +92,6 @@
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -172,17 +162,6 @@
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -423,7 +402,17 @@
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.1k
+                </div>
+                
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    3 分
+                </div>
                 
 
                 
@@ -438,10 +427,10 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="浙江大学fast-的ego-planner">浙江大学FAST 的EGO-Planner</h1>
-<p><img src="/2022/03/08/EGO-Planner/images.jpeg" alt="EGO-Planner: An ESDF-free Gradient-based Local Planner for Quadrotors |  Papers With Code" style="zoom:150%;"><span id="more"></span></p>
+<p><img src="/2022/03/08/ego-planner/images.jpeg" alt="EGO-Planner: An ESDF-free Gradient-based Local Planner for Quadrotors |  Papers With Code" style="zoom:150%;"><span id="more"></span></p>
 <h2 id="摘要">摘要</h2>
 <blockquote>
-<p>基于梯度规划广泛使用于local planning，其中欧几里德符号距离场（ESDF）欧几里德符号距离场<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RyYXZpc19YL2FydGljbGUvZGV0YWlscy8xMTU1MDYyNzg=">（ESDF）<i class="fa fa-external-link-alt"></i></span>对梯度幅度和方向有着非常重要的作用。其中ESDF是<strong>可以很方便地对障碍物进行距离和梯度信息的查询，对空中机器人的在线运动规划具有重要意义。如何快速地生成ESDF地图是进行实时运动规划的重点</strong>。</p>
+<p>基于梯度规划广泛使用于local planning，其中欧几里德符号距离场（ESDF）欧几里德符号距离场<a target="_blank" rel="noopener" href="https://blog.csdn.net/Travis_X/article/details/115506278">（ESDF）</a>对梯度幅度和方向有着非常重要的作用。其中ESDF是<strong>可以很方便地对障碍物进行距离和梯度信息的查询，对空中机器人的在线运动规划具有重要意义。如何快速地生成ESDF地图是进行实时运动规划的重点</strong>。</p>
 <p>但是计算这么一个field是非常冗余的，因为轨迹优化过程仅仅包含一个非常有限的ESDF范围为的子空间。借此，一个ESDF-free 的基于梯度planning框架提出，显著的减少了计算时间，最主要的提升是在惩罚函数中的碰撞项通过比较碰撞轨迹和没有碰撞的路径得出，产生的障碍信息将会被储存起来如果这个路径（trajectory）击中了新的障碍，从而让必要的障碍信息被提取出来。之后，如果动态可行性被违背，我们加长时间分配。一个各向异性的曲线拟合算法被介绍到轨迹的高级导数中，并保持原始的形状，Bechmark比较和真实世界的实验证实了它的鲁棒性和高性能。</p>
 </blockquote>
 <h2 id="介绍">介绍</h2>
@@ -477,7 +466,7 @@
 <hr>
 <p>三种算法</p>
 <figure>
-<img src="/2022/03/08/EGO-Planner/image-20220313223549277.png" alt="image-20220313223549277"><figcaption aria-hidden="true">image-20220313223549277</figcaption>
+<img src="/2022/03/08/ego-planner/image-20220313223549277.png" alt="image-20220313223549277"><figcaption aria-hidden="true">image-20220313223549277</figcaption>
 </figure>
 <ul>
 <li><p>Barzilai-Borwein（BB）。</p></li>
@@ -490,7 +479,7 @@
 <hr>
 <h3 id="轨迹生成算法比较">轨迹生成算法比较</h3>
 <figure>
-<img src="/2022/03/08/EGO-Planner/image-20220313223716472.png" alt="image-20220313223716472"><figcaption aria-hidden="true">image-20220313223716472</figcaption>
+<img src="/2022/03/08/ego-planner/image-20220313223716472.png" alt="image-20220313223716472"><figcaption aria-hidden="true">image-20220313223716472</figcaption>
 </figure>
 <ul>
 <li><p>EGO算法成功率高，但是能量消耗大，因为它会产生更多的控制点，导致对无人机的控制变多，但是在计算时间上有着卓越的表现。</p></li>
@@ -499,7 +488,7 @@
 </ul>
 <h3 id="multiple-planners-comparison">Multiple Planners Comparison</h3>
 <figure>
-<img src="/2022/03/08/EGO-Planner/image-20220313223756373.png" alt="image-20220313223756373"><figcaption aria-hidden="true">image-20220313223756373</figcaption>
+<img src="/2022/03/08/ego-planner/image-20220313223756373.png" alt="image-20220313223756373"><figcaption aria-hidden="true">image-20220313223756373</figcaption>
 </figure>
 <ul>
 <li><p>EWOK</p></li>
@@ -537,7 +526,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://copy2000.github.io/2022/03/08/EGO-Planner/">https://copy2000.github.io/2022/03/08/EGO-Planner/</a>
+                    <a href="https://copy2000.github.io/2022/03/08/ego-planner/">https://copy2000.github.io/2022/03/08/ego-planner/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -916,9 +905,9 @@
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="503838841"
+                   id="518895995"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme='#42b983'
                    loop='all'
                    order='random'

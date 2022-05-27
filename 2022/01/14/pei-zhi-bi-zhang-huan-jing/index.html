@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: ROS, Copy2000">
+    <meta name="keywords" content="配置linux避障环境, Copy2000">
     <meta name="description" content="竹杖芒鞋轻胜马">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: ROS | Copy2000</title>
+    <title>配置linux避障环境 | Copy2000</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -241,507 +241,659 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                    subtitle
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['从来没有真正的绝境, 只有心灵的迷途','Never really desperate, only the lost of the soul'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">配置linux避障环境</h1>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ROS/">
+                                <span class="chip bg-color">ROS</span>
+                            </a>
+                        
+                            <a href="/tags/RVO2/">
+                                <span class="chip bg-color">RVO2</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AE%89%E8%A3%85/" class="post-category">
+                                安装
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-01-14
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    517
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    2 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>本文按照https://github.com/ethz-asl/rotors_simulator一步一步搭建并且踩坑记录。</p>
+<span id="more"></span>
+<h2 id="雷">雷</h2>
+<ul>
+<li><p>第一个坑：尽量不要在虚拟机上跑，因为你在catkin make的时候就会卡住。</p></li>
+<li><p>在原文中也提到了，第一次加载gazebo的时候会出现超时error，不要慌，关闭当前gazebo窗口再次输入<strong>用法</strong>的1命令。</p></li>
+<li><p>好像用不了他的其他地图。</p></li>
+<li><p>在ubuntu16环境下也需要将他自己的那个rotors_simulator放到src中。</p></li>
+<li><p>需要仔细端详他给的mavlink，可能版本对不上自己的linux系统。</p></li>
+<li><p>需要安装mavros，具体的方法好像是<code>sudo apt get install ros-kinetic-mavros</code>，有点忘了，网上有很多教程，不麻烦。</p></li>
+</ul>
+<h2 id="用法">用法</h2>
+<ol type="1">
+<li><p>开启gazebo命令<code>roslaunch rotors_gazebo mav_hovering_example.launch mav_name:=firefly world_name:=basic</code></p></li>
+<li><p>操作MAV</p>
+<blockquote>
+<ul>
+<li>方法一：使用gazebo界面和按压play button（world下面的property），这样好像不太聪明的样子。</li>
+<li>方法二：<code>rosservice call gazebo/unpause_physics</code></li>
+</ul>
+</blockquote></li>
+<li><p>发送direct motor commands</p></li>
+</ol>
+<p><code>rostopic pub /firefly/command/motor_speed mav_msgs/Actuators '&#123;angular_velocities: [100, 100, 100, 100, 100, 100]&#125;'</code>，需要注意的是，这里的angular_velocities的数组和你无人机的旋翼数目对应，在这个例子中为6旋翼的。</p>
+<ol start="4" type="1">
+<li>create an attitude controller</li>
+</ol>
+<ul>
+<li>操纵杆（joystick）无法操作</li>
+<li>使用键盘，按照<a href="%5BSetup%20virtual%20keyboard%20joystick%20·%20ethz-asl/rotors_simulator%20Wiki%20(github.com)%5D(https://github.com/ethz-asl/rotors_simulator/wiki/Setup-virtual-keyboard-joystick)">github网址</a>操作，使用 <code>rosrun rotors_joy_interface key_joystick.py</code>查看permission denied问题是否解决，使用<code>roslaunch rotors_gazebo mav_with_keyboard.launch</code>运行 使用虚拟键盘操纵杆的RotorS。</li>
+</ul>
+<h2 id="package解读">package解读</h2>
+<ul>
+<li>位于src/rotors_simulator/rotors_gazebo/launch中的firefly_swarm_hovering_example.launch文件运行多机盘旋。</li>
+<li>位于src/rotors_simulator/rotors_gazebo/launch中的fixed_wing.launch文件运行固定翼飞机。</li>
+<li>位于src/rotors_simulator/rotors_gazebo/launch中的firefly_swarm_hovering_example.launch文件运行多机盘旋。</li>
+</ul>
+<hr>
+<h2 id="代码解读">代码解读</h2>
+<p>在这之前需要知道：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">名词</th>
+<th style="text-align: center;">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">pitch</td>
+<td style="text-align: center;">围绕X轴旋转，也叫做俯仰角</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">yaw</td>
+<td style="text-align: center;">围绕Y轴旋转，也叫偏航角</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">roll</td>
+<td style="text-align: center;">围绕Z轴旋转，也叫翻滚角</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>hil_controls_msg</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">名词</th>
+<th style="text-align: center;">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">pitch_elevator</td>
+<td style="text-align: center;">自己体会</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">yaw_rudder</td>
+<td style="text-align: center;">偏航角舵</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">roll_ailerons</td>
+<td style="text-align: center;">翻滚角副翼</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">throttle</td>
+<td style="text-align: center;">风门</td>
+</tr>
+</tbody>
+</table>
+<p>多的不说，直接看rotors_gazebo/src/hovering_example.cpp</p>
+<p>多机 ：firefly_swam_hovering_example.launch，其中需要看waypoint_publisher_file.cpp，其中提到args[x,y,z,yaw,wait_time],按照的是launch文件中的顺序</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zhaochao</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://copy2000.github.io/2022/01/14/pei-zhi-bi-zhang-huan-jing/">https://copy2000.github.io/2022/01/14/pei-zhi-bi-zhang-huan-jing/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zhaochao</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/ROS/">
+                                    <span class="chip bg-color">ROS</span>
+                                </a>
+                            
+                                <a href="/tags/RVO2/">
+                                    <span class="chip bg-color">RVO2</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/01/19/ros-zhong-de-message-shi-yong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ROS学习:ROS中的message使用方法">
+                        
+                        <span class="card-title">ROS学习:ROS中的message使用方法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ROS学习:ROS中的message使用方法
+代码csdn上面的文章或多或少有一点毛病，不是catkin_package有问题就是CMakeLists配置出现问题。这里我们给出csdn上最多人看的一篇.
+我看过之后真正说明白的只有her
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ROS%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    ROS学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ROS/">
+                        <span class="chip bg-color">ROS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/01/13/avoidance/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ROS学习：Avoidance算法解读">
+                        
+                        <span class="card-title">ROS学习：Avoidance算法解读</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            RVO2 Library: Reciprocal Collision Avoidance for Real-Time Multi-Agent Simulation
+
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BA%E6%96%87/" class="post-category">
+                                    论文
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ROS/">
+                        <span class="chip bg-color">ROS</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%81%BF%E9%9A%9C/">
+                        <span class="chip bg-color">避障</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
 </div>
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('20')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Copy2000<br />'
+            + '文章作者: zhaochao<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
 </script>
 
 
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
     </div>
-</div>
-
-<main class="content">
-
-    
-
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/ROS/" title="ROS: 12">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="ROS" style="background-color: #F9EBEA;">ROS
-                        <span class="tag-length">12</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E9%81%BF%E9%9A%9C/" title="避障: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="避障" style="background-color: #F5EEF8;">避障
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E9%9B%86%E7%BE%A4%E6%8E%A7%E5%88%B6/" title="集群控制: 5">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="集群控制" style="background-color: #D5F5E3;">集群控制
-                        <span class="tag-length">5</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/JAVA/" title="JAVA: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="JAVA" style="background-color: #E8F8F5;">JAVA
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Linux/" title="Linux: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Linux" style="background-color: #FEF9E7;">Linux
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/OpenCV/" title="OpenCV: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="OpenCV" style="background-color: #F8F9F9;">OpenCV
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Python/" title="Python: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Python" style="background-color: #82E0AA;">Python
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/tianbot/" title="tianbot: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="tianbot" style="background-color: #D7BDE2;">tianbot
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" title="数字信号处理: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="数字信号处理" style="background-color: #A3E4D7;">数字信号处理
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/RVO2/" title="RVO2: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="RVO2" style="background-color: #85C1E9;">RVO2
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-            </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
 </div>
 
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="ROS" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/04/15/ros-cai-keng-he-ji/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="ROS踩坑合集">
-                            
-                            <span class="card-title">ROS踩坑合集</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ROS%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                ROS学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="ROS, Linux, OpenCV" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/04/05/ros-zhong-de-opencv/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="ROS中的OpenCV">
-                            
-                            <span class="card-title">ROS中的OpenCV</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-05
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ROS%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                ROS学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="ROS, 集群控制" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/03/19/crazyswarm/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Crazyswarm：大型纳米四轴飞行器群">
-                            
-                            <span class="card-title">Crazyswarm：大型纳米四轴飞行器群</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%BA%E6%96%87/" class="post-category">
-                                论文
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="ROS, tianbot" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/03/15/tianbot/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="ROS学习：tianbot控制">
-                            
-                            <span class="card-title">ROS学习：tianbot控制</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AE%9E%E9%AA%8C/" class="post-category">
-                                实验
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="ROS" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/03/14/tf/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="ROS学习：坐标变换">
-                            
-                            <span class="card-title">ROS学习：坐标变换</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ROS%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                ROS学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="ROS, 集群控制" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/03/13/ego-swarm/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="EGO-Swarm论文总结">
-                            
-                            <span class="card-title">EGO-Swarm论文总结</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%BA%E6%96%87/" class="post-category">
-                                论文
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="ROS" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/03/12/ros-project/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="ROS学习:turtle控制">
-                            
-                            <span class="card-title">ROS学习:turtle控制</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AE%9E%E9%AA%8C/" class="post-category">
-                                实验
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="ROS, 集群控制" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/03/08/ego-planner/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="ROS学习：EGO-Planner">
-                            
-                            <span class="card-title">ROS学习：EGO-Planner</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%BA%E6%96%87/" class="post-category">
-                                论文
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="ROS, 避障" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/02/27/ros-xue-xi-rvo2python-mo-ni/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="ROS学习：RVO2python模拟">
-                            
-                            <span class="card-title">ROS学习：RVO2python模拟</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AE%9E%E9%AA%8C/" class="post-category">
-                                实验
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="ROS" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/01/19/ros-zhong-de-message-shi-yong/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ROS学习:ROS中的message使用方法">
-                            
-                            <span class="card-title">ROS学习:ROS中的message使用方法</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ROS%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                ROS学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </article>
 </main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a class="left btn-floating btn-large disabled">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a href="/tags/ROS/page/2/"
-               class="right btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
-</div>
 
 
 

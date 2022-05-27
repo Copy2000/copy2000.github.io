@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于, Copy2000">
+    <meta name="keywords" content="JAVA使用JNA, Copy2000">
     <meta name="description" content="竹杖芒鞋轻胜马">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于 | Copy2000</title>
+    <title>JAVA使用JNA | Copy2000</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">about</h1>
+                    <h1 class="description center-align post-title">JAVA使用JNA</h1>
                 </div>
             </div>
         </div>
@@ -364,12 +364,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JAVA/">
+                                <span class="chip bg-color">JAVA</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JAVA/" class="post-category">
+                                JAVA
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -378,7 +391,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-27
+                    2022-04-07
                 </div>
                 
 
@@ -387,14 +400,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    539
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -409,7 +422,103 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="使用jna调用cc动态链接库dll">使用JNA调用C/C++动态链接库dll</h1>
+<p>参考视频:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV16t411A7it/">Java使用JNA调用C/C++动态链接库dll_哔哩哔哩_bilibili</a>（不是特别对）</li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xU4y1F7Ep?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click">【C++】JAVA使用JNA调用C++动态库DLL_哔哩哔哩_bilibili</a>（推荐）</li>
+</ul>
+<p>GITHUB repository:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/java-native-access/jna">java-native-access/jna: Java Native Access (github.com)</a></li>
+<li>repository：<a target="_blank" rel="noopener" href="https://github.com/Copy2000/JNA_use">Copy2000/JNA_use: 使用JNA调用c++的类和函数 (github.com)</a></li>
+</ul>
+<span id="more"></span>
+<h2 id="准备">准备</h2>
+<ul>
+<li>下载JNA和JNA Platform。</li>
+</ul>
+<figure>
+<img src="/2022/04/07/java-shi-yong-jna/image-20220407232739677.png" alt="image-20220407232739677"><figcaption aria-hidden="true">image-20220407232739677</figcaption>
+</figure>
+<figure>
+<img src="/2022/04/07/java-shi-yong-jna/image-20220407232838933.png" alt="image-20220407232838933"><figcaption aria-hidden="true">image-20220407232838933</figcaption>
+</figure>
+<ul>
+<li>下载Code，可以使用SSH，更加快，但是我使用了VPN了，所以直接下载压缩包。</li>
+</ul>
+<figure>
+<img src="/2022/04/07/java-shi-yong-jna/image-20220407233022480.png" alt="image-20220407233022480"><figcaption aria-hidden="true">image-20220407233022480</figcaption>
+</figure>
+<ul>
+<li><p>VScode安装JAVA扩展</p>
+<ul>
+<li><p>Extension Pack for JAVA(好像是6合1)</p></li>
+<li><p>JAVA Development Kit</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase-downloads.html">下载java</a></li>
+<li>把下载的java添加到系统变量（2处）<img src="/2022/04/07/java-shi-yong-jna/image-20220409003946283.png" alt="image-20220409003946283"><img src="/2022/04/07/java-shi-yong-jna/image-20220409004015114.png" alt="image-20220409004015114"><img src="/2022/04/07/java-shi-yong-jna/image-20220409004036112.png" alt="image-20220409004036112"></li>
+</ul></li>
+<li><p>cmd 运行<code>java -version</code></p></li>
+<li><p>vscode 在工作区设置setting.json<img src="/2022/04/07/java-shi-yong-jna/image-20220409004207504.png" alt="image-20220409004207504"></p></li>
+<li><p>检验</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/2022/04/07/java-shi-yong-jna/image-20220409004329142.png" alt="image-20220409004329142"><figcaption aria-hidden="true">image-20220409004329142</figcaption>
+</figure></li>
+</ul></li>
+<li><p>上面介绍了用vscode安装java插件，接下来介绍eclipse，嘻嘻，专业的东西用专业的IDE。vscode，太难了。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.eclipse.org/downloads/">安装eclipse。</a></li>
+<li>JDK的安装和上面类似。</li>
+</ul></li>
+</ul>
+<hr>
+<h2 id="jna的应用">JNA的应用</h2>
+<p>在Windows中的Preferences中选择Build Path下的User Library<img src="/2022/04/07/java-shi-yong-jna/image-20220409154252057.png" alt="image-20220409154252057"></p>
+<p>添加之前在github下载的三个文件。<img src="/2022/04/07/java-shi-yong-jna/image-20220409154331254.png" alt="image-20220409154331254"></p>
+<p>之后在文件夹<img src="/2022/04/07/java-shi-yong-jna/image-20220409154433644.png" alt="image-20220409154433644">，右键点击Build Path下面的Add Library选中我们添加的JNA。</p>
+<hr>
+<p>按住ctrl+click你想看到的函数源码，之后点击attach...的button，添加之前在github下载的zip文件，就可以看到源码了。<img src="/2022/04/07/java-shi-yong-jna/image-20220409154852563.png" alt="image-20220409154852563"></p>
+<figure>
+<img src="/2022/04/07/java-shi-yong-jna/image-20220409155025815.png" alt="image-20220409155025815"><figcaption aria-hidden="true">image-20220409155025815</figcaption>
+</figure>
+<hr>
+<p>在vs studio中创建dll<img src="/2022/04/07/java-shi-yong-jna/image-20220409155357236.png" alt="image-20220409155357236"></p>
+<p>主要使用的是testDLL.h和testDLL.cpp文件，相关的API和example在文件中已经给出。<img src="/2022/04/07/java-shi-yong-jna/image-20220409155555133.png" alt="image-20220409155555133"></p>
+<p>在testDLL.cpp中写源文件，在testDLL.h定义<img src="/2022/04/07/java-shi-yong-jna/image-20220409160649433.png" alt="image-20220409160649433"></p>
+<figure>
+<img src="/2022/04/07/java-shi-yong-jna/image-20220409160702579.png" alt="image-20220409160702579"><figcaption aria-hidden="true">image-20220409160702579</figcaption>
+</figure>
+<p>extern “C”是为了避免重载。</p>
+<p>生成解决方案：</p>
+<figure>
+<img src="/2022/04/07/java-shi-yong-jna/image-20220409160738670.png" alt="image-20220409160738670"><figcaption aria-hidden="true">image-20220409160738670</figcaption>
+</figure>
+<p>在DeBug文件下面找到testDLL.dll<img src="/2022/04/07/java-shi-yong-jna/image-20220409160934107.png" alt="image-20220409160934107"></p>
+<hr>
+<p>把dll文件放到<img src="/2022/04/07/java-shi-yong-jna/image-20220409161300374.png" alt="image-20220409161300374"></p>
+<hr>
+<p>新建接口interface；</p>
+<p>实例化interface：<code>Mydll mydll = (Mydll)Native.load("testDLL",Mydll.class);</code></p>
+<p>其中“testDLL”是testDLL.dll</p>
+<figure>
+<img src="/2022/04/07/java-shi-yong-jna/image-20220409164128527.png" alt="image-20220409164128527"><figcaption aria-hidden="true">image-20220409164128527</figcaption>
+</figure>
+<hr>
+<p>jna数据类型对应。<a target="_blank" rel="noopener" href="https://blog.csdn.net/hayaqi0504/article/details/83782105">JNA数据类型的对应以及使用_江南老画船的博客</a><img src="/2022/04/07/java-shi-yong-jna/image-20220409164322035.png" alt="image-20220409164322035"></p>
+<h2 id="真正的应用">真正的应用</h2>
+<p>好了好了，不隐藏了，上面都是老子踩的坑，接下来才是正题。</p>
+<p>资料<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xU4y1F7Ep/?spm_id_from=333.788.recommend_more_video.-1">【C++】JAVA使用JNA调用C++动态库DLL_哔哩哔哩_bilibili</a></p>
+<hr>
+<ul>
+<li><p>下载IntelliJ IDEA</p></li>
+<li><p>把debug改成release<img src="/2022/04/07/java-shi-yong-jna/image-20220410001545149.png" alt="image-20220410001545149"></p></li>
+<li><p>如果想要输出中文，要使用u8<img src="/2022/04/07/java-shi-yong-jna/image-20220410001739776.png" alt="image-20220410001739776"></p></li>
+<li><p>添加jna的库<img src="/2022/04/07/java-shi-yong-jna/image-20220410001816284.png" alt="image-20220410001816284"></p></li>
+<li><p>添加interface并且实例化<img src="/2022/04/07/java-shi-yong-jna/image-20220410001856274.png" alt="image-20220410001856274"></p></li>
+<li><p>调用<img src="/2022/04/07/java-shi-yong-jna/image-20220410001930152.png" alt="image-20220410001930152"></p></li>
+</ul>
 
                 
             </div>
@@ -436,7 +545,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://copy2000.github.io/about/index.html">https://copy2000.github.io/about/index.html</a>
+                    <a href="https://copy2000.github.io/2022/04/07/java-shi-yong-jna/">https://copy2000.github.io/2022/04/07/java-shi-yong-jna/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -473,7 +582,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/JAVA/">
+                                    <span class="chip bg-color">JAVA</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -515,39 +628,50 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2022/04/13/jna-de-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="JNA的使用">
                         
-                        <span class="card-title">about</span>
+                        <span class="card-title">JNA的使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            JNA的使用
+repository：Copy2000/JNA_use: 使用JNA调用c++的类和函数 (github.com)
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-13
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zhaochao
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JAVA/">
+                        <span class="chip bg-color">JAVA</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -555,37 +679,59 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2022/04/05/ros-zhong-de-opencv/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="ROS中的OpenCV">
                         
-                        <span class="card-title">about</span>
+                        <span class="card-title">ROS中的OpenCV</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            ROS中的OpenCV
+
+img
+
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-05
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zhaochao
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ROS%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    ROS学习
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ROS/">
+                        <span class="chip bg-color">ROS</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/OpenCV/">
+                        <span class="chip bg-color">OpenCV</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

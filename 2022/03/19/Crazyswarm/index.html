@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Copy2000" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 
 
@@ -91,17 +92,6 @@
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -172,17 +162,6 @@
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -423,7 +402,17 @@
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.1k
+                </div>
+                
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
                 
 
                 
@@ -440,7 +429,7 @@
                 <h1 id="crazyswarm大型纳米四轴飞行器群论文总结">《Crazyswarm：大型纳米四轴飞行器群》论文总结</h1>
 <p>论文名称：Crazyswarm: A Large Nano-Quadcopter Swarm</p>
 <figure>
-<img src="/2022/03/19/Crazyswarm/image-20220319171842418.png" alt="image-20220319171842418"><figcaption aria-hidden="true">image-20220319171842418</figcaption>
+<img src="/2022/03/19/crazyswarm/image-20220319171842418.png" alt="image-20220319171842418"><figcaption aria-hidden="true">image-20220319171842418</figcaption>
 </figure>
 <span id="more"></span>
 <h2 id="摘要">摘要</h2>
@@ -479,7 +468,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">st=&gt;start: Frame-to-frame Tracking</span><br><span class="line">op1=&gt;operation: 从动作捕捉系统获得原始点云数据</span><br><span class="line">op2=&gt;operation: 对于每个对象，我们使用 ICP 将对应于对象最后已知姿势的标记位置与整个场景点云进行配准</span><br><span class="line">op3=&gt;operation: 动作捕捉系统有时会产生带有缺失的点云从而避免跟踪误差</span><br><span class="line">op4=&gt;operation: 从ICP计算线速度和角速度，将异常值剔除并与onboard状态结合</span><br><span class="line"></span><br><span class="line">e=&gt;end: end</span><br><span class="line"></span><br><span class="line">st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="状态估计">状态估计</h2>
 <p>为了减少通信带宽要求并保持对临时通信丢失的鲁棒性， 我们在扩展卡尔曼滤波器 (Extended Kalman Filter) 中融合板载的运动捕捉和 IMU 测量 。</p>
-<p>系统的输入是加速计和陀螺仪a<sub>m</sub>和w<sub>m</sub>，所以有了动力方程，<img src="/2022/03/19/Crazyswarm/image-20220320145344320.png" alt="image-20220320145344320"></p>
+<p>系统的输入是加速计和陀螺仪a<sub>m</sub>和w<sub>m</sub>，所以有了动力方程，<img src="/2022/03/19/crazyswarm/image-20220320145344320.png" alt="image-20220320145344320"></p>
 <p>IMU测量驱动动态积分，滤波器估计此积分的误差和协方差。 当用四个数字表示一个3自由度单位四元数时，这种方法避免了有问题的额外维度。 虽然 [14]、[15] 估计了 EKF 中的加速度计和陀螺仪偏差。</p>
 <h2 id="planning">Planning</h2>
 <p>选择了一组oboard轨迹规划方法，这些方法需要在基站 PC 和车辆之间进行少量信息交换。 与在 PC 上评估轨迹并以高速率传输姿态和推力控制的架构相比，将一些规划工作转移到onboard以<strong>减少所需的无线电带宽</strong>。</p>
@@ -492,7 +481,7 @@
 <h3 id="ellipses">Ellipses</h3>
 <p>这个主要是为了证明online single-piece polynomial planner能够实现一段光滑稳定的轨迹规划。</p>
 <h3 id="interactive-avoid-obstacle-mode">Interactive Avoid-Obstacle Mode</h3>
-<p>交互避障模式是对于已知位置的单个移动障碍物，例如人类，我们使用专门的避障模式。计划者是完全分布式的，只需要知道无人机的位置 p，其分配的起始位置 p<sub>home</sub>， 和障碍物的位置 p<sub>obst</sub>，通过计算可以得到避障距离，那么新的目标位置就可以被计算出来，而且作为一种从原始位置的加权位移。相关的公式如下图。<img src="/2022/03/19/Crazyswarm/image-20220320151631835.png" alt="image-20220320151631835">这样就可以<strong>计算出边际速度和加速度来得到光滑的轨迹</strong>。</p>
+<p>交互避障模式是对于已知位置的单个移动障碍物，例如人类，我们使用专门的避障模式。计划者是完全分布式的，只需要知道无人机的位置 p，其分配的起始位置 p<sub>home</sub>， 和障碍物的位置 p<sub>obst</sub>，通过计算可以得到避障距离，那么新的目标位置就可以被计算出来，而且作为一种从原始位置的加权位移。相关的公式如下图。<img src="/2022/03/19/crazyswarm/image-20220320151631835.png" alt="image-20220320151631835">这样就可以<strong>计算出边际速度和加速度来得到光滑的轨迹</strong>。</p>
 <h2 id="通信">通信</h2>
 <p>我们使用两种不同的通信方式：请求响应（request-response）和广播（broadcasting）。</p>
 <ul>
@@ -516,15 +505,15 @@
 </ul>
 <p>实验数据表明，49个无人机方阵会达到26ms的延迟。</p>
 <h3 id="跟踪性能">跟踪性能</h3>
-<p>通过整合飞行的整体欧几里得位置误差来估计跟踪性能，不包括起飞和着陆。 每个 Crazyflie 的飞行路径是重复 3 次的 8 字形，平均速度为 0.76 m/s，最大速度为 1.5 m/s。 对于小型四轴飞行器，该轨迹速度适中，最大滚动角为 20 度。 我们尝试不同的方群大小，从 1 到 7×7，以 0.5 m 间距的网格布局，以相同的高度飞行。 这种紧密的结构会导致额外的空气动力干扰，从而影响控制器的性能。<img src="/2022/03/19/Crazyswarm/image-20220320192830419.png" alt="image-20220320192830419"></p>
+<p>通过整合飞行的整体欧几里得位置误差来估计跟踪性能，不包括起飞和着陆。 每个 Crazyflie 的飞行路径是重复 3 次的 8 字形，平均速度为 0.76 m/s，最大速度为 1.5 m/s。 对于小型四轴飞行器，该轨迹速度适中，最大滚动角为 20 度。 我们尝试不同的方群大小，从 1 到 7×7，以 0.5 m 间距的网格布局，以相同的高度飞行。 这种紧密的结构会导致额外的空气动力干扰，从而影响控制器的性能。<img src="/2022/03/19/crazyswarm/image-20220320192830419.png" alt="image-20220320192830419"></p>
 <p>结果如图，方阵越大，误差也就随之增加。但是每个crazyflie的误差也低于 2 cm。</p>
 <h3 id="位置更新率对悬停稳定性的影响">位置更新率对悬停稳定性的影响</h3>
 <p>通过将更新率从最大 100 Hz 降低到 2 Hz 并测量悬停状态下的平均欧几里得位置误差来量化位置更新率对稳定性的影响。 100 Hz 和 10 Hz 之间的范围几乎没有变化。 在 2 Hz 时，系统仍然稳定，但显示出明显的振荡。 这证明了我们的系统在操作过程中对通信丢失的鲁棒性。</p>
 <figure>
-<img src="/2022/03/19/Crazyswarm/image-20220320193729705.png" alt="image-20220320193729705"><figcaption aria-hidden="true">image-20220320193729705</figcaption>
+<img src="/2022/03/19/crazyswarm/image-20220320193729705.png" alt="image-20220320193729705"><figcaption aria-hidden="true">image-20220320193729705</figcaption>
 </figure>
 <h3 id="协同编队飞行">协同编队飞行</h3>
-<p>使用了 49 只 Crazyflies 组成的一个旋转金字塔，如<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1lelRheWI3Nng5VQ==">实验视频<i class="fa fa-external-link-alt"></i></span> 所示。Crazyflies 最初放置在 7×7 网格中，间距为 0.5 m。 起飞在四个不同的层中完成，用户使用操纵杆或键盘触发下一个动作。 该脚本最初根据其层为每个 Crazyflie 分配一个组号，然后上传其椭圆的参数以供稍后执行。 由于分组，可以通过广播消息同时实现一整层的起飞。 在所有 Crazyflies 都在空中后，在线规划器规划一条轨迹，以顺利进入椭圆。 用户可以决定何时结束旋转，这会导致机上的另一个重新计划达到初始起飞位置上方的悬停状态。 最后，使用相同的组完成着陆，最大限度地减少着陆期间的空气动力干扰。</p>
+<p>使用了 49 只 Crazyflies 组成的一个旋转金字塔，如<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ezTayb76x9U">实验视频</a> 所示。Crazyflies 最初放置在 7×7 网格中，间距为 0.5 m。 起飞在四个不同的层中完成，用户使用操纵杆或键盘触发下一个动作。 该脚本最初根据其层为每个 Crazyflie 分配一个组号，然后上传其椭圆的参数以供稍后执行。 由于分组，可以通过广播消息同时实现一整层的起飞。 在所有 Crazyflies 都在空中后，在线规划器规划一条轨迹，以顺利进入椭圆。 用户可以决定何时结束旋转，这会导致机上的另一个重新计划达到初始起飞位置上方的悬停状态。 最后，使用相同的组完成着陆，最大限度地减少着陆期间的空气动力干扰。</p>
 <h3 id="无人机交互">无人机交互</h3>
 <p>操作员手持（或佩戴）带有动作捕捉标记的物体。 我们跟踪该物体的位置，并通过无线电将其位置与所有四轴飞行器的位置一起广播。 使用<em>Interactive Avoid-Obstacle Mode</em>中描述的onboard规划器，每个 Crazyflie 计算其所需位置，从而避免与障碍物或其他四轴飞行器发生碰撞。</p>
 <h2 id="总结">总结</h2>
@@ -560,7 +549,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://copy2000.github.io/2022/03/19/Crazyswarm/">https://copy2000.github.io/2022/03/19/Crazyswarm/</a>
+                    <a href="https://copy2000.github.io/2022/03/19/crazyswarm/">https://copy2000.github.io/2022/03/19/crazyswarm/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -946,9 +935,9 @@
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="503838841"
+                   id="518895995"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme='#42b983'
                    loop='all'
                    order='random'
