@@ -1,3 +1,4 @@
+https://copy2000.github.io/2022/06/13/tang-shan-shi-jian-you-gan/
 https://copy2000.github.io/2022/05/28/li-zi-qun-suan-fa-de-chao-can-shu-you-hua/
 https://copy2000.github.io/2022/05/28/ji-yu-yi-chuan-suan-fa-de-chao-can-shu-you-hua/
 https://copy2000.github.io/2022/05/27/hexo-de-metery-zhu-ti-pei-zhi/
@@ -7,4 +8,3 @@ https://copy2000.github.io/2022/01/14/pei-zhi-bi-zhang-huan-jing/
 https://copy2000.github.io/2022/05/01/duan-she-chi/
 https://copy2000.github.io/2022/03/25/yu-yin-shi-bie/
 https://copy2000.github.io/2022/02/27/ros-xue-xi-rvo2python-mo-ni/
-https://copy2000.github.io/2022/01/13/avoidance/
