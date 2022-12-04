@@ -409,14 +409,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    759
+                    847
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -534,6 +534,24 @@ $ npm install hexo-symbols-count-time --save</code></pre>
 <figure>
 <img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20220402235536964.png" alt="image-20220402235536964"><figcaption aria-hidden="true">image-20220402235536964</figcaption>
 </figure>
+<h2 id="关于端口22">关于端口22</h2>
+<p>端口22经常被closed。</p>
+<figure>
+<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20221204235234172.png" alt="image-20221204235234172"><figcaption aria-hidden="true">image-20221204235234172</figcaption>
+</figure>
+<p>解决方法：</p>
+<ul>
+<li><p>关闭代理，可能是vpn的问题；</p></li>
+<li><p>使用<code>netstat -an</code>查看22是否被监听，好像是127.0.0.1:22；如果没有被监听：</p>
+<figure>
+<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20221204235405938.png" alt="image-20221204235405938"><figcaption aria-hidden="true">image-20221204235405938</figcaption>
+</figure></li>
+</ul>
+<p>输入<code>services.msc</code>，查看<img src="/2022/02/27/hexo-de-shi-yong-fang-fa/image-20221204235441450.png" alt="image-20221204235441450"></p>
+<ul>
+<li>等一会儿；</li>
+<li>还有一个点就是ssh key的时候后面需要加自己的邮箱。</li>
+</ul>
 
                 
             </div>
@@ -935,7 +953,7 @@ $ npm install hexo-symbols-count-time --save</code></pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">24.1k</span>&nbsp;字
+                class="white-color">24.6k</span>&nbsp;字
             
             
             

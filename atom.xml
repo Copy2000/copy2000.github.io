@@ -6,7 +6,7 @@
   <link href="https://copy2000.github.io/atom.xml" rel="self"/>
   
   <link href="https://copy2000.github.io/"/>
-  <updated>2022-11-06T14:58:10.396Z</updated>
+  <updated>2022-12-04T15:51:19.578Z</updated>
   <id>https://copy2000.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一封寄不出去的信</title>
+    <link href="https://copy2000.github.io/2022/12/04/yi-feng-ji-bu-chu-qu-de-xin/"/>
+    <id>https://copy2000.github.io/2022/12/04/yi-feng-ji-bu-chu-qu-de-xin/</id>
+    <published>2022-12-04T15:49:48.000Z</published>
+    <updated>2022-12-04T15:51:19.578Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>关于自己</title>
@@ -451,25 +472,6 @@
     <category term="ROS" scheme="https://copy2000.github.io/tags/ROS/"/>
     
     <category term="tianbot" scheme="https://copy2000.github.io/tags/tianbot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ROS学习：坐标变换</title>
-    <link href="https://copy2000.github.io/2022/03/14/tf/"/>
-    <id>https://copy2000.github.io/2022/03/14/tf/</id>
-    <published>2022-03-14T02:03:47.000Z</published>
-    <updated>2022-05-27T09:46:30.606Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;ros学习坐标变换&quot;&gt;ROS学习：坐标变换&lt;/h1&gt;</summary>
-    
-    
-    
-    <category term="ROS学习" scheme="https://copy2000.github.io/categories/ROS%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="ROS" scheme="https://copy2000.github.io/tags/ROS/"/>
     
   </entry>
   
