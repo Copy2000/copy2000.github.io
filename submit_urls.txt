@@ -1,5 +1,4 @@
 https://copy2000.github.io/2022/02/27/hexo-de-shi-yong-fang-fa/
-https://copy2000.github.io/2022/12/04/yi-feng-ji-bu-chu-qu-de-xin/
 https://copy2000.github.io/2022/03/22/xie-zai-qian-mian/
 https://copy2000.github.io/2022/11/06/guan-yu-zi-ji/
 https://copy2000.github.io/2022/07/13/mi-mang/
@@ -8,3 +7,4 @@ https://copy2000.github.io/2022/03/08/ego-planner/
 https://copy2000.github.io/2022/03/13/ego-swarm/
 https://copy2000.github.io/2022/03/15/tianbot/
 https://copy2000.github.io/2022/03/19/uav-learning/
+https://copy2000.github.io/2022/01/13/avoidance/
