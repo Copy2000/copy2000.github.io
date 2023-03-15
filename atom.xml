@@ -6,7 +6,7 @@
   <link href="https://copy2000.github.io/atom.xml" rel="self"/>
   
   <link href="https://copy2000.github.io/"/>
-  <updated>2023-03-09T04:20:57.032Z</updated>
+  <updated>2023-03-15T15:57:28.243Z</updated>
   <id>https://copy2000.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>树莓派小车</title>
+    <link href="https://copy2000.github.io/2023/03/15/shu-mei-pai-xiao-che/"/>
+    <id>https://copy2000.github.io/2023/03/15/shu-mei-pai-xiao-che/</id>
+    <published>2023-03-15T15:54:53.000Z</published>
+    <updated>2023-03-15T15:57:28.243Z</updated>
+    
+    
+    <summary type="html">&lt;figure&gt;
+&lt;img src=&quot;/2023/03/15/shu-mei-pai-xiao-che/image-20230315235653212.png&quot; alt=&quot;image-20230315235653212&quot;&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;image-20230315235653212&lt;/figcaption&gt;
+&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="实验" scheme="https://copy2000.github.io/categories/%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>戴望舒诗集摘录</title>
@@ -447,31 +466,6 @@
     
     <category term="ROS学习" scheme="https://copy2000.github.io/categories/ROS%E5%AD%A6%E4%B9%A0/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Crazyswarm：大型纳米四轴飞行器群</title>
-    <link href="https://copy2000.github.io/2022/03/19/crazyswarm/"/>
-    <id>https://copy2000.github.io/2022/03/19/crazyswarm/</id>
-    <published>2022-03-19T07:01:48.000Z</published>
-    <updated>2022-10-08T15:38:38.857Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;crazyswarm大型纳米四轴飞行器群论文总结&quot;&gt;《Crazyswarm：大型纳米四轴飞行器群》论文总结&lt;/h1&gt;
-&lt;p&gt;论文名称：Crazyswarm: A Large Nano-Quadcopter Swarm&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src=&quot;/2022/03/19/crazyswarm/image-20220319171842418.png&quot; alt=&quot;image-20220319171842418&quot;&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;image-20220319171842418&lt;/figcaption&gt;
-&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="论文" scheme="https://copy2000.github.io/categories/%E8%AE%BA%E6%96%87/"/>
-    
-    
-    <category term="ROS" scheme="https://copy2000.github.io/tags/ROS/"/>
-    
-    <category term="集群控制" scheme="https://copy2000.github.io/tags/%E9%9B%86%E7%BE%A4%E6%8E%A7%E5%88%B6/"/>
     
   </entry>
   
