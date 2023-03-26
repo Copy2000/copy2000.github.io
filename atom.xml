@@ -6,7 +6,7 @@
   <link href="https://copy2000.github.io/atom.xml" rel="self"/>
   
   <link href="https://copy2000.github.io/"/>
-  <updated>2023-03-15T15:57:44.605Z</updated>
+  <updated>2023-03-26T04:52:28.808Z</updated>
   <id>https://copy2000.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【论文】Crazyswarm论文</title>
+    <link href="https://copy2000.github.io/2023/03/26/lun-wen-crazyswarm-lun-wen/"/>
+    <id>https://copy2000.github.io/2023/03/26/lun-wen-crazyswarm-lun-wen/</id>
+    <published>2023-03-26T04:51:15.000Z</published>
+    <updated>2023-03-26T04:52:28.808Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;crazyswarm大型纳米四轴飞行器群论文总结&quot;&gt;《Crazyswarm：大型纳米四轴飞行器群》论文总结&lt;/h1&gt;
+&lt;p&gt;论文名称：Crazyswarm: A Large Nano-Quadcopter Swarm&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/2023/03/26/lun-wen-crazyswarm-lun-wen/image-20220319171842418.png&quot; alt=&quot;image-20220319171842418&quot;&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;image-20220319171842418&lt;/figcaption&gt;
+&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="论文" scheme="https://copy2000.github.io/categories/%E8%AE%BA%E6%96%87/"/>
+    
+    
+    <category term="ROS" scheme="https://copy2000.github.io/tags/ROS/"/>
+    
+    <category term="集群控制" scheme="https://copy2000.github.io/tags/%E9%9B%86%E7%BE%A4%E6%8E%A7%E5%88%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>树莓派小车</title>
@@ -444,27 +469,6 @@
     
     
     <category term="碎碎念" scheme="https://copy2000.github.io/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>无人机学习：基于香港科技大学课件学习无人机</title>
-    <link href="https://copy2000.github.io/2022/03/19/uav-learning/"/>
-    <id>https://copy2000.github.io/2022/03/19/uav-learning/</id>
-    <published>2022-03-19T15:04:24.000Z</published>
-    <updated>2022-10-08T15:39:08.493Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;uav-learning&quot;&gt;UAV Learning&lt;/h1&gt;
-&lt;p&gt;本篇只是一个目录性质的东西，相关东西自己去看课件&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src=&quot;/2022/03/19/uav-learning/u=1620021440,3565980159&amp;amp;fm=253&amp;amp;fmt=auto&amp;amp;app=120&amp;amp;f=JPEG.jpeg&quot; alt=&quot;无人机&quot;&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;无人机&lt;/figcaption&gt;
-&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="ROS学习" scheme="https://copy2000.github.io/categories/ROS%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>

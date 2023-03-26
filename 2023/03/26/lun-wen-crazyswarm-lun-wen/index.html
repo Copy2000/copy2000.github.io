@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="【论文】大型纳米四轴飞行器群, Copy&#39;s Blog">
+    <meta name="keywords" content="【论文】Crazyswarm论文, Copy&#39;s Blog">
     <meta name="description" content="用呼吸点亮星辰">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>【论文】大型纳米四轴飞行器群 | Copy&#39;s Blog</title>
+    <title>【论文】Crazyswarm论文 | Copy&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -258,12 +258,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【论文】大型纳米四轴飞行器群</h1>
+                    <h1 class="description center-align post-title">【论文】Crazyswarm论文</h1>
                 </div>
             </div>
         </div>
@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-19
+                    2023-03-26
                 </div>
                 
 
@@ -447,7 +447,7 @@
                 <h1 id="crazyswarm大型纳米四轴飞行器群论文总结">《Crazyswarm：大型纳米四轴飞行器群》论文总结</h1>
 <p>论文名称：Crazyswarm: A Large Nano-Quadcopter Swarm</p>
 <figure>
-<img src="/2022/03/19/crazyswarm/image-20220319171842418.png" alt="image-20220319171842418"><figcaption aria-hidden="true">image-20220319171842418</figcaption>
+<img src="/2023/03/26/lun-wen-crazyswarm-lun-wen/image-20220319171842418.png" alt="image-20220319171842418"><figcaption aria-hidden="true">image-20220319171842418</figcaption>
 </figure>
 <span id="more"></span>
 <h2 id="摘要">摘要</h2>
@@ -483,8 +483,7 @@
 <li>飞行期间没有长时间的遮挡。</li>
 <li>限制ICP的迭代次数（5次）以在支持的硬件设备上运行。</li>
 </ul>
-<pre class="flow"><code>
-st=&gt;start: Frame-to-frame Tracking
+<pre class="flow"><code>st=&gt;start: Frame-to-frame Tracking
 op1=&gt;operation: 从动作捕捉系统获得原始点云数据
 op2=&gt;operation: 对于每个对象，我们使用 ICP 将对应于对象最后已知姿势的标记位置与整个场景点云进行配准
 op3=&gt;operation: 动作捕捉系统有时会产生带有缺失的点云从而避免跟踪误差
@@ -497,7 +496,7 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e
 </code></pre>
 <h2 id="状态估计">状态估计</h2>
 <p>为了减少通信带宽要求并保持对临时通信丢失的鲁棒性， 我们在扩展卡尔曼滤波器 (Extended Kalman Filter) 中融合板载的运动捕捉和 IMU 测量 。</p>
-<p>系统的输入是加速计和陀螺仪a<sub>m</sub>和w<sub>m</sub>，所以有了动力方程，<img src="/2022/03/19/crazyswarm/image-20220320145344320.png" alt="image-20220320145344320"></p>
+<p>系统的输入是加速计和陀螺仪a<sub>m</sub>和w<sub>m</sub>，所以有了动力方程，<img src="/2023/03/26/lun-wen-crazyswarm-lun-wen/image-20220320145344320.png" alt="image-20220320145344320"></p>
 <p>IMU测量驱动动态积分，滤波器估计此积分的误差和协方差。 当用四个数字表示一个3自由度单位四元数时，这种方法避免了有问题的额外维度。 虽然 [14]、[15] 估计了 EKF 中的加速度计和陀螺仪偏差。</p>
 <h2 id="planning">Planning</h2>
 <p>选择了一组oboard轨迹规划方法，这些方法需要在基站 PC 和车辆之间进行少量信息交换。 与在 PC 上评估轨迹并以高速率传输姿态和推力控制的架构相比，将一些规划工作转移到onboard以<strong>减少所需的无线电带宽</strong>。</p>
@@ -510,7 +509,7 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e
 <h3 id="ellipses">Ellipses</h3>
 <p>这个主要是为了证明online single-piece polynomial planner能够实现一段光滑稳定的轨迹规划。</p>
 <h3 id="interactive-avoid-obstacle-mode">Interactive Avoid-Obstacle Mode</h3>
-<p>交互避障模式是对于已知位置的单个移动障碍物，例如人类，我们使用专门的避障模式。计划者是完全分布式的，只需要知道无人机的位置 p，其分配的起始位置 p<sub>home</sub>， 和障碍物的位置 p<sub>obst</sub>，通过计算可以得到避障距离，那么新的目标位置就可以被计算出来，而且作为一种从原始位置的加权位移。相关的公式如下图。<img src="/2022/03/19/crazyswarm/image-20220320151631835.png" alt="image-20220320151631835">这样就可以<strong>计算出边际速度和加速度来得到光滑的轨迹</strong>。</p>
+<p>交互避障模式是对于已知位置的单个移动障碍物，例如人类，我们使用专门的避障模式。计划者是完全分布式的，只需要知道无人机的位置 p，其分配的起始位置 p<sub>home</sub>， 和障碍物的位置 p<sub>obst</sub>，通过计算可以得到避障距离，那么新的目标位置就可以被计算出来，而且作为一种从原始位置的加权位移。相关的公式如下图。<img src="/2023/03/26/lun-wen-crazyswarm-lun-wen/image-20220320151631835.png" alt="image-20220320151631835">这样就可以<strong>计算出边际速度和加速度来得到光滑的轨迹</strong>。</p>
 <h2 id="通信">通信</h2>
 <p>我们使用两种不同的通信方式：请求响应（request-response）和广播（broadcasting）。</p>
 <ul>
@@ -534,12 +533,12 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e
 </ul>
 <p>实验数据表明，49个无人机方阵会达到26ms的延迟。</p>
 <h3 id="跟踪性能">跟踪性能</h3>
-<p>通过整合飞行的整体欧几里得位置误差来估计跟踪性能，不包括起飞和着陆。 每个 Crazyflie 的飞行路径是重复 3 次的 8 字形，平均速度为 0.76 m/s，最大速度为 1.5 m/s。 对于小型四轴飞行器，该轨迹速度适中，最大滚动角为 20 度。 我们尝试不同的方群大小，从 1 到 7×7，以 0.5 m 间距的网格布局，以相同的高度飞行。 这种紧密的结构会导致额外的空气动力干扰，从而影响控制器的性能。<img src="/2022/03/19/crazyswarm/image-20220320192830419.png" alt="image-20220320192830419"></p>
+<p>通过整合飞行的整体欧几里得位置误差来估计跟踪性能，不包括起飞和着陆。 每个 Crazyflie 的飞行路径是重复 3 次的 8 字形，平均速度为 0.76 m/s，最大速度为 1.5 m/s。 对于小型四轴飞行器，该轨迹速度适中，最大滚动角为 20 度。 我们尝试不同的方群大小，从 1 到 7×7，以 0.5 m 间距的网格布局，以相同的高度飞行。 这种紧密的结构会导致额外的空气动力干扰，从而影响控制器的性能。<img src="/2023/03/26/lun-wen-crazyswarm-lun-wen/image-20220320192830419.png" alt="image-20220320192830419"></p>
 <p>结果如图，方阵越大，误差也就随之增加。但是每个crazyflie的误差也低于 2 cm。</p>
 <h3 id="位置更新率对悬停稳定性的影响">位置更新率对悬停稳定性的影响</h3>
 <p>通过将更新率从最大 100 Hz 降低到 2 Hz 并测量悬停状态下的平均欧几里得位置误差来量化位置更新率对稳定性的影响。 100 Hz 和 10 Hz 之间的范围几乎没有变化。 在 2 Hz 时，系统仍然稳定，但显示出明显的振荡。 这证明了我们的系统在操作过程中对通信丢失的鲁棒性。</p>
 <figure>
-<img src="/2022/03/19/crazyswarm/image-20220320193729705.png" alt="image-20220320193729705"><figcaption aria-hidden="true">image-20220320193729705</figcaption>
+<img src="/2023/03/26/lun-wen-crazyswarm-lun-wen/image-20220320193729705.png" alt="image-20220320193729705"><figcaption aria-hidden="true">image-20220320193729705</figcaption>
 </figure>
 <h3 id="协同编队飞行">协同编队飞行</h3>
 <p>使用了 49 只 Crazyflies 组成的一个旋转金字塔，如<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ezTayb76x9U">实验视频</a> 所示。Crazyflies 最初放置在 7×7 网格中，间距为 0.5 m。 起飞在四个不同的层中完成，用户使用操纵杆或键盘触发下一个动作。 该脚本最初根据其层为每个 Crazyflie 分配一个组号，然后上传其椭圆的参数以供稍后执行。 由于分组，可以通过广播消息同时实现一整层的起飞。 在所有 Crazyflies 都在空中后，在线规划器规划一条轨迹，以顺利进入椭圆。 用户可以决定何时结束旋转，这会导致机上的另一个重新计划达到初始起飞位置上方的悬停状态。 最后，使用相同的组完成着陆，最大限度地减少着陆期间的空气动力干扰。</p>
@@ -578,7 +577,7 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://copy2000.github.io/2022/03/19/crazyswarm/">https://copy2000.github.io/2022/03/19/crazyswarm/</a>
+                    <a href="https://copy2000.github.io/2023/03/26/lun-wen-crazyswarm-lun-wen/">https://copy2000.github.io/2023/03/26/lun-wen-crazyswarm-lun-wen/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -665,44 +664,58 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/03/19/uav-learning/">
+                <a href="/2023/03/26/lun-wen-crazyswarm-lun-wen/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="无人机学习：基于香港科技大学课件学习无人机">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="【论文】Crazyswarm论文">
                         
-                        <span class="card-title">无人机学习：基于香港科技大学课件学习无人机</span>
+                        <span class="card-title">【论文】Crazyswarm论文</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            UAV Learning
-本篇只是一个目录性质的东西，相关东西自己去看课件
+                            《Crazyswarm：大型纳米四轴飞行器群》论文总结
+论文名称：Crazyswarm: A Large Nano-Quadcopter Swarm
 
-无人机
+image-20220319171842418
 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ROS%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    ROS学习
+                            <a href="/categories/%E8%AE%BA%E6%96%87/" class="post-category">
+                                    论文
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ROS/">
+                        <span class="chip bg-color">ROS</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9B%86%E7%BE%A4%E6%8E%A7%E5%88%B6/">
+                        <span class="chip bg-color">集群控制</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -714,26 +727,26 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/15/tianbot/">
+                <a href="/2023/03/15/shu-mei-pai-xiao-che/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="ROS学习：tianbot控制">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="树莓派小车">
                         
-                        <span class="card-title">ROS学习：tianbot控制</span>
+                        <span class="card-title">树莓派小车</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ROS学习：tianbot控制
-相关重要的packages在tianbot的github上可以找到
-虚拟机上的gazebo无法打开直接断开网络可以打开。
+                            
+image-20230315235653212
+
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-15
                             </span>
                         <span class="publish-author">
                             
@@ -746,18 +759,6 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/ROS/">
-                        <span class="chip bg-color">ROS</span>
-                    </a>
-                    
-                    <a href="/tags/tianbot/">
-                        <span class="chip bg-color">tianbot</span>
-                    </a>
-                    
                 </div>
                 
             </div>
