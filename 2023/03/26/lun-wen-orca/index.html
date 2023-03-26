@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="003：ROS学习之RVO2python模拟, Copy&#39;s Blog">
+    <meta name="keywords" content="【论文】ORCA, Copy&#39;s Blog">
     <meta name="description" content="用呼吸点亮星辰">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>003：ROS学习之RVO2python模拟 | Copy&#39;s Blog</title>
+    <title>【论文】ORCA | Copy&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Copy's Blog" type="application/atom+xml">
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 
 
@@ -258,12 +258,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">003：ROS学习之RVO2python模拟</h1>
+                    <h1 class="description center-align post-title">【论文】ORCA</h1>
                 </div>
             </div>
         </div>
@@ -379,10 +379,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ROS/">
-                                <span class="chip bg-color">ROS</span>
-                            </a>
-                        
                             <a href="/tags/%E9%81%BF%E9%9A%9C/">
                                 <span class="chip bg-color">避障</span>
                             </a>
@@ -395,8 +391,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%81%BF%E9%9A%9C%E7%AE%97%E6%B3%95/" class="post-category">
-                                避障算法
+                            <a href="/categories/%E8%AE%BA%E6%96%87/" class="post-category">
+                                论文
                             </a>
                         
                     </div>
@@ -408,7 +404,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-27
+                    2023-03-26
                 </div>
                 
 
@@ -417,7 +413,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    30
+                    313
                 </div>
                 
 
@@ -444,9 +440,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="/images/ROS学习：RVO2python模拟/sin_dot.gif">上面动图为8无人机避障</p>
-<span id="more"></span>
-<p><img src="/images/ROS学习：RVO2python模拟/sin_dot2.gif">上面动图为调参之后8无人机避障 <a target="_blank" rel="noopener" href="https://github.com/Copy2000/RVO2_ROS">相关代码</a></p>
+                <h1 id="rvo2-library-reciprocal-collision-avoidance-for-real-time-multi-agent-simulation">RVO2 Library: Reciprocal Collision Avoidance for Real-Time Multi-Agent Simulation</h1>
+<p><img src="/2023/03/26/lun-wen-orca/images.png" alt="Velocity Obstacle Approaches for Multi-Agent Collision Avoidance"><span id="more"></span></p>
+<h2 id="一些要点">一些要点</h2>
+<ul>
+<li>二维环境</li>
+<li><a target="_blank" rel="noopener" href="https://gamma.cs.unc.edu/ORCA/">optimal reciprocal collision avoidance（ORCA）</a>公式
+<ul>
+<li>多个独立的移动机器人或代理需要在没有代理之间通信的情况下在公共工作空间中移动时避免相互碰撞。</li>
+<li>让每个代理承担避免成对碰撞的一半责任。<img src="/images/多级协同避障\image-20220113102255772.png" width="80%" height="80%" align="center"></li>
+<li>每个无人机的最优动作简化为低维度线性问题，即凸优化问题。让每个代理承担避免成对碰撞的一半责任。<img src="/images/多级协同避障\image-20220113102841763.png" width="80%" height="80%" align="center"></li>
+</ul></li>
+<li>这个算法可以避免agents出现震荡行为。</li>
+<li>user指定了静止的障碍物和agents初速度。</li>
+<li>如果使用<a href="%5BHome%20-%20OpenMP%5D(https://www.openmp.org/)">OPENMP</a>可以利用多个处理器并行模拟。</li>
+</ul>
+<h1 id="论文解读"><a href="%5BC:/Users/Jur%20van%20den%20Berg/Documents/ORCA/author.dvi%20(unc.edu)%5D(https://gamma.cs.unc.edu/ORCA/publications/ORCA.pdf)">论文解读</a></h1>
+<p><a href="%5B(59条消息)%20导航动态避让算法RVO的优化ORCA(Optimal%20Reciprocal%20Collision%20Avoidance)_u012740992的专栏-CSDN博客_rvo算法%5D(https://blog.csdn.net/u012740992/article/details/89397714)">参考网址</a></p>
+<p>解读，解读个p，啥也不会，直接看<a target="_blank" rel="noopener" href="https://blog.csdn.net/u012740992/article/details/121727523">(59条消息) ORCA(RVO2)算法优化整理版_u012740992的专栏-CSDN博客_orca算法</a></p>
+<hr>
+<p>一些网址：</p>
+<p><a href="%5B论文笔记《Reciprocal%20Velocity%20Obstacles%20for%20Real-Time%20Multi-Agent%20Navigation》%20%7C%20陪你度过漫长岁月%20(meltycriss.com)%5D(https://www.meltycriss.com/2017/01/13/paper-rvo/)">论文笔记《Reciprocal Velocity Obstacles for Real-Time Multi-Agent Navigation》</a></p>
+<hr>
+<p>cite:</p>
+<p><span class="citation" data-cites="Inbook">@Inbook</span>{Furrer2016, author="Furrer, Fadri and Burri, Michael and Achtelik, Markus and Siegwart, Roland", editor="Koubaa, Anis", chapter="RotorS---A Modular Gazebo MAV Simulator Framework", title="Robot Operating System (ROS): The Complete Reference (Volume 1)", year="2016", publisher="Springer International Publishing", address="Cham", pages="595--625", isbn="978-3-319-26054-9", doi="10.1007/978-3-319-26054-9_23", url="http://dx.doi.org/10.1007/978-3-319-26054-9_23" }</p>
 
                 
             </div>
@@ -473,7 +490,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://copy2000.github.io/2022/02/27/ros-xue-xi-rvo2python-mo-ni/">https://copy2000.github.io/2022/02/27/ros-xue-xi-rvo2python-mo-ni/</a>
+                    <a href="https://copy2000.github.io/2023/03/26/lun-wen-orca/">https://copy2000.github.io/2023/03/26/lun-wen-orca/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -510,10 +527,6 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/ROS/">
-                                    <span class="chip bg-color">ROS</span>
-                                </a>
                             
                                 <a href="/tags/%E9%81%BF%E9%9A%9C/">
                                     <span class="chip bg-color">避障</span>
@@ -560,49 +573,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/02/27/hexo-de-shi-yong-fang-fa/">
+                <a href="/2023/03/26/lun-wen-orca/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="hexo的使用方法">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="【论文】ORCA">
                         
-                        <span class="card-title">hexo的使用方法</span>
+                        <span class="card-title">【论文】ORCA</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基本的hexo使用语句就不展示了
-
-写在前面
-
-
-hexo版本
-
-
-next版本
+                            RVO2 Library: Reciprocal Collision Avoidance for Real-Time Multi-Agent Simulation
 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AE%89%E8%A3%85/" class="post-category">
-                                    安装
+                            <a href="/categories/%E8%AE%BA%E6%96%87/" class="post-category">
+                                    论文
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%81%BF%E9%9A%9C/">
+                        <span class="chip bg-color">避障</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -614,33 +629,32 @@ next版本
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/19/ros-zhong-de-message-shi-yong/">
+                <a href="/2023/03/26/lun-wen-ego-planner/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ROS学习:ROS中的message使用方法">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="【论文】EGO-Planner">
                         
-                        <span class="card-title">ROS学习:ROS中的message使用方法</span>
+                        <span class="card-title">【论文】EGO-Planner</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ROS学习:ROS中的message使用方法
-代码csdn上面的文章或多或少有一点毛病，不是catkin_package有问题就是CMakeLists配置出现问题。这里我们给出csdn上最多人看的一篇.
-我看过之后真正说明白的只有her
+                            浙江大学FAST 的EGO-Planner
+
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ROS%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    ROS学习
+                            <a href="/categories/%E8%AE%BA%E6%96%87/" class="post-category">
+                                    论文
                                 </a>
                             
                             
@@ -650,8 +664,8 @@ next版本
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ROS/">
-                        <span class="chip bg-color">ROS</span>
+                    <a href="/tags/%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">路径规划</span>
                     </a>
                     
                 </div>
@@ -783,6 +797,13 @@ next版本
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -854,7 +875,7 @@ next版本
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">30.5k</span>&nbsp;字
+                class="white-color">29.5k</span>&nbsp;字
             
             
             

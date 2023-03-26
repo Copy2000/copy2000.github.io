@@ -6,7 +6,7 @@
   <link href="https://copy2000.github.io/atom.xml" rel="self"/>
   
   <link href="https://copy2000.github.io/"/>
-  <updated>2023-03-26T04:52:28.808Z</updated>
+  <updated>2023-03-26T14:10:16.632Z</updated>
   <id>https://copy2000.github.io/</id>
   
   <author>
@@ -17,11 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【论文】ORCA</title>
+    <link href="https://copy2000.github.io/2023/03/26/lun-wen-orca/"/>
+    <id>https://copy2000.github.io/2023/03/26/lun-wen-orca/</id>
+    <published>2023-03-26T14:09:41.000Z</published>
+    <updated>2023-03-26T14:10:16.632Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;rvo2-library-reciprocal-collision-avoidance-for-real-time-multi-agent-simulation&quot;&gt;RVO2 Library: Reciprocal Collision Avoidance for Real-Time Multi-Agent Simulation&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/2023/03/26/lun-wen-orca/images.png&quot; alt=&quot;Velocity Obstacle Approaches for Multi-Agent Collision Avoidance&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文" scheme="https://copy2000.github.io/categories/%E8%AE%BA%E6%96%87/"/>
+    
+    
+    <category term="避障" scheme="https://copy2000.github.io/tags/%E9%81%BF%E9%9A%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【论文】EGO-Planner</title>
+    <link href="https://copy2000.github.io/2023/03/26/lun-wen-ego-planner/"/>
+    <id>https://copy2000.github.io/2023/03/26/lun-wen-ego-planner/</id>
+    <published>2023-03-26T14:08:16.000Z</published>
+    <updated>2023-03-26T14:08:48.134Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;浙江大学fast-的ego-planner&quot;&gt;浙江大学FAST 的EGO-Planner&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/2023/03/26/lun-wen-ego-planner/images.jpeg&quot; alt=&quot;EGO-Planner: An ESDF-free Gradient-based Local Planner for Quadrotors |  Papers With Code&quot; style=&quot;zoom:150%;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文" scheme="https://copy2000.github.io/categories/%E8%AE%BA%E6%96%87/"/>
+    
+    
+    <category term="路径规划" scheme="https://copy2000.github.io/tags/%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【论文】Crazyswarm论文</title>
     <link href="https://copy2000.github.io/2023/03/26/lun-wen-crazyswarm-lun-wen/"/>
     <id>https://copy2000.github.io/2023/03/26/lun-wen-crazyswarm-lun-wen/</id>
     <published>2023-03-26T04:51:15.000Z</published>
-    <updated>2023-03-26T04:52:28.808Z</updated>
+    <updated>2023-03-26T04:53:14.671Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;crazyswarm大型纳米四轴飞行器群论文总结&quot;&gt;《Crazyswarm：大型纳米四轴飞行器群》论文总结&lt;/h1&gt;
@@ -86,7 +126,7 @@
     <link href="https://copy2000.github.io/2022/12/27/2022-nian-zong-jie/"/>
     <id>https://copy2000.github.io/2022/12/27/2022-nian-zong-jie/</id>
     <published>2022-12-27T14:38:42.000Z</published>
-    <updated>2022-12-27T16:02:39.643Z</updated>
+    <updated>2023-03-26T14:11:16.686Z</updated>
     
     
       
@@ -337,32 +377,6 @@
   </entry>
   
   <entry>
-    <title>ROS中的OpenCV</title>
-    <link href="https://copy2000.github.io/2022/04/05/ros-zhong-de-opencv/"/>
-    <id>https://copy2000.github.io/2022/04/05/ros-zhong-de-opencv/</id>
-    <published>2022-04-05T07:32:56.000Z</published>
-    <updated>2022-04-15T06:36:29.108Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;ros中的opencv&quot;&gt;ROS中的OpenCV&lt;/h1&gt;
-&lt;figure&gt;
-&lt;img src=&quot;/2022/04/05/ros-zhong-de-opencv/u=1900498818,1764414352&amp;amp;fm=253&amp;amp;fmt=auto&amp;amp;app=120&amp;amp;f=PNG.png&quot; alt=&quot;img&quot;&gt;&lt;figcaption aria-hidden=&quot;true&quot;&gt;img&lt;/figcaption&gt;
-&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="ROS学习" scheme="https://copy2000.github.io/categories/ROS%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="ROS" scheme="https://copy2000.github.io/tags/ROS/"/>
-    
-    <category term="Linux" scheme="https://copy2000.github.io/tags/Linux/"/>
-    
-    <category term="OpenCV" scheme="https://copy2000.github.io/tags/OpenCV/"/>
-    
-  </entry>
-  
-  <entry>
     <title>dmpc</title>
     <link href="https://copy2000.github.io/2022/04/01/dmpc/"/>
     <id>https://copy2000.github.io/2022/04/01/dmpc/</id>
@@ -440,35 +454,6 @@
     
     
     <category term="论文" scheme="https://copy2000.github.io/categories/%E8%AE%BA%E6%96%87/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>写在前面</title>
-    <link href="https://copy2000.github.io/2022/03/22/xie-zai-qian-mian/"/>
-    <id>https://copy2000.github.io/2022/03/22/xie-zai-qian-mian/</id>
-    <published>2022-03-22T09:13:33.000Z</published>
-    <updated>2023-03-09T04:17:14.665Z</updated>
-    
-    
-    <summary type="html">&lt;center&gt;
-&lt;p style=&quot;font-size:50px&quot;&gt;
-写在前面
-&lt;/p&gt;
-&lt;/center&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;2022/3/22&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p style=&quot;font-size:25px&quot;&gt;
-这是在我的好兄弟兼大学同学罗鸣鸣同学的激励和监督下完成的blog雏形，他说码农也应该是一个有着完美追求的码农，代码和思路一定要漂亮，于是在西安疫情和初春闲暇之日完成blog制作。
-&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="碎碎念" scheme="https://copy2000.github.io/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
     
     
   </entry>
