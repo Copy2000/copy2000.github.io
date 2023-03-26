@@ -2886,7 +2886,7 @@ your browser does not support the video tag
       </categories>
   </entry>
   <entry>
-    <title>Crazyswarm：大型纳米四轴飞行器群</title>
+    <title>【论文】大型纳米四轴飞行器群</title>
     <url>/2022/03/19/crazyswarm/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="crazyswarm大型纳米四轴飞行器群论文总结">《Crazyswarm：大型纳米四轴飞行器群》论文总结</h1>
 <p>论文名称：Crazyswarm: A Large Nano-Quadcopter Swarm</p>
@@ -3448,7 +3448,7 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e
       </categories>
   </entry>
   <entry>
-    <title>ROS学习：EGO-Planner</title>
+    <title>【论文】EGO-Planner</title>
     <url>/2022/03/08/ego-planner/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="浙江大学fast-的ego-planner">浙江大学FAST 的EGO-Planner</h1>
 <p><img src="/2022/03/08/ego-planner/images.jpeg" alt="EGO-Planner: An ESDF-free Gradient-based Local Planner for Quadrotors |  Papers With Code" style="zoom:150%;"><span id="more"></span></p>
