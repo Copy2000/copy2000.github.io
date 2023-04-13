@@ -409,14 +409,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    466
+                    582
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -436,82 +436,63 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ros学习坐标变换">ROS学习：坐标变换</h1>
+                
+# ROS学习：坐标变换
+
 <span id="more"></span>
-<h2 id="坐标参数">坐标参数</h2>
-<p>本部分参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45590473/article/details/122884112">彻底搞懂“旋转矩阵/欧拉角/四元数“</a>。</p>
-<h3 id="位姿变换">位姿变换</h3>
-<p>基于O1的世界坐标系与基于O2的坐标系如下所示：</p>
-<figure>
-<img src="/2023/03/26/ros-xue-xi-zuo-biao-bian-huan/image-20220314101746671.png" alt="位姿变换"><figcaption aria-hidden="true">位姿变换</figcaption>
-</figure>
-<h3 id="欧拉角">欧拉角</h3>
-<p>欧拉角遵循的是右手系规则，即大拇指指向坐标轴正方向，四指旋转的方向即为转动的正方向，欧拉角包含三个自由量：yaw(偏航角)、pitch(俯仰角)、roll(翻滚角)。</p>
-<figure>
-<img src="/2023/03/26/ros-xue-xi-zuo-biao-bian-huan/image-20220314102233162.png" alt="image-20220314102233162"><figcaption aria-hidden="true">image-20220314102233162</figcaption>
-</figure>
-<p>由于“绕谁谁不变”的原则，因此Z轴坐标不会发生改变，最终Z轴旋转变换公式如下所示：</p>
-<figure>
-<img src="/2023/03/26/ros-xue-xi-zuo-biao-bian-huan/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6IKl6IKl6IOW6IOW5piv5aSq6Ziz,size_10,color_FFFFFF,t_70,g_se,x_16.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
-</figure>
-<p>得到<img src="/2023/03/26/ros-xue-xi-zuo-biao-bian-huan/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6IKl6IKl6IOW6IOW5piv5aSq6Ziz,size_15,color_FFFFFF,t_70,g_se,x_16.png" alt="旋转矩阵"></p>
-<p>旋转矩阵的旋转顺序分为外旋（x-&gt;y-&gt;z）和内旋（z-&gt;y-&gt;x），我们一般采用外旋的顺序。<img src="/2023/03/26/ros-xue-xi-zuo-biao-bian-huan/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6IKl6IKl6IOW6IOW5piv5aSq6Ziz,size_20,color_FFFFFF,t_70,g_se,x_16.png" alt="外旋"></p>
-<p>无论绕X轴正方向/反方向旋转90度，都会导致Y/Z轴正方向罗在一条直线上！为了解决“死锁“的问题，我们要使用四个自由量，这就引出了”四元数“的概念。</p>
-<h3 id="四元数">四元数</h3>
-<p>复数运算规则：</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>1</strong></th>
-<th><strong>i</strong></th>
-<th><strong>j</strong></th>
-<th><strong>k</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>1</strong></td>
-<td>1</td>
-<td>i</td>
-<td>j</td>
-<td>k</td>
-</tr>
-<tr class="even">
-<td><strong>i</strong></td>
-<td>i</td>
-<td>-1</td>
-<td>k</td>
-<td>-j</td>
-</tr>
-<tr class="odd">
-<td><strong>j</strong></td>
-<td>j</td>
-<td>-k</td>
-<td>-1</td>
-<td>i</td>
-</tr>
-<tr class="even">
-<td><strong>k</strong></td>
-<td>k</td>
-<td>j</td>
-<td>-i</td>
-<td>-1</td>
-</tr>
-</tbody>
-</table>
-<h2 id="ros中的静态坐标转换">ROS中的静态坐标转换</h2>
-<p>本部分参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45590473/article/details/122908060">超级霸霸强的博客</a>。</p>
-<figure>
-<img src="/2023/03/26/ros-xue-xi-zuo-biao-bian-huan/image-20220314101143943.png" alt="静态坐标转换"><figcaption aria-hidden="true">静态坐标转换</figcaption>
-</figure>
-<p>调用transfrom函数进行坐标转换。此外，两者不同之处在于坐标系间的转换关系获取，多坐标系转换中需要调用lookupTransfrom函数对buffer缓冲区内的数据进行复杂计算得到任意两个坐标系的转换关系，而静态/动态坐标系转换关系只需订阅static_tf话题即可得到。</p>
-<h3 id="需要的package">需要的package</h3>
-<p>我们知道使用tf坐标转换除了需要roscpp、rospy、std_msgs这三个基本的功能包外，还需要<strong>tf2、tf2_geometry_msgs、geometry_msgs、tf2_ros</strong>。</p>
-<h3 id="实现逻辑">实现逻辑</h3>
-<figure>
-<img src="/2023/03/26/ros-xue-xi-zuo-biao-bian-huan/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6IKl6IKl6IOW6IOW5piv5aSq6Ziz,size_20,color_FFFFFF,t_70,g_se,x_16.png" alt="实现逻辑"><figcaption aria-hidden="true">实现逻辑</figcaption>
-</figure>
+
+## 坐标参数
+
+本部分参考[彻底搞懂“旋转矩阵/欧拉角/四元数“](https://blog.csdn.net/weixin_45590473/article/details/122884112)。
+
+### 位姿变换
+
+基于O1的世界坐标系与基于O2的坐标系如下所示：
+
+![位姿变换](【ROS学习】坐标变换/image-20220314101746671.png)
+
+### 欧拉角
+
+欧拉角遵循的是右手系规则，即大拇指指向坐标轴正方向，四指旋转的方向即为转动的正方向，欧拉角包含三个自由量：yaw(偏航角)、pitch(俯仰角)、roll(翻滚角)。
+
+![image-20220314102233162](【ROS学习】坐标变换/image-20220314102233162.png)
+
+由于“绕谁谁不变”的原则，因此Z轴坐标不会发生改变，最终Z轴旋转变换公式如下所示：
+
+![img](【ROS学习】坐标变换/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6IKl6IKl6IOW6IOW5piv5aSq6Ziz,size_10,color_FFFFFF,t_70,g_se,x_16.png)
+
+得到![旋转矩阵](【ROS学习】坐标变换/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6IKl6IKl6IOW6IOW5piv5aSq6Ziz,size_15,color_FFFFFF,t_70,g_se,x_16.png)
+
+ 旋转矩阵的旋转顺序分为外旋（x->y->z）和内旋（z->y->x），我们一般采用外旋的顺序。![外旋](【ROS学习】坐标变换/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6IKl6IKl6IOW6IOW5piv5aSq6Ziz,size_20,color_FFFFFF,t_70,g_se,x_16.png)
+
+ 无论绕X轴正方向/反方向旋转90度，都会导致Y/Z轴正方向罗在一条直线上！为了解决“死锁“的问题，我们要使用四个自由量，这就引出了”四元数“的概念。
+
+### 四元数
+
+复数运算规则：
+
+|       | **1** | **i** | **j** | **k** |
+| ----- | ----- | ----- | ----- | ----- |
+| **1** | 1     | i     | j     | k     |
+| **i** | i     | -1    | k     | -j    |
+| **j** | j     | -k    | -1    | i     |
+| **k** | k     | j     | -i    | -1    |
+
+## ROS中的静态坐标转换
+
+本部分参考[超级霸霸强的博客](https://blog.csdn.net/weixin_45590473/article/details/122908060)。
+
+![静态坐标转换](【ROS学习】坐标变换/image-20220314101143943.png)
+
+调用transfrom函数进行坐标转换。此外，两者不同之处在于坐标系间的转换关系获取，多坐标系转换中需要调用lookupTransfrom函数对buffer缓冲区内的数据进行复杂计算得到任意两个坐标系的转换关系，而静态/动态坐标系转换关系只需订阅static_tf话题即可得到。
+
+### 需要的package
+
+我们知道使用tf坐标转换除了需要roscpp、rospy、std_msgs这三个基本的功能包外，还需要**tf2、tf2_geometry_msgs、geometry_msgs、tf2_ros**。
+
+### 实现逻辑
+
+![实现逻辑](【ROS学习】坐标变换/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6IKl6IKl6IOW6IOW5piv5aSq6Ziz,size_20,color_FFFFFF,t_70,g_se,x_16.png)
 
                 
             </div>
@@ -633,8 +614,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ROS学习：turtle控制
+                            # ROS学习：turtle控制
 
+![img](【ROS学习】初学ROS的小项目/u=585289087,3399034401&fm=253&fmt=auto&app=120&f=JPEG.jpeg)
                         
                     </div>
                     <div class="publish-info">
@@ -683,7 +665,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            mpc论文归纳
+                            # mpc论文归纳
+
 《Linear vs Nonlinear MPC for Trajectory Tracking Applied to Rptary Wing Micro Aerial Vehicles》
                         
                     </div>
@@ -921,7 +904,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27.6k</span>&nbsp;字
+                class="white-color">28.1k</span>&nbsp;字
             
             
             

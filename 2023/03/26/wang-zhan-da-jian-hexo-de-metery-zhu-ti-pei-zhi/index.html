@@ -413,7 +413,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    498
+                    456
                 </div>
                 
 
@@ -440,153 +440,174 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="hexo的metery主题配置">hexo的metery主题配置</h1>
+                
+# hexo的metery主题配置
+
 <span id="more"></span>
-<h2 id="修改导航栏颜色">修改导航栏颜色</h2>
-<blockquote>
-<p>打开 <code>themes/matery/source/css/matery.css</code> 文件，找到<code>bg-color</code>这个属性，即为导航栏和底部的颜色</p>
-</blockquote>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">.bg-color &#123;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">background-image</span><span class="kw">:</span><span class="at"> linear-gradient(to right,</span><span class="co"> #8cbfb8 0%, #128c6f 100%);</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">&#125;</span></span></code></pre></div>
-<h2 id="代码块调节">代码块调节</h2>
-<p>打开<code>themes\source\css\matery.css</code>，大概在100到200行左右,修改代码块CSS样式如下</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pre &#123;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding</span>: <span class="dv">1.5</span><span class="dt">rem</span> <span class="dv">1.5</span><span class="dt">rem</span> <span class="dv">1.5</span><span class="dt">rem</span> <span class="dv">3.3</span><span class="dt">rem</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin</span>: <span class="dv">1</span><span class="dt">rem</span> <span class="dv">0</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background</span>: <span class="cn">#272822</span><span class="op">;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">overflow</span>: <span class="bu">auto</span><span class="op">;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">border-radius</span>: <span class="dv">0.35</span><span class="dt">rem</span><span class="op">;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">tab-size</span>: <span class="dv">4</span><span class="op">;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">.code-area::after</span> &#123;</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">content</span>: <span class="st">&quot; &quot;</span><span class="op">;</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">border-radius</span>: <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background</span>: <span class="cn">#ff5f56</span><span class="op">;</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">width</span>: <span class="dv">12</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">height</span>: <span class="dv">12</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">top</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">left</span>: <span class="dv">12</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin-top</span>: <span class="dv">12</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">-webkit-box-shadow</span>: <span class="dv">20</span><span class="dt">px</span> <span class="dv">0</span> <span class="cn">#ffbd2e</span><span class="op">,</span> <span class="dv">40</span><span class="dt">px</span> <span class="dv">0</span> <span class="cn">#27c93f</span><span class="op">;</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">box-shadow</span>: <span class="dv">20</span><span class="dt">px</span> <span class="dv">0</span> <span class="cn">#ffbd2e</span><span class="op">,</span> <span class="dv">40</span><span class="dt">px</span> <span class="dv">0</span> <span class="cn">#27c93f</span><span class="op">;</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>code &#123;</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding</span>: <span class="dv">1</span><span class="dt">px</span> <span class="dv">5</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">top</span>: <span class="dv">13</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">font-family</span>: Inconsolata<span class="op">,</span> Monaco<span class="op">,</span> Consolas<span class="op">,</span> <span class="st">&#39;Courier New&#39;</span><span class="op">,</span> Courier<span class="op">,</span> <span class="dv">monospace</span><span class="op">;</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">font-size</span>: <span class="dv">0.91</span><span class="dt">rem</span><span class="op">;</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">color</span>: <span class="cn">#e96900</span><span class="op">;</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background-color</span>: <span class="cn">#f8f8f8</span><span class="op">;</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">border-radius</span>: <span class="dv">2</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="fu">.code_copy</span> &#123;</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">top</span>: <span class="dv">0.7</span><span class="dt">rem</span><span class="op">;</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">right</span>: <span class="dv">25</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">z-index</span>: <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">filter</span>: <span class="fu">invert(</span><span class="dv">50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">cursor</span>: <span class="dv">pointer</span><span class="op">;</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="fu">.codecopy_notice</span> &#123;</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="kw">top</span>: <span class="dv">0.7</span><span class="dt">rem</span><span class="op">;</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">right</span>: <span class="dv">6</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="kw">z-index</span>: <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">filter</span>: <span class="fu">invert(</span><span class="dv">50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">opacity</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="fu">.code_lang</span> &#123;</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="kw">top</span>: <span class="dv">1.2</span><span class="dt">rem</span><span class="op">;</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    <span class="kw">right</span>: <span class="dv">46</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="kw">line-height</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="kw">font-weight</span>: <span class="dv">bold</span><span class="op">;</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="kw">font-family</span>: <span class="dv">normal</span><span class="op">;</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    <span class="kw">z-index</span>: <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="kw">filter</span>: <span class="fu">invert(</span><span class="dv">50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="kw">cursor</span>: <span class="dv">pointer</span><span class="op">;</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="fu">.code-expand</span> &#123;</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    <span class="kw">top</span>: <span class="dv">4</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    <span class="kw">right</span>: <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    <span class="kw">filter</span>: <span class="fu">invert(</span><span class="dv">50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding</span>: <span class="dv">7</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    <span class="kw">z-index</span>: <span class="dv">999</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    <span class="kw">cursor</span>: <span class="dv">pointer</span><span class="op">;</span></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>    <span class="kw">transition</span>: <span class="dv">all</span> <span class="dv">.3</span><span class="dt">s</span><span class="op">;</span></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    <span class="kw">transform</span>: <span class="fu">rotate(</span><span class="dv">0</span><span class="dt">deg</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="fu">.code-closed</span> <span class="fu">.code-expand</span> &#123;</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    <span class="kw">transform</span>: <span class="fu">rotate(</span><span class="dv">-180</span><span class="dt">deg</span><span class="fu">)</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    <span class="kw">transition</span>: <span class="dv">all</span> <span class="dv">.3</span><span class="dt">s</span><span class="op">;</span></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="fu">.code-closed</span> pre<span class="in">::before</span> &#123;</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>    <span class="kw">height</span>: <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>pre code &#123;</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>    <span class="kw">color</span>: <span class="cn">#e8eaf6</span><span class="op">;</span></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background-color</span>: <span class="cn">#272822</span><span class="op">;</span></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>pre<span class="ex">[class</span><span class="op">*=</span><span class="st">&quot;language-&quot;</span><span class="ex">]</span> &#123;</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding</span>: <span class="dv">1.2</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin</span>: <span class="dv">.5</span><span class="dt">em</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>code<span class="ex">[class</span><span class="op">*=</span><span class="st">&quot;language-&quot;</span><span class="ex">]</span><span class="op">,</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>pre<span class="ex">[class</span><span class="op">*=</span><span class="st">&quot;language-&quot;</span><span class="ex">]</span> &#123;</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>    <span class="kw">color</span>: <span class="cn">#e8eaf6</span><span class="op">;</span></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>    <span class="kw">white-space</span>: <span class="dv">pre-wrap</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="fu">.line-numbers-rows</span> &#123;</span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>    <span class="kw">border-right-width</span>: <span class="dv">0</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="fu">.line-numbers</span> &#123;</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding</span>: <span class="dv">1.5</span><span class="dt">rem</span> <span class="dv">1.5</span><span class="dt">rem</span> <span class="dv">1.5</span><span class="dt">rem</span> <span class="dv">3.2</span><span class="dt">rem</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin</span>: <span class="dv">1</span><span class="dt">rem</span> <span class="dv">0</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background</span>: <span class="cn">#272822</span><span class="op">;</span></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>    <span class="kw">overflow</span>: <span class="bu">auto</span><span class="op">;</span></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>    <span class="kw">border-radius</span>: <span class="dv">0.35</span><span class="dt">rem</span><span class="op">;</span></span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>    <span class="kw">tab-size</span>: <span class="dv">4</span><span class="op">;</span></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>&#125;</span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>来源<span class="in">: LuckySec</span></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>文章作者<span class="in">: LuckySec</span></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>文章链接<span class="in">: http://luckyzmj</span><span class="fu">.cn</span>/posts/1b9a9e28<span class="fu">.html</span></span></code></pre></div>
-<h2 id="关于主页图片被颜色覆盖">关于主页图片被颜色覆盖</h2>
-<p><code>themes\hexo-theme-matery\source\css</code>中一个叫<code>matery.css</code>文件的595行代码造成的，如下：</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.bg-cover:before</span><span class="op">,</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.bg-cover:after</span> &#123;</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">z-index</span>: <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">width</span>: <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">height</span>: <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">left</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">top</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">content</span>: <span class="st">&quot;&quot;</span><span class="op">;</span> </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>&#125;</span></code></pre></div>
-<p>只要将content属性注释掉即可，如下：</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.bg-cover:before</span><span class="op">,</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.bg-cover:after</span> &#123;</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">z-index</span>: <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">width</span>: <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">height</span>: <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">left</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">top</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* content: &quot;&quot;; */</span> </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>&#125;</span></code></pre></div>
+
+## 修改导航栏颜色
+
+> 打开 `themes/matery/source/css/matery.css` 文件，找到`bg-color`这个属性，即为导航栏和底部的颜色
+
+```yaml
+.bg-color {
+    background-image: linear-gradient(to right, #8cbfb8 0%, #128c6f 100%);
+}
+```
+
+## 代码块调节
+
+打开`themes\source\css\matery.css`，大概在100到200行左右,修改代码块CSS样式如下
+
+```css
+pre {
+    padding: 1.5rem 1.5rem 1.5rem 3.3rem !important;
+    margin: 1rem 0 !important;
+    background: #272822;
+    overflow: auto;
+    border-radius: 0.35rem;
+    tab-size: 4;
+}
+.code-area::after {
+    content: " ";
+    position: absolute;
+    border-radius: 50%;
+    background: #ff5f56;
+    width: 12px;
+    height: 12px;
+    top: 0;
+    left: 12px;
+    margin-top: 12px;
+    -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+}
+code {
+    padding: 1px 5px;
+    top: 13px !important;
+    font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
+    font-size: 0.91rem;
+    color: #e96900;
+    background-color: #f8f8f8;
+    border-radius: 2px;
+}
+.code_copy {
+    position: absolute;
+    top: 0.7rem;
+    right: 25px;
+    z-index: 1;
+    filter: invert(50%);
+    cursor: pointer;
+}
+.codecopy_notice {
+    position: absolute;
+    top: 0.7rem;
+    right: 6px;
+    z-index: 1;
+    filter: invert(50%);
+    opacity: 0;
+}
+.code_lang {
+    position: absolute;
+    top: 1.2rem;
+    right: 46px;
+    line-height: 0;
+    font-weight: bold;
+    font-family: normal;
+    z-index: 1;
+    filter: invert(50%);
+    cursor: pointer;
+}
+
+.code-expand {
+    position: absolute;
+    top: 4px;
+    right: 0px;
+    filter: invert(50%);
+    padding: 7px;
+    z-index: 999 !important;
+    cursor: pointer;
+    transition: all .3s;
+    transform: rotate(0deg);
+}
+
+.code-closed .code-expand {
+    transform: rotate(-180deg) !important;
+    transition: all .3s;
+}
+
+.code-closed pre::before {
+    height: 0px;
+}
+
+pre code {
+    padding: 0;
+    color: #e8eaf6;
+    background-color: #272822;
+}
+
+pre[class*="language-"] {
+    padding: 1.2em;
+    margin: .5em 0;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #e8eaf6;
+    white-space: pre-wrap !important;
+}
+
+.line-numbers-rows {
+    border-right-width: 0px !important;
+}
+
+.line-numbers {
+    padding: 1.5rem 1.5rem 1.5rem 3.2rem !important;
+    margin: 1rem 0 !important;
+    background: #272822;
+    overflow: auto;
+    border-radius: 0.35rem;
+    tab-size: 4;
+}
+来源: LuckySec
+文章作者: LuckySec
+文章链接: http://luckyzmj.cn/posts/1b9a9e28.html
+```
+
+## 关于主页图片被颜色覆盖
+
+`themes\hexo-theme-matery\source\css`中一个叫`matery.css`文件的595行代码造成的，如下：
+
+```css
+.bg-cover:before,
+.bg-cover:after {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    content: ""; 
+}
+
+```
+
+只要将content属性注释掉即可，如下：
+
+```css
+.bg-cover:before,
+.bg-cover:after {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    /* content: ""; */ 
+}
+```
+
 
                 
             </div>
@@ -994,7 +1015,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27.6k</span>&nbsp;字
+                class="white-color">28.1k</span>&nbsp;字
             
             
             

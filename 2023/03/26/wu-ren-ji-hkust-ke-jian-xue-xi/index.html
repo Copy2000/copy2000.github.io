@@ -421,14 +421,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    11 分
                 </div>
                 
 
@@ -448,356 +448,359 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="uav-learning">UAV Learning</h1>
-<p>本篇只是一个目录性质的东西，相关东西自己去看课件</p>
-<figure>
-<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/u=1620021440,3565980159&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG.jpeg" alt="无人机"><figcaption aria-hidden="true">无人机</figcaption>
-</figure>
-<span id="more"></span>
-<h2 id="rotation-representation">Rotation Representation</h2>
-<ul>
-<li>rotation matrices</li>
-<li>Euler angles：任何旋转都可以被描述为三个绕着xyz轴线性旋转</li>
-<li>Exponential coordinates</li>
-<li>Quaternions</li>
-</ul>
-<p>由于课件上的东西实在是不好整理，于是只挑了些重要的和相关的project记录。<a target="_blank" rel="noopener" href="https://gaowenliang.github.io/HKUST-ELEC5660-Introduction-to-Aerial-Robots/project/project.html">ELEC5660 (gaowenliang.github.io)</a></p>
-<h2 id="project1">Project1</h2>
-<h3 id="phase-1-control-simulation">Phase 1 : Control Simulation</h3>
-<p>question：In this project, you are provided with a quadrotor simulator written in Matlab. The simulator implements dynamics model of quadrotor and relies on the numerical solver ode45. You will need to implement controller.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/gaowenliang/ELEC5660_proj1phase1">code and data</a></p>
-<ul>
-<li>下面是直接运行code（未添加控制）的相关结果：</li>
-</ul>
-<p>​ <img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220323144051461.png" alt="未改变参数的circle"></p>
-<p>​ <img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220323144304484.png" alt="未改变参数的diamond"></p>
-<p>​ <img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220323144444287.png" alt="未改变参数的hover"></p>
-<p>​ 可以看到的是未添加控制情况下，红线和蓝线偏离较大，不能保持跟踪。</p>
-<ul>
-<li><p>运用的知识：</p>
-<figure>
-<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220323145546665.png" alt="3D Quadrotor"><figcaption aria-hidden="true">3D Quadrotor</figcaption>
-</figure>
-<figure>
-<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220323145012987.png" alt="3D Quadrotor"><figcaption aria-hidden="true">3D Quadrotor</figcaption>
-</figure>
-<figure>
-<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220323145039479.png" alt="3D PID"><figcaption aria-hidden="true">3D PID</figcaption>
-</figure></li>
-<li><p>control.m</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> [<span class="va">F</span><span class="op">,</span> <span class="va">M</span>] <span class="op">=</span> <span class="va">controller</span>(<span class="va">t</span><span class="op">,</span> <span class="va">s</span><span class="op">,</span> <span class="va">s_des</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">%% s_des = zeros(13,1);</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">% [1:6]: x, y, z, dx, dy, dz</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">% [7:10]: quaternion, qw,qx,qy,qz</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">% [11:13]: oemga: wx, wy, wz</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">%% definition of parameters</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">% model parameters</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">global</span> <span class="va">params</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="va">m</span> <span class="op">=</span> <span class="va">params</span>.<span class="va">mass</span><span class="op">;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="va">g</span> <span class="op">=</span> <span class="va">params</span>.<span class="va">grav</span><span class="op">;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="va">I</span> <span class="op">=</span> <span class="va">params</span>.<span class="va">I</span><span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">%PID parameters</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="va">Kp_position</span> <span class="op">=</span> [<span class="fl">4</span> <span class="fl">4</span> <span class="fl">5</span>]<span class="op">;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="va">Kd_position</span> <span class="op">=</span> [<span class="fl">2.5</span> <span class="fl">2.5</span> <span class="fl">5</span>]<span class="op">;</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="va">Kp_rpy</span> <span class="op">=</span> [<span class="fl">100</span> <span class="fl">100</span> <span class="fl">75</span>]<span class="op">;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="va">Kd_rpy</span> <span class="op">=</span> [<span class="fl">15</span> <span class="fl">15</span> <span class="fl">10</span>]<span class="op">;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">%% position control</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="va">Rotation</span> <span class="op">=</span> <span class="va">quaternion_to_R</span>(<span class="va">s</span>(<span class="fl">7</span><span class="op">:</span><span class="fl">10</span>))<span class="op">;</span><span class="co">%function is in utils</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="va">Rotation_desired</span> <span class="op">=</span> <span class="va">quaternion_to_R</span>(<span class="va">s_des</span>(<span class="fl">7</span><span class="op">:</span><span class="fl">10</span>))<span class="op">;</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>[<span class="va">phi</span><span class="op">,</span><span class="va">theta</span><span class="op">,</span><span class="va">psi</span>] <span class="op">=</span> <span class="va">RotToRPY_ZXY</span>(<span class="va">Rotation</span>)<span class="op">;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>[<span class="va">phi_des</span><span class="op">,</span><span class="va">theta_des</span><span class="op">,</span><span class="va">psi_des</span>] <span class="op">=</span> <span class="va">RotToRPY_ZXY</span>(<span class="va">Rotation_desired</span>)<span class="op">;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">%% newton equation</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">% linearization : u1,0 = mg,therefore ddz_des = 0</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="va">ddp_des</span> <span class="op">=</span> [<span class="va">g</span><span class="op">*</span>(<span class="va">theta_des</span> <span class="op">*</span> <span class="va">cos</span>(<span class="va">psi_des</span>)<span class="op">+</span><span class="va">phi_des</span><span class="op">*</span><span class="va">sin</span>(<span class="va">psi_des</span>))<span class="op">,</span><span class="va">g</span><span class="op">*</span>(<span class="va">theta_des</span> <span class="op">*</span> <span class="va">sin</span>(<span class="va">psi_des</span>)<span class="op">-</span><span class="va">phi_des</span><span class="op">*</span><span class="va">cos</span>(<span class="va">psi_des</span>))<span class="op">,</span><span class="fl">0</span>]<span class="op">;</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="va">w_des</span> <span class="op">=</span> <span class="va">s_des</span>(<span class="fl">11</span><span class="op">:</span><span class="fl">13</span>)<span class="op">;</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="va">w</span> <span class="op">=</span> <span class="va">s</span>(<span class="fl">11</span><span class="op">:</span><span class="fl">13</span>)<span class="op">;</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">%% PID control</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="va">ddp_1c</span> <span class="op">=</span> <span class="va">ddp_des</span>(<span class="fl">1</span>) <span class="op">+</span> <span class="va">Kd_position</span>(<span class="fl">1</span>)<span class="op">*</span>(<span class="va">s_des</span>(<span class="fl">4</span>)<span class="op">-</span><span class="va">s</span>(<span class="fl">4</span>)) <span class="op">+</span> <span class="va">Kp_position</span>(<span class="fl">1</span>)<span class="op">*</span>(<span class="va">s_des</span>(<span class="fl">1</span>)<span class="op">-</span><span class="va">s</span>(<span class="fl">1</span>))<span class="op">;</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="va">ddp_2c</span> <span class="op">=</span> <span class="va">ddp_des</span>(<span class="fl">2</span>) <span class="op">+</span> <span class="va">Kd_position</span>(<span class="fl">2</span>)<span class="op">*</span>(<span class="va">s_des</span>(<span class="fl">5</span>)<span class="op">-</span><span class="va">s</span>(<span class="fl">5</span>)) <span class="op">+</span> <span class="va">Kp_position</span>(<span class="fl">2</span>)<span class="op">*</span>(<span class="va">s_des</span>(<span class="fl">2</span>)<span class="op">-</span><span class="va">s</span>(<span class="fl">2</span>))<span class="op">;</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="va">ddp_3c</span> <span class="op">=</span> <span class="va">ddp_des</span>(<span class="fl">3</span>) <span class="op">+</span> <span class="va">Kd_position</span>(<span class="fl">3</span>)<span class="op">*</span>(<span class="va">s_des</span>(<span class="fl">6</span>)<span class="op">-</span><span class="va">s</span>(<span class="fl">6</span>)) <span class="op">+</span> <span class="va">Kp_position</span>(<span class="fl">3</span>)<span class="op">*</span>(<span class="va">s_des</span>(<span class="fl">3</span>)<span class="op">-</span><span class="va">s</span>(<span class="fl">3</span>))<span class="op">;</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="va">F</span> <span class="op">=</span> <span class="va">m</span><span class="op">*</span>(<span class="va">g</span><span class="op">+</span><span class="va">ddp_3c</span>)<span class="op">;</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="va">phi_c</span> <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="va">g</span><span class="op">*</span>(<span class="va">ddp_1c</span><span class="op">*</span><span class="va">sin</span>(<span class="va">psi</span>) <span class="op">-</span> <span class="va">ddp_2c</span><span class="op">*</span><span class="va">cos</span>(<span class="va">psi</span>))<span class="op">;</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="va">theta_c</span> <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="va">g</span><span class="op">*</span>(<span class="va">ddp_1c</span><span class="op">*</span><span class="va">cos</span>(<span class="va">psi</span>) <span class="op">+</span> <span class="va">ddp_2c</span><span class="op">*</span><span class="va">sin</span>(<span class="va">psi</span>))<span class="op">;</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co">%% Attitude control</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co">% judge the angle of yaw</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="va">psi_dif</span> <span class="op">=</span> <span class="va">psi_des</span><span class="op">-</span><span class="va">psi</span><span class="op">;</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="va">psi_dif</span> <span class="op">&gt;=</span> <span class="va">pi</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="va">psi_dif</span><span class="op">=</span><span class="va">psi_dif</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">;</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="kw">elseif</span> <span class="va">psi_dif</span> <span class="op">&lt;=</span> <span class="op">-</span><span class="va">pi</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="va">psi_dif</span><span class="op">=</span><span class="va">psi_dif</span><span class="op">+</span><span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">;</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="va">dd_rpy_c</span> <span class="op">=</span> [<span class="va">Kp_rpy</span>(<span class="fl">1</span>)<span class="op">*</span>(<span class="va">phi_c</span><span class="op">-</span><span class="va">phi</span>)<span class="op">+</span><span class="va">Kd_rpy</span>(<span class="fl">1</span>)<span class="op">*</span>(<span class="fl">0</span><span class="op">-</span><span class="va">w</span>(<span class="fl">1</span>))<span class="op">;</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>                 <span class="va">Kp_rpy</span>(<span class="fl">2</span>)<span class="op">*</span>(<span class="va">theta_c</span><span class="op">-</span><span class="va">theta</span>)<span class="op">+</span><span class="va">Kd_rpy</span>(<span class="fl">2</span>)<span class="op">*</span>(<span class="fl">0</span><span class="op">-</span><span class="va">w</span>(<span class="fl">2</span>))<span class="op">;</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>                 <span class="va">Kp_rpy</span>(<span class="fl">3</span>)<span class="op">*</span>(<span class="va">psi_dif</span>)<span class="op">+</span><span class="va">Kd_rpy</span>(<span class="fl">3</span>)<span class="op">*</span>(<span class="fl">0</span><span class="op">-</span><span class="va">w</span>(<span class="fl">3</span>))]<span class="op">;</span> <span class="co">%notsure abt derivative</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="va">M</span> <span class="op">=</span> <span class="va">I</span><span class="op">*</span><span class="va">dd_rpy_c</span> <span class="op">+</span> <span class="va">cross</span>(<span class="va">w</span><span class="op">,</span> <span class="va">I</span><span class="op">*</span><span class="va">w</span>)<span class="op">;</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div></li>
-<li><p>使用Ziegler-Nichols方法调参（我不认为这是一个聪明的做法）<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220323155847233.png" alt="oscillate"><img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220323162554971.png" alt="circle_trajectory"><img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220323162802516.png" alt="diamond_trajectory"><img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220323162943627.png" alt="hover_trajectory"></p></li>
-</ul>
-<h3 id="phase-2-trajectory-simulation">Phase 2 : Trajectory Simulation</h3>
-<p><a target="_blank" rel="noopener" href="https://github.com/gaowenliang/ELEC5660_proj1phase2">问题和code and data</a></p>
-<ul>
-<li><p>运用的知识</p>
-<p><img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327111127832.png" alt="image-20220327111127832"><img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327111142080.png" alt="image-20220327111142080"><img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327111155381.png" alt="Minimum Snap"><img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327111209720.png" alt="cost function"><img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327111218007.png" alt="image-20220327111218007"><img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327111244447.png" alt="image-20220327111244447"></p>
-<p>这个ppt 上面讲的就比较抽象，我的建议是<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yT4y1T7Eb?p=10">机器人路径规划、轨迹优化系列课程_哔哩哔哩_bilibili</a>，讲的比较具体形象。<a target="_blank" rel="noopener" href="https://blog.csdn.net/q597967420/article/details/76099491">博客</a></p></li>
-</ul>
-<hr>
-<pre><code>path1 = [0.0 0.0 1.0 ; ...
-         1.0 1.0 1.0 ; ...
-         -1.0 2.0 1.0 ; ...
-         1.0 3.0 1.0 ; ...
-         -1.0 4.0 1.0 ; ...
-         1.0 5.0 1.0 ; ...
-         -1.0 6.0 1.0 ; ...
-         1.0 7.0 1.0 ; ...
-         -1.0 8.0 1.0 ; ...
-         1.0 9.0 1.0 ; ...
-         0.0 10.0 1.0 ; ];</code></pre>
-<figure>
-<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327192302119.png" alt="path"><figcaption aria-hidden="true">path</figcaption>
-</figure>
-<ul>
-<li>代码部分function s_des = trajectory_generator(t, path, h)</li>
-</ul>
-<blockquote>
-<p>1 定义变量</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">%persistent变量与全局变量有相似之处，它们都创建永久的存储空间，不同在于persistent只对定义它的函数可见。这样可以防止persistent变量被其它函数或在命令行中被改变。</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">persistent</span> <span class="va">ts</span><span class="op">;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">persistent</span> <span class="va">ts_delta</span><span class="op">;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">persistent</span> <span class="va">P</span><span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">persistent</span> <span class="va">xyz</span><span class="op">;</span></span></code></pre></div>
-<hr>
-<p>2 每一段轨迹的时间分配,总共分配25秒完成轨迹运行，path_seg_length就是两个waypoints之间的欧式距离，cumsum_path是累加路径，cumsum_path(end)就是一共需要走的路程，ts_delta就是两个waypoints的时间间隔。</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">total_time</span> <span class="op">=</span> <span class="fl">25.0</span><span class="op">;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">path_seg_length</span> <span class="op">=</span> <span class="va">sqrt</span>(<span class="va">sum</span>((<span class="va">path</span>(<span class="fl">2</span><span class="op">:</span><span class="kw">end</span><span class="op">,</span> <span class="op">:</span>) <span class="op">-</span> <span class="va">path</span>(<span class="fl">1</span><span class="op">:</span><span class="kw">end</span><span class="op">-</span><span class="fl">1</span><span class="op">,:</span>))<span class="op">.^</span><span class="fl">2</span><span class="op">,</span><span class="fl">2</span>))<span class="op">;</span>  <span class="co">%每一段的长度</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="va">cumsum_path</span> <span class="op">=</span> <span class="va">cumsum</span>(<span class="va">path_seg_length</span>)<span class="op">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="va">ts_proportion</span> <span class="op">=</span> <span class="va">cumsum_path</span><span class="op">/</span><span class="va">cumsum_path</span>(<span class="kw">end</span>)<span class="op">;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="va">ts</span> <span class="op">=</span> [<span class="fl">0</span><span class="op">;</span> <span class="va">ts_proportion</span>]<span class="op">&#39;;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">ts</span> <span class="op">=</span> <span class="va">ts</span><span class="op">*</span><span class="va">total_time</span><span class="op">;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="va">ts_delta</span> <span class="op">=</span> <span class="va">ts</span>(<span class="fl">2</span><span class="op">:</span><span class="kw">end</span>) <span class="op">-</span> <span class="va">ts</span>(<span class="fl">1</span><span class="op">:</span><span class="kw">end</span><span class="op">-</span><span class="fl">1</span>)<span class="op">;</span> <span class="co">% interval----&gt;T</span></span></code></pre></div>
-<figure>
-<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327192504059.png" alt="path-seg-length"><figcaption aria-hidden="true">path-seg-length</figcaption>
-</figure>
-<figure>
-<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327192537568.png" alt="△t"><figcaption aria-hidden="true">△t</figcaption>
-</figure>
-<hr>
-<p>3 m就是轨迹段数，如果有11个waypoints，那么就有10段，这里使用的是Minimum Snap Trajectory Generation，所以N=7，但是有8个自由度（多项式的阶数为7，但是会有8个系数），所以Q_dia就是8*m的方阵。至于Q_dia matrix 的计算，参照上面fig[cost function]。</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">%% cost function </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="va">m</span> <span class="op">=</span> <span class="va">length</span>(<span class="va">path</span>)<span class="op">-</span><span class="fl">1</span><span class="op">;</span> <span class="co">%# segments </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">%为什么是8*m，是因为minimum snap为7阶，但是有8个自由度，所以一共有8*m，可以发现Q是一个对称矩阵</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="va">Q_dia</span> <span class="op">=</span> <span class="va">zeros</span>(<span class="fl">8</span><span class="op">*</span><span class="va">m</span><span class="op">,</span> <span class="fl">8</span><span class="op">*</span><span class="va">m</span>)<span class="op">;</span> <span class="co">%block diagonal matrix</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">k</span><span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="va">m</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">for</span> <span class="va">i</span><span class="op">=</span><span class="fl">4</span><span class="op">:</span><span class="fl">8</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>     <span class="kw">for</span> <span class="va">j</span><span class="op">=</span><span class="fl">4</span><span class="op">:</span><span class="fl">8</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>         <span class="va">Q_dia</span>((<span class="va">k</span><span class="op">-</span><span class="fl">1</span>)<span class="op">*</span><span class="fl">8</span><span class="op">+</span><span class="va">i</span><span class="op">,</span>(<span class="va">k</span><span class="op">-</span><span class="fl">1</span>)<span class="op">*</span><span class="fl">8</span><span class="op">+</span><span class="va">j</span>)<span class="op">=</span><span class="va">i</span><span class="op">*</span>(<span class="va">i</span><span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>(<span class="va">i</span><span class="op">-</span><span class="fl">2</span>)<span class="op">*</span>(<span class="va">i</span><span class="op">-</span><span class="fl">3</span>)<span class="op">*</span><span class="va">j</span><span class="op">*</span>(<span class="va">j</span><span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>(<span class="va">j</span><span class="op">-</span><span class="fl">2</span>)<span class="op">*</span>(<span class="va">j</span><span class="op">-</span><span class="fl">3</span>)<span class="op">/</span>(<span class="va">j</span><span class="op">+</span><span class="va">i</span><span class="op">-</span><span class="fl">7</span>)<span class="op">*</span>(<span class="va">ts_delta</span>(<span class="va">k</span>)<span class="op">^</span>(<span class="va">i</span><span class="op">+</span><span class="va">j</span><span class="op">-</span><span class="fl">7</span>))<span class="op">;</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>     <span class="kw">end</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a> <span class="kw">end</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
-<p><img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327192738388.png" alt="Q">每一组的后4*4改变，而且是一个对称矩阵</p>
-<hr>
-<p>4 约束<span class="math inline">\(A_j p_j = d_j\)</span>，dim指的是A的维度</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">%% derivative constraint</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">% 为什么是4*（m-1）？4分别是pos vel acc jerk ，m-1是除了第一个点和最后一个点，中间有m-1个点</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">% 2*m是每一段t=0和t=T的时候的连续型约束</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="va">dim</span> <span class="op">=</span> <span class="fl">2</span><span class="op">*</span><span class="va">m</span><span class="op">+</span><span class="fl">4</span><span class="op">*</span>(<span class="va">m</span><span class="op">-</span><span class="fl">1</span>)<span class="op">+</span> <span class="fl">3</span><span class="op">*</span><span class="fl">2</span><span class="op">;</span> <span class="co">%continutity[4]+starting[3]+ending[3]</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="va">P</span> <span class="op">=</span> <span class="va">zeros</span>(<span class="fl">8</span><span class="op">*</span><span class="va">m</span><span class="op">,</span><span class="fl">3</span>)<span class="op">;</span> <span class="co">%p_j_i = 8mx3 [p00, p01...;p10...]</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> <span class="va">zeros</span>(<span class="va">dim</span><span class="op">,</span><span class="fl">8</span><span class="op">*</span><span class="va">m</span>)<span class="op">;</span> <span class="co">%dimx8m</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="va">d</span><span class="op">=</span> <span class="va">zeros</span>(<span class="va">dim</span><span class="op">,</span><span class="fl">3</span>)<span class="op">;</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="va">d</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">*</span><span class="va">m</span><span class="op">,:</span>) <span class="op">=</span>  <span class="va">reshape</span>([<span class="va">path</span>(<span class="fl">1</span><span class="op">:</span><span class="kw">end</span><span class="op">-</span><span class="fl">1</span><span class="op">,</span> <span class="op">:</span>) <span class="va">path</span>(<span class="fl">2</span><span class="op">:</span><span class="kw">end</span><span class="op">,</span> <span class="op">:</span>)]<span class="op">&#39;,</span><span class="fl">3</span><span class="op">,</span> [])<span class="op">&#39;;</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">%dimx3</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">%每一段的开始和结束都需要在位置上</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">j</span><span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="va">m</span> <span class="co">%position</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a> <span class="va">A</span>(<span class="fl">2</span><span class="op">*</span><span class="va">j</span><span class="op">-</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">*</span><span class="va">j</span><span class="op">,</span><span class="fl">8</span><span class="op">*</span><span class="va">j</span><span class="op">-</span><span class="fl">7</span><span class="op">:</span><span class="fl">8</span><span class="op">*</span><span class="va">j</span>) <span class="op">=</span> [ <span class="fl">1</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">;...</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>     <span class="fl">1</span><span class="op">,</span> <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">,</span> <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">2</span><span class="op">,</span> <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">3</span><span class="op">,</span> <span class="op">...</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>     <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">4</span><span class="op">,</span> <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">5</span><span class="op">,</span> <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">6</span><span class="op">,</span> <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">7</span>]<span class="op">;</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
-<p>5 连续型约束</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">%% continutity pos,vel,acce,jerk</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">j</span><span class="op">=</span><span class="fl">1</span><span class="op">:</span>(<span class="va">m</span><span class="op">-</span><span class="fl">1</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a> <span class="va">A</span>((<span class="fl">2</span><span class="op">*</span><span class="va">m</span><span class="op">+</span><span class="fl">4</span><span class="op">*</span><span class="va">j</span><span class="op">-</span><span class="fl">3</span>)<span class="op">:</span>(<span class="fl">2</span><span class="op">*</span><span class="va">m</span><span class="op">+</span><span class="fl">4</span><span class="op">*</span><span class="va">j</span>)<span class="op">,</span>(<span class="fl">8</span><span class="op">*</span><span class="va">j</span><span class="op">-</span><span class="fl">7</span>)<span class="op">:</span>(<span class="fl">8</span><span class="op">*</span><span class="va">j</span><span class="op">+</span><span class="fl">8</span>))<span class="op">=</span>[<span class="fl">1</span><span class="op">,</span> <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">,</span> <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">2</span><span class="op">,</span> <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">3</span><span class="op">,</span> <span class="op">...</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">4</span><span class="op">,</span> <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">5</span><span class="op">,</span> <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">6</span><span class="op">,</span> <span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">7</span><span class="op">,-</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">;...</span><span class="co">%pos</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>     <span class="fl">0</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">2</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">,</span> <span class="fl">3</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">2</span><span class="op">,</span> <span class="fl">4</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">3</span><span class="op">,</span> <span class="fl">5</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">4</span><span class="op">,</span> <span class="op">...</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>     <span class="fl">6</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">5</span><span class="op">,</span> <span class="fl">7</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">6</span><span class="op">,</span><span class="fl">0</span><span class="op">,-</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">;...</span><span class="co">%vel</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>     <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">2</span><span class="op">,</span> <span class="fl">6</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">,</span> <span class="fl">12</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">2</span><span class="op">,</span> <span class="fl">20</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">3</span><span class="op">,</span> <span class="op">...</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>     <span class="fl">30</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">4</span><span class="op">,</span> <span class="fl">42</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">5</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,-</span><span class="fl">2</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">;...</span><span class="co">%acc</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>      <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">6</span><span class="op">,</span> <span class="fl">24</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">,</span> <span class="fl">60</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">2</span><span class="op">,</span> <span class="op">...</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>     <span class="fl">120</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">3</span><span class="op">,</span> <span class="fl">210</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">j</span>)<span class="op">^</span><span class="fl">4</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,-</span><span class="fl">6</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span>]<span class="op">;</span><span class="co">%jerk</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
-<p>6</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">%% starting point vel,acc, jerk </span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="va">A</span>(<span class="fl">6</span><span class="op">*</span><span class="va">m</span><span class="op">-</span><span class="fl">3</span><span class="op">:</span><span class="fl">6</span><span class="op">*</span><span class="va">m</span><span class="op">-</span><span class="fl">1</span><span class="op">,</span> <span class="fl">1</span><span class="op">:</span><span class="fl">8</span>)<span class="op">=</span>[<span class="fl">0</span><span class="op">,</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">;...</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">2</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">;...</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                  <span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">6</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span>]<span class="op">;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="va">A</span>(<span class="fl">6</span><span class="op">*</span><span class="va">m</span><span class="op">:</span><span class="fl">6</span><span class="op">*</span><span class="va">m</span><span class="op">+</span><span class="fl">2</span><span class="op">,</span><span class="fl">8</span><span class="op">*</span><span class="va">m</span><span class="op">-</span><span class="fl">7</span><span class="op">:</span><span class="fl">8</span><span class="op">*</span><span class="va">m</span>) <span class="op">=</span> [<span class="fl">0</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">2</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">,</span> <span class="fl">3</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">^</span><span class="fl">2</span><span class="op">,</span> <span class="fl">4</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">^</span><span class="fl">3</span><span class="op">,</span> <span class="fl">5</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">^</span><span class="fl">4</span><span class="op">,</span> <span class="op">...</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                   <span class="fl">6</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">^</span><span class="fl">5</span><span class="op">,</span> <span class="fl">7</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">^</span><span class="fl">6</span><span class="op">;</span> <span class="op">...</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                   <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">2</span><span class="op">,</span> <span class="fl">6</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">,</span> <span class="fl">12</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">^</span><span class="fl">2</span><span class="op">,</span> <span class="fl">20</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">^</span><span class="fl">3</span><span class="op">,</span> <span class="op">...</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                   <span class="fl">30</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">^</span><span class="fl">4</span><span class="op">,</span> <span class="fl">42</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">^</span><span class="fl">5</span><span class="op">;</span> <span class="op">...</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                   <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">6</span><span class="op">,</span> <span class="fl">24</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">,</span> <span class="fl">60</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">^</span><span class="fl">2</span><span class="op">,</span> <span class="op">...</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                   <span class="fl">120</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">^</span><span class="fl">3</span><span class="op">,</span> <span class="fl">210</span><span class="op">*</span><span class="va">ts_delta</span>(<span class="va">m</span>)<span class="op">^</span><span class="fl">4</span>]<span class="op">;</span></span></code></pre></div>
-<p>7 QP求解</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">%% QP</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="va">f</span><span class="op">=</span><span class="va">zeros</span>(<span class="fl">8</span><span class="op">*</span><span class="va">m</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="va">P</span>(<span class="op">:,</span><span class="fl">1</span>) <span class="op">=</span> <span class="va">quadprog</span>(<span class="va">Q_dia</span><span class="op">,</span><span class="va">f</span><span class="op">,</span>[]<span class="op">,</span>[]<span class="op">,</span><span class="va">A</span><span class="op">,</span><span class="va">d</span>(<span class="op">:,</span><span class="fl">1</span>))<span class="op">;</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="va">P</span>(<span class="op">:,</span><span class="fl">2</span>) <span class="op">=</span> <span class="va">quadprog</span>(<span class="va">Q_dia</span><span class="op">,</span><span class="va">f</span><span class="op">,</span>[]<span class="op">,</span>[]<span class="op">,</span><span class="va">A</span><span class="op">,</span><span class="va">d</span>(<span class="op">:,</span><span class="fl">2</span>))<span class="op">;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="va">P</span>(<span class="op">:,</span><span class="fl">3</span>) <span class="op">=</span> <span class="va">quadprog</span>(<span class="va">Q_dia</span><span class="op">,</span><span class="va">f</span><span class="op">,</span>[]<span class="op">,</span>[]<span class="op">,</span><span class="va">A</span><span class="op">,</span><span class="va">d</span>(<span class="op">:,</span><span class="fl">3</span>))<span class="op">;</span></span></code></pre></div>
-</blockquote>
-<hr>
-<ul>
-<li><p><strong>结果展示</strong></p>
-<p>path1</p>
-<figure>
-<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327193103099.png" alt="path1"><figcaption aria-hidden="true">path1</figcaption>
-</figure></li>
-</ul>
-<hr>
-<p>​ path2</p>
-<p><img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327193400537.png" alt="path2"><img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327193553122.png" alt="path2-simulation"></p>
-<hr>
-<p>来一颗小心心！o(´^｀)o<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327193650235.png" alt="path3"></p>
-<figure>
-<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220327193837086.png" alt="heart-simulation"><figcaption aria-hidden="true">heart-simulation</figcaption>
-</figure>
-<h3 id="phase-3-path-finding-simulation">Phase 3 : Path Finding Simulation</h3>
-<p><a target="_blank" rel="noopener" href="https://github.com/gaowenliang/ELEC5660_proj1phase3">代码和问题</a></p>
-<ul>
-<li>A*算法</li>
-</ul>
-<figure>
-<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220330124201573.png" alt="A*"><figcaption aria-hidden="true">A*</figcaption>
-</figure>
-<ul>
-<li>关于搜索路径，我写了一篇<a href="https://copy2000.github.io/Dcos/搜索路径.pdf">总结</a>.</li>
-</ul>
-<p>代码思路，其实比较简单，就是g(n)+h(n)，h（n）就是使用MAP中的每一个节点到goal 的距离，至于g（n）是accumulated cost，只与之前的有关。</p>
-<ul>
-<li><p>代码path_from_Astar.m</p>
-<p>初始化MAP</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="va">Optimal_path</span> <span class="op">=</span> <span class="va">path_from_A_star</span>(<span class="va">map</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">Optimal_path</span> <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">size_map</span> <span class="op">=</span> <span class="va">size</span>(<span class="va">map</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">MAX_X</span><span class="op">=</span><span class="fl">10</span><span class="op">;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">MAX_Y</span><span class="op">=</span><span class="fl">10</span><span class="op">;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">%Define the 2D grid map array.</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">%Obstacle=-1, Target = 0, Start=1</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="va">MAP</span><span class="op">=</span><span class="fl">2</span><span class="op">*</span>(<span class="va">ones</span>(<span class="va">MAX_X</span><span class="op">,</span><span class="va">MAX_Y</span>))<span class="op">;</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">%Initialize MAP with location of the target</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="va">xval</span><span class="op">=</span><span class="va">floor</span>(<span class="va">map</span>(<span class="va">size_map</span><span class="op">,</span> <span class="fl">1</span>))<span class="op">;</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="va">yval</span><span class="op">=</span><span class="va">floor</span>(<span class="va">map</span>(<span class="va">size_map</span><span class="op">,</span> <span class="fl">2</span>))<span class="op">;</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="va">xTarget</span><span class="op">=</span><span class="va">xval</span><span class="op">;</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="va">yTarget</span><span class="op">=</span><span class="va">yval</span><span class="op">;</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="va">MAP</span>(<span class="va">xval</span><span class="op">,</span><span class="va">yval</span>)<span class="op">=</span><span class="fl">0</span><span class="op">;</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">%Initialize MAP with location of the obstacle</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">2</span><span class="op">:</span> <span class="va">size_map</span><span class="op">-</span><span class="fl">1</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">xval</span><span class="op">=</span><span class="va">floor</span>(<span class="va">map</span>(<span class="va">i</span><span class="op">,</span> <span class="fl">1</span>))<span class="op">;</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">yval</span><span class="op">=</span><span class="va">floor</span>(<span class="va">map</span>(<span class="va">i</span><span class="op">,</span> <span class="fl">2</span>))<span class="op">;</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">MAP</span>(<span class="va">xval</span><span class="op">,</span><span class="va">yval</span>)<span class="op">=-</span><span class="fl">1</span><span class="op">;</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span> </span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">%Initialize MAP with location of the start point</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="va">xval</span><span class="op">=</span><span class="va">floor</span>(<span class="va">map</span>(<span class="fl">1</span><span class="op">,</span> <span class="fl">1</span>))<span class="op">;</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="va">yval</span><span class="op">=</span><span class="va">floor</span>(<span class="va">map</span>(<span class="fl">1</span><span class="op">,</span> <span class="fl">2</span>))<span class="op">;</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    <span class="va">xStart</span><span class="op">=</span><span class="va">xval</span><span class="op">;</span></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    <span class="va">yStart</span><span class="op">=</span><span class="va">yval</span><span class="op">;</span></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    <span class="va">MAP</span>(<span class="va">xval</span><span class="op">,</span><span class="va">yval</span>)<span class="op">=</span><span class="fl">1</span><span class="op">;</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
-<p>start your code here，首先定义一个函数，用于计算欧氏距离。</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">% dim=1是对列求和，dim=2是对行求和</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">function</span> <span class="va">cost</span> <span class="op">=</span> <span class="va">dist</span>(<span class="va">start_pos</span><span class="op">,</span> <span class="va">goal_pos</span><span class="op">,</span><span class="va">dim</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">cost</span> <span class="op">=</span> <span class="va">sqrt</span>(<span class="va">sum</span>((<span class="va">double</span>(<span class="va">start_pos</span>) <span class="op">-</span> <span class="va">double</span>(<span class="va">goal_pos</span>))<span class="op">.^</span><span class="fl">2</span><span class="op">,</span><span class="va">dim</span>))<span class="op">;</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span></code></pre></div></li>
-</ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">%% g(n)和h(n)的初始化</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="va">G_score</span> <span class="op">=</span> <span class="va">inf</span>(<span class="va">size</span>(<span class="va">MAP</span>))<span class="op">;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="va">G_score</span>(<span class="va">xStart</span><span class="op">,</span> <span class="va">yStart</span>)<span class="op">=</span><span class="fl">0</span><span class="op">;</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="va">herustic</span><span class="op">=</span><span class="va">zeros</span>(<span class="va">size</span>(<span class="va">MAP</span>))<span class="op">;</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">%关于ind2sub函数http://blog.sina.com.cn/s/blog_7054a1960102vyby.html</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">%[row,col]就是（1,1）（2,1）（3,1）。。。（1,2）（2,2）.。。</span></span></code></pre></div>
-<p>启发式的路径规划，最重要的是目标导向型，所以herustic（n）就是一个和MAP维度一样的矩阵，只是每个节点存储的是该节点到goal 的距离，这样每一次迭代只需要计算g（n）+h（n）的最小值就可以知道下一步在哪了。</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a> <span class="co">%% h(n)定义</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> [<span class="va">row</span><span class="op">,</span><span class="va">col</span>]<span class="op">=</span><span class="va">ind2sub</span>(<span class="va">size</span>(<span class="va">G_score</span>)<span class="op">,</span> <span class="fl">1</span><span class="op">:</span><span class="va">numel</span>(<span class="va">G_score</span>))<span class="op">;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a> <span class="va">matrix_</span> <span class="op">=</span> [<span class="va">row</span><span class="op">;</span><span class="va">col</span>]<span class="op">;</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a> <span class="va">dist_temp</span><span class="op">=</span><span class="va">dist</span>(<span class="va">matrix_</span><span class="op">,</span>[<span class="va">xTarget</span><span class="op">;</span><span class="va">yTarget</span>]<span class="op">,</span><span class="fl">1</span>)<span class="op">;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a> <span class="va">herustic</span>(<span class="fl">1</span><span class="op">:</span><span class="kw">end</span>)<span class="op">=</span><span class="va">dist_temp</span>(<span class="fl">1</span><span class="op">:</span><span class="kw">end</span>)<span class="op">;</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a> <span class="co">% unvisited=1, visted=inf</span></span></code></pre></div>
-<p>两个标记矩阵，unvisited（10*10），backtrack（10*10*2），其中backtrack是存储的是回溯路径，如下图中的backtrack矩阵，第一个var(:,:,1)存储的是回溯的行row，另外一个是column，这样只需要一步一步的回溯，可以得到optimal path。<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220330205219290.png" alt="backtrack"></p>
-<figure>
-<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220330205245623.png" alt="optimal_path"><figcaption aria-hidden="true">optimal_path</figcaption>
-</figure>
-<div class="sourceCode" id="cb14"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">%% 未访问节点矩阵初始化</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">% 如果未访问unvisited矩阵中的值为1，访问过就是inf</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">unvisited</span> <span class="op">=</span> <span class="va">ones</span>(<span class="va">size</span>(<span class="va">MAP</span>))<span class="op">;</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">backtrack</span> <span class="op">=</span> <span class="va">zeros</span>(<span class="va">size</span>(<span class="va">MAP</span><span class="op">,</span><span class="fl">1</span>)<span class="op">,</span><span class="va">size</span>(<span class="va">MAP</span><span class="op">,</span><span class="fl">2</span>)<span class="op">,</span><span class="fl">2</span>)<span class="op">;</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">% row_delta和col_delta是可以走的八个方向东、西、南、北、东北。。。</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">row_delta</span><span class="op">=</span>[<span class="op">-</span><span class="fl">1</span><span class="op">,-</span><span class="fl">1</span><span class="op">,-</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">1</span><span class="op">,</span><span class="fl">1</span><span class="op">,</span><span class="fl">1</span>]<span class="op">;</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">col_delta</span><span class="op">=</span>[<span class="op">-</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">1</span><span class="op">,-</span><span class="fl">1</span><span class="op">,</span><span class="fl">1</span><span class="op">,-</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">1</span>]<span class="op">;</span></span></code></pre></div>
-<p>下面将展示本次代码的核心部分，如何寻找最优路径：</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">while</span>(<span class="op">~</span><span class="va">all</span>(<span class="va">unvisited</span><span class="op">==</span><span class="va">inf</span>))</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">% take lowest g(n) [masked]</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>       [<span class="va">min_val</span><span class="op">,</span><span class="va">idx</span>]<span class="op">=</span><span class="va">min</span>(<span class="va">unvisited</span>(<span class="op">:</span>)<span class="op">.*</span>(<span class="va">G_score</span>(<span class="op">:</span>)<span class="op">+</span><span class="va">herustic</span>(<span class="op">:</span>)))<span class="op">;</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>       [<span class="va">row</span><span class="op">,</span><span class="va">col</span>]<span class="op">=</span><span class="va">ind2sub</span>(<span class="va">size</span>(<span class="va">G_score</span>)<span class="op">,</span><span class="va">idx</span>)<span class="op">;</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>       <span class="co">% remove and mark as visited</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>       <span class="va">unvisited</span>(<span class="va">row</span><span class="op">,</span><span class="va">col</span>)<span class="op">=</span><span class="va">inf</span><span class="op">;</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>       <span class="co">% reach goal</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>       <span class="kw">if</span> <span class="va">row</span><span class="op">==</span><span class="va">xTarget</span> <span class="op">&amp;&amp;</span> <span class="va">col</span><span class="op">==</span><span class="va">yTarget</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>           <span class="kw">break</span><span class="op">;</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>       <span class="kw">end</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>       <span class="kw">for</span> <span class="va">i</span><span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="va">length</span>(<span class="va">row_delta</span>)</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>           <span class="va">temp_ind</span><span class="op">=</span>[<span class="va">row</span><span class="op">+</span><span class="va">row_delta</span>(<span class="va">i</span>)<span class="op">,</span><span class="va">col</span><span class="op">+</span><span class="va">col_delta</span>(<span class="va">i</span>)]<span class="op">;</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>           <span class="co">%no obstacle, unvisted, within the index bound</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>           <span class="kw">if</span> <span class="va">all</span>(<span class="va">temp_ind</span><span class="op">&gt;</span><span class="fl">0</span>) <span class="op">&amp;&amp;</span> <span class="va">temp_ind</span>(<span class="fl">1</span>) <span class="op">&lt;=</span> <span class="va">MAX_X</span> <span class="op">&amp;&amp;</span> <span class="va">temp_ind</span>(<span class="fl">2</span>) <span class="op">&lt;=</span><span class="va">MAX_Y</span><span class="op">...</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>               <span class="op">&amp;&amp;</span> <span class="va">MAP</span>(<span class="va">temp_ind</span>(<span class="fl">1</span>)<span class="op">,</span><span class="va">temp_ind</span>(<span class="fl">2</span>))<span class="op">~=-</span><span class="fl">1</span>  <span class="op">&amp;&amp;</span> <span class="va">unvisited</span>(<span class="va">temp_ind</span>(<span class="fl">1</span>)<span class="op">,</span><span class="va">temp_ind</span>(<span class="fl">2</span>))<span class="op">==</span><span class="fl">1</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>                <span class="va">temp</span> <span class="op">=</span> <span class="va">G_score</span>(<span class="va">row</span><span class="op">,</span><span class="va">col</span>)<span class="op">+</span><span class="va">dist</span>([<span class="va">row</span><span class="op">,</span><span class="va">col</span>]<span class="op">,</span><span class="va">temp_ind</span><span class="op">,</span><span class="fl">2</span>)<span class="op">;</span></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>                <span class="kw">if</span> <span class="va">temp</span> <span class="op">&lt;</span> <span class="va">G_score</span>(<span class="va">temp_ind</span>(<span class="fl">1</span>)<span class="op">,</span><span class="va">temp_ind</span>(<span class="fl">2</span>))</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>                    <span class="va">G_score</span>(<span class="va">temp_ind</span>(<span class="fl">1</span>)<span class="op">,</span><span class="va">temp_ind</span>(<span class="fl">2</span>))<span class="op">=</span><span class="va">temp</span><span class="op">;</span></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>                    <span class="va">backtrack</span>(<span class="va">temp_ind</span>(<span class="fl">1</span>)<span class="op">,</span><span class="va">temp_ind</span>(<span class="fl">2</span>)<span class="op">,:</span>)<span class="op">=</span>[<span class="va">row</span><span class="op">,</span><span class="va">col</span>]<span class="op">;</span></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>                <span class="kw">end</span></span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>           <span class="kw">end</span> </span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>       <span class="kw">end</span></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">% no path found</span></span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> <span class="va">G_score</span>(<span class="va">xTarget</span><span class="op">,</span><span class="va">yTarget</span>)<span class="op">==</span><span class="va">inf</span></span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>        <span class="va">Optimal_path</span><span class="op">=</span>[]<span class="op">;</span></span>
-<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">disp</span>(<span class="st">&quot;No path found&quot;</span>)<span class="op">;</span></span>
-<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">else</span></span>
-<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">ptr_ind</span> <span class="op">=</span> <span class="va">reshape</span>(<span class="va">backtrack</span>(<span class="va">xTarget</span><span class="op">,</span><span class="va">yTarget</span><span class="op">,:</span>)<span class="op">,</span>[<span class="fl">1</span><span class="op">,</span><span class="fl">2</span>])<span class="op">;</span></span>
-<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">Optimal_path</span><span class="op">=</span>[<span class="va">xTarget</span><span class="op">,</span><span class="va">yTarget</span><span class="op">,</span><span class="va">map</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">3</span>)]<span class="op">;</span></span>
-<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">while</span> (<span class="va">ptr_ind</span>(<span class="fl">1</span>)<span class="op">~=</span><span class="va">xStart</span> <span class="op">||</span> <span class="va">ptr_ind</span>(<span class="fl">2</span>)<span class="op">~=</span><span class="va">yStart</span>)</span>
-<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>            <span class="va">Optimal_path</span><span class="op">=</span>[[<span class="va">ptr_ind</span><span class="op">,</span><span class="va">map</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">3</span>)]<span class="op">;</span><span class="va">Optimal_path</span>]<span class="op">;</span></span>
-<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>            <span class="va">ptr_ind</span> <span class="op">=</span> <span class="va">reshape</span>(<span class="va">backtrack</span>(<span class="va">ptr_ind</span>(<span class="fl">1</span>)<span class="op">,</span><span class="va">ptr_ind</span>(<span class="fl">2</span>)<span class="op">,:</span>)<span class="op">,</span>[<span class="fl">1</span><span class="op">,</span><span class="fl">2</span>])<span class="op">;</span></span>
-<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>        <span class="kw">end</span></span>
-<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>        <span class="va">Optimal_path</span><span class="op">=</span>[[<span class="va">xStart</span><span class="op">,</span><span class="va">yStart</span><span class="op">,</span><span class="va">map</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">3</span>)]<span class="op">;</span><span class="va">Optimal_path</span>]<span class="op">;</span></span>
-<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">disp</span>(<span class="va">Optimal_path</span>)</span>
-<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>        <span class="va">Optimal_path</span><span class="op">=</span> <span class="va">Optimal_path</span><span class="op">-</span>[<span class="fl">0.5</span> <span class="fl">0.5</span> <span class="fl">0</span>]<span class="op">;</span></span>
-<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span></code></pre></div>
-<ul>
-<li><p>结果展示</p>
-<figure>
-<img src="/2023/03/26/wu-ren-ji-hkust-ke-jian-xue-xi/image-20220330205735520.png" alt="map1"><figcaption aria-hidden="true">map1</figcaption>
-</figure>
-<p><strong>不是bgm，是听的歌录进去了！！！</strong></p>
-<video src="https://copy2000.github.io/medias/vedio/map1.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
-<p>your browser does not support the video tag</p>
-</video>
-<hr>
-<video src="https://copy2000.github.io/medias/vedio/map2.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
-<p>your browser does not support the video tag</p>
-</video></li>
-</ul>
+                
+#  UAV Learning
 
+本篇只是一个目录性质的东西，相关东西自己去看课件
+
+![无人机](【无人机】HKUST课件学习/u=1620021440,3565980159&fm=253&fmt=auto&app=120&f=JPEG.jpeg)
+
+<span id="more"></span>
+
+## Rotation Representation
+
+* rotation matrices
+* Euler angles：任何旋转都可以被描述为三个绕着xyz轴线性旋转
+* Exponential coordinates
+* Quaternions
+
+
+
+
+
+由于课件上的东西实在是不好整理，于是只挑了些重要的和相关的project记录。[ELEC5660 (gaowenliang.github.io)](https://gaowenliang.github.io/HKUST-ELEC5660-Introduction-to-Aerial-Robots/project/project.html)
+
+## Project1
+
+### Phase 1 : Control Simulation
+
+question：In this project, you are provided with a quadrotor simulator written in Matlab. The simulator implements dynamics model of quadrotor and relies on the numerical solver ode45. You will need to implement controller.
+
+[code and data](https://github.com/gaowenliang/ELEC5660_proj1phase1)
+
+
+
+* 下面是直接运行code（未添加控制）的相关结果：
+
+​	![未改变参数的circle](【无人机】HKUST课件学习/image-20220323144051461.png)
+
+​	![未改变参数的diamond](【无人机】HKUST课件学习/image-20220323144304484.png)
+
+​	![未改变参数的hover](【无人机】HKUST课件学习/image-20220323144444287.png)
+
+​	可以看到的是未添加控制情况下，红线和蓝线偏离较大，不能保持跟踪。
+
+* 运用的知识：
+
+  ![3D Quadrotor](【无人机】HKUST课件学习/image-20220323145546665.png)
+
+  ![3D Quadrotor](【无人机】HKUST课件学习/image-20220323145012987.png)
+
+  ![3D PID](【无人机】HKUST课件学习/image-20220323145039479.png)
+
+* control.m
+
+  ```matlab
+  function [F, M] = controller(t, s, s_des)
+  %% s_des = zeros(13,1);
+  % [1:6]: x, y, z, dx, dy, dz
+  % [7:10]: quaternion, qw,qx,qy,qz
+  % [11:13]: oemga: wx, wy, wz
+  %% definition of parameters
+  % model parameters
+  global params
+  m = params.mass;
+  g = params.grav;
+  I = params.I;
+  
+  %PID parameters
+  Kp_position = [4 4 5];
+  Kd_position = [2.5 2.5 5];
+  Kp_rpy = [100 100 75];
+  Kd_rpy = [15 15 10];
+  
+  %% position control
+  Rotation = quaternion_to_R(s(7:10));%function is in utils
+  Rotation_desired = quaternion_to_R(s_des(7:10));
+  [phi,theta,psi] = RotToRPY_ZXY(Rotation);
+  [phi_des,theta_des,psi_des] = RotToRPY_ZXY(Rotation_desired);
+  
+  %% newton equation
+  % linearization : u1,0 = mg,therefore ddz_des = 0
+  ddp_des = [g*(theta_des * cos(psi_des)+phi_des*sin(psi_des)),g*(theta_des * sin(psi_des)-phi_des*cos(psi_des)),0];
+  
+  w_des = s_des(11:13);
+  w = s(11:13);
+  
+  %% PID control
+  ddp_1c = ddp_des(1) + Kd_position(1)*(s_des(4)-s(4)) + Kp_position(1)*(s_des(1)-s(1));
+  ddp_2c = ddp_des(2) + Kd_position(2)*(s_des(5)-s(5)) + Kp_position(2)*(s_des(2)-s(2));
+  ddp_3c = ddp_des(3) + Kd_position(3)*(s_des(6)-s(6)) + Kp_position(3)*(s_des(3)-s(3));
+  
+  F = m*(g+ddp_3c);
+  phi_c = 1/g*(ddp_1c*sin(psi) - ddp_2c*cos(psi));
+  theta_c = 1/g*(ddp_1c*cos(psi) + ddp_2c*sin(psi));
+  
+  %% Attitude control
+  % judge the angle of yaw
+  psi_dif = psi_des-psi;
+  if psi_dif >= pi
+      psi_dif=psi_dif-2*pi;
+  elseif psi_dif <= 2 -pi psi_dif="psi_dif+2*pi;" end dd_rpy_c="[Kp_rpy(1)*(phi_c-phi)+Kd_rpy(1)*(0-w(1));" kp_rpy(2)*(theta_c-theta)+kd_rpy(2)*(0-w(2)); kp_rpy(3)*(psi_dif)+kd_rpy(3)*(0-w(3))]; %notsure abt derivative m="I*dd_rpy_c" + cross(w, i*w); ``` * 使用ziegler-nichols方法调参（我不认为这是一个聪明的做法）![oscillate](【无人机】hkust课件学习 image-20220323155847233.png)![circle_trajectory](【无人机】hkust课件学习 image-20220323162554971.png)![diamond_trajectory](【无人机】hkust课件学习 image-20220323162802516.png)![hover_trajectory](【无人机】hkust课件学习 image-20220323162943627.png) [ ]: # "[introduction-to-aerial-robotics proj1phase1 code at master · xyaoab introduction-to-aerial-robotics (github.com)](https: github.com tree code)[elec5660-2021 controller.m main garyandtang elec5660-2021 blob project1 controller.m)" ### phase : trajectory simulation [问题和code and data](https: gaowenliang elec5660_proj1phase2) 运用的知识 ![image-20220327111127832](【无人机】hkust课件学习 image-20220327111127832.png)![image-20220327111142080](【无人机】hkust课件学习 image-20220327111142080.png)![minimum snap](【无人机】hkust课件学习 image-20220327111155381.png)![cost function](【无人机】hkust课件学习 image-20220327111209720.png)![image-20220327111218007](【无人机】hkust课件学习 image-20220327111218007.png)![image-20220327111244447](【无人机】hkust课件学习 image-20220327111244447.png) 这个ppt 上面讲的就比较抽象，我的建议是[机器人路径规划、轨迹优化系列课程_哔哩哔哩_bilibili](https: www.bilibili.com video bv1yt4y1t7eb?p="10)，讲的比较具体形象。[博客](https://blog.csdn.net/q597967420/article/details/76099491)" ------------------- path1="[0.0" 0.0 1.0 ; ... -1.0 2.0 3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0 ]; ![path](【无人机】hkust课件学习 image-20220327192302119.png) 代码部分function s_des="trajectory_generator(t," path, h)> 1 定义变量
+>
+> ```matlab
+> %persistent变量与全局变量有相似之处，它们都创建永久的存储空间，不同在于persistent只对定义它的函数可见。这样可以防止persistent变量被其它函数或在命令行中被改变。
+> persistent ts;
+> persistent ts_delta;
+> persistent P;
+> persistent xyz;
+> ```
+>
+> --------------
+>
+> 2  每一段轨迹的时间分配,总共分配25秒完成轨迹运行，path_seg_length就是两个waypoints之间的欧式距离，cumsum_path是累加路径，cumsum_path(end)就是一共需要走的路程，ts_delta就是两个waypoints的时间间隔。
+>
+> ```matlab
+> total_time = 25.0;
+> path_seg_length = sqrt(sum((path(2:end, :) - path(1:end-1,:)).^2,2));  %每一段的长度
+> cumsum_path = cumsum(path_seg_length);
+> ts_proportion = cumsum_path/cumsum_path(end);
+> ts = [0; ts_proportion]';
+> ts = ts*total_time;
+> ts_delta = ts(2:end) - ts(1:end-1); % interval---->T
+> ```
+>
+> ![path-seg-length](【无人机】HKUST课件学习/image-20220327192504059.png)
+>
+> ![△t](【无人机】HKUST课件学习/image-20220327192537568.png)
+>
+> --------------------
+>
+> 3 m就是轨迹段数，如果有11个waypoints，那么就有10段，这里使用的是Minimum Snap Trajectory Generation，所以N=7，但是有8个自由度（多项式的阶数为7，但是会有8个系数），所以Q_dia就是8*m的方阵。至于Q_dia matrix 的计算，参照上面fig[cost function]。
+>
+> ```matlab
+> %% cost function 
+> m = length(path)-1; %# segments 
+> %为什么是8*m，是因为minimum snap为7阶，但是有8个自由度，所以一共有8*m，可以发现Q是一个对称矩阵
+> Q_dia = zeros(8*m, 8*m); %block diagonal matrix
+> for k=1:m
+>  for i=4:8
+>      for j=4:8
+>          Q_dia((k-1)*8+i,(k-1)*8+j)=i*(i-1)*(i-2)*(i-3)*j*(j-1)*(j-2)*(j-3)/(j+i-7)*(ts_delta(k)^(i+j-7));
+>      end
+>  end
+> end
+> ```
+>
+> ![Q](【无人机】HKUST课件学习/image-20220327192738388.png)每一组的后4*4改变，而且是一个对称矩阵
+>
+> -------------
+>
+> 4 约束$A_j p_j = d_j$，dim指的是A的维度
+>
+> ```matlab
+> %% derivative constraint
+> % 为什么是4*（m-1）？4分别是pos vel acc jerk ，m-1是除了第一个点和最后一个点，中间有m-1个点
+> % 2*m是每一段t=0和t=T的时候的连续型约束
+> dim = 2*m+4*(m-1)+ 3*2; %continutity[4]+starting[3]+ending[3]
+> P = zeros(8*m,3); %p_j_i = 8mx3 [p00, p01...;p10...]
+> A = zeros(dim,8*m); %dimx8m
+> d= zeros(dim,3);
+> d(1:2*m,:) =  reshape([path(1:end-1, :) path(2:end, :)]',3, [])';
+> %dimx3
+> %每一段的开始和结束都需要在位置上
+> for j=1:m %position
+>  A(2*j-1:2*j,8*j-7:8*j) = [ 1, 0, 0, 0, 0, 0, 0, 0;...
+>      1, ts_delta(j), ts_delta(j)^2, ts_delta(j)^3, ...
+>      ts_delta(j)^4, ts_delta(j)^5, ts_delta(j)^6, ts_delta(j)^7];
+> end
+> ```
+>
+> 5 连续型约束
+>
+> ```matlab
+> %% continutity pos,vel,acce,jerk
+> for j=1:(m-1)
+>  A((2*m+4*j-3):(2*m+4*j),(8*j-7):(8*j+8))=[1, ts_delta(j), ts_delta(j)^2, ts_delta(j)^3, ...
+>      ts_delta(j)^4, ts_delta(j)^5, ts_delta(j)^6, ts_delta(j)^7,-1,0,0,0,0,0,0,0;...%pos
+>      0, 1, 2*ts_delta(j), 3*ts_delta(j)^2, 4*ts_delta(j)^3, 5*ts_delta(j)^4, ...
+>      6*ts_delta(j)^5, 7*ts_delta(j)^6,0,-1,0,0,0,0,0,0;...%vel
+>      0, 0, 2, 6*ts_delta(j), 12*ts_delta(j)^2, 20*ts_delta(j)^3, ...
+>      30*ts_delta(j)^4, 42*ts_delta(j)^5,0,0,-2,0,0,0,0,0;...%acc
+>       0, 0, 0, 6, 24*ts_delta(j), 60*ts_delta(j)^2, ...
+>      120*ts_delta(j)^3, 210*ts_delta(j)^4,0,0,0,-6,0,0,0,0];%jerk
+> end
+> ```
+>
+> 6  
+>
+> ```matlab
+> %% starting point vel,acc, jerk 
+> A(6*m-3:6*m-1, 1:8)=[0,1,0,0,0,0,0,0;...
+>                   0,0,2,0,0,0,0,0;...
+>                   0,0,0,6,0,0,0,0];
+> A(6*m:6*m+2,8*m-7:8*m) = [0, 1, 2*ts_delta(m), 3*ts_delta(m)^2, 4*ts_delta(m)^3, 5*ts_delta(m)^4, ...
+>                    6*ts_delta(m)^5, 7*ts_delta(m)^6; ...
+>                    0, 0, 2, 6*ts_delta(m), 12*ts_delta(m)^2, 20*ts_delta(m)^3, ...
+>                    30*ts_delta(m)^4, 42*ts_delta(m)^5; ...
+>                    0, 0, 0, 6, 24*ts_delta(m), 60*ts_delta(m)^2, ...
+>                    120*ts_delta(m)^3, 210*ts_delta(m)^4];
+> ```
+>
+> 7 QP求解
+>
+> ```matlab
+> %% QP
+> f=zeros(8*m,1);
+> P(:,1) = quadprog(Q_dia,f,[],[],A,d(:,1));
+> P(:,2) = quadprog(Q_dia,f,[],[],A,d(:,2));
+> P(:,3) = quadprog(Q_dia,f,[],[],A,d(:,3));
+> ```
+
+------------------------
+
+* **结果展示**
+
+  path1
+
+  ![path1](【无人机】HKUST课件学习/image-20220327193103099.png)
+
+-----------------
+
+​	path2
+
+![path2](【无人机】HKUST课件学习/image-20220327193400537.png)![path2-simulation](【无人机】HKUST课件学习/image-20220327193553122.png)
+
+----------------
+
+来一颗小心心！o(´^｀)o![path3](【无人机】HKUST课件学习/image-20220327193650235.png)
+
+![heart-simulation](【无人机】HKUST课件学习/image-20220327193837086.png)
+
+### Phase 3 : Path Finding Simulation
+
+[代码和问题](https://github.com/gaowenliang/ELEC5660_proj1phase3)
+
+
+
+* A*算法
+
+![A*](【无人机】HKUST课件学习/image-20220330124201573.png)
+
+* 关于搜索路径，我写了一篇[总结](https://copy2000.github.io/Dcos/搜索路径.pdf).
+
+
+
+代码思路，其实比较简单，就是g(n)+h(n)，h（n）就是使用MAP中的每一个节点到goal 的距离，至于g（n）是accumulated cost，只与之前的有关。
+
+* 代码path_from_Astar.m
+
+  初始化MAP
+
+  ```matlab
+  function Optimal_path = path_from_A_star(map)
+      Optimal_path = [];
+      size_map = size(map,1);
+  
+      MAX_X=10;
+      MAX_Y=10;
+      
+      %Define the 2D grid map array.
+      %Obstacle=-1, Target = 0, Start=1
+      MAP=2*(ones(MAX_X,MAX_Y));
+      
+      %Initialize MAP with location of the target
+      xval=floor(map(size_map, 1));
+      yval=floor(map(size_map, 2));
+      xTarget=xval;
+      yTarget=yval;
+      MAP(xval,yval)=0;
+      
+      %Initialize MAP with location of the obstacle
+      for i = 2: size_map-1
+          xval=floor(map(i, 1));
+          yval=floor(map(i, 2));
+          MAP(xval,yval)=-1;
+      end 
+      
+      %Initialize MAP with location of the start point
+      xval=floor(map(1, 1));
+      yval=floor(map(1, 2));
+      xStart=xval;
+      yStart=yval;
+      MAP(xval,yval)=1;
+      
+      
+  ```
+
+  start your code here，首先定义一个函数，用于计算欧氏距离。
+
+  ```matlab
+  % dim=1是对列求和，dim=2是对行求和
+      function cost = dist(start_pos, goal_pos,dim)
+          cost = sqrt(sum((double(start_pos) - double(goal_pos)).^2,dim));
+      end
+  ```
+
+```matlab
+%% g(n)和h(n)的初始化
+G_score = inf(size(MAP));
+G_score(xStart, yStart)=0;
+herustic=zeros(size(MAP));
+%关于ind2sub函数http://blog.sina.com.cn/s/blog_7054a1960102vyby.html
+%[row,col]就是（1,1）（2,1）（3,1）。。。（1,2）（2,2）.。。
+```
+
+启发式的路径规划，最重要的是目标导向型，所以herustic（n）就是一个和MAP维度一样的矩阵，只是每个节点存储的是该节点到goal 的距离，这样每一次迭代只需要计算g（n）+h（n）的最小值就可以知道下一步在哪了。
+
+``` matlab
+ %% h(n)定义
+ [row,col]=ind2sub(size(G_score), 1:numel(G_score));
+ matrix_ = [row;col];
+ dist_temp=dist(matrix_,[xTarget;yTarget],1);
+ herustic(1:end)=dist_temp(1:end);
+ % unvisited=1, visted=inf
+```
+
+两个标记矩阵，unvisited（10\*10），backtrack（10\*10\*2），其中backtrack是存储的是回溯路径，如下图中的backtrack矩阵，第一个var(:,:,1)存储的是回溯的行row，另外一个是column，这样只需要一步一步的回溯，可以得到optimal path。![backtrack](【无人机】HKUST课件学习/image-20220330205219290.png)
+
+![optimal_path](【无人机】HKUST课件学习/image-20220330205245623.png)
+
+```matlab
+%% 未访问节点矩阵初始化
+    % 如果未访问unvisited矩阵中的值为1，访问过就是inf
+    unvisited = ones(size(MAP));
+    backtrack = zeros(size(MAP,1),size(MAP,2),2);
+    % row_delta和col_delta是可以走的八个方向东、西、南、北、东北。。。
+    row_delta=[-1,-1,-1,0,0,1,1,1];
+    col_delta=[-1,0,1,-1,1,-1,0,1];
+```
+
+下面将展示本次代码的核心部分，如何寻找最优路径：
+
+```matlab
+while(~all(unvisited==inf))
+        % take lowest g(n) [masked]
+       [min_val,idx]=min(unvisited(:).*(G_score(:)+herustic(:)));
+       [row,col]=ind2sub(size(G_score),idx);
+       % remove and mark as visited
+       unvisited(row,col)=inf;
+       % reach goal
+       if row==xTarget && col==yTarget
+           break;
+       end
+
+       for i=1:length(row_delta)
+           temp_ind=[row+row_delta(i),col+col_delta(i)];
+           %no obstacle, unvisted, within the index bound
+           if all(temp_ind>0) && temp_ind(1) <= max_x && temp_ind(2) <="MAX_Y..." map(temp_ind(1),temp_ind(2))~="-1" unvisited(temp_ind(1),temp_ind(2))="=1" temp="G_score(row,col)+dist([row,col],temp_ind,2);" if g_score(temp_ind(1),temp_ind(2)) backtrack(temp_ind(1),temp_ind(2),:)="[row,col];" end % no path found g_score(xtarget,ytarget)="=inf" optimal_path="[];" disp("no found"); else ptr_ind="reshape(backtrack(xTarget,yTarget,:),[1,2]);" while (ptr_ind(1)~="xStart" || ptr_ind(2)~="yStart)" disp(optimal_path) 0.5 0]; ``` * 结果展示 ![map1](【无人机】hkust课件学习 image-20220330205735520.png) **不是bgm，是听的歌录进去了！！！** <video src="https://copy2000.github.io/medias/vedio/map1.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"> your browser does not support the video tag 
+
+  ---------------
+
+  <video src="https://copy2000.github.io/medias/vedio/map2.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"> your browser does not support the video tag </video>
+
+  
+</=></=>
                 
             </div>
             <hr/>
@@ -930,16 +933,13 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基本的hexo使用语句就不展示了
+                            **基本的hexo使用语句就不展示了**
 
-写在前面
+> 写在前面
 
+![hexo版本](【网站搭建】hexo的使用/image-20220322170540331.png)
 
-hexo版本
-
-
-next版本
-
+![next版本](【网站搭建】hexo的使用/image-202203
                         
                     </div>
                     <div class="publish-info">
@@ -980,12 +980,11 @@ next版本
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            EGO-Swarm
+                            # EGO-Swarm
 
-论文来源
+[论文来源](https://github.com/ZJU-FAST-Lab/ego-planner-swarm)
 
-
-EGO-Swarm: A Fully Autonomous and Decentralized Quadrotor Swarm System in Cluttered Environments
+![EGO-Swarm: A Fully Autonomous and Decentralize
                         
                     </div>
                     <div class="publish-info">
@@ -1222,7 +1221,7 @@ EGO-Swarm: A Fully Autonomous and Decentralized Quadrotor Swarm System in Clutte
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27.6k</span>&nbsp;字
+                class="white-color">28.1k</span>&nbsp;字
             
             
             

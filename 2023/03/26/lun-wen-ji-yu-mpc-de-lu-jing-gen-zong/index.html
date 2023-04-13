@@ -417,7 +417,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    649
+                    685
                 </div>
                 
 
@@ -444,140 +444,107 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="mpc论文归纳">mpc论文归纳</h1>
-<p>《Linear vs Nonlinear MPC for Trajectory Tracking Applied to Rptary Wing Micro Aerial Vehicles》<span id="more"></span></p>
-<h2 id="abstract">Abstract</h2>
-<p>this paper discusses about the applications of <strong>precise trajectory tracking</strong> in cluttered environment or under disturbances when MAVs work. So this paper presents a comparison between classical <strong>linear model predictive controller(LMPC)</strong> against advanced <strong>nonlinear model predictive controller(NMPC)</strong>.</p>
-<h2 id="introduction">Introduction</h2>
-<p>The goal of this comparison is to emphasis the benefits and drawbacks of considering the full system dynamics in terms of performance improvement,disturbance rejection and computation effort.</p>
-<p>To achieve high performance with the cascade approach(级联法),it is necessary to account for the inner-loop dynamics（内循环动力） in the trajectory tracking controller.</p>
-<h2 id="related-work">Related Work</h2>
-<p>Some researchers have found that PID controller was performing better than an <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/LQR控制器">LQ controller</a>(回授控制、线性二次).</p>
-<blockquote>
-<p>hierachical(分层的)</p>
-<p>aerodynamic drag model(气动阻力模型)</p>
-<p>Gaussian Process(高斯过程)</p>
-</blockquote>
-<h2 id="mav-model">MAV Model</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">name</th>
-<th style="text-align: center;">meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">I</td>
-<td style="text-align: center;">the world fixed inertial frame</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">the body fixed frame</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">v</td>
-<td style="text-align: center;">the vehicle velocity in inertial frame</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math display">\[\omega\]</span></td>
-<td style="text-align: center;">the body angular rate</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">CoG</td>
-<td style="text-align: center;">the Center of Gravity</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math display">\[R_{IB}\]</span></td>
-<td style="text-align: center;">the vehicle orientation</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math display">\[F_{T,i}\]</span></td>
-<td style="text-align: center;">generated thrust</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math display">\[M_i\]</span></td>
-<td style="text-align: center;">moment</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">k<sub>d</sub></td>
-<td style="text-align: center;">lumped drag coefficient</td>
-</tr>
-</tbody>
-</table>
-<p>Each propeller generates thrust proportional to the square of the propeller rotation speed and angular moment due to the drag force :由于阻力，每个螺旋桨产生的推力与螺旋桨转速和角力矩的平方成正比</p>
-<figure>
-<img src="/2023/03/26/lun-wen-ji-yu-mpc-de-lu-jing-gen-zong/image-20220302232822684.png" alt="image-20220302232822684"><figcaption aria-hidden="true">image-20220302232822684</figcaption>
-</figure>
-<figure>
-<img src="/2023/03/26/lun-wen-ji-yu-mpc-de-lu-jing-gen-zong/image-20220302231436805.png" alt="image-20220302231436805"><figcaption aria-hidden="true">image-20220302231436805</figcaption>
-</figure>
-<blockquote>
-<p>closed-loop attitude model(闭环姿态模型)</p>
-<p>dynamic maneuvers(动态动作)</p>
-<p>blade flapping(叶片拍打)</p>
-<p>induced drag(诱导阻力)</p>
-<p>damping(阻尼)</p>
-<p>lumped drag coefficient (总阻力系数)</p>
-<p>in</p>
-<p>OCP optimal control problem</p>
-<p>RMSE 均方根误差</p>
-<p>Extended Kalman Filter (EKF)</p>
-</blockquote>
-<h2 id="linear-mpc">LINEAR MPC</h2>
-<p>To achieve a better tracking performance of dynamic trajectories, this paper includes a feed-forward term by setting the reference control input.</p>
-<p>there are so many formulations,so I don't want to repeatedly present those.</p>
-<h2 id="nonlear-mpc">NONLEAR MPC</h2>
-<p>this approach can gains a particular attention recently to address optimal control problems.</p>
-<h2 id="摘要">摘要</h2>
-<p>本文讨论了<strong>精确轨迹跟踪</strong>在 MAV 工作时在杂乱环境或干扰下的应用。 因此，本文将经典的<strong>线性模型预测控制器 (LMPC)</strong> 与先进的<strong>非线性模型预测控制器 (NMPC)</strong> 进行比较。</p>
-<h2 id="介绍">介绍</h2>
-<p>对比了LMPC和NMPC，这种比较的目的是强调考虑整个系统动力学在性能改进、抗干扰和计算工作方面的优点和缺点。 为了使用级联法实现高性能，有必要在轨迹跟踪控制器中考虑内循环动力（inner-loop dynamics）。</p>
-<h2 id="比较">比较</h2>
-<table>
-<colgroup>
-<col style="width: 27%">
-<col style="width: 36%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">条件</th>
-<th style="text-align: center;">LMPC</th>
-<th style="text-align: center;">NMPC</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Hovering under no external disturbance</td>
-<td style="text-align: center;">RMSE is 1.84cm</td>
-<td style="text-align: center;">RMSE is 2.05cm</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Hovering under external wind of 11m/s</td>
-<td style="text-align: center;">RMSE is 2.7cm</td>
-<td style="text-align: center;">RMSE is 2.5cm</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Step Response</td>
-<td style="text-align: center;">rise time is 1.6s and overshoot percentage is 1.98%</td>
-<td style="text-align: center;">rise time is 1.0s and overshoot percentage is 1.98%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Aggressive Trajectory tracking</td>
-<td style="text-align: center;">RMS is 10.8cm</td>
-<td style="text-align: center;">RMS is 7.1cm</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Computation effort</td>
-<td style="text-align: center;">an average solve time of 2.35 ms</td>
-<td style="text-align: center;">an average solve time of 0.45 ms</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>从以上三个方面可以表现出，NMPC比LMPC在复杂环境干扰、阶跃反应、路径跟踪和计算时间中有着更好的表现。</p>
-</blockquote>
+                
+# mpc论文归纳
+
+《Linear vs Nonlinear MPC for Trajectory Tracking Applied to Rptary Wing Micro Aerial Vehicles》<span id="more"></span>
+
+## Abstract
+
+this paper discusses about the applications of **precise trajectory tracking** in cluttered environment or under disturbances when MAVs work. So this paper presents a comparison between classical **linear model predictive controller(LMPC)**  against advanced **nonlinear model predictive controller(NMPC)**.
+
+## Introduction
+
+The goal of this comparison is to emphasis the benefits and drawbacks of considering the full system dynamics in terms of performance improvement,disturbance rejection and computation effort.
+
+To achieve high performance with the cascade approach(级联法),it is necessary to account for the inner-loop dynamics（内循环动力） in the trajectory tracking controller.
+
+## Related Work
+
+Some researchers have found that PID controller was performing better than an [LQ controller](https://zh.wikipedia.org/wiki/LQR控制器)(回授控制、线性二次).
+
+> hierachical(分层的)
+>
+> aerodynamic drag model(气动阻力模型)
+>
+> Gaussian Process(高斯过程)
+
+## MAV Model
+
+|    name     |                meaning                 |
+| :---------: | :------------------------------------: |
+|      I      |     the world fixed inertial frame     |
+|      B      |          the body fixed frame          |
+|      v      | the vehicle velocity in inertial frame |
+| $$\omega$$  |         the body angular rate          |
+|     CoG     |         the Center of Gravity          |
+| $$R_{IB}$$  |        the vehicle orientation         |
+| $$F_{T,i}$$ |            generated thrust            |
+|   $$M_i$$   |                 moment                 |
+|    k~d~     |        lumped drag coefficient         |
+
+Each propeller generates thrust proportional to the square of the propeller rotation speed and angular moment due to the drag force :由于阻力，每个螺旋桨产生的推力与螺旋桨转速和角力矩的平方成正比 
+
+
+
+![image-20220302232822684](【论文】基于MPC的路径跟踪/image-20220302232822684.png)
+
+![image-20220302231436805](【论文】基于MPC的路径跟踪/image-20220302231436805.png)
+
+> closed-loop attitude model(闭环姿态模型)
+>
+> dynamic maneuvers(动态动作)
+>
+> blade flapping(叶片拍打)
+>
+> induced drag(诱导阻力)
+>
+> damping(阻尼)
+>
+> lumped drag coefficient (总阻力系数)
+>
+> in
+>
+> OCP optimal control problem
+>
+> RMSE 均方根误差
+>
+> Extended Kalman Filter (EKF)
+
+## LINEAR MPC
+
+To achieve a better tracking performance of dynamic trajectories, this paper includes a feed-forward term by setting the reference control input.
+
+there are so many formulations,so I don't want to repeatedly present those.
+
+## NONLEAR MPC
+
+this approach can gains a particular attention recently to address optimal control problems.
+
+## 摘要
+
+本文讨论了**精确轨迹跟踪**在 MAV 工作时在杂乱环境或干扰下的应用。 因此，本文将经典的**线性模型预测控制器 (LMPC)** 与先进的**非线性模型预测控制器 (NMPC)** 进行比较。 
+
+## 介绍
+
+对比了LMPC和NMPC，这种比较的目的是强调考虑整个系统动力学在性能改进、抗干扰和计算工作方面的优点和缺点。 为了使用级联法实现高性能，有必要在轨迹跟踪控制器中考虑内循环动力（inner-loop dynamics）。 
+
+## 比较
+
+|                  条件                  |                        LMPC                         |                        NMPC                         |
+| :------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------: |
+| Hovering under no external disturbance |                   RMSE is 1.84cm                    |                   RMSE is 2.05cm                    |
+| Hovering under external wind of 11m/s  |                    RMSE is 2.7cm                    |                    RMSE is 2.5cm                    |
+|             Step Response              | rise time is 1.6s and overshoot percentage is 1.98% | rise time is 1.0s and overshoot percentage is 1.98% |
+|     Aggressive Trajectory tracking     |                    RMS is 10.8cm                    |                    RMS is 7.1cm                     |
+|           Computation effort           |          an average solve time of 2.35 ms           |          an average solve time of 0.45 ms           |
+
+> 从以上三个方面可以表现出，NMPC比LMPC在复杂环境干扰、阶跃反应、路径跟踪和计算时间中有着更好的表现。
+
+
+
+
+
 
                 
             </div>
@@ -707,7 +674,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ROS学习：坐标变换
+                            # ROS学习：坐标变换
                         
                     </div>
                     <div class="publish-info">
@@ -981,7 +948,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27.6k</span>&nbsp;字
+                class="white-color">28.1k</span>&nbsp;字
             
             
             

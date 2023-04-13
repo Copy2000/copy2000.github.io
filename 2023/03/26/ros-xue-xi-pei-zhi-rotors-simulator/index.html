@@ -413,7 +413,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    517
+                    543
                 </div>
                 
 
@@ -440,97 +440,69 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>本文按照https://github.com/ethz-asl/rotors_simulator一步一步搭建并且踩坑记录。</p>
+                
+本文按照https://github.com/ethz-asl/rotors_simulator一步一步搭建并且踩坑记录。
+
 <span id="more"></span>
-<h2 id="雷">雷</h2>
-<ul>
-<li><p>第一个坑：尽量不要在虚拟机上跑，因为你在catkin make的时候就会卡住。</p></li>
-<li><p>在原文中也提到了，第一次加载gazebo的时候会出现超时error，不要慌，关闭当前gazebo窗口再次输入<strong>用法</strong>的1命令。</p></li>
-<li><p>好像用不了他的其他地图。</p></li>
-<li><p>在ubuntu16环境下也需要将他自己的那个rotors_simulator放到src中。</p></li>
-<li><p>需要仔细端详他给的mavlink，可能版本对不上自己的linux系统。</p></li>
-<li><p>需要安装mavros，具体的方法好像是<code>sudo apt get install ros-kinetic-mavros</code>，有点忘了，网上有很多教程，不麻烦。</p></li>
-</ul>
-<h2 id="用法">用法</h2>
-<ol type="1">
-<li><p>开启gazebo命令<code>roslaunch rotors_gazebo mav_hovering_example.launch mav_name:=firefly world_name:=basic</code></p></li>
-<li><p>操作MAV</p>
-<blockquote>
-<ul>
-<li>方法一：使用gazebo界面和按压play button（world下面的property），这样好像不太聪明的样子。</li>
-<li>方法二：<code>rosservice call gazebo/unpause_physics</code></li>
-</ul>
-</blockquote></li>
-<li><p>发送direct motor commands</p>
-<p><code>rostopic pub /firefly/command/motor_speed mav_msgs/Actuators '&#123;angular_velocities: [100, 100, 100, 100, 100, 100]&#125;'</code>，需要注意的是，这里的angular_velocities的数组和你无人机的旋翼数目对应，在这个例子中为6旋翼的。</p></li>
-<li><p>create an attitude controller</p></li>
-</ol>
-<ul>
-<li>操纵杆（joystick）无法操作</li>
-<li>使用键盘，按照<a href="%5BSetup%20virtual%20keyboard%20joystick%20·%20ethz-asl/rotors_simulator%20Wiki%20(github.com)%5D(https://github.com/ethz-asl/rotors_simulator/wiki/Setup-virtual-keyboard-joystick)">github网址</a>操作，使用 <code>rosrun rotors_joy_interface key_joystick.py</code>查看permission denied问题是否解决，使用<code>roslaunch rotors_gazebo mav_with_keyboard.launch</code>运行 使用虚拟键盘操纵杆的RotorS。</li>
-</ul>
-<h2 id="package解读">package解读</h2>
-<ul>
-<li>位于src/rotors_simulator/rotors_gazebo/launch中的firefly_swarm_hovering_example.launch文件运行多机盘旋。</li>
-<li>位于src/rotors_simulator/rotors_gazebo/launch中的fixed_wing.launch文件运行固定翼飞机。</li>
-<li>位于src/rotors_simulator/rotors_gazebo/launch中的firefly_swarm_hovering_example.launch文件运行多机盘旋。</li>
-</ul>
-<hr>
-<h2 id="代码解读">代码解读</h2>
-<p>在这之前需要知道：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">名词</th>
-<th style="text-align: center;">解释</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">pitch</td>
-<td style="text-align: center;">围绕X轴旋转，也叫做俯仰角</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">yaw</td>
-<td style="text-align: center;">围绕Y轴旋转，也叫偏航角</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">roll</td>
-<td style="text-align: center;">围绕Z轴旋转，也叫翻滚角</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>hil_controls_msg</li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">名词</th>
-<th style="text-align: center;">解释</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">pitch_elevator</td>
-<td style="text-align: center;">自己体会</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">yaw_rudder</td>
-<td style="text-align: center;">偏航角舵</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">roll_ailerons</td>
-<td style="text-align: center;">翻滚角副翼</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">throttle</td>
-<td style="text-align: center;">风门</td>
-</tr>
-</tbody>
-</table>
-<p>多的不说，直接看rotors_gazebo/src/hovering_example.cpp</p>
-<p>多机 ：firefly_swam_hovering_example.launch，其中需要看waypoint_publisher_file.cpp，其中提到args[x,y,z,yaw,wait_time],按照的是launch文件中的顺序</p>
+
+## 雷
+
+* 第一个坑：尽量不要在虚拟机上跑，因为你在catkin make的时候就会卡住。
+* 在原文中也提到了，第一次加载gazebo的时候会出现超时error，不要慌，关闭当前gazebo窗口再次输入**用法**的1命令。
+* 好像用不了他的其他地图。
+* 在ubuntu16环境下也需要将他自己的那个rotors_simulator放到src中。
+
+* 需要仔细端详他给的mavlink，可能版本对不上自己的linux系统。
+* 需要安装mavros，具体的方法好像是`sudo apt get install ros-kinetic-mavros`，有点忘了，网上有很多教程，不麻烦。
+
+## 用法
+
+1. 开启gazebo命令`roslaunch rotors_gazebo mav_hovering_example.launch mav_name:=firefly world_name:=basic`
+
+2. 操作MAV
+
+   > * 方法一：使用gazebo界面和按压play button（world下面的property），这样好像不太聪明的样子。
+   > * 方法二：`rosservice call gazebo/unpause_physics`
+
+3. 发送direct motor commands
+
+   `rostopic pub /firefly/command/motor_speed mav_msgs/Actuators '{angular_velocities: [100, 100, 100, 100, 100, 100]}'`，需要注意的是，这里的angular_velocities的数组和你无人机的旋翼数目对应，在这个例子中为6旋翼的。
+
+4. create an attitude controller
+
+* 操纵杆（joystick）无法操作
+* 使用键盘，按照[github网址]([Setup virtual keyboard joystick · ethz-asl/rotors_simulator Wiki (github.com)](https://github.com/ethz-asl/rotors_simulator/wiki/Setup-virtual-keyboard-joystick))操作，使用 `rosrun rotors_joy_interface key_joystick.py`查看permission denied问题是否解决，使用`roslaunch rotors_gazebo mav_with_keyboard.launch`运行 使用虚拟键盘操纵杆的RotorS。
+
+## package解读
+
+* 位于src/rotors_simulator/rotors_gazebo/launch中的firefly_swarm_hovering_example.launch文件运行多机盘旋。
+* 位于src/rotors_simulator/rotors_gazebo/launch中的fixed_wing.launch文件运行固定翼飞机。
+* 位于src/rotors_simulator/rotors_gazebo/launch中的firefly_swarm_hovering_example.launch文件运行多机盘旋。
+
+----------
+
+## 代码解读
+
+在这之前需要知道：
+
+| 名词  |           解释            |
+| :---: | :-----------------------: |
+| pitch | 围绕X轴旋转，也叫做俯仰角 |
+|  yaw  |  围绕Y轴旋转，也叫偏航角  |
+| roll  |  围绕Z轴旋转，也叫翻滚角  |
+
+* hil_controls_msg
+
+|      名词      |    解释    |
+| :------------: | :--------: |
+| pitch_elevator |  自己体会  |
+|   yaw_rudder   |  偏航角舵  |
+| roll_ailerons  | 翻滚角副翼 |
+|    throttle    |    风门    |
+
+多的不说，直接看rotors_gazebo/src/hovering_example.cpp
+
+多机 ：firefly_swam_hovering_example.launch，其中需要看waypoint_publisher_file.cpp，其中提到args[x,y,z,yaw,wait_time],按照的是launch文件中的顺序
 
                 
             </div>
@@ -656,7 +628,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            mpc论文归纳
+                            # mpc论文归纳
+
 《Linear vs Nonlinear MPC for Trajectory Tracking Applied to Rptary Wing Micro Aerial Vehicles》
                         
                     </div>
@@ -710,7 +683,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            hexo的metery主题配置
+                            # hexo的metery主题配置
                         
                     </div>
                     <div class="publish-info">
@@ -943,7 +916,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27.6k</span>&nbsp;字
+                class="white-color">28.1k</span>&nbsp;字
             
             
             

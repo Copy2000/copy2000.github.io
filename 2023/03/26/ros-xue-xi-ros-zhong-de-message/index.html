@@ -409,14 +409,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    649
+                    808
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -436,28 +436,52 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ros学习ros中的message使用方法">ROS学习:ROS中的message使用方法</h1>
-<p><a href="%5BCopy2000/ROS_msg%20(github.com)%5D(https://github.com/Copy2000/ROS_msg)">代码</a>csdn上面的文章或多或少有一点毛病，不是catkin_package有问题就是CMakeLists配置出现问题。这里我们给出csdn上<a href="%5BROS教程3%20ROS自定义msg类型及使用%20-%20MKT-porter%20-%20博客园%20(cnblogs.com)%5D(https://www.cnblogs.com/gooutlook/p/7401590.html)">最多人看的一篇</a>.</p>
-<p>我看过之后真正说明白的只有<a href="%5B机器人操作系统ROS:从入门到放弃(一)%20发布接收消息%20-%20简书%20(jianshu.com)%5D(https://www.jianshu.com/p/06e0e40cf6da)">here</a>.</p>
+                
+# ROS学习:ROS中的message使用方法
+
+[代码]([Copy2000/ROS_msg (github.com)](https://github.com/Copy2000/ROS_msg))csdn上面的文章或多或少有一点毛病，不是catkin_package有问题就是CMakeLists配置出现问题。这里我们给出csdn上[最多人看的一篇]([ROS教程3 ROS自定义msg类型及使用 - MKT-porter - 博客园 (cnblogs.com)](https://www.cnblogs.com/gooutlook/p/7401590.html)).
+
+我看过之后真正说明白的只有[here]([机器人操作系统ROS:从入门到放弃(一)　发布接收消息 - 简书 (jianshu.com)](https://www.jianshu.com/p/06e0e40cf6da)).
+
 <span id="more"></span>
-<hr>
-<p>创建的方法：</p>
-<pre><code>cd ~/catkin_ws/src
-catkin_create_pkg &#123;package&#125; std_msgs rospy roscpp
+
+--------
+
+创建的方法：
+
+```
+cd ~/catkin_ws/src
+catkin_create_pkg {package} std_msgs rospy roscpp
 cd ..
-catkin_make</code></pre>
-<p>实现：</p>
-<ul>
-<li>publisher:</li>
-</ul>
-<p><img src="/images/ROS中的message使用\publisher.png" width="50%" height="10%" align="center" title="publisher"></p>
-<ul>
-<li>subscriber:</li>
-</ul>
-<p><img src="/images/ROS中的message使用\subscriber.png" width="50%" height="10%" align="center" title="subscriber"></p>
-<h1 id="geometry_msgs">geometry_msgs</h1>
-<h2 id="geometry_msgsposestamped"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/api/geometry_msgs/html/msg/PoseStamped.html">geometry_msgs::PoseStamped</a></h2>
-<pre><code>Raw Message Definition:
+catkin_make
+```
+
+
+
+实现：
+
+* publisher:
+
+<img src="/images/ROS中的message使用\publisher.png" width="50%" height="10%" align="center" title="publisher">
+
+* subscriber:
+
+<img src="/images/ROS中的message使用\subscriber.png" width="50%" height="10%" align="center" title="subscriber">
+
+
+
+
+
+
+
+
+
+# geometry_msgs
+
+## [geometry_msgs::PoseStamped](http://docs.ros.org/en/api/geometry_msgs/html/msg/PoseStamped.html)
+
+``` 
+Raw Message Definition:
 # A Pose with reference coordinate frame and timestamp
 Header header
 Pose pose 
@@ -466,10 +490,17 @@ Compact Message Definition:
 std_msgs/Header header
 geometry_msgs/Pose pose
 
-</code></pre>
-<h3 id="std_msgsheader-message"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/api/std_msgs/html/index-msg.html">std_msgs</a>/Header Message</h3>
-<p>引用：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_18676517/article/details/109270525">here</a></p>
-<pre><code># Standard metadata for higher-level stamped data types.
+
+```
+
+
+
+### [std_msgs](http://docs.ros.org/en/api/std_msgs/html/index-msg.html)/Header Message
+
+引用：[here](https://blog.csdn.net/qq_18676517/article/details/109270525)
+
+```
+# Standard metadata for higher-level stamped data types.
 # This is generally used to communicate timestamped data 
 # in a particular coordinate frame.
 # 
@@ -478,43 +509,66 @@ geometry_msgs/Pose pose
 uint32 seq
 
 #Two-integer timestamp that is expressed as:
-# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called &#39;secs&#39;)
-# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called &#39;nsecs&#39;)
+# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
+# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
 # time-handling sugar is provided by the client library
 
 time stamp
 
 #Frame this data is associated with
 
-string frame_id</code></pre>
-<h3 id="geometry_msgspose-message"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/api/geometry_msgs/html/index-msg.html">geometry_msgs</a>/Pose Message</h3>
-<pre><code>Raw Message Definition
+string frame_id
+```
+
+
+
+### [geometry_msgs](http://docs.ros.org/en/api/geometry_msgs/html/index-msg.html)/Pose Message
+
+```
+Raw Message Definition
 # A representation of pose in free space, composed of position and orientation. 
 Point position
 Quaternion orientation
 
 Compact Message Definition
 geometry_msgs/Point position
-geometry_msgs/Quaternion orientation</code></pre>
-<h4 id="geometry_msgspoint-message"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/api/geometry_msgs/html/index-msg.html">geometry_msgs</a>/Point Message</h4>
-<pre><code># This contains the position of a point in free space
+geometry_msgs/Quaternion orientation
+```
+
+#### [geometry_msgs](http://docs.ros.org/en/api/geometry_msgs/html/index-msg.html)/Point Message
+
+```
+# This contains the position of a point in free space
 float64 x
 float64 y
-float64 z</code></pre>
-<h4 id="geometry_msgsquaternion-message"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/api/geometry_msgs/html/index-msg.html">geometry_msgs</a>/Quaternion Message</h4>
-<pre><code># This represents an orientation in free space in quaternion form.
+float64 z
+```
+
+#### [geometry_msgs](http://docs.ros.org/en/api/geometry_msgs/html/index-msg.html)/Quaternion Message
+
+```
+# This represents an orientation in free space in quaternion form.
 
 float64 x
 float64 y
 float64 z
-float64 w</code></pre>
-<h2 id="geometry_msgstwist-message"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/melodic/api/geometry_msgs/html/index-msg.html">geometry_msgs</a>/Twist Message</h2>
-<p>cite:<a target="_blank" rel="noopener" href="https://blog.csdn.net/ktigerhero3/article/details/80740920">here</a></p>
-<pre><code># This expresses velocity in free space broken into its linear and angular parts.
+float64 w
+```
+
+## [geometry_msgs](http://docs.ros.org/en/melodic/api/geometry_msgs/html/index-msg.html)/Twist Message
+
+cite:[here](https://blog.csdn.net/ktigerhero3/article/details/80740920)
+
+``` 
+# This expresses velocity in free space broken into its linear and angular parts.
 Vector3 linear
-Vector3 angular </code></pre>
-<h3 id="geometry_msgsvector3-message"><a target="_blank" rel="noopener" href="http://docs.ros.org/en/melodic/api/geometry_msgs/html/index-msg.html">geometry_msgs</a>/Vector3 Message</h3>
-<pre><code># This represents a vector in free space. 
+Vector3 angular 
+```
+
+### [geometry_msgs](http://docs.ros.org/en/melodic/api/geometry_msgs/html/index-msg.html)/Vector3 Message
+
+```
+# This represents a vector in free space. 
 # It is only meant to represent a direction. Therefore, it does not
 # make sense to apply a translation to it (e.g., when applying a 
 # generic rigid transformation to a Vector3, tf2 will only apply the
@@ -523,47 +577,60 @@ Vector3 angular </code></pre>
 
 float64 x
 float64 y
-float64 z</code></pre>
-<p>使用方法：</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main(<span class="dt">int</span> argc,<span class="dt">char</span>** argv)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>&#123;</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    ros::init(argc,argv,<span class="st">&quot;init&quot;</span>);</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    ros::NodeHandle nh;</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    ros::Publisher Pub = nh.advertise&lt;geometry_msgs::Twist&gt;(<span class="st">&quot;/hector1/cmd_vel&quot;</span>,<span class="dv">10</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">// 初始化geometry_msgs::Twist类型的消息    </span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    geometry_msgs::Twist vel_msg;</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    vel_msg.linear.x=<span class="fl">0.2</span>;</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    vel_msg.angular.z=<span class="fl">0.2</span>;</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">// 设置循环的频率</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    ros::Rate loop_rate(<span class="dv">10</span>);</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(ros::ok)</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    &#123;</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        ros::spinonce();</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        Pub.publish(Twist);</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        ROS_INFO(<span class="st">&quot;Publsh velocity command[</span><span class="sc">%0.2f</span><span class="st"> m/s, </span><span class="sc">%0.2f</span><span class="st"> rad/s]&quot;</span>, </span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>                vel_msg.linear.x, vel_msg.angular.z);</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>        loop_rate.sleep();</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    &#125;</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>&#125;</span></code></pre></div>
-<p>linear.x指向机器人前方，linear.y指向左方，linear.z垂直向上满足右手系，平面移动机器人常常linear.y和linear.z均为0；</p>
-<p>angular.z代表平面机器人的角速度，因为此时z轴为旋转轴</p>
-<h2 id="sensor_msgs">sensor_msgs</h2>
-<figure>
-<img src="/2023/03/26/ros-xue-xi-ros-zhong-de-message/image-20220405153718538.png" alt="sensor_msgs"><figcaption aria-hidden="true">sensor_msgs</figcaption>
-</figure>
-<ul>
-<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29462849/article/details/88795250">(71条消息) ROS下sensor_msgs::ImagePtr到sensor_msgs::Image之间的转换_Tom Hardy的博客-CSDN博客</a>:ROS下面好像没办法直接定义sensor_msgs/ImagePtr,而是sensor_msgs/Image。然而在从Mat格式转到ROS下的图像格式时，一般都是ImagePtr，这样在发布信息的时候就需要一次转换啦，其实也很简单！</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sensor_msgs::ImagePtr msg= cv_bridge::CvImage(std_msgs::Header(), <span class="st">&quot;bgr8&quot;</span>, src).toImageMsg();</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>detect_msg.image_raw=*msg;</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>这里自定义的detect_msg.image_raw就是sensor_msgs/Image格式。</span></code></pre></div></li>
-</ul>
+float64 z
+```
 
+使用方法：
+
+```c++
+int main(int argc,char** argv)
+{
+    ros::init(argc,argv,"init");
+    ros::NodeHandle nh;
+    ros::Publisher Pub = nh.advertise<geometry_msgs::Twist>("/hector1/cmd_vel",10)
+    
+// 初始化geometry_msgs::Twist类型的消息    
+    geometry_msgs::Twist vel_msg;
+    vel_msg.linear.x=0.2;
+    vel_msg.angular.z=0.2;
+    
+// 设置循环的频率
+    ros::Rate loop_rate(10);
+    
+    while(ros::ok)
+    {
+        ros::spinonce();
+        Pub.publish(Twist);
+        
+        ROS_INFO("Publsh velocity command[%0.2f m/s, %0.2f rad/s]", 
+				vel_msg.linear.x, vel_msg.angular.z);
+        
+        loop_rate.sleep();
+    }
+    return 0;
+}
+```
+
+linear.x指向机器人前方，linear.y指向左方，linear.z垂直向上满足右手系，平面移动机器人常常linear.y和linear.z均为0；
+
+angular.z代表平面机器人的角速度，因为此时z轴为旋转轴
+
+
+
+## sensor_msgs
+
+![sensor_msgs](【ROS学习】ROS中的Message/image-20220405153718538.png)
+
+* [(71条消息) ROS下sensor_msgs::ImagePtr到sensor_msgs::Image之间的转换_Tom Hardy的博客-CSDN博客](https://blog.csdn.net/qq_29462849/article/details/88795250):ROS下面好像没办法直接定义sensor_msgs/ImagePtr,而是sensor_msgs/Image。然而在从Mat格式转到ROS下的图像格式时，一般都是ImagePtr，这样在发布信息的时候就需要一次转换啦，其实也很简单！
+
+  ```c++
+  sensor_msgs::ImagePtr msg= cv_bridge::CvImage(std_msgs::Header(), "bgr8", src).toImageMsg();
+  detect_msg.image_raw=*msg;
+  这里自定义的detect_msg.image_raw就是sensor_msgs/Image格式。
+  ```
+
+  
+</geometry_msgs::Twist>
                 
             </div>
             <hr/>
@@ -684,8 +751,9 @@ float64 z</code></pre>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JNA的使用
-repository：Copy2000/JNA_use: 使用JNA调用c++的类和函数 (github.com)
+                            # JNA的使用
+
+repository：[Copy2000/JNA_use: 使用JNA调用c++的类和函数 (github.com)](https://github.com/Copy2000/JNA_use)
                         
                     </div>
                     <div class="publish-info">
@@ -726,8 +794,9 @@ repository：Copy2000/JNA_use: 使用JNA调用c++的类和函数 (github.com)
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ROS学习：turtle控制
+                            # ROS学习：turtle控制
 
+![img](【ROS学习】初学ROS的小项目/u=585289087,3399034401&fm=253&fmt=auto&app=120&f=JPEG.jpeg)
                         
                     </div>
                     <div class="publish-info">
@@ -960,7 +1029,7 @@ repository：Copy2000/JNA_use: 使用JNA调用c++的类和函数 (github.com)
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27.6k</span>&nbsp;字
+                class="white-color">28.1k</span>&nbsp;字
             
             
             

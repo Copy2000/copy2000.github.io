@@ -413,14 +413,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    284
+                    454
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -440,86 +440,102 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ros学习turtle控制">ROS学习：turtle控制</h1>
-<p><img src="/2023/03/26/ros-xue-xi-chu-xue-ros-de-xiao-xiang-mu/u=585289087,3399034401&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG.jpeg" alt="img"><span id="more"></span></p>
-<h2 id="turtle旋转">turtle旋转</h2>
-<p>首先查看turtlesim里面的节点，使用rqt_graph查看节点流图<img src="/2023/03/26/ros-xue-xi-chu-xue-ros-de-xiao-xiang-mu/image-20220314081121445.png" alt="rqt_graph"></p>
-<figure>
-<img src="/2023/03/26/ros-xue-xi-chu-xue-ros-de-xiao-xiang-mu/image-20220314090657384.png" alt="结果展示"><figcaption aria-hidden="true">结果展示</figcaption>
-</figure>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * @Description: 这是一个让turtle旋转的ros publisher</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"> * @Version: </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * @Autor: copy</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"> * @Date: 2022-03-12 17:28:55</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"> * @LastEditors: copy</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"> * @LastEditTime: 2022-03-12 17:42:00</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;ros/ros.h&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;geometry_msgs/Twist.h&quot;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="pp">#define PI </span><span class="fl">3.141592653</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main(<span class="dt">int</span> argc,<span class="dt">char</span>** argv)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>&#123;</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    ros::init(argc,argv,<span class="st">&quot;turtle_twist&quot;</span>);</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    ros::NodeHandle nh;</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    ros::Publisher Pub = nh.advervise&lt;geometry_msgs::Twist&gt;(<span class="st">&quot;/turtle1/cmd_vel&quot;</span>,<span class="dv">10</span>);</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    geometry_msgs::Twist twist;</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    twist.linear.x = <span class="dv">1</span>;</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    twist.angular.z = PI;</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    ROS_INFO(<span class="st">&quot;</span><span class="sc">\t</span><span class="st">现在的速度是</span><span class="sc">%f</span><span class="st">,偏转速度是</span><span class="sc">%f\t</span><span class="st">&quot;</span>,twist.linear.x,twist.angular.z = PI);</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    ros::Rate rate(<span class="dv">10</span>);<span class="co">//10Hz</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(ros::OK)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    &#123;</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        Pub.publish(twist);</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        rate.sleep();</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        ros::spin();            <span class="co">//后面的代码不再执行ros::spinOnce();</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    &#125;</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>&#125;</span></code></pre></div>
-<h2 id="接收turtle位置">接收turtle位置</h2>
-<p>使用rostopic list 和rostopic info [topic]查看turtle的topic，<img src="/2023/03/26/ros-xue-xi-chu-xue-ros-de-xiao-xiang-mu/image-20220314110604770.png" alt="image-20220314110604770"></p>
-<ul>
-<li><p>结果展示</p>
-<figure>
-<img src="/2023/03/26/ros-xue-xi-chu-xue-ros-de-xiao-xiang-mu/image-20220315120427620.png" alt="image-20220315120427620"><figcaption aria-hidden="true">image-20220315120427620</figcaption>
-</figure></li>
-</ul>
-<h2 id="跟踪turtle"><a target="_blank" rel="noopener" href="https://github.com/Copy2000/turtle/tree/main/src/turtle_csdn">跟踪turtle</a></h2>
-<p>使用rosservice list 和 rosservice info [service]查看turtle的service-----/Spawn。<img src="/2023/03/26/ros-xue-xi-chu-xue-ros-de-xiao-xiang-mu/image-20220314145138555.png" alt="image-20220314145138555"></p>
-<ul>
-<li><p>rospackage</p>
-<ul>
-<li>rospy</li>
-<li>roscpp</li>
-<li>std_msgs</li>
-<li>turtlesim</li>
-<li>tf</li>
-</ul></li>
-<li><p>turtle_tf_broadcaster.cpp</p>
-<figure>
-<img src="/2023/03/26/ros-xue-xi-chu-xue-ros-de-xiao-xiang-mu/image-20220315115639042.png" alt="turtle_tf_broadcaster"><figcaption aria-hidden="true">turtle_tf_broadcaster</figcaption>
-</figure></li>
-<li><p>turtle_tf_listener.cpp</p>
-<figure>
-<img src="/2023/03/26/ros-xue-xi-chu-xue-ros-de-xiao-xiang-mu/image-20220315115751882.png" alt="turtle_tf_listener"><figcaption aria-hidden="true">turtle_tf_listener</figcaption>
-</figure></li>
-<li><p>start_demo_with_listener.launch</p>
-<figure>
-<img src="/2023/03/26/ros-xue-xi-chu-xue-ros-de-xiao-xiang-mu/image-20220315115814890.png" alt="image-20220315115814890"><figcaption aria-hidden="true">image-20220315115814890</figcaption>
-</figure></li>
-<li><p>结果展示</p></li>
-</ul>
-<p>直接控制<img src="/2023/03/26/ros-xue-xi-chu-xue-ros-de-xiao-xiang-mu/image-20220315115934120.png" alt="image-20220315115934120"><strong>无超调，但是反应慢，稳态误差大</strong></p>
-<p>PID控制</p>
-<figure>
-<img src="/2023/03/26/ros-xue-xi-chu-xue-ros-de-xiao-xiang-mu/image-20220315161802801.png" alt="image-20220315161802801"><figcaption aria-hidden="true">image-20220315161802801</figcaption>
-</figure>
-<p><img src="/2023/03/26/ros-xue-xi-chu-xue-ros-de-xiao-xiang-mu/image-20220315120111915.png" alt="image-20220315120111915"><strong>超调量大，但是反应迅速，稳态误差较小</strong></p>
-<p>相关代码在我的github的<a target="_blank" rel="noopener" href="https://github.com/Copy2000/turtle">turtle库中</a></p>
+                
+# ROS学习：turtle控制
 
+![img](【ROS学习】初学ROS的小项目/u=585289087,3399034401&fm=253&fmt=auto&app=120&f=JPEG.jpeg)<span id="more"></span>
+
+## turtle旋转
+
+首先查看turtlesim里面的节点，使用rqt_graph查看节点流图![rqt_graph](【ROS学习】初学ROS的小项目/image-20220314081121445.png)
+
+![结果展示](【ROS学习】初学ROS的小项目/image-20220314090657384.png)
+
+```c++
+/*
+ * @Description: 这是一个让turtle旋转的ros publisher
+ * @Version: 
+ * @Autor: copy
+ * @Date: 2022-03-12 17:28:55
+ * @LastEditors: copy
+ * @LastEditTime: 2022-03-12 17:42:00
+ */
+#include <ros ros.h>
+#include "geometry_msgs/Twist.h"
+
+#define PI 3.141592653
+int main(int argc,char** argv)
+{
+    ros::init(argc,argv,"turtle_twist");
+    ros::NodeHandle nh;
+    ros::Publisher Pub = nh.advervise<geometry_msgs::Twist>("/turtle1/cmd_vel",10);
+    geometry_msgs::Twist twist;
+    twist.linear.x = 1;
+    twist.angular.z = PI;
+    ROS_INFO("\t现在的速度是%f,偏转速度是%f\t",twist.linear.x,twist.angular.z = PI);
+    ros::Rate rate(10);//10Hz
+    while(ros::OK)
+    {
+        Pub.publish(twist);
+
+        rate.sleep();
+        ros::spin();            //后面的代码不再执行ros::spinOnce();
+    }
+
+    return 0;
+}
+```
+
+## 接收turtle位置
+
+使用rostopic list 和rostopic info [topic]查看turtle的topic，![image-20220314110604770](【ROS学习】初学ROS的小项目/image-20220314110604770.png)
+
+* 结果展示
+
+  ![image-20220315120427620](【ROS学习】初学ROS的小项目/image-20220315120427620.png)
+
+
+
+## [跟踪turtle](https://github.com/Copy2000/turtle/tree/main/src/turtle_csdn)
+
+使用rosservice list 和 rosservice info [service]查看turtle的service-----/Spawn。![image-20220314145138555](【ROS学习】初学ROS的小项目/image-20220314145138555.png)
+
+* rospackage
+
+  * rospy
+  * roscpp
+  * std_msgs
+  * turtlesim
+  * tf
+
+* turtle_tf_broadcaster.cpp
+
+  ![turtle_tf_broadcaster](【ROS学习】初学ROS的小项目/image-20220315115639042.png)
+
+* turtle_tf_listener.cpp
+
+  ![turtle_tf_listener](【ROS学习】初学ROS的小项目/image-20220315115751882.png)
+
+* start_demo_with_listener.launch
+
+  ![image-20220315115814890](【ROS学习】初学ROS的小项目/image-20220315115814890.png)
+
+* 结果展示
+
+直接控制![image-20220315115934120](【ROS学习】初学ROS的小项目/image-20220315115934120.png)**无超调，但是反应慢，稳态误差大**
+
+PID控制
+
+![image-20220315161802801](【ROS学习】初学ROS的小项目/image-20220315161802801.png)
+
+![image-20220315120111915](【ROS学习】初学ROS的小项目/image-20220315120111915.png)**超调量大，但是反应迅速，稳态误差较小**
+
+
+
+
+
+相关代码在我的github的[turtle库中](https://github.com/Copy2000/turtle)
+</geometry_msgs::Twist></ros>
                 
             </div>
             <hr/>
@@ -644,9 +660,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ROS学习:ROS中的message使用方法
-代码csdn上面的文章或多或少有一点毛病，不是catkin_package有问题就是CMakeLists配置出现问题。这里我们给出csdn上最多人看的一篇.
-我看过之后真正说明白的只有her
+                            # ROS学习:ROS中的message使用方法
+
+[代码]([Copy2000/ROS_msg (github.com)](https://github.com/Copy2000/ROS_msg))csdn上面的文章或多或少有一点毛病，不
                         
                     </div>
                     <div class="publish-info">
@@ -687,7 +703,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ROS学习：坐标变换
+                            # ROS学习：坐标变换
                         
                     </div>
                     <div class="publish-info">
@@ -912,7 +928,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27.6k</span>&nbsp;字
+                class="white-color">28.1k</span>&nbsp;字
             
             
             
